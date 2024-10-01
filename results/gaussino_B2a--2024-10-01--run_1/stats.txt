@@ -1,0 +1,3 @@
+simulation: gaussino_B2a
+commit: cf3060189205ed222b4410fb21528047fbcd3b7a
+status: failed
