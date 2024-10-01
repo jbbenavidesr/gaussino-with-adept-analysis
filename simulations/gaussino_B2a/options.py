@@ -67,6 +67,7 @@ GaussinoSimulation().PhysicsConstructors.append("GiGaMT_AdePTPhysics")
 GiGaMTRunManagerFAC("GiGaMT.GiGaMTRunManagerFAC").InitCommands = [
     "/adept/setVecGeomGDML export.gdml",
     "/adept/setTrackInAllRegions true",
+    "/adept/setCUDAStackLimit 4096",
 ]
 
 ########################
