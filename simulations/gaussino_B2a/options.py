@@ -148,10 +148,6 @@ for chamber_no in range(n_chambers):
         "MotherVolumeName": tracker_lvol_name,
     }
 
-    # Make Chamber Sensitive
-    external.Sensitive[chamber_name] = {
-        "Type": "MCCollectorSensDet",
-    }
 
 
 
