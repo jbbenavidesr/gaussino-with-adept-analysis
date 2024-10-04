@@ -88,12 +88,17 @@ external.World = {
 
 }
 
+shapes = {}
+sensitive = {}
+hit = {}
+moni = {}
+
 # Target
 target_name = f"{emb_name}_Target"
 target_z_pos = - (target_length + tracker_length) * 0.5
 target_material = "G4_WATER"
 
-external.Shapes[target_name] = {
+shapes[target_name] = {
     "Type": "Tube",
     "MaterialName": target_material,
     "RMin": 0,
@@ -109,7 +114,7 @@ tracker_name = f"{emb_name}_Tracker"
 tracker_lvol_name = f"{tracker_name}_lVol"
 tracker_material = "G4_AIR"
 
-external.Shapes[tracker_name] = {
+shapes[tracker_name] = {
     "Type": "Tube",
     "LogicalVolumeName": tracker_lvol_name,
     "MaterialName": tracker_material,
@@ -136,7 +141,7 @@ for chamber_no in range(n_chambers):
     z_position = first_position + chamber_no * chamber_spacing
     rmax = rmax_first + chamber_no * rmax_incr
 
-    external.Shapes[chamber_name] = {
+    shapes[chamber_name] = {
         "Type": "Tube",
         "MaterialName": chamber_material,
         "RMin": 0,
@@ -150,6 +155,11 @@ for chamber_no in range(n_chambers):
 
 
 
+
+external.Shapes = shapes
+external.Sensitive = sensitive
+external.Hit = hit
+external.Moni = moni
 
 external.Materials = {
     world_material: {
@@ -165,14 +175,3 @@ external.Materials = {
         "Type": "MaterialFromNIST",
     },
 }
-
-# GaussinoGeometry().ExportGDML = {
-#     "GDMLFileName": "export.gdml",
-#     # G4 will crash if the file with same name already exists
-#     "GDMLFileNameOverwrite": True,
-#     # add unique references to the names
-#     "GDMLAddReferences": True,
-#     # export auxilliary information
-#     "GDMLExportEnergyCuts": True,
-#     "GDMLExportSD": True,
-# }
