@@ -38,6 +38,11 @@
 
 #include "Randomize.hh"
 
+#ifdef USE_ADEPT
+#include "FTFP_BERT_AdePT.hh"
+#endif
+
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 int main(int argc,char** argv)
@@ -57,7 +62,14 @@ int main(int argc,char** argv)
   //
   runManager->SetUserInitialization(new B2aDetectorConstruction());
 
-  G4VModularPhysicsList* physicsList = new FTFP_BERT;
+  G4VModularPhysicsList* physicsList;
+
+#ifdef USE_ADEPT
+  physicsList = new FTFP_BERT_AdePT;
+#else
+  physicsList = new FTFP_BERT;
+#endif
+
   physicsList->RegisterPhysics(new G4StepLimiterPhysics());
   runManager->SetUserInitialization(physicsList);
     

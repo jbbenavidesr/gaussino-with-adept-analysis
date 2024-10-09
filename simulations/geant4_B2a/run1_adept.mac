@@ -1,0 +1,34 @@
+# Macro file for example B2
+
+# Change the default number of workers (in multi-threading mode) 
+/run/numberOfThreads 1
+
+/adept/setVecGeomGDML B2a.gdml
+/adept/setCUDAStackLimit 4096
+/adept/setVerbosity 0
+## Threshold for buffering tracks before sending to GPU
+/adept/setTransportBufferThreshold 2000
+## Total number of GPU track slots (not per thread)
+/adept/setMillionsOfTrackSlots 8
+/adept/setMillionsOfHitSlots 2
+
+/adept/setTrackInAllRegions true
+
+#
+# Initialize kernel
+/run/initialize
+
+/tracking/verbose 1
+#
+# 1 event with printing hits
+#
+/tracking/verbose 0
+/hits/verbose 2
+#
+# set target and chamber material
+#
+/gun/particle e-
+/gun/energy 300 MeV
+/B2/det/setTargetMaterial G4_WATER
+/B2/det/setChamberMaterial G4_Ar
+/run/beamOn 1
