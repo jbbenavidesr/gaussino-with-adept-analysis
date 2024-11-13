@@ -36,70 +36,71 @@
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-B2TrackerSD::B2TrackerSD(const G4String& name,
-                         const G4String& hitsCollectionName) 
- : G4VSensitiveDetector(name),
-   fHitsCollection(NULL)
+B2TrackerSD::B2TrackerSD(const G4String &name,
+                         const G4String &hitsCollectionName)
+    : G4VSensitiveDetector(name),
+      fHitsCollection(NULL)
 {
   collectionName.insert(hitsCollectionName);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-B2TrackerSD::~B2TrackerSD() 
-{}
-
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-void B2TrackerSD::Initialize(G4HCofThisEvent* hce)
+B2TrackerSD::~B2TrackerSD()
 {
-  // Create hits collection
-
-  fHitsCollection 
-    = new B2TrackerHitsCollection(SensitiveDetectorName, collectionName[0]); 
-
-  // Add this collection in hce
-
-  G4int hcID 
-    = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
-  hce->AddHitsCollection( hcID, fHitsCollection ); 
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-G4bool B2TrackerSD::ProcessHits(G4Step* aStep, 
-                                     G4TouchableHistory*)
-{  
+void B2TrackerSD::Initialize(G4HCofThisEvent *hce)
+{
+  // Create hits collection
+
+  fHitsCollection = new B2TrackerHitsCollection(SensitiveDetectorName, collectionName[0]);
+
+  // Add this collection in hce
+
+  G4int hcID = G4SDManager::GetSDMpointer()->GetCollectionID(collectionName[0]);
+  hce->AddHitsCollection(hcID, fHitsCollection);
+}
+
+//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
+
+G4bool B2TrackerSD::ProcessHits(G4Step *aStep,
+                                G4TouchableHistory *)
+{
   // energy deposit
   G4double edep = aStep->GetTotalEnergyDeposit();
 
-  if (edep==0.) return false;
+  if (edep == 0.)
+    return false;
 
-  B2TrackerHit* newHit = new B2TrackerHit();
+  B2TrackerHit *newHit = new B2TrackerHit();
 
-  newHit->SetTrackID  (aStep->GetTrack()->GetTrackID());
-  newHit->SetChamberNb(aStep->GetPreStepPoint()->GetTouchableHandle()
-                                               ->GetCopyNumber());
+  newHit->SetTrackID(aStep->GetTrack()->GetTrackID());
+  newHit->SetChamberNb(aStep->GetPreStepPoint()->GetTouchableHandle()->GetCopyNumber());
   newHit->SetEdep(edep);
-  newHit->SetPos (aStep->GetPostStepPoint()->GetPosition());
+  newHit->SetPos(aStep->GetPostStepPoint()->GetPosition());
 
-  fHitsCollection->insert( newHit );
+  fHitsCollection->insert(newHit);
 
-  //newHit->Print();
+  // newHit->Print();
 
   return true;
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-void B2TrackerSD::EndOfEvent(G4HCofThisEvent*)
+void B2TrackerSD::EndOfEvent(G4HCofThisEvent *)
 {
-  if ( verboseLevel>1 ) { 
-     G4int nofHits = fHitsCollection->entries();
-     G4cout << G4endl
-            << "-------->Hits Collection: in this event they are " << nofHits 
-            << " hits in the tracker chambers: " << G4endl;
-     for ( G4int i=0; i<nofHits; i++ ) (*fHitsCollection)[i]->Print();
+  if (verboseLevel > 1)
+  {
+    G4int nofHits = fHitsCollection->entries();
+    G4cout << G4endl
+           << "-------->Hits Collection: in this event they are " << nofHits
+           << " hits in the tracker chambers: " << G4endl;
+    for (G4int i = 0; i < nofHits; i++)
+      (*fHitsCollection)[i]->Print();
   }
 }
 

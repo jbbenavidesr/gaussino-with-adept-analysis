@@ -47,42 +47,42 @@ class B2aDetectorMessenger;
 
 class B2aDetectorConstruction : public G4VUserDetectorConstruction
 {
-  public:
-    B2aDetectorConstruction();
-    virtual ~B2aDetectorConstruction();
+public:
+  B2aDetectorConstruction();
+  virtual ~B2aDetectorConstruction();
 
-  public:
-    virtual G4VPhysicalVolume* Construct();
-    virtual void ConstructSDandField();
+public:
+  virtual G4VPhysicalVolume *Construct();
+  virtual void ConstructSDandField();
 
-    // Set methods
-    void SetTargetMaterial (G4String );
-    void SetChamberMaterial(G4String );
-    void SetMaxStep (G4double );
-    void SetCheckOverlaps(G4bool );
+  // Set methods
+  void SetTargetMaterial(G4String);
+  void SetChamberMaterial(G4String);
+  void SetMaxStep(G4double);
+  void SetCheckOverlaps(G4bool);
 
-  private:
-    // methods
-    void DefineMaterials();
-    G4VPhysicalVolume* DefineVolumes();
-  
-    // data members
-    G4int fNbOfChambers;
+private:
+  // methods
+  void DefineMaterials();
+  G4VPhysicalVolume *DefineVolumes();
 
-    G4LogicalVolume*   fLogicTarget;     // pointer to the logical Target
-    G4LogicalVolume**  fLogicChamber;    // pointer to the logical Chamber
+  // data members
+  G4int fNbOfChambers;
 
-    G4Material*        fTargetMaterial;  // pointer to the target  material
-    G4Material*        fChamberMaterial; // pointer to the chamber material
+  G4LogicalVolume *fLogicTarget;   // pointer to the logical Target
+  G4LogicalVolume **fLogicChamber; // pointer to the logical Chamber
 
-    G4UserLimits* fStepLimit;            // pointer to user step limits
+  G4Material *fTargetMaterial;  // pointer to the target  material
+  G4Material *fChamberMaterial; // pointer to the chamber material
 
-    B2aDetectorMessenger*  fMessenger;   // messenger
+  G4UserLimits *fStepLimit; // pointer to user step limits
 
-    static G4ThreadLocal G4GlobalMagFieldMessenger*  fMagFieldMessenger; 
-                                         // magnetic field messenger
-    
-    G4bool  fCheckOverlaps; // option to activate checking of volumes overlaps 
+  B2aDetectorMessenger *fMessenger; // messenger
+
+  static G4ThreadLocal G4GlobalMagFieldMessenger *fMagFieldMessenger;
+  // magnetic field messenger
+
+  G4bool fCheckOverlaps; // option to activate checking of volumes overlaps
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

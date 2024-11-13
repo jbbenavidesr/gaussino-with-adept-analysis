@@ -39,14 +39,12 @@ class B4DetectorConstruction;
 
 class B2ActionInitialization : public G4VUserActionInitialization
 {
-  public:
-    B2ActionInitialization();
-    virtual ~B2ActionInitialization();
+public:
+  B2ActionInitialization();
+  virtual ~B2ActionInitialization();
 
-    virtual void BuildForMaster() const;
-    virtual void Build() const;
+  virtual void BuildForMaster() const;
+  virtual void Build() const;
 };
 
 #endif
-
-    

@@ -41,12 +41,12 @@ class G4Run;
 
 class B2RunAction : public G4UserRunAction
 {
-  public:
-    B2RunAction();
-    virtual ~B2RunAction();
+public:
+  B2RunAction();
+  virtual ~B2RunAction();
 
-    virtual void BeginOfRunAction(const G4Run* run);
-    virtual void   EndOfRunAction(const G4Run* run);
+  virtual void BeginOfRunAction(const G4Run *run);
+  virtual void EndOfRunAction(const G4Run *run);
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

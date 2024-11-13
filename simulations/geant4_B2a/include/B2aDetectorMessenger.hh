@@ -47,24 +47,24 @@ class G4UIcmdWithADoubleAndUnit;
 /// - /B2/det/setChamberMaterial name
 /// - /B2/det/stepMax value unit
 
-class B2aDetectorMessenger: public G4UImessenger
+class B2aDetectorMessenger : public G4UImessenger
 {
-  public:
-    B2aDetectorMessenger(B2aDetectorConstruction* );
-    virtual ~B2aDetectorMessenger();
-    
-    virtual void SetNewValue(G4UIcommand*, G4String);
-    
-  private:
-    B2aDetectorConstruction*  fDetectorConstruction;
+public:
+  B2aDetectorMessenger(B2aDetectorConstruction *);
+  virtual ~B2aDetectorMessenger();
 
-    G4UIdirectory*           fB2Directory;
-    G4UIdirectory*           fDetDirectory;
+  virtual void SetNewValue(G4UIcommand *, G4String);
 
-    G4UIcmdWithAString*      fTargMatCmd;
-    G4UIcmdWithAString*      fChamMatCmd;
+private:
+  B2aDetectorConstruction *fDetectorConstruction;
 
-    G4UIcmdWithADoubleAndUnit* fStepMaxCmd;
+  G4UIdirectory *fB2Directory;
+  G4UIdirectory *fDetDirectory;
+
+  G4UIcmdWithAString *fTargMatCmd;
+  G4UIcmdWithAString *fChamMatCmd;
+
+  G4UIcmdWithADoubleAndUnit *fStepMaxCmd;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
