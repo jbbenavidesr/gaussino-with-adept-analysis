@@ -1,4 +1,5 @@
 """Simple example of a simulation with Gaussino"""
+
 from GaudiKernel import SystemOfUnits as units
 from GaudiKernel import PhysicalConstants as constants
 from Configurables import (
@@ -38,26 +39,36 @@ Gaussino().ThreadPoolSize = nthreads
 Gaussino().EventSlots = nthreads
 
 # Setup the generation phase by defining a Particle Gun
-GaussinoGeneration().ParticleGun = True
-pgun = ParticleGun("ParticleGun")
-pgun.addTool(FixedMomentum, name="FixedMomentum")
-pgun.ParticleGunTool = "FixedMomentum"
-pgun.addTool(FlatNParticles, name="FlatNParticles")
-pgun.NumberOfParticlesTool = "FlatNParticles"
-pgun.FlatNParticles.MinNParticles = 1
-pgun.FlatNParticles.MaxNParticles = 1
-pgun.FixedMomentum.px = 0.0 * units.GeV
-pgun.FixedMomentum.py = 0.0 * units.GeV
-pgun.FixedMomentum.pz = 3.0 * units.GeV
-pgun.FixedMomentum.PdgCodes = [22]
+def setup_particle_gun(
+    *, number_of_particles, particle_energy, particle_type, gun_position
+):
+    GaussinoGeneration().ParticleGun = True
+    pgun = ParticleGun("ParticleGun")
+    pgun.addTool(FixedMomentum, name="FixedMomentum")
+    pgun.ParticleGunTool = "FixedMomentum"
+    pgun.addTool(FlatNParticles, name="FlatNParticles")
+    pgun.NumberOfParticlesTool = "FlatNParticles"
+    pgun.FlatNParticles.MinNParticles = number_of_particles
+    pgun.FlatNParticles.MaxNParticles = number_of_particles
+    pgun.FixedMomentum.px = 0.0 * units.GeV
+    pgun.FixedMomentum.py = 0.0 * units.GeV
+    pgun.FixedMomentum.pz = particle_energy
+    pgun.FixedMomentum.PdgCodes = [particle_type]
 
-pgun.addTool(FlatSmearVertex, name="FlatSmearVertex")
-pgun.FlatSmearVertex.xVertexMin = 0.0 * units.mm
-pgun.FlatSmearVertex.xVertexMax = 0.0 * units.mm
-pgun.FlatSmearVertex.yVertexMin = 0.0 * units.mm
-pgun.FlatSmearVertex.yVertexMax = 0.0 * units.mm
-pgun.FlatSmearVertex.zVertexMin = -0.5 * world_length 
-pgun.FlatSmearVertex.zVertexMax = -0.5 * world_length
+    pgun.addTool(FlatSmearVertex, name="FlatSmearVertex")
+    pgun.FlatSmearVertex.xVertexMin = 0.0 * units.mm
+    pgun.FlatSmearVertex.xVertexMax = 0.0 * units.mm
+    pgun.FlatSmearVertex.yVertexMin = 0.0 * units.mm
+    pgun.FlatSmearVertex.yVertexMax = 0.0 * units.mm
+    pgun.FlatSmearVertex.zVertexMin = gun_position
+    pgun.FlatSmearVertex.zVertexMax = gun_position
+
+setup_particle_gun(
+    number_of_particles = 1, 
+    particle_energy = 3.0 * units.GeV, 
+    particle_type = 22, 
+    gun_position = -0.5 * world_length
+)
 
 # Sets up the simulation phase.
 # Here you define the physics lists and would include AdePT
