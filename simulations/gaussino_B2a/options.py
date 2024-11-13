@@ -153,6 +153,9 @@ for chamber_no in range(n_chambers):
         "MotherVolumeName": tracker_lvol_name,
     }
 
+    sensitive[chamber_name] = {
+        "Type": "SimpleCollectorSensDet",
+    }
 
 
 
