@@ -63,10 +63,14 @@ def setup_particle_gun(
     pgun.FlatSmearVertex.zVertexMin = gun_position
     pgun.FlatSmearVertex.zVertexMax = gun_position
 
+# Some useful particle codes
+# 2212: Proton
+# 11: Electron
+# 22: Gamma
 setup_particle_gun(
-    number_of_particles = 1, 
+    number_of_particles = 10, 
     particle_energy = 3.0 * units.GeV, 
-    particle_type = 22, 
+    particle_type = 2212,  
     gun_position = -0.5 * world_length
 )
 
@@ -107,7 +111,7 @@ moni = {}
 # Target
 target_name = f"{emb_name}_Target"
 target_z_pos = - (target_length + tracker_length) * 0.5
-target_material = "G4_WATER"
+target_material = "G4_Pb"
 
 shapes[target_name] = {
     "Type": "Tube",
@@ -137,7 +141,7 @@ shapes[tracker_name] = {
 }
 
 # Chambers
-chamber_material = "G4_Pb"
+chamber_material = "G4_Xe"
 first_position = - 0.5 * tracker_length + chamber_spacing
 first_length = tracker_length / 10
 last_length = tracker_length
