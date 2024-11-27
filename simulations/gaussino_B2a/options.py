@@ -88,108 +88,136 @@ GiGaMTRunManagerFAC("GiGaMT.GiGaMTRunManagerFAC").InitCommands = [
 ########################
 #    Setup Geometry    # 
 ########################
-emb_name = "ExternalDetectorEmbedder"
-GaussinoGeometry().ExternalDetectorEmbedder = emb_name
-external = ExternalDetectorEmbedder(emb_name)
+def setup_geometry(
+    *,
+    emb_name = "ExternalDetectorEmbedder",
+    # World
+    world_material = "G4_AIR",
+    world_length = None,
+    # Target
+    target_material = "G4_Pb",
+    target_length = None,
+    target_radius = None,
+    # Tracker
+    tracker_material = "G4_AIR",
+    tracker_length = None,
+    # Chambers
+    n_chambers = 5,
+    chamber_material = "G4_Xe",
+    chamber_spacing = None,
+    chamber_width = None,
+):
 
-# World
-world_material = "G4_AIR"
-external.World = {
-    "WorldMaterial": world_material,
-    "Type": "ExternalWorldCreator",
-    "WorldSizeX": world_length / 2,
-    "WorldSizeY": world_length / 2,
-    "WorldSizeZ": world_length / 2,
+    GaussinoGeometry().ExternalDetectorEmbedder = emb_name
+    external = ExternalDetectorEmbedder(emb_name)
 
-}
+    # World
+    external.World = {
+        "WorldMaterial": world_material,
+        "Type": "ExternalWorldCreator",
+        "WorldSizeX": world_length / 2,
+        "WorldSizeY": world_length / 2,
+        "WorldSizeZ": world_length / 2,
+    }
 
-shapes = {}
-sensitive = {}
-hit = {}
-moni = {}
+    shapes = {}
+    sensitive = {}
+    hit = {}
+    moni = {}
 
-# Target
-target_name = f"{emb_name}_Target"
-target_z_pos = - (target_length + tracker_length) * 0.5
-target_material = "G4_Pb"
+    # Target
+    target_name = f"{emb_name}_Target"
+    target_z_pos = - (target_length + tracker_length) * 0.5
 
-shapes[target_name] = {
-    "Type": "Tube",
-    "MaterialName": target_material,
-    "RMin": 0,
-    "RMax": target_radius,
-    "Dz": target_length / 2.0,
-    "SPhi": 0,
-    "DPhi": 2 * constants.pi * units.radian,
-    "zPos": target_z_pos,
-}
-
-# Tracker
-tracker_name = f"{emb_name}_Tracker"
-tracker_lvol_name = f"{tracker_name}_lVol"
-tracker_material = "G4_AIR"
-
-shapes[tracker_name] = {
-    "Type": "Tube",
-    "LogicalVolumeName": tracker_lvol_name,
-    "MaterialName": tracker_material,
-    "RMin": 0,
-    "RMax": tracker_length / 2.0,
-    "Dz": tracker_length / 2.0,
-    "SPhi": 0,
-    "DPhi": 2 * constants.pi * units.radian,
-}
-
-# Chambers
-chamber_material = "G4_Xe"
-first_position = - 0.5 * tracker_length + chamber_spacing
-first_length = tracker_length / 10
-last_length = tracker_length
-
-half_width = 0.5 * chamber_width
-rmax_first = 0.5 * first_length
-
-rmax_incr = 0.5 * (last_length - first_length) / (n_chambers - 1)
-
-for chamber_no in range(n_chambers):
-    chamber_name = f"{emb_name}_Chamber_{chamber_no}"
-    z_position = first_position + chamber_no * chamber_spacing
-    rmax = rmax_first + chamber_no * rmax_incr
-
-    shapes[chamber_name] = {
+    shapes[target_name] = {
         "Type": "Tube",
-        "MaterialName": chamber_material,
+        "MaterialName": target_material,
         "RMin": 0,
-        "RMax": rmax,
-        "Dz": half_width,
+        "RMax": target_radius,
+        "Dz": target_length / 2.0,
         "SPhi": 0,
         "DPhi": 2 * constants.pi * units.radian,
-        "zPos": z_position,
-        "MotherVolumeName": tracker_lvol_name,
+        "zPos": target_z_pos,
     }
 
-    sensitive[chamber_name] = {
-        "Type": "SimpleCollectorSensDet",
+    # Tracker
+    tracker_name = f"{emb_name}_Tracker"
+    tracker_lvol_name = f"{tracker_name}_lVol"
+
+    shapes[tracker_name] = {
+        "Type": "Tube",
+        "LogicalVolumeName": tracker_lvol_name,
+        "MaterialName": tracker_material,
+        "RMin": 0,
+        "RMax": tracker_length / 2.0,
+        "Dz": tracker_length / 2.0,
+        "SPhi": 0,
+        "DPhi": 2 * constants.pi * units.radian,
+    }
+
+    # Chambers
+    first_position = - 0.5 * tracker_length + chamber_spacing
+    first_length = tracker_length / 10
+    last_length = tracker_length
+
+    half_width = 0.5 * chamber_width
+    rmax_first = 0.5 * first_length
+
+    rmax_incr = 0.5 * (last_length - first_length) / (n_chambers - 1)
+
+    for chamber_no in range(n_chambers):
+        chamber_name = f"{emb_name}_Chamber_{chamber_no}"
+        z_position = first_position + chamber_no * chamber_spacing
+        rmax = rmax_first + chamber_no * rmax_incr
+
+        shapes[chamber_name] = {
+            "Type": "Tube",
+            "MaterialName": chamber_material,
+            "RMin": 0,
+            "RMax": rmax,
+            "Dz": half_width,
+            "SPhi": 0,
+            "DPhi": 2 * constants.pi * units.radian,
+            "zPos": z_position,
+            "MotherVolumeName": tracker_lvol_name,
+        }
+
+        sensitive[chamber_name] = {
+            "Type": "SimpleCollectorSensDet",
+        }
+
+    external.Shapes = shapes
+    external.Sensitive = sensitive
+    external.Hit = hit
+    external.Moni = moni
+
+    external.Materials = {
+        world_material: {
+            "Type": "MaterialFromNIST",
+        },
+        target_material: {
+            "Type": "MaterialFromNIST",
+        },
+        tracker_material: {
+            "Type": "MaterialFromNIST",
+        },
+        chamber_material: {
+            "Type": "MaterialFromNIST",
+        },
     }
 
 
-
-external.Shapes = shapes
-external.Sensitive = sensitive
-external.Hit = hit
-external.Moni = moni
-
-external.Materials = {
-    world_material: {
-        "Type": "MaterialFromNIST",
-    },
-    target_material: {
-        "Type": "MaterialFromNIST",
-    },
-    tracker_material: {
-        "Type": "MaterialFromNIST",
-    },
-    chamber_material: {
-        "Type": "MaterialFromNIST",
-    },
-}
+setup_geometry(
+    emb_name = "ExternalDetectorEmbedder",
+    world_material = "G4_AIR",
+    world_length = world_length,
+    target_material = "G4_Pb",
+    target_length = target_length,
+    target_radius = target_radius,
+    tracker_material = "G4_AIR",
+    tracker_length = tracker_length,
+    n_chambers = n_chambers,
+    chamber_material = "G4_Xe",
+    chamber_spacing = chamber_spacing,
+    chamber_width = chamber_width,
+)
