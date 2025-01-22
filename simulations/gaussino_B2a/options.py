@@ -70,7 +70,7 @@ def setup_particle_gun(
 setup_particle_gun(
     number_of_particles = 10, 
     particle_energy = 3.0 * units.GeV, 
-    particle_type = 2212,  
+    particle_type = 11,  
     gun_position = -0.5 * world_length
 )
 
