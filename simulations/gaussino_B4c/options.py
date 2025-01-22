@@ -1,0 +1,219 @@
+"""Simple example of a simulation with Gaussino"""
+
+from GaudiKernel import SystemOfUnits as units
+from GaudiKernel import PhysicalConstants as constants
+from Configurables import (
+    Gaussino,
+    GaussinoGeneration,
+    GaussinoSimulation,
+    GaussinoGeometry,
+    ParticleGun,
+    FixedMomentum,
+    FlatSmearVertex,
+    FlatNParticles,
+    ExternalDetectorEmbedder,
+    GiGaMTRunManagerFAC,
+)
+from ExternalDetector.Materials import OUTER_SPACE
+
+
+## constants
+nthreads = 1
+
+n_layers = 5
+absorber_thickness = 10 * units.mm
+gap_thickness = 5 * units.mm
+
+calor_size_xy = 10 * units.cm
+
+calor_thickness = n_layers * (absorber_thickness + gap_thickness)
+
+world_length = 1.2 * calor_thickness
+
+
+# General Gaussino configs
+Gaussino().EvtMax = 10
+Gaussino().Phases = ["Generator", "Simulation"]
+Gaussino().EnableHive = True
+Gaussino().ThreadPoolSize = nthreads
+Gaussino().EventSlots = nthreads
+
+
+# Setup the generation phase by defining a Particle Gun
+def setup_particle_gun(
+    *, number_of_particles, particle_energy, particle_type, gun_position
+):
+    GaussinoGeneration().ParticleGun = True
+    pgun = ParticleGun("ParticleGun")
+    pgun.addTool(FixedMomentum, name="FixedMomentum")
+    pgun.ParticleGunTool = "FixedMomentum"
+    pgun.addTool(FlatNParticles, name="FlatNParticles")
+    pgun.NumberOfParticlesTool = "FlatNParticles"
+    pgun.FlatNParticles.MinNParticles = number_of_particles
+    pgun.FlatNParticles.MaxNParticles = number_of_particles
+    pgun.FixedMomentum.px = 0.0 * units.GeV
+    pgun.FixedMomentum.py = 0.0 * units.GeV
+    pgun.FixedMomentum.pz = particle_energy
+    pgun.FixedMomentum.PdgCodes = [particle_type]
+
+    pgun.addTool(FlatSmearVertex, name="FlatSmearVertex")
+    pgun.FlatSmearVertex.xVertexMin = 0.0 * units.mm
+    pgun.FlatSmearVertex.xVertexMax = 0.0 * units.mm
+    pgun.FlatSmearVertex.yVertexMin = 0.0 * units.mm
+    pgun.FlatSmearVertex.yVertexMax = 0.0 * units.mm
+    pgun.FlatSmearVertex.zVertexMin = gun_position
+    pgun.FlatSmearVertex.zVertexMax = gun_position
+
+
+# Some useful particle codes
+# 2212: Proton
+# 11: Electron
+# 22: Gamma
+setup_particle_gun(
+    number_of_particles=10,
+    particle_energy=50.0 * units.MeV,
+    particle_type=11,
+    gun_position=-0.5 * world_length,
+)
+
+# Sets up the simulation phase.
+# Here you define the physics lists and would include AdePT
+GaussinoSimulation().PhysicsConstructors.append("GiGaMT_G4EmStandardPhysics")
+# GaussinoSimulation().PhysicsConstructors.append("GiGaMT_AdePTPhysics")
+
+# GiGaMTRunManagerFAC("GiGaMT.GiGaMTRunManagerFAC").InitCommands = [
+#     "/adept/setVecGeomGDML export.gdml",
+#     "/adept/setTrackInAllRegions true",
+#     "/adept/setCUDAStackLimit 4096",
+# ]
+
+
+########################
+#    Setup Geometry    #
+########################
+def setup_geometry(
+    *,
+    emb_name="ExternalDetectorEmbedder",
+    n_layers=10,
+    calor_size_xy=None,
+    absorber_thickness=None,
+    gap_thickness=None,
+    default_material="OUTER_SPACE",
+    gap_material="liquidArgon",
+    absorber_material="G4_Pb",
+):
+
+    GaussinoGeometry().ExternalDetectorEmbedder = emb_name
+    external = ExternalDetectorEmbedder(emb_name)
+
+    # Sizes
+    layer_thickness = absorber_thickness + gap_thickness
+    calor_thickness = layer_thickness * n_layers
+    world_size_XY = 1.2 * calor_size_xy
+    world_size_Z = 1.2 * calor_thickness
+
+    # World
+    external.World = {
+        "WorldMaterial": default_material,
+        "Type": "ExternalWorldCreator",
+        "WorldSizeX": world_size_XY / 2,
+        "WorldSizeY": world_size_XY / 2,
+        "WorldSizeZ": world_size_Z / 2,
+    }
+
+    shapes = {}
+    sensitive = {}
+    hit = {}
+    moni = {}
+
+    # Calorimeter
+    calor_name = f"{emb_name}_Calorimeter"
+    calor_lvol_name = f"{calor_name}_lVol"
+
+    shapes[calor_name] = {
+        "Type": "Cuboid",
+        "LogicalVolumeName": calor_lvol_name,
+        "MaterialName": default_material,
+        "xSize": calor_size_xy,
+        "ySize": calor_size_xy,
+        "zSize": calor_thickness,
+        "xPos": 0.0,
+        "yPos": 0.0,
+        "zPos": 0.0,
+    }
+
+    z_position = -calor_thickness / 2.0
+    for i in range(n_layers):
+
+        # Layer
+        layer_name = f"{emb_name}_Layer{i}"
+        layer_lvol_name = f"{layer_name}_lVol"
+        shapes[layer_name] = {
+            "Type": "Cuboid",
+            "MotherVolumeName": calor_lvol_name,
+            "LogicalVolumeName": layer_lvol_name,
+            "MaterialName": default_material,
+            "xSize": calor_size_xy,
+            "ySize": calor_size_xy,
+            "zSize": layer_thickness,
+            "xPos": 0.0,
+            "yPos": 0.0,
+            "zPos": z_position + (layer_thickness / 2.0),
+        }
+
+        z_position += layer_thickness
+
+        # Absorber
+        absorber_name = f"{layer_name}_Absorber"
+        shapes[absorber_name] = {
+            "Type": "Cuboid",
+            "MotherVolumeName": layer_lvol_name,
+            "MaterialName": absorber_material,
+            "xSize": calor_size_xy,
+            "ySize": calor_size_xy,
+            "zSize": absorber_thickness,
+            "xPos": 0.0,
+            "yPos": 0.0,
+            "zPos": -gap_thickness / 2.0,
+        }
+
+        # Gap
+        gap_name = f"{layer_name}_Gap"
+        shapes[gap_name] = {
+            "Type": "Cuboid",
+            "MotherVolumeName": layer_lvol_name,
+            "MaterialName": gap_material,
+            "xSize": calor_size_xy,
+            "ySize": calor_size_xy,
+            "zSize": gap_thickness,
+            "xPos": 0.0,
+            "yPos": 0.0,
+            "zPos": absorber_thickness / 2.0,
+        }
+
+    external.Shapes = shapes
+    external.Sensitive = sensitive
+    external.Hit = hit
+    external.Moni = moni
+
+    external.Materials = {
+        default_material: OUTER_SPACE,
+        absorber_material: {
+            "Type": "MaterialFromNIST",
+        },
+        gap_material: {
+            "Type": "MaterialFromNIST",
+        },
+    }
+
+
+setup_geometry(
+    emb_name="B4Calorimeter",
+    n_layers=10,
+    calor_size_xy=calor_size_xy,
+    absorber_thickness=absorber_thickness,
+    gap_thickness=gap_thickness,
+    default_material="OUTER_SPACE",
+    gap_material="G4_Ar",
+    absorber_material="G4_Pb",
+)
