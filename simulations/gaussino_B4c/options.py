@@ -76,17 +76,6 @@ setup_particle_gun(
     gun_position=-0.5 * world_length,
 )
 
-# Sets up the simulation phase.
-# Here you define the physics lists and would include AdePT
-GaussinoSimulation().PhysicsConstructors.append("GiGaMT_G4EmStandardPhysics")
-# GaussinoSimulation().PhysicsConstructors.append("GiGaMT_AdePTPhysics")
-
-# GiGaMTRunManagerFAC("GiGaMT.GiGaMTRunManagerFAC").InitCommands = [
-#     "/adept/setVecGeomGDML export.gdml",
-#     "/adept/setTrackInAllRegions true",
-#     "/adept/setCUDAStackLimit 4096",
-# ]
-
 
 ########################
 #    Setup Geometry    #
