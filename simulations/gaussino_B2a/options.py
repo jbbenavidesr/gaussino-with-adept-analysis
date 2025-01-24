@@ -5,14 +5,12 @@ from GaudiKernel import PhysicalConstants as constants
 from Configurables import (
     Gaussino,
     GaussinoGeneration,
-    GaussinoSimulation,
     GaussinoGeometry,
     ParticleGun,
     FixedMomentum,
     FlatSmearVertex,
     FlatNParticles,
     ExternalDetectorEmbedder,
-    GiGaMTRunManagerFAC,
 )
 
 ## constants
@@ -27,8 +25,7 @@ target_radius = 0.5 * target_length
 
 tracker_length = (n_chambers + 1) * chamber_spacing
 
-world_length = 1.2 * ( 2 * target_length + tracker_length)
-
+world_length = 1.2 * (2 * target_length + tracker_length)
 
 
 # General Gaussino configs
@@ -37,6 +34,7 @@ Gaussino().Phases = ["Generator", "Simulation"]
 Gaussino().EnableHive = True
 Gaussino().ThreadPoolSize = nthreads
 Gaussino().EventSlots = nthreads
+
 
 # Setup the generation phase by defining a Particle Gun
 def setup_particle_gun(
@@ -63,49 +61,40 @@ def setup_particle_gun(
     pgun.FlatSmearVertex.zVertexMin = gun_position
     pgun.FlatSmearVertex.zVertexMax = gun_position
 
+
 # Some useful particle codes
 # 2212: Proton
 # 11: Electron
 # 22: Gamma
 setup_particle_gun(
-    number_of_particles = 10, 
-    particle_energy = 3.0 * units.GeV, 
-    particle_type = 11,  
-    gun_position = -0.5 * world_length
+    number_of_particles=10,
+    particle_energy=3.0 * units.GeV,
+    particle_type=11,
+    gun_position=-0.5 * world_length,
 )
 
-# Sets up the simulation phase.
-# Here you define the physics lists and would include AdePT
-GaussinoSimulation().PhysicsConstructors.append("GiGaMT_G4EmStandardPhysics")
-GaussinoSimulation().PhysicsConstructors.append("GiGaMT_AdePTPhysics")
-
-GiGaMTRunManagerFAC("GiGaMT.GiGaMTRunManagerFAC").InitCommands = [
-    "/adept/setVecGeomGDML export.gdml",
-    "/adept/setTrackInAllRegions true",
-    "/adept/setCUDAStackLimit 4096",
-]
 
 ########################
-#    Setup Geometry    # 
+#    Setup Geometry    #
 ########################
 def setup_geometry(
     *,
-    emb_name = "ExternalDetectorEmbedder",
+    emb_name="ExternalDetectorEmbedder",
     # World
-    world_material = "G4_AIR",
-    world_length = None,
+    world_material="G4_AIR",
+    world_length=None,
     # Target
-    target_material = "G4_Pb",
-    target_length = None,
-    target_radius = None,
+    target_material="G4_Pb",
+    target_length=None,
+    target_radius=None,
     # Tracker
-    tracker_material = "G4_AIR",
-    tracker_length = None,
+    tracker_material="G4_AIR",
+    tracker_length=None,
     # Chambers
-    n_chambers = 5,
-    chamber_material = "G4_Xe",
-    chamber_spacing = None,
-    chamber_width = None,
+    n_chambers=5,
+    chamber_material="G4_Xe",
+    chamber_spacing=None,
+    chamber_width=None,
 ):
 
     GaussinoGeometry().ExternalDetectorEmbedder = emb_name
@@ -127,7 +116,7 @@ def setup_geometry(
 
     # Target
     target_name = f"{emb_name}_Target"
-    target_z_pos = - (target_length + tracker_length) * 0.5
+    target_z_pos = -(target_length + tracker_length) * 0.5
 
     shapes[target_name] = {
         "Type": "Tube",
@@ -156,7 +145,7 @@ def setup_geometry(
     }
 
     # Chambers
-    first_position = - 0.5 * tracker_length + chamber_spacing
+    first_position = -0.5 * tracker_length + chamber_spacing
     first_length = tracker_length / 10
     last_length = tracker_length
 
@@ -208,16 +197,16 @@ def setup_geometry(
 
 
 setup_geometry(
-    emb_name = "ExternalDetectorEmbedder",
-    world_material = "G4_AIR",
-    world_length = world_length,
-    target_material = "G4_Pb",
-    target_length = target_length,
-    target_radius = target_radius,
-    tracker_material = "G4_AIR",
-    tracker_length = tracker_length,
-    n_chambers = n_chambers,
-    chamber_material = "G4_Xe",
-    chamber_spacing = chamber_spacing,
-    chamber_width = chamber_width,
+    emb_name="ExternalDetectorEmbedder",
+    world_material="G4_AIR",
+    world_length=world_length,
+    target_material="G4_Pb",
+    target_length=target_length,
+    target_radius=target_radius,
+    tracker_material="G4_AIR",
+    tracker_length=tracker_length,
+    n_chambers=n_chambers,
+    chamber_material="G4_Xe",
+    chamber_spacing=chamber_spacing,
+    chamber_width=chamber_width,
 )
