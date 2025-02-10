@@ -1,14 +1,17 @@
 # Setup the right LCG environment
-source /cvmfs/sft.cern.ch/lcg/views/LCG_105a/x86_64-el9-gcc12-opt/setup.sh
+source /cvmfs/sft.cern.ch/lcg/views/LCG_105c/x86_64-el9-gcc13-opt/setup.sh
+
+PATH=${PATH}:/usr/local/cuda/bin
+LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/lib64
 
 # source /cvmfs/lhcb.cern.ch/lib/LbEnv
 
 # Setup some environment variables
 
 # General Vaiables
-export BINARY_TAG="x86_64_v3-el9-gcc12+cuda12_1-opt+g"
-export STACK_ROOT="/afs/cern.ch/work/j/jbenavid/private/workspace/stack"
-export CUDA_ARCHITECTURE=75
+export BINARY_TAG="x86_64_v2-el9-gcc13-opt"
+export STACK_ROOT="/home/jbenavid/workspace/stack"
+export CUDA_ARCHITECTURE=89
 
 export BUILD_FORMAT="build.$BINARY_TAG"
 export INSTALL_FORMAT="InstallArea/$BINARY_TAG"
