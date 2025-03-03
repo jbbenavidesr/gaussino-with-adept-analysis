@@ -70,7 +70,7 @@ def setup_particle_gun(
 # 11: Electron
 # 22: Gamma
 setup_particle_gun(
-    number_of_particles=10000,
+    number_of_particles=100,
     particle_energy=50.0 * units.MeV,
     particle_type=11,
     gun_position=-0.5 * world_length,
