@@ -1,20 +1,23 @@
-# Setup the right LCG environment
-source /cvmfs/sft.cern.ch/lcg/views/LCG_105c/x86_64-el9-gcc13-opt/setup.sh
+#!/usr/bin/env bash
+
+# Most probably the environment needs to be setup correctly. Some possible setups:
+# source /cvmfs/sft.cern.ch/lcg/views/LCG_105c/x86_64-el9-gcc13-opt/setup.sh
+# source /cvmfs/lhcb.cern.ch/lib/LbEnv
 
 # Setup CUDA Path
-PATH=${PATH}:/usr/local/cuda/bin
-LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/lib64
+#PATH=${PATH}:/usr/local/cuda/bin
+#LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/lib64
 
-# source /cvmfs/lhcb.cern.ch/lib/LbEnv
 
 # Setup some environment variables
 
 export WORKSPACE_PATH="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
 
 # General Vaiables
-export BINARY_TAG="x86_64_v2-el9-gcc13-opt"
+export BINARY_TAG="x86_64_v3-el9-gcc13+cuda12_4-opt+g"
 export STACK_ROOT="$WORKSPACE_PATH/stack"
-export CUDA_ARCHITECTURE=89
+export CUDA_ARCHITECTURE=75
+export CUDACXX="$(which nvcc)"
 
 export BUILD_FORMAT="build.$BINARY_TAG"
 export INSTALL_FORMAT="InstallArea/$BINARY_TAG"
@@ -54,7 +57,7 @@ export VECGEOM_BUILD="$VECGEOM_ROOT/$BUILD_FORMAT"
 export VECGEOM_INSTALL="$VECGEOM_ROOT/$INSTALL_FORMAT"
 
 # G4HepEM
-export G4HEPEM_ROOT="$STACK_ROOT/G4HepEM"
+export G4HEPEM_ROOT="$STACK_ROOT/G4HepEm"
 export G4HEPEM_BUILD="$G4HEPEM_ROOT/$BUILD_FORMAT"
 export G4HEPEM_INSTALL="$G4HEPEM_ROOT/$INSTALL_FORMAT"
 
