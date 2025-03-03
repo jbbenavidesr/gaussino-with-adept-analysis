@@ -9,6 +9,7 @@ binary_tag="x86_64_v3-el9-gcc13+cuda12_4-opt+g"
 build_dir="build.$binary_tag"
 install_dir="InstallArea/$binary_tag"
 cuda_architecture=75
+export CUDACXX=$(which nvcc)
 
 # 0. Setup the environment
 source /cvmfs/sft.cern.ch/lcg/views/setupViews.sh $lcg_version $binary_tag
@@ -17,6 +18,8 @@ source /cvmfs/sft.cern.ch/lcg/views/setupViews.sh $lcg_version $binary_tag
 curl https://gitlab.cern.ch/rmatev/lb-stack-setup/raw/master/setup.py | python3 - stack
 cd stack
 python utils/config.py binaryTag $binary_tag
+python utils/config.py forwardEnv '["DISPLAY","SSH_AUTH_SOCK","SSH_AGENT_PID","GITCONDDBPATH","X509_USER_PROXY","CUDACXX"]'
+python utils/config.py dataPackages '["DBASE/AppConfig","DBASE/PRConfig","PARAM/ParamFiles","DBASE/SprucingConfig","PARAM/Geant4Files"]'
 
 # 2. Install AdePT
 
