@@ -47,7 +47,7 @@ cd ..
 
 # 2.3. Install Geant4
 geant4_install="$root/stack/Geant4/$install_dir"
-make Geant4
+make Geant4 BUILDFLAGS="-j6"
 
 # 2.4. Install G4HepEm
 g4hepem_install="$root/stack/G4HepEm/$install_dir"
