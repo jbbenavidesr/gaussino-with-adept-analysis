@@ -8,7 +8,7 @@ lcg_platform="x86_64-el9-gcc13-opt"
 binary_tag="x86_64_v3-el9-gcc13+cuda12_4-opt+g"
 build_dir="build.$binary_tag"
 install_dir="InstallArea/$binary_tag"
-cuda_architecture=75
+cuda_architecture=89
 export CUDACXX=$(which nvcc)
 
 # 0. Setup the environment
@@ -96,9 +96,9 @@ cd AdePT
 cmake -S. -B $build_dir -DCMAKE_INSTALL_PREFIX="$adept_install" \
     -DCMAKE_PREFIX_PATH="$veccore_install;$vecgeom_install;$g4hepem_install;$geant4_install" \
     -DCMAKE_CUDA_ARCHITECTURES=$cuda_architecture \
-    -DWITH_FLUCT=ON \
+    -DWITH_FLUCT=OFF \
     -DBUILD_TESTING=OFF \
-	-DCMAKE_BUILD_TYPE=Release
+    -DCMAKE_BUILD_TYPE=Release
 cmake --build $build_dir --target install -- -j6
 cd ..
 
