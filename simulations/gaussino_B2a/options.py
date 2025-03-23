@@ -1,4 +1,5 @@
 """Simple example of a simulation with Gaussino"""
+import os
 
 from GaudiKernel import SystemOfUnits as units
 from GaudiKernel import PhysicalConstants as constants
@@ -12,6 +13,9 @@ from Configurables import (
     FlatNParticles,
     ExternalDetectorEmbedder,
 )
+
+# Parameters
+particles_per_event = os.environ.get("PARTICLES_PER_EVENT", 100)
 
 ## constants
 nthreads = 1
@@ -67,7 +71,7 @@ def setup_particle_gun(
 # 11: Electron
 # 22: Gamma
 setup_particle_gun(
-    number_of_particles=100,
+    number_of_particles=particles_per_event,
     particle_energy=3.0 * units.GeV,
     particle_type=11,
     gun_position=-0.5 * world_length,
