@@ -9,6 +9,7 @@ binary_tag="x86_64_v3-el9-gcc13+cuda12_4-opt+g"
 build_dir="build.$binary_tag"
 install_dir="InstallArea/$binary_tag"
 cuda_architecture=89
+num_threads=$(nproc 2>/dev/null || sysctl -n hw.ncpu 2>/dev/null || echo 2)
 export CUDACXX=$(which nvcc)
 
 # 0. Setup the environment
@@ -56,7 +57,7 @@ cmake -S. -B $build_dir -DCMAKE_INSTALL_PREFIX="$vecgeom_install" \
     -DCMAKE_CUDA_ARCHITECTURES=$cuda_architecture \
     -DVECGEOM_USE_NAVINDEX=ON \
     -DCMAKE_BUILD_TYPE=Release
-cmake --build $build_dir --target install -- -j6
+cmake --build $build_dir --target install -- -j$num_threads
 cd ..
 
 # 2.3. Install Geant4
@@ -82,7 +83,7 @@ cmake -S. -B $build_dir -DCMAKE_INSTALL_PREFIX="$g4hepem_install" \
     -DCMAKE_PREFIX_PATH="$geant4_install" \
     -DG4HepEm_CUDA_BUILD=ON \
     -DG4HepEm_EARLY_TRACKING_EXIT=ON
-cmake --build $build_dir --target install -- -j6
+cmake --build $build_dir --target install -- -j$num_threads
 cd ..
 
 # 2.5. Install AdePT
@@ -99,7 +100,7 @@ cmake -S. -B $build_dir -DCMAKE_INSTALL_PREFIX="$adept_install" \
     -DWITH_FLUCT=OFF \
     -DBUILD_TESTING=OFF \
     -DCMAKE_BUILD_TYPE=Release
-cmake --build $build_dir --target install -- -j6
+cmake --build $build_dir --target install -- -j$num_threads
 cd ..
 
 # 3. Install Gaussino
@@ -112,4 +113,4 @@ if [ ! -d Gaussino ]; then
 	cd ..
 fi
 python utils/config.py -- cmakeFlags.Gaussino "-DWITH_ADEPT=ON -DAdePT_DIR=$adept_install/lib64/cmake/AdePT -DG4VG_DIR=$adept_install/lib64/cmake/G4VG"
-make Gaussino BUILDFLAGS='-j6'
+make Gaussino BUILDFLAGS="-j$num_threads"
