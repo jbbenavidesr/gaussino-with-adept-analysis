@@ -1,0 +1,7 @@
+{
+  "options_file": "options.py",
+  "simulation_files": ["adept_simulation.py", "geant4_simulation.py"],
+  "parameters": {
+    "PARTICLES_PER_EVENT": [1, 10, 100, 1000, 10000]
+  }
+}
