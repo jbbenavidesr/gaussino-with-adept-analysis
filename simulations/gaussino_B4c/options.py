@@ -2,18 +2,15 @@
 import os
 
 from GaudiKernel import SystemOfUnits as units
-from GaudiKernel import PhysicalConstants as constants
 from Configurables import (
     Gaussino,
     GaussinoGeneration,
-    GaussinoSimulation,
     GaussinoGeometry,
     ParticleGun,
     FixedMomentum,
     FlatSmearVertex,
     FlatNParticles,
     ExternalDetectorEmbedder,
-    GiGaMTRunManagerFAC,
 )
 from ExternalDetector.Materials import OUTER_SPACE
 
