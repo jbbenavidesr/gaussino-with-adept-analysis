@@ -99,6 +99,7 @@ cmake -S. -B $build_dir -DCMAKE_INSTALL_PREFIX="$adept_install" \
     -DCMAKE_CUDA_ARCHITECTURES=$cuda_architecture \
     -DWITH_FLUCT=OFF \
     -DBUILD_TESTING=OFF \
+    -DASYNC_MODE=ON \
     -DCMAKE_BUILD_TYPE=Release
 cmake --build $build_dir --target install -- -j$num_threads
 cd ..
