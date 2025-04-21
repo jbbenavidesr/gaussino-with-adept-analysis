@@ -1,0 +1,95 @@
+{
+  "timestamp": "2025-03-31T06:56:03.320014",
+  "runs": [
+    {
+      "simulation_file": "simulations/gaussino_B2a/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1
+      },
+      "output_path": "results/gaussino_B2a/adept_simulation_PARTICLES_PER_EVENT=1.log",
+      "execution_time": 4.8262622356414795,
+      "success": true
+    },
+    {
+      "simulation_file": "simulations/gaussino_B2a/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1
+      },
+      "output_path": "results/gaussino_B2a/geant4_simulation_PARTICLES_PER_EVENT=1.log",
+      "execution_time": 3.9478085041046143,
+      "success": true
+    },
+    {
+      "simulation_file": "simulations/gaussino_B2a/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10
+      },
+      "output_path": "results/gaussino_B2a/adept_simulation_PARTICLES_PER_EVENT=10.log",
+      "execution_time": 4.506028652191162,
+      "success": true
+    },
+    {
+      "simulation_file": "simulations/gaussino_B2a/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10
+      },
+      "output_path": "results/gaussino_B2a/geant4_simulation_PARTICLES_PER_EVENT=10.log",
+      "execution_time": 4.078243970870972,
+      "success": true
+    },
+    {
+      "simulation_file": "simulations/gaussino_B2a/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100
+      },
+      "output_path": "results/gaussino_B2a/adept_simulation_PARTICLES_PER_EVENT=100.log",
+      "execution_time": 4.705348014831543,
+      "success": true
+    },
+    {
+      "simulation_file": "simulations/gaussino_B2a/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100
+      },
+      "output_path": "results/gaussino_B2a/geant4_simulation_PARTICLES_PER_EVENT=100.log",
+      "execution_time": 4.08198618888855,
+      "success": true
+    },
+    {
+      "simulation_file": "simulations/gaussino_B2a/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000
+      },
+      "output_path": "results/gaussino_B2a/adept_simulation_PARTICLES_PER_EVENT=1000.log",
+      "execution_time": 5.514456272125244,
+      "success": true
+    },
+    {
+      "simulation_file": "simulations/gaussino_B2a/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000
+      },
+      "output_path": "results/gaussino_B2a/geant4_simulation_PARTICLES_PER_EVENT=1000.log",
+      "execution_time": 5.48582649230957,
+      "success": true
+    },
+    {
+      "simulation_file": "simulations/gaussino_B2a/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10000
+      },
+      "output_path": "results/gaussino_B2a/adept_simulation_PARTICLES_PER_EVENT=10000.log",
+      "execution_time": 15.813427686691284,
+      "success": true
+    },
+    {
+      "simulation_file": "simulations/gaussino_B2a/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10000
+      },
+      "output_path": "results/gaussino_B2a/geant4_simulation_PARTICLES_PER_EVENT=10000.log",
+      "execution_time": 18.143247842788696,
+      "success": true
+    }
+  ]
+}
