@@ -15,11 +15,10 @@ from Configurables import (
 from ExternalDetector.Materials import OUTER_SPACE
 
 # Parameters
-particles_per_event = os.environ.get("PARTICLES_PER_EVENT", 100)
+particles_per_event = int(os.environ.get("PARTICLES_PER_EVENT", 100))
+nthreads = int(os.environ.get("NUMBER_OF_THREADS", 1))
 
 ## constants
-nthreads = 1
-
 n_layers = 5
 absorber_thickness = 10 * units.mm
 gap_thickness = 5 * units.mm
