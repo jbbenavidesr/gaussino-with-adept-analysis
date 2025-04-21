@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import logging
 import re
 import csv
 from dataclasses import dataclass
@@ -11,6 +12,15 @@ import sys
 
 SimulationData = TypeVar("SimulationData")
 
+
+def setup_logging():
+    """Configure logging for the script."""
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+    return logging.getLogger(__name__)
 
 class BaseSimulationLogParser(Generic[SimulationData]):
     """Base class that has the main logic for specific simulation parsers"""
@@ -115,7 +125,7 @@ class GaussinoB2aSimulationLogParser(BaseSimulationLogParser[ChamberData]):
         ]
 
 
-def get_parser(
+def get_result_parser(
     simulation_name: str, input_file: Path, output_file: Path
 ) -> BaseSimulationLogParser:
     parsers = {
@@ -127,7 +137,7 @@ def get_parser(
     except KeyError as e:
         raise ValueError(
             f"Simulation with name {simulation_name} has no parser defined"
-        )
+        ) from e
 
 
 def parse_arguments() -> argparse.Namespace:
@@ -150,13 +160,16 @@ def parse_arguments() -> argparse.Namespace:
 def main():
     try:
         args = parse_arguments()
-        parser = get_parser(args.simulation, args.input, args.output)
+        parser = get_result_parser(args.simulation, args.input, args.output)
         parser.parse()
-        print(f"Successfully parsed {args.input} and saved results to {args.output}")
-    except Exception as e:
-        print(f"Error: {str(e)}", file=sys.stderr)
+        logger.info(f"Successfully parsed {args.input} and saved results to {args.output}")
+    except Exception:
+        logger.exception("There was an error processing the results.")
         sys.exit(1)
 
 
 if __name__ == "__main__":
+    # Set up logging
+    logger = setup_logging()
+
     main()
