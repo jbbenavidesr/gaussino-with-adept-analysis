@@ -15,11 +15,10 @@ from Configurables import (
 )
 
 # Parameters
-particles_per_event = os.environ.get("PARTICLES_PER_EVENT", 100)
+particles_per_event = int(os.environ.get("PARTICLES_PER_EVENT", 100))
+nthreads = int(os.environ.get("NUMBER_OF_THREADS", 1))
 
 ## constants
-nthreads = 1
-
 n_chambers = 5
 chamber_spacing = 80 * units.cm
 chamber_width = 20 * units.cm
