@@ -1,4 +1,5 @@
 """Simple example of a simulation with Gaussino"""
+
 import os
 
 from GaudiKernel import SystemOfUnits as units
@@ -90,7 +91,6 @@ def setup_geometry(
     gap_material="liquidArgon",
     absorber_material="G4_Pb",
 ):
-
     GaussinoGeometry().ExternalDetectorEmbedder = emb_name
     external = ExternalDetectorEmbedder(emb_name)
 
@@ -130,54 +130,67 @@ def setup_geometry(
         "zPos": 0.0,
     }
 
+    # Layer
+    layer_base_name = f"{emb_name}_Layer"
+    layer_lvol_name = "Layer_lVol"
+    layer_config = {
+        "Type": "Cuboid",
+        "MotherVolumeName": calor_lvol_name,
+        "LogicalVolumeName": layer_lvol_name,
+        "MaterialName": default_material,
+        "xSize": calor_size_xy,
+        "ySize": calor_size_xy,
+        "zSize": layer_thickness,
+        "xPos": 0.0,
+        "yPos": 0.0,
+    }
+
+    # Position layers
     z_position = -calor_thickness / 2.0
     for i in range(n_layers):
-
         # Layer
-        layer_name = f"{emb_name}_Layer{i}"
-        layer_lvol_name = f"{layer_name}_lVol"
+        layer_name = f"{layer_base_name}_{i}"
+        layer_position = z_position + (layer_thickness / 2.0)
         shapes[layer_name] = {
-            "Type": "Cuboid",
-            "MotherVolumeName": calor_lvol_name,
-            "LogicalVolumeName": layer_lvol_name,
-            "MaterialName": default_material,
-            "xSize": calor_size_xy,
-            "ySize": calor_size_xy,
-            "zSize": layer_thickness,
-            "xPos": 0.0,
-            "yPos": 0.0,
-            "zPos": z_position + (layer_thickness / 2.0),
+            **layer_config,
+            "zPos": layer_position,
         }
 
         z_position += layer_thickness
 
-        # Absorber
-        absorber_name = f"{layer_name}_Absorber"
-        shapes[absorber_name] = {
-            "Type": "Cuboid",
-            "MotherVolumeName": layer_lvol_name,
-            "MaterialName": absorber_material,
-            "xSize": calor_size_xy,
-            "ySize": calor_size_xy,
-            "zSize": absorber_thickness,
-            "xPos": 0.0,
-            "yPos": 0.0,
-            "zPos": -gap_thickness / 2.0,
-        }
+    # Absorber
+    absorber_name = f"{layer_base_name}_Absorber"
+    shapes[absorber_name] = {
+        "Type": "Cuboid",
+        "MotherVolumeName": layer_lvol_name,
+        "MaterialName": absorber_material,
+        "xSize": calor_size_xy,
+        "ySize": calor_size_xy,
+        "zSize": absorber_thickness,
+        "xPos": 0.0,
+        "yPos": 0.0,
+        "zPos": -gap_thickness / 2.0,
+    }
+    sensitive[absorber_name] = {
+        "Type": "CalorimeterCollectorSensDet",
+    }
 
-        # Gap
-        gap_name = f"{layer_name}_Gap"
-        shapes[gap_name] = {
-            "Type": "Cuboid",
-            "MotherVolumeName": layer_lvol_name,
-            "MaterialName": gap_material,
-            "xSize": calor_size_xy,
-            "ySize": calor_size_xy,
-            "zSize": gap_thickness,
-            "xPos": 0.0,
-            "yPos": 0.0,
-            "zPos": absorber_thickness / 2.0,
-        }
+    # Gap
+    gap_name = f"{layer_base_name}_Gap"
+    shapes[gap_name] = {
+        "Type": "Cuboid",
+        "MotherVolumeName": layer_lvol_name,
+        "MaterialName": gap_material,
+        "xSize": calor_size_xy,
+        "ySize": calor_size_xy,
+        "zSize": gap_thickness,
+        "xPos": 0.0,
+        "yPos": 0.0,
+        "zPos": absorber_thickness / 2.0,
+    }
+    sensitive[gap_name] = {
+        "Type": "CalorimeterCollectorSensDet",
+    }
 
     external.Shapes = shapes
     external.Sensitive = sensitive
