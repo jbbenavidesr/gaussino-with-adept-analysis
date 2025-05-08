@@ -15,9 +15,17 @@ from Configurables import (
 )
 from ExternalDetector.Materials import OUTER_SPACE
 
+
+particle_types = {
+    "proton": 2212,
+    "electron": 11,
+    "gamma": 22,
+}
+
 # Parameters
 particles_per_event = int(os.environ.get("PARTICLES_PER_EVENT", 100))
 nthreads = int(os.environ.get("NUMBER_OF_THREADS", 1))
+particle_type = particle_types.get(os.environ.get("PARTICLE_TYPE", "electron"), 11)
 
 ## constants
 n_layers = 5
@@ -72,7 +80,7 @@ def setup_particle_gun(
 setup_particle_gun(
     number_of_particles=particles_per_event,
     particle_energy=50.0 * units.MeV,
-    particle_type=11,
+    particle_type=particle_type,
     gun_position=-0.5 * world_length,
 )
 
