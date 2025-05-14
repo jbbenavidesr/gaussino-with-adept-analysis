@@ -28,7 +28,7 @@ nthreads = int(os.environ.get("NUMBER_OF_THREADS", 1))
 particle_type = particle_types.get(os.environ.get("PARTICLE_TYPE", "electron"), 11)
 
 ## constants
-n_layers = 5
+n_layers = 8
 absorber_thickness = 10 * units.mm
 gap_thickness = 5 * units.mm
 
@@ -162,6 +162,7 @@ def setup_geometry(
         shapes[layer_name] = {
             **layer_config,
             "zPos": layer_position,
+            "pCopyNo": i,
         }
 
         z_position += layer_thickness
@@ -181,6 +182,7 @@ def setup_geometry(
     }
     sensitive[absorber_name] = {
         "Type": "CalorimeterCollectorSensDet",
+        "NofLayers": n_layers,
     }
 
     # Gap
@@ -198,6 +200,7 @@ def setup_geometry(
     }
     sensitive[gap_name] = {
         "Type": "CalorimeterCollectorSensDet",
+        "NofLayers": n_layers,
     }
 
     external.Shapes = shapes
@@ -218,7 +221,7 @@ def setup_geometry(
 
 setup_geometry(
     emb_name="B4Calorimeter",
-    n_layers=10,
+    n_layers=n_layers,
     calor_size_xy=calor_size_xy,
     absorber_thickness=absorber_thickness,
     gap_thickness=gap_thickness,
