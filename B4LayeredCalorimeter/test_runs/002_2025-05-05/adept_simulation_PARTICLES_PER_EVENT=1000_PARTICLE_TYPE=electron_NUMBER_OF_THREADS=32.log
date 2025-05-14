@@ -1,0 +1,2277 @@
+WARNING  No valid ticket found. Please get a new one with
+WARNING  
+WARNING      kinit -r 7d <username>@CERN.CH
+WARNING  
+# setting LC_ALL to "C"
+# --> Including file '/home/jbenavid/workspace/B4LayeredCalorimeter/configs/options.py'
+# <-- End of file '/home/jbenavid/workspace/B4LayeredCalorimeter/configs/options.py'
+# --> Including file '/home/jbenavid/workspace/B4LayeredCalorimeter/configs/adept_simulation.py'
+# <-- End of file '/home/jbenavid/workspace/B4LayeredCalorimeter/configs/adept_simulation.py'
+# applying configuration of Gaussino
+# /***** User Gaussino/Gaussino **********************************************************************
+# |-EvtMax            = 10  (default: -1)
+# |-Phases            = ['Generator', 'Simulation']  (default: ['Generator', 'Simulation'])
+# |-FirstEventNumber  = 1
+# |-RunNumber         = 1
+# |-Histograms        = 'DEFAULT'
+# |-DatasetName       = 'Gaussino'
+# |-DatasetNameForced = False
+# |-OutputType        = 'SIM'
+# |-EnableHive        = True  (default: True)
+# |-ThreadPoolSize    = 32  (default: 1)
+# |-EventSlots        = 32  (default: 1)
+# |-FirstTimingEvent  = 1
+# |-Debug             = False
+# |-ReDecay           = False
+# |-ConvertEDM        = False
+# |-ParticleTable     = '$GAUSSINOROOT/data/ParticleTable.txt'
+# |-MLOptions         = {}  (default: {})
+# \----- (End of User Gaussino/Gaussino) -------------------------------------------------------------
+# applying configuration of B4Calorimeter
+# /***** User ExternalDetectorEmbedder/B4Calorimeter *************************************************
+# |-Shapes        = {'B4Calorimeter_Calorimeter': {'Type': 'Cuboid', 'LogicalVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 150.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 0.0}, 'B4Calorimeter_Layer_0': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -67.5}, 'B4Calorimeter_Layer_1': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -52.5}, 'B4Calorimeter_Layer_2': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -37.5}, 'B4Calorimeter_Layer_3': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -22.5}, 'B4Calorimeter_Layer_4': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -7.5}, 'B4Calorimeter_Layer_5': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 7.5}, 'B4Calorimeter_Layer_6': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 22.5}, 'B4Calorimeter_Layer_7': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 37.5}, 'B4Calorimeter_Layer_8': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 52.5}, 'B4Calorimeter_Layer_9': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 67.5}, 'B4Calorimeter_Layer_Absorber': {'Type': 'Cuboid', 'MotherVolumeName': 'Layer_lVol', 'MaterialName': 'G4_Pb', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 10.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -2.5}, 'B4Calorimeter_Layer_Gap': {'Type': 'Cuboid', 'MotherVolumeName': 'Layer_lVol', 'MaterialName': 'G4_Ar', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 5.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 5.0}}
+# |               (default: {})
+# |-Sensitive     = {'B4Calorimeter_Layer_Absorber': {'Type': 'CalorimeterCollectorSensDet'}, 'B4Calorimeter_Layer_Gap': {'Type': 'CalorimeterCollectorSensDet'}}
+# |               (default: {})
+# |-Hit           = {}  (default: {})
+# |-Moni          = {}  (default: {})
+# |-Materials     = {'OUTER_SPACE': {'AtomicNumber': 1.0, 'MassNumber': 6.303924743591621e+21, 'Density': 6.241509647120416e-07, 'Pressure': 1.872452894136125e-14, 'Temperature': 2.73}, 'G4_Pb': {'Type': 'MaterialFromNIST'}, 'G4_Ar': {'Type': 'MaterialFromNIST'}}
+# |               (default: {})
+# |-World         = {'WorldMaterial': 'OUTER_SPACE', 'Type': 'ExternalWorldCreator', 'WorldSizeX': 60.0, 'WorldSizeY': 60.0, 'WorldSizeZ': 90.0}
+# |               (default: {})
+# |-MagneticField = {}  (default: {})
+# \----- (End of User ExternalDetectorEmbedder/B4Calorimeter) ----------------------------------------
+# applying configuration of GaussinoGeneration
+# /***** User GaussinoGeneration/GaussinoGeneration **************************************************
+# |-WriteHepMC               = False
+# |-SampleGenerationTool     = 'SignalPlain'
+# |-SampleGenerationToolOpts = {}  (default: {})
+# |-PileUpTool               = 'FixedLuminosityWithSvc'
+# |-VertexSmearingTool       = 'BeamSpotSmearVertexWithSvc'
+# |-ProductionTool           = 'Pythia8ProductionMT'
+# |-ProductionToolOpts       = {}  (default: {})
+# |-DecayTool                = ''
+# |-CutTool                  = ''
+# |-CutToolOpts              = {}  (default: {})
+# |-FullGenEventCutTool      = ''
+# |-FullGenEventCutToolOpts  = {}  (default: {})
+# |-GenMonitor               = False
+# |-ParticleGun              = True  (default: False)
+# |-BeamMomentum             = 3500000.0
+# |-BeamHCrossingAngle       = 0.0
+# |-BeamVCrossingAngle       = 0.0
+# |-BeamEmittance            = 0.0037
+# |-BeamBetaStar             = 3100.0
+# |-BeamBetaStarX            = -1000.0
+# |-BeamBetaStarY            = -1000.0
+# |-BeamLineAngles           = [0.0, 0.0]  (default: [0.0, 0.0])
+# |-InteractionPosition      = [0.0, 0.0, 0.0]  (default: [0.0, 0.0, 0.0])
+# |-BunchRMS                 = 82.03
+# |-Luminosity               = 2.47e+18
+# |-TotalCrossSection        = 9.109999999999999e-24
+# |-RevolutionFrequency      = 1.1245000000000002e-05
+# \----- (End of User GaussinoGeneration/GaussinoGeneration) -----------------------------------------
+# applying configuration of GaussinoSimulation
+# /***** User GaussinoSimulation/GaussinoSimulation **************************************************
+# |-TrackTruth          = True
+# |-PhysicsConstructors = ['GiGaMT_AdePTPhysics', 'GiGaMT_G4EmStandardPhysics', 'GiGaMT_G4EmExtraPhysics', 'GiGaMT_G4DecayPhysics', 'GiGaMT_G4HadronElasticPhysics', 'GiGaMT_G4HadronPhysicsFTFP_BERT', 'GiGaMT_G4StoppingPhysics', 'GiGaMT_G4IonPhysics', 'GiGaMT_G4NeutronTrackingCut']
+# |                     (default: [])
+# |-G4BeginRunCommand   = ['/tracking/verbose 0', '/process/eLoss/verbose 0']
+# |                     (default: ['/tracking/verbose 0', '/process/eLoss/verbose 0'])
+# |-G4EndRunCommand     = []  (default: [])
+# |-G4BeginEventCommand = []  (default: [])
+# |-G4EndEventCommand   = []  (default: [])
+# |-CutForElectron      = -1000000.0
+# |-CutForPositron      = -1000000.0
+# |-CutForGamma         = -1000000.0
+# |-DumpCutsTable       = False
+# |-CustomSimulation    = ''
+# \----- (End of User GaussinoSimulation/GaussinoSimulation) -----------------------------------------
+# applying configuration of GaussinoGeometry
+# Registered external material tool OUTER_SPACE of type MaterialFromChemicalProperties.
+# Registered external material tool G4_Pb of type MaterialFromNIST.
+# Registered external material tool G4_Ar of type MaterialFromNIST.
+# Registering external B4Calorimeter_Calorimeter as CuboidEmbedder
+# Registered external detector B4Calorimeter_Calorimeter of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_0 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_0 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_1 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_1 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_2 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_2 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_3 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_3 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_4 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_4 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_5 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_5 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_6 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_6 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_7 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_7 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_8 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_8 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_9 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_9 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_Absorber as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_Absorber of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_Gap as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_Gap of type CuboidEmbedder.
+# Registered external world service of type ExternalWorldCreator.
+# /***** User GaussinoGeometry/GaussinoGeometry ******************************************************
+# |-GeometryService          = ''
+# |-SensDetMap               = {}  (default: {})
+# |-ExtraGeoTools            = []  (default: [])
+# |-ExportGDML               = {}  (default: {})
+# |-ImportGDML               = []  (default: [])
+# |-ExternalDetectorEmbedder = 'B4Calorimeter'  (default: '')
+# \----- (End of User GaussinoGeometry/GaussinoGeometry) ---------------------------------------------
+# applying configuration of GaussinoVisualization
+# /***** User GaussinoVisualization/GaussinoVisualization ********************************************
+# |-Framework              = []  (default: [])
+# |-Driver                 = 'ASCIITree'
+# |-DrawGeometry           = False
+# |-TrackingVerbosity      = 0
+# |-EventVerbosity         = 0
+# |-RunVerbosity           = 0
+# |-GeometryStyle          = 'wireframe'
+# |-Volumes                = []  (default: [])
+# |-VolumesCopyNumber      = {}  (default: {})
+# |-VolumesDepthOfDescent  = {}  (default: {})
+# |-DrawTrajectories       = False
+# |-TrajectoryType         = ''
+# |-TrajectoryModel        = ''
+# |-TrajectoryModelOptions = {}  (default: {})
+# |-TrajectoryFilters      = []  (default: [])
+# |-StoreTrajectories      = 'Marked'
+# |-DrawG4Hits             = False
+# |-CameraPhi              = 0
+# |-CameraTheta            = 0
+# |-Zoom                   = 1
+# |-OGLExportFileName      = ''
+# |-PhoenixOutputFile      = 'gaussino_phoenix.json'
+# |-CombineEvents          = True
+# |-Debug                  = False
+# |-ElectricField          = {}  (default: {})
+# |-MagneticField          = {}  (default: {})
+# \----- (End of User GaussinoVisualization/GaussinoVisualization) -----------------------------------
+ApplicationMgr    SUCCESS 
+====================================================================================================================================
+                                                   Welcome to Gaussino version 1.0
+                                          running on joulertx on Mon May  5 18:12:08 2025
+====================================================================================================================================
+ApplicationMgr       INFO Application Manager Configured successfully
+RndmGenSvc.Engine    INFO Generator engine type:CLHEP::RanluxEngine
+RndmGenSvc.Engine    INFO Current Seed:1234567 Luxury:3
+RndmGenSvc           INFO Using Random engine:HepRndm::Engine<CLHEP::RanluxEngine>
+TimingAuditor.T...   INFO This machine has a speed about   5.26 times the speed of a 2.8 GHz Xeon.
+
+**************************************************************
+ Geant4 version Name: geant4-10-07-patch-03 [MT]   (19-November-2021)
+  << in Multi-threaded mode >> 
+                       Copyright : Geant4 Collaboration
+                      References : NIM A 506 (2003), 250-303
+                                 : IEEE-TNS 53 (2006), 270-278
+                                 : NIM A 835 (2016), 186-225
+                             WWW : http://geant4.org/
+**************************************************************
+
+GiGaMT.DetConst...WARNING Unrecognized state for the external material: OUTER_SPACE. Leaving Undefined
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomMgt1001
+      issued by : G4LogicalVolumeStore::GetVolume()
+Volume NOT found in store !
+        Volume B4Calorimeter_Calorimeter_lVol NOT found in store !
+        Returning NULL pointer.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomMgt1001
+      issued by : G4LogicalVolumeStore::GetVolume()
+Volume NOT found in store !
+        Volume Layer_lVol NOT found in store !
+        Returning NULL pointer.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomMgt1001
+      issued by : G4LogicalVolumeStore::GetVolume()
+Volume NOT found in store !
+        Volume B4Calorimeter_Layer_AbsorberLVol NOT found in store !
+        Returning NULL pointer.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomMgt1001
+      issued by : G4LogicalVolumeStore::GetVolume()
+Volume NOT found in store !
+        Volume B4Calorimeter_Layer_GapLVol NOT found in store !
+        Returning NULL pointer.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+
+ GiGaMT.ModularPL.GiGaMT_G4HadronPhysicsFTFP_BERT : threshold between BERT and FTFP is over the interval 
+ for pions :   3 to 6 GeV
+ for kaons :   3 to 6 GeV
+ for proton :  3 to 6 GeV
+ for neutron : 3 to 6 GeV
+
+GiGaMT.ModularPL     INFO [ Master ] The production cut for gamma is set to    	-1e+06 mm 
+GiGaMT.ModularPL     INFO [ Master ] The production cut for electron is set to 	-1e+06 mm 
+GiGaMT.ModularPL     INFO [ Master ] The production cut for positron is set to 	-1e+06 mm 
+GiGaMT.GiGaMTRu...   INFO [ Master ] InitCommand(): execute '/adept/setTrackInAllRegions true'
+GiGaMT.GiGaMTRu...   INFO [ Master ] InitCommand(): execute '/adept/setCUDAStackLimit 4096'
+
+====================================================================
+                  HADRONIC PROCESSES SUMMARY (verbose level 1)
+
+---------------------------------------------------
+                           Hadronic Processes for neutron
+
+  Process: hadElastic
+        Model:             hElasticCHIPS: 0 eV  ---> 100 TeV
+     Cr_sctns:        G4NeutronElasticXS: 0 eV  ---> 100 TeV
+
+  Process: neutronInelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:      G4NeutronInelasticXS: 0 eV  ---> 100 TeV
+
+  Process: nCapture
+        Model:               nRadCapture: 0 eV  ---> 100 TeV
+     Cr_sctns:        G4NeutronCaptureXS: 0 eV  ---> 100 TeV
+
+  Process: nKiller
+
+---------------------------------------------------
+                           Hadronic Processes for B-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 2.88022e+295 J  
+
+  Process: B-Inelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 2.88022e+295 J  
+
+---------------------------------------------------
+                           Hadronic Processes for D-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 2.88022e+295 J  
+
+  Process: D-Inelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 2.88022e+295 J  
+
+---------------------------------------------------
+                           Hadronic Processes for GenericIon
+
+  Process: ionInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 2.88022e+295 J  
+
+---------------------------------------------------
+                           Hadronic Processes for He3
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 2.88022e+295 J  
+
+  Process: He3Inelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 2.88022e+295 J  
+
+---------------------------------------------------
+                           Hadronic Processes for alpha
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 2.88022e+295 J  
+
+  Process: alphaInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 2.88022e+295 J  
+
+---------------------------------------------------
+                           Hadronic Processes for anti_He3
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 2.88022e+295 J  
+
+  Process: anti_He3Inelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 2.88022e+295 J  
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_alpha
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 2.88022e+295 J  
+
+  Process: anti_alphaInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 2.88022e+295 J  
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_deuteron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 2.88022e+295 J  
+
+  Process: anti_deuteronInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 2.88022e+295 J  
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_lambda
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 2.88022e+295 J  
+
+  Process: anti_lambdaInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 2.88022e+295 J  
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_neutron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100.1 MeV
+        Model:              AntiAElastic: 100 MeV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 2.88022e+295 J  
+
+  Process: anti_neutronInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 2.88022e+295 J  
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_proton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100.1 MeV
+        Model:              AntiAElastic: 100 MeV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 2.88022e+295 J  
+
+  Process: anti_protonInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 2.88022e+295 J  
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_triton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 2.88022e+295 J  
+
+  Process: anti_tritonInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 2.88022e+295 J  
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for deuteron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 2.88022e+295 J  
+
+  Process: dInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 2.88022e+295 J  
+
+---------------------------------------------------
+                           Hadronic Processes for kaon+
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 2.88022e+295 J  
+
+  Process: kaon+Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 2.88022e+295 J  
+
+---------------------------------------------------
+                           Hadronic Processes for kaon-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 2.88022e+295 J  
+
+  Process: kaon-Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 2.88022e+295 J  
+
+  Process: hBertiniCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for lambda
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 2.88022e+295 J  
+
+  Process: lambdaInelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 2.88022e+295 J  
+
+---------------------------------------------------
+                           Hadronic Processes for mu+
+
+  Process: muonNuclear
+        Model:      G4MuonVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:     KokoulinMuonNuclearXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for mu-
+
+  Process: muonNuclear
+        Model:      G4MuonVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:     KokoulinMuonNuclearXS: 0 eV  ---> 100 TeV
+
+  Process: muMinusCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for pi+
+
+  Process: hadElastic
+        Model:           hElasticGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+  Process: pi+Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for pi-
+
+  Process: hadElastic
+        Model:           hElasticGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+  Process: pi-Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+  Process: hBertiniCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for proton
+
+  Process: hadElastic
+        Model:             hElasticCHIPS: 0 eV  ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+  Process: protonInelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for sigma-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 2.88022e+295 J  
+
+  Process: sigma-Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 2.88022e+295 J  
+
+  Process: hBertiniCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for triton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 2.88022e+295 J  
+
+  Process: tInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 2.88022e+295 J  
+
+---------------------------------------------------
+                           Hadronic Processes for gamma
+
+  Process: photonNuclear
+        Model:               GammaNPreco: 0 eV  ---> 200 MeV
+        Model:            BertiniCascade: 199 MeV ---> 6 GeV
+        Model:           TheoFSGenerator: 3 GeV ---> 100 TeV
+     Cr_sctns:            PhotoNuclearXS: 0 eV  ---> 100 TeV
+
+================================================================
+=======================================================================
+======       Pre-compound/De-excitation Physics Parameters     ========
+=======================================================================
+Type of pre-compound inverse x-section              3
+Pre-compound model active                           1
+Pre-compound excitation low energy (MeV)            0.1
+Pre-compound excitation high energy (MeV)           30
+Type of de-excitation inverse x-section             3
+Type of de-excitation factory                       Evaporation+GEM
+Number of de-excitation channels                    68
+Min excitation energy (keV)                         0.01
+Min energy per nucleon for multifragmentation (MeV) 2e+05
+Limit excitation energy for Fermi BreakUp (MeV)     20
+Level density (1/MeV)                               0.075
+Use simple level density model                      1
+Use discrete excitation energy of the residual      0
+Time limit for long lived isomeres (ns)             1
+Isomer production flag                              1
+Internal e- conversion flag                         1
+Store e- internal conversion data                   0
+Electron internal conversion ID                     2
+Correlated gamma emission flag                      0
+Max 2J for sampling of angular correlations         10
+=======================================================================
+ --- G4HepEmTrackingManager: extra processes for gamma
+     Nuclear interaction process : has been found (name = photonNuclear )
+     Fast simulation process : has not been found. 
+ --- G4HepEmTrackingManager: extra processes for e-
+     Nuclear interaction process : has been found (name = electronNuclear )
+     Fast simulation process : has not been found. 
+     The special XTR process : has not been found. 
+ --- G4HepEmTrackingManager: extra processes for e+
+     Nuclear interaction process : has not been found. 
+     Fast simulation process : has not been found. 
+     The special XTR process : has not been found. 
+
+ ======================== G4HepEmConfig ======================= 
+ GLOBAL Parameters: 
+ --------------------------------------------------------------  
+ Electron tracking cut             :     1 [keV] 
+ Min loss table energy             :   0.1 [keV] 
+ Max loss table energy             :   100 [TeV] 
+ Number of loss table bins         :    84
+ Is positron corr. in MSC theta0   :     1 (true/false) 
+ Woodcock tracking energy limit    :   200 [keV] 
+ Linear loss limit                 :     1 [%] 
+
+ REGION BASED Parameters: 
+ --------------------------------------------------------------  
+ Parameter for region              : DefaultRegionForTheWorld | DefaultRegionForParallelWorld | 
+ FinalRange (mm)                   :                        1 |                             1 | 
+ DRoverRange                       :                      0.2 |                           0.2 | 
+ Energy loss fluctuation           :                        0 |                             0 | 
+ MSC Range factor                  :                     0.04 |                          0.04 | 
+ MSC Safety factor                 :                      0.6 |                           0.6 | 
+ MSC minimal step limit            :                        0 |                             0 | 
+ Multiple steps in MSC+Trans.      :                        0 |                             0 | 
+ Woodcock-tracking                 :                        0 |                             0 | 
+ Apply cuts                        :                        0 |                             0 | 
+ ============================================================== 
+
+
+msc:  for proton  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for proton  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+hBrems:  for proton  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for proton  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 17x1001; from 7.50618 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for proton, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for GenericIon  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+ionIoni:  for GenericIon  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.02
+      Stopping Power data for 17 ion/material pairs
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            BraggIon : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+msc:  for alpha  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+ionIoni:  for alpha  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.02
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            BraggIon : Emin=    0 eV  Emax=7.9452 MeV
+          BetheBloch : Emin=7.9452 MeV Emax=  100 TeV
+
+msc:  for anti_proton  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for anti_proton  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+hBrems:  for anti_proton  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for anti_proton  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 17x1001; from 7.50618 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for anti_proton, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for kaon+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for kaon+  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=1.05231 MeV
+          BetheBloch : Emin=1.05231 MeV Emax=  100 TeV
+
+hBrems:  for kaon+  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for kaon+  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 18x1001; from 3.94942 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for kaon+, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for kaon-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for kaon-  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=1.05231 MeV
+          BetheBloch : Emin=1.05231 MeV Emax=  100 TeV
+
+hBrems:  for kaon-  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for kaon-  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 18x1001; from 3.94942 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for kaon-, integral:1  SubType=1 BuildTable=1
+      Used Lambda table of kaon+
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for mu+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+muIoni:  for mu+  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=  200 keV
+          BetheBloch : Emin=  200 keV Emax=    1 GeV
+        MuBetheBloch : Emin=    1 GeV Emax=  100 TeV
+
+muBrems:  for mu+  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+muPairProd:  for mu+  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 21x1001; from 1 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for mu+, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for mu-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+muIoni:  for mu-  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=  200 keV
+          BetheBloch : Emin=  200 keV Emax=    1 GeV
+        MuBetheBloch : Emin=    1 GeV Emax=  100 TeV
+
+muBrems:  for mu-  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+muPairProd:  for mu-  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 21x1001; from 1 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for mu-, integral:1  SubType=1 BuildTable=1
+      Used Lambda table of mu+
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for pi+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for pi+  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=297.505 keV
+          BetheBloch : Emin=297.505 keV Emax=  100 TeV
+
+hBrems:  for pi+  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for pi+  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 20x1001; from 1.11656 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for pi+, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for pi-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for pi-  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=297.505 keV
+          BetheBloch : Emin=297.505 keV Emax=  100 TeV
+
+hBrems:  for pi-  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for pi-  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 20x1001; from 1.11656 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for pi-, integral:1  SubType=1 BuildTable=1
+      Used Lambda table of pi+
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+GiGaMT.GiGaActi...   INFO [ Master ] BeginOfRunAction(): execute '/tracking/verbose 0'
+GiGaMT.GiGaActi...   INFO [ Master ] BeginOfRunAction(): execute '/process/eLoss/verbose 0'
+GiGaMT.GiGaActi...  ERROR [ Master ] Illegal application state.
+ThreadPoolSvc        INFO no thread init tools attached
+AvalancheSchedu...   INFO Activating scheduler in a separate thread
+AlgResourcePool      INFO TopAlg list empty. Recovering the one of Application Manager
+GenRndInit           INFO Setting timing barrier at  'FirstTimingEvent':1
+ParticleGun.Fla...   INFO Number of particles per event chosen randomly between 1000 and 1000
+ParticleGun.Fix...   INFO Particle type chosen randomly from : e-
+ParticleGun.Fix...   INFO Momentum: (0 GeV, 0 GeV, 0.05 GeV)
+ParticleGun       SUCCESS ==================================================================
+ParticleGun       SUCCESS Requested to generate EventType  'EventType':50000000
+ParticleGun       SUCCESS ==================================================================
+AvalancheSchedu...   INFO Found 3 algorithms
+AvalancheSchedu...   INFO Data Dependencies for Algorithms:
+  GenRndInit
+    o OUTPUT '/Event/DAQ/ODIN'
+    o OUTPUT '/Event/Gen/BeamParameters'
+    o OUTPUT '/Event/Gen/HeaderPreGen'
+    o OUTPUT '/Event/SeedsInternalUsage'
+  ParticleGun
+    o INPUT  '/Event/Gen/HeaderPreGen'
+    o INPUT  '/Event/SeedsInternalUsage'
+    o OUTPUT '/Event/Gen/Collisions'
+    o OUTPUT '/Event/Gen/Header'
+    o OUTPUT '/Event/Gen/HepMCEvents'
+  GiGaAlg
+    o INPUT  '/Event/Gen/HepMCEvents'
+    o INPUT  '/Event/SeedsInternalUsage'
+    o OUTPUT '/Event/MC/Truths'
+    o OUTPUT '/Event/Sim/G4Events'
+PrecedenceSvc        INFO Assembling CF and DF task precedence rules
+PrecedenceSvc        INFO PrecedenceSvc initialized successfully
+AvalancheSchedu...   INFO Concurrency level information:
+AvalancheSchedu...   INFO  o Number of events in flight: 32
+AvalancheSchedu...   INFO  o TBB thread pool size:  'ThreadPoolSize':32
+AvalancheSchedu...   INFO  o Fiber thread pool size:  'NumOffloadThreads':2
+AvalancheSchedu...   INFO Task scheduling settings:
+AvalancheSchedu...   INFO  o Avalanche generation mode: disabled
+AvalancheSchedu...   INFO  o Preemptive scheduling of CPU-blocking tasks: disabled
+AvalancheSchedu...   INFO  o Scheduling of condition tasks: disabled
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+ NUM OF THREADS ACCORDING TO G4: 32
+status: Converting Geant4 geometry
+CUDA Device stack limit: 4096
+Visiting geometry ...
+Visiting geometry done
+GiGaMT               INFO Initialized all G4 worker threads
+GiGaMT               INFO   AlgTool: GiGaMT.GiGaMTRunManagerFAC
+GiGaMT               INFO   AlgTool: GiGaMT.ModularPL
+GiGaMT               INFO   AlgTool: GiGaMT.GiGaWorkerPilotFAC
+GiGaMT               INFO   AlgTool: GiGaMT.DetConst
+GiGaMT               INFO   AlgTool: GiGaMT.GiGaActionInitializer
+GiGaMT               INFO   AlgTool: GiGaMT.HepMC3ToMCTruthConverter
+HiveSlimEventLo...WARNING Unable to locate service "EventSelector" 
+HiveSlimEventLo...WARNING No events will be processed from external input.
+RootHistSvc          INFO Writing ROOT histograms to: Gaussino-10ev-20250505-histos.root
+HistogramPersis...   INFO Added successfully Conversion service RootHistSvc
+HiveSlimEventLo...   INFO Found 0 events in black list
+ApplicationMgr       INFO Application Manager Initialized successfully
+ApplicationMgr       INFO Application Manager Started successfully
+HiveSlimEventLo...   INFO Starting loop on events
+GenRndInit           INFO Started loop timing!
+GenRndInit           INFO Evt 1,  Run 1,  Nr. in job = 1
+Trying to score hit #32768 with only 32768 slots
+Trying to score hit #32769 with only 32768 slots
+Trying to score hit #32770 with only 32768 slots
+Trying to score hit #33155 with only 32768 slots
+Trying to score hit #33156 with only 32768 slots
+Trying to score hit #33157 with only 32768 slots
+Trying to score hit #33158 with only 32768 slots
+Trying to score hit #33159 with only 32768 slots
+Trying to score hit #33160 with only 32768 slots
+Trying to score hit #33161 with only 32768 slots
+Trying to score hit #33162 with only 32768 slots
+Trying to score hit #33163 with only 32768 slots
+Trying to score hit #33164 with only 32768 slots
+Trying to score hit #33165 with only 32768 slots
+Trying to score hit #33166 with only 32768 slots
+Trying to score hit #33167 with only 32768 slots
+Trying to score hit #33168 with only 32768 slots
+Trying to score hit #33169 with only 32768 slots
+Trying to score hit #33170 with only 32768 slots
+Trying to score hit #33171 with only 32768 slots
+Trying to score hit #33172 with only 32768 slots
+Trying to score hit #33173 with only 32768 slots
+Trying to score hit #33174 with only 32768 slots
+Trying to score hit #33175 with only 32768 slots
+Trying to score hit #33176 with only 32768 slots
+Trying to score hit #33177 with only 32768 slots
+Trying to score hit #33178 with only 32768 slots
+Trying to score hit #33179 with only 32768 slots
+Trying to score hit #33180 with only 32768 slots
+Trying to score hit #33181 with only 32768 slots
+Trying to score hit #33182 with only 32768 slots
+Trying to score hit #33183 with only 32768 slots
+Trying to score hit #33184 with only 32768 slots
+Trying to score hit #33185 with only 32768 slots
+Trying to score hit #33186 with only 32768 slots
+Trying to score hit #33059 with only 32768 slots
+Trying to score hit #33060 with only 32768 slots
+Trying to score hit #33061 with only 32768 slots
+Trying to score hit #33062 with only 32768 slots
+Trying to score hit #33063 with only 32768 slots
+Trying to score hit #33064 with only 32768 slots
+Trying to score hit #33065 with only 32768 slots
+Trying to score hit #33066 with only 32768 slots
+Trying to score hit #33067 with only 32768 slots
+Trying to score hit #33068 with only 32768 slots
+Trying to score hit #33069 with only 32768 slots
+Trying to score hit #33070 with only 32768 slots
+Trying to score hit #33071 with only 32768 slots
+Trying to score hit #33072 with only 32768 slots
+Trying to score hit #33073 with only 32768 slots
+Trying to score hit #33074 with only 32768 slots
+Trying to score hit #33075 with only 32768 slots
+Trying to score hit #33076 with only 32768 slots
+Trying to score hit #33077 with only 32768 slots
+Trying to score hit #33078 with only 32768 slots
+Trying to score hit #33079 with only 32768 slots
+Trying to score hit #33080 with only 32768 slots
+Trying to score hit #33081 with only 32768 slots
+Trying to score hit #33082 with only 32768 slots
+Trying to score hit #33083 with only 32768 slots
+Trying to score hit #33084 with only 32768 slots
+Trying to score hit #33085 with only 32768 slots
+Trying to score hit #33086 with only 32768 slots
+Trying to score hit #33087 with only 32768 slots
+Trying to score hit #33088 with only 32768 slots
+Trying to score hit #33089 with only 32768 slots
+Trying to score hit #33090 with only 32768 slots
+Trying to score hit #33123 with only 32768 slots
+Trying to score hit #33124 with only 32768 slots
+Trying to score hit #33125 with only 32768 slots
+Trying to score hit #33126 with only 32768 slots
+Trying to score hit #33127 with only 32768 slots
+Trying to score hit #33128 with only 32768 slots
+Trying to score hit #33129 with only 32768 slots
+Trying to score hit #33130 with only 32768 slots
+Trying to score hit #33131 with only 32768 slots
+Trying to score hit #33132 with only 32768 slots
+Trying to score hit #33133 with only 32768 slots
+Trying to score hit #33134 with only 32768 slots
+Trying to score hit #33135 with only 32768 slots
+Trying to score hit #33136 with only 32768 slots
+Trying to score hit #33137 with only 32768 slots
+Trying to score hit #33138 with only 32768 slots
+Trying to score hit #33139 with only 32768 slots
+Trying to score hit #33140 with only 32768 slots
+Trying to score hit #33141 with only 32768 slots
+Trying to score hit #33142 with only 32768 slots
+Trying to score hit #33143 with only 32768 slots
+Trying to score hit #33144 with only 32768 slots
+Trying to score hit #33145 with only 32768 slots
+Trying to score hit #33146 with only 32768 slots
+Trying to score hit #33147 with only 32768 slots
+Trying to score hit #33148 with only 32768 slots
+Trying to score hit #33149 with only 32768 slots
+Trying to score hit #33150 with only 32768 slots
+Trying to score hit #33151 with only 32768 slots
+Trying to score hit #33152 with only 32768 slots
+Trying to score hit #33153 with only 32768 slots
+Trying to score hit #33154 with only 32768 slots
+Trying to score hit #32931 with only 32768 slots
+Trying to score hit #32932 with only 32768 slots
+Trying to score hit #32933 with only 32768 slots
+Trying to score hit #32934 with only 32768 slots
+Trying to score hit #32935 with only 32768 slots
+Trying to score hit #32936 with only 32768 slots
+Trying to score hit #32937 with only 32768 slots
+Trying to score hit #32938 with only 32768 slots
+Trying to score hit #32939 with only 32768 slots
+Trying to score hit #32940 with only 32768 slots
+Trying to score hit #32941 with only 32768 slots
+Trying to score hit #32942 with only 32768 slots
+Trying to score hit #32943 with only 32768 slots
+Trying to score hit #32944 with only 32768 slots
+Trying to score hit #32945 with only 32768 slots
+Trying to score hit #32946 with only 32768 slots
+Trying to score hit #32947 with only 32768 slots
+Trying to score hit #32948 with only 32768 slots
+Trying to score hit #32949 with only 32768 slots
+Trying to score hit #32950 with only 32768 slots
+Trying to score hit #32951 with only 32768 slots
+Trying to score hit #32952 with only 32768 slots
+Trying to score hit #32953 with only 32768 slots
+Trying to score hit #32954 with only 32768 slots
+Trying to score hit #32955 with only 32768 slots
+Trying to score hit #32956 with only 32768 slots
+Trying to score hit #32957 with only 32768 slots
+Trying to score hit #32958 with only 32768 slots
+Trying to score hit #32959 with only 32768 slots
+Trying to score hit #32960 with only 32768 slots
+Trying to score hit #32961 with only 32768 slots
+Trying to score hit #32962 with only 32768 slots
+Trying to score hit #32867 with only 32768 slots
+Trying to score hit #32868 with only 32768 slots
+Trying to score hit #32869 with only 32768 slots
+Trying to score hit #32870 with only 32768 slots
+Trying to score hit #32871 with only 32768 slots
+Trying to score hit #32872 with only 32768 slots
+Trying to score hit #32873 with only 32768 slots
+Trying to score hit #32874 with only 32768 slots
+Trying to score hit #32875 with only 32768 slots
+Trying to score hit #32876 with only 32768 slots
+Trying to score hit #32877 with only 32768 slots
+Trying to score hit #32878 with only 32768 slots
+Trying to score hit #32879 with only 32768 slots
+Trying to score hit #32880 with only 32768 slots
+Trying to score hit #32881 with only 32768 slots
+Trying to score hit #32882 with only 32768 slots
+Trying to score hit #32883 with only 32768 slots
+Trying to score hit #32884 with only 32768 slots
+Trying to score hit #32885 with only 32768 slots
+Trying to score hit #32886 with only 32768 slots
+Trying to score hit #32887 with only 32768 slots
+Trying to score hit #32888 with only 32768 slots
+Trying to score hit #32889 with only 32768 slots
+Trying to score hit #32890 with only 32768 slots
+Trying to score hit #32891 with only 32768 slots
+Trying to score hit #32892 with only 32768 slots
+Trying to score hit #32893 with only 32768 slots
+Trying to score hit #32894 with only 32768 slots
+Trying to score hit #32895 with only 32768 slots
+Trying to score hit #32896 with only 32768 slots
+Trying to score hit #32897 with only 32768 slots
+Trying to score hit #32898 with only 32768 slots
+Trying to score hit #33091 with only 32768 slots
+Trying to score hit #33092 with only 32768 slots
+Trying to score hit #33093 with only 32768 slots
+Trying to score hit #33094 with only 32768 slots
+Trying to score hit #33095 with only 32768 slots
+Trying to score hit #33096 with only 32768 slots
+Trying to score hit #33097 with only 32768 slots
+Trying to score hit #33098 with only 32768 slots
+Trying to score hit #33099 with only 32768 slots
+Trying to score hit #33100 with only 32768 slots
+Trying to score hit #33101 with only 32768 slots
+Trying to score hit #33102 with only 32768 slots
+Trying to score hit #33103 with only 32768 slots
+Trying to score hit #33104 with only 32768 slots
+Trying to score hit #33105 with only 32768 slots
+Trying to score hit #33106 with only 32768 slots
+Trying to score hit #33107 with only 32768 slots
+Trying to score hit #33108 with only 32768 slots
+Trying to score hit #33109 with only 32768 slots
+Trying to score hit #33110 with only 32768 slots
+Trying to score hit #33111 with only 32768 slots
+Trying to score hit #33112 with only 32768 slots
+Trying to score hit #33113 with only 32768 slots
+Trying to score hit #33114 with only 32768 slots
+Trying to score hit #33115 with only 32768 slots
+Trying to score hit #33116 with only 32768 slots
+Trying to score hit #33117 with only 32768 slots
+Trying to score hit #33118 with only 32768 slots
+Trying to score hit #33119 with only 32768 slots
+Trying to score hit #33120 with only 32768 slots
+Trying to score hit #33121 with only 32768 slots
+Trying to score hit #33122 with only 32768 slots
+Trying to score hit #32835 with only 32768 slots
+Trying to score hit #32836 with only 32768 slots
+Trying to score hit #32837 with only 32768 slots
+Trying to score hit #32838 with only 32768 slots
+Trying to score hit #32839 with only 32768 slots
+Trying to score hit #32840 with only 32768 slots
+Trying to score hit #32841 with only 32768 slots
+Trying to score hit #32842 with only 32768 slots
+Trying to score hit #32843 with only 32768 slots
+Trying to score hit #32844 with only 32768 slots
+Trying to score hit #32845 with only 32768 slots
+Trying to score hit #32846 with only 32768 slots
+Trying to score hit #32847 with only 32768 slots
+Trying to score hit #32848 with only 32768 slots
+Trying to score hit #32849 with only 32768 slots
+Trying to score hit #32850 with only 32768 slots
+Trying to score hit #32851 with only 32768 slots
+Trying to score hit #32852 with only 32768 slots
+Trying to score hit #32853 with only 32768 slots
+Trying to score hit #32854 with only 32768 slots
+Trying to score hit #32855 with only 32768 slots
+Trying to score hit #32856 with only 32768 slots
+Trying to score hit #32857 with only 32768 slots
+Trying to score hit #32858 with only 32768 slots
+Trying to score hit #32859 with only 32768 slots
+Trying to score hit #32860 with only 32768 slots
+Trying to score hit #32861 with only 32768 slots
+Trying to score hit #32862 with only 32768 slots
+Trying to score hit #32863 with only 32768 slots
+Trying to score hit #32864 with only 32768 slots
+Trying to score hit #32865 with only 32768 slots
+Trying to score hit #32866 with only 32768 slots
+Trying to score hit #33219 with only 32768 slots
+Trying to score hit #33220 with only 32768 slots
+Trying to score hit #33221 with only 32768 slots
+Trying to score hit #33222 with only 32768 slots
+Trying to score hit #33223 with only 32768 slots
+Trying to score hit #33224 with only 32768 slots
+Trying to score hit #33225 with only 32768 slots
+Trying to score hit #33226 with only 32768 slots
+Trying to score hit #33227 with only 32768 slots
+Trying to score hit #33228 with only 32768 slots
+Trying to score hit #33229 with only 32768 slots
+Trying to score hit #33230 with only 32768 slots
+Trying to score hit #33231 with only 32768 slots
+Trying to score hit #33232 with only 32768 slots
+Trying to score hit #33233 with only 32768 slots
+Trying to score hit #33234 with only 32768 slots
+Trying to score hit #33235 with only 32768 slots
+Trying to score hit #33236 with only 32768 slots
+Trying to score hit #33237 with only 32768 slots
+Trying to score hit #33238 with only 32768 slots
+Trying to score hit #33239 with only 32768 slots
+Trying to score hit #33240 with only 32768 slots
+Trying to score hit #33241 with only 32768 slots
+Trying to score hit #33242 with only 32768 slots
+Trying to score hit #33243 with only 32768 slots
+Trying to score hit #33244 with only 32768 slots
+Trying to score hit #33245 with only 32768 slots
+Trying to score hit #33246 with only 32768 slots
+Trying to score hit #33247 with only 32768 slots
+Trying to score hit #33248 with only 32768 slots
+Trying to score hit #33249 with only 32768 slots
+Trying to score hit #33250 with only 32768 slots
+Trying to score hit #33187 with only 32768 slots
+Trying to score hit #33188 with only 32768 slots
+Trying to score hit #33189 with only 32768 slots
+Trying to score hit #33190 with only 32768 slots
+Trying to score hit #33191 with only 32768 slots
+Trying to score hit #33192 with only 32768 slots
+Trying to score hit #33193 with only 32768 slots
+Trying to score hit #33194 with only 32768 slots
+Trying to score hit #33195 with only 32768 slots
+Trying to score hit #33196 with only 32768 slots
+Trying to score hit #33197 with only 32768 slots
+Trying to score hit #33198 with only 32768 slots
+Trying to score hit #33199 with only 32768 slots
+Trying to score hit #33200 with only 32768 slots
+Trying to score hit #33201 with only 32768 slots
+Trying to score hit #33202 with only 32768 slots
+Trying to score hit #33203 with only 32768 slots
+Trying to score hit #33204 with only 32768 slots
+Trying to score hit #33205 with only 32768 slots
+Trying to score hit #33206 with only 32768 slots
+Trying to score hit #33207 with only 32768 slots
+Trying to score hit #33208 with only 32768 slots
+Trying to score hit #33209 with only 32768 slots
+Trying to score hit #33210 with only 32768 slots
+Trying to score hit #33211 with only 32768 slots
+Trying to score hit #33212 with only 32768 slots
+Trying to score hit #33213 with only 32768 slots
+Trying to score hit #33214 with only 32768 slots
+Trying to score hit #33215 with only 32768 slots
+Trying to score hit #33216 with only 32768 slots
+Trying to score hit #33217 with only 32768 slots
+Trying to score hit #33218 with only 32768 slots
+Trying to score hit #32803 with only 32768 slots
+Trying to score hit #32804 with only 32768 slots
+Trying to score hit #32805 with only 32768 slots
+Trying to score hit #32806 with only 32768 slots
+Trying to score hit #32807 with only 32768 slots
+Trying to score hit #32808 with only 32768 slots
+Trying to score hit #32809 with only 32768 slots
+Trying to score hit #32810 with only 32768 slots
+Trying to score hit #32811 with only 32768 slots
+Trying to score hit #32812 with only 32768 slots
+Trying to score hit #32813 with only 32768 slots
+Trying to score hit #32814 with only 32768 slots
+Trying to score hit #32815 with only 32768 slots
+Trying to score hit #32816 with only 32768 slots
+Trying to score hit #32817 with only 32768 slots
+Trying to score hit #32818 with only 32768 slots
+Trying to score hit #32819 with only 32768 slots
+Trying to score hit #32820 with only 32768 slots
+Trying to score hit #32821 with only 32768 slots
+Trying to score hit #32822 with only 32768 slots
+Trying to score hit #32823 with only 32768 slots
+Trying to score hit #32824 with only 32768 slots
+Trying to score hit #32825 with only 32768 slots
+Trying to score hit #32826 with only 32768 slots
+Trying to score hit #32827 with only 32768 slots
+Trying to score hit #32828 with only 32768 slots
+Trying to score hit #32829 with only 32768 slots
+Trying to score hit #32830 with only 32768 slots
+Trying to score hit #32831 with only 32768 slots
+Trying to score hit #32832 with only 32768 slots
+Trying to score hit #32833 with only 32768 slots
+Trying to score hit #32834 with only 32768 slots
+Trying to score hit #32899 with only 32768 slots
+Trying to score hit #32900 with only 32768 slots
+Trying to score hit #32901 with only 32768 slots
+Trying to score hit #32902 with only 32768 slots
+Trying to score hit #32903 with only 32768 slots
+Trying to score hit #32904 with only 32768 slots
+Trying to score hit #32905 with only 32768 slots
+Trying to score hit #32906 with only 32768 slots
+Trying to score hit #32907 with only 32768 slots
+Trying to score hit #32908 with only 32768 slots
+Trying to score hit #32909 with only 32768 slots
+Trying to score hit #32910 with only 32768 slots
+Trying to score hit #32911 with only 32768 slots
+Trying to score hit #32912 with only 32768 slots
+Trying to score hit #32913 with only 32768 slots
+Trying to score hit #32914 with only 32768 slots
+Trying to score hit #32915 with only 32768 slots
+Trying to score hit #32916 with only 32768 slots
+Trying to score hit #32917 with only 32768 slots
+Trying to score hit #32918 with only 32768 slots
+Trying to score hit #32919 with only 32768 slots
+Trying to score hit #32920 with only 32768 slots
+Trying to score hit #32921 with only 32768 slots
+Trying to score hit #32922 with only 32768 slots
+Trying to score hit #32923 with only 32768 slots
+Trying to score hit #32924 with only 32768 slots
+Trying to score hit #32925 with only 32768 slots
+Trying to score hit #32926 with only 32768 slots
+Trying to score hit #32927 with only 32768 slots
+Trying to score hit #32928 with only 32768 slots
+Trying to score hit #32929 with only 32768 slots
+Trying to score hit #32930 with only 32768 slots
+Trying to score hit #32995 with only 32768 slots
+Trying to score hit #32996 with only 32768 slots
+Trying to score hit #32997 with only 32768 slots
+Trying to score hit #32998 with only 32768 slots
+Trying to score hit #32999 with only 32768 slots
+Trying to score hit #33000 with only 32768 slots
+Trying to score hit #33001 with only 32768 slots
+Trying to score hit #33002 with only 32768 slots
+Trying to score hit #33003 with only 32768 slots
+Trying to score hit #33004 with only 32768 slots
+Trying to score hit #33005 with only 32768 slots
+Trying to score hit #33006 with only 32768 slots
+Trying to score hit #33007 with only 32768 slots
+Trying to score hit #33008 with only 32768 slots
+Trying to score hit #33009 with only 32768 slots
+Trying to score hit #33010 with only 32768 slots
+Trying to score hit #33011 with only 32768 slots
+Trying to score hit #33012 with only 32768 slots
+Trying to score hit #33013 with only 32768 slots
+Trying to score hit #33014 with only 32768 slots
+Trying to score hit #33015 with only 32768 slots
+Trying to score hit #33016 with only 32768 slots
+Trying to score hit #33017 with only 32768 slots
+Trying to score hit #33018 with only 32768 slots
+Trying to score hit #33019 with only 32768 slots
+Trying to score hit #33020 with only 32768 slots
+Trying to score hit #33021 with only 32768 slots
+Trying to score hit #33022 with only 32768 slots
+Trying to score hit #33023 with only 32768 slots
+Trying to score hit #33024 with only 32768 slots
+Trying to score hit #33025 with only 32768 slots
+Trying to score hit #33026 with only 32768 slots
+Trying to score hit #32963 with only 32768 slots
+Trying to score hit #32964 with only 32768 slots
+Trying to score hit #32965 with only 32768 slots
+Trying to score hit #32966 with only 32768 slots
+Trying to score hit #32967 with only 32768 slots
+Trying to score hit #32968 with only 32768 slots
+Trying to score hit #32969 with only 32768 slots
+Trying to score hit #32970 with only 32768 slots
+Trying to score hit #32971 with only 32768 slots
+Trying to score hit #32972 with only 32768 slots
+Trying to score hit #32973 with only 32768 slots
+Trying to score hit #32974 with only 32768 slots
+Trying to score hit #32975 with only 32768 slots
+Trying to score hit #32976 with only 32768 slots
+Trying to score hit #32977 with only 32768 slots
+Trying to score hit #32978 with only 32768 slots
+Trying to score hit #32979 with only 32768 slots
+Trying to score hit #32980 with only 32768 slots
+Trying to score hit #32981 with only 32768 slots
+Trying to score hit #32982 with only 32768 slots
+Trying to score hit #32983 with only 32768 slots
+Trying to score hit #32984 with only 32768 slots
+Trying to score hit #32985 with only 32768 slots
+Trying to score hit #32986 with only 32768 slots
+Trying to score hit #32987 with only 32768 slots
+Trying to score hit #32988 with only 32768 slots
+Trying to score hit #32989 with only 32768 slots
+Trying to score hit #32990 with only 32768 slots
+Trying to score hit #32991 with only 32768 slots
+Trying to score hit #32992 with only 32768 slots
+Trying to score hit #32993 with only 32768 slots
+Trying to score hit #32994 with only 32768 slots
+Trying to score hit #33027 with only 32768 slots
+Trying to score hit #33028 with only 32768 slots
+Trying to score hit #33029 with only 32768 slots
+Trying to score hit #33030 with only 32768 slots
+Trying to score hit #33031 with only 32768 slots
+Trying to score hit #33032 with only 32768 slots
+Trying to score hit #33033 with only 32768 slots
+Trying to score hit #33034 with only 32768 slots
+Trying to score hit #33035 with only 32768 slots
+Trying to score hit #33036 with only 32768 slots
+Trying to score hit #33037 with only 32768 slots
+Trying to score hit #33038 with only 32768 slots
+Trying to score hit #33039 with only 32768 slots
+Trying to score hit #33040 with only 32768 slots
+Trying to score hit #33041 with only 32768 slots
+Trying to score hit #33042 with only 32768 slots
+Trying to score hit #33043 with only 32768 slots
+Trying to score hit #33044 with only 32768 slots
+Trying to score hit #33045 with only 32768 slots
+Trying to score hit #33046 with only 32768 slots
+Trying to score hit #33047 with only 32768 slots
+Trying to score hit #33048 with only 32768 slots
+Trying to score hit #33049 with only 32768 slots
+Trying to score hit #33050 with only 32768 slots
+Trying to score hit #33051 with only 32768 slots
+Trying to score hit #33052 with only 32768 slots
+Trying to score hit #33053 with only 32768 slots
+Trying to score hit #33054 with only 32768 slots
+Trying to score hit #33055 with only 32768 slots
+Trying to score hit #33056 with only 32768 slots
+Trying to score hit #33057 with only 32768 slots
+Trying to score hit #33058 with only 32768 slots
+Trying to score hit #32771 with only 32768 slots
+Trying to score hit #32772 with only 32768 slots
+Trying to score hit #32773 with only 32768 slots
+Trying to score hit #32774 with only 32768 slots
+Trying to score hit #32775 with only 32768 slots
+Trying to score hit #32776 with only 32768 slots
+Trying to score hit #32777 with only 32768 slots
+Trying to score hit #32778 with only 32768 slots
+Trying to score hit #32779 with only 32768 slots
+Trying to score hit #32780 with only 32768 slots
+Trying to score hit #32781 with only 32768 slots
+Trying to score hit #32782 with only 32768 slots
+Trying to score hit #32783 with only 32768 slots
+Trying to score hit #32784 with only 32768 slots
+Trying to score hit #32785 with only 32768 slots
+Trying to score hit #32786 with only 32768 slots
+Trying to score hit #32787 with only 32768 slots
+Trying to score hit #32788 with only 32768 slots
+Trying to score hit #32789 with only 32768 slots
+Trying to score hit #32790 with only 32768 slots
+Trying to score hit #32791 with only 32768 slots
+Trying to score hit #32792 with only 32768 slots
+Trying to score hit #32793 with only 32768 slots
+Trying to score hit #32794 with only 32768 slots
+Trying to score hit #32795 with only 32768 slots
+Trying to score hit #32796 with only 32768 slots
+Trying to score hit #32797 with only 32768 slots
+Trying to score hit #32798 with only 32768 slots
+Trying to score hit #32799 with only 32768 slots
+Trying to score hit #32800 with only 32768 slots
+Trying to score hit #32801 with only 32768 slots
+Trying to score hit #32802 with only 32768 slots
+Trying to score hit #33283 with only 32768 slots
+Trying to score hit #33284 with only 32768 slots
+Trying to score hit #33285 with only 32768 slots
+Trying to score hit #33286 with only 32768 slots
+Trying to score hit #33287 with only 32768 slots
+Trying to score hit #33288 with only 32768 slots
+Trying to score hit #33289 with only 32768 slots
+Trying to score hit #33290 with only 32768 slots
+Trying to score hit #33291 with only 32768 slots
+Trying to score hit #33292 with only 32768 slots
+Trying to score hit #33293 with only 32768 slots
+Trying to score hit #33294 with only 32768 slots
+Trying to score hit #33295 with only 32768 slots
+Trying to score hit #33296 with only 32768 slots
+Trying to score hit #33297 with only 32768 slots
+Trying to score hit #33298 with only 32768 slots
+Trying to score hit #33299 with only 32768 slots
+Trying to score hit #33300 with only 32768 slots
+Trying to score hit #33301 with only 32768 slots
+Trying to score hit #33302 with only 32768 slots
+Trying to score hit #33303 with only 32768 slots
+Trying to score hit #33304 with only 32768 slots
+Trying to score hit #33305 with only 32768 slots
+Trying to score hit #33306 with only 32768 slots
+Trying to score hit #33307 with only 32768 slots
+Trying to score hit #33308 with only 32768 slots
+Trying to score hit #33309 with only 32768 slots
+Trying to score hit #33310 with only 32768 slots
+Trying to score hit #33311 with only 32768 slots
+Trying to score hit #33312 with only 32768 slots
+Trying to score hit #33313 with only 32768 slots
+Trying to score hit #33314 with only 32768 slots
+Trying to score hit #33251 with only 32768 slots
+Trying to score hit #33252 with only 32768 slots
+Trying to score hit #33253 with only 32768 slots
+Trying to score hit #33254 with only 32768 slots
+Trying to score hit #33255 with only 32768 slots
+Trying to score hit #33256 with only 32768 slots
+Trying to score hit #33257 with only 32768 slots
+Trying to score hit #33258 with only 32768 slots
+Trying to score hit #33259 with only 32768 slots
+Trying to score hit #33260 with only 32768 slots
+Trying to score hit #33261 with only 32768 slots
+Trying to score hit #33262 with only 32768 slots
+Trying to score hit #33263 with only 32768 slots
+Trying to score hit #33264 with only 32768 slots
+Trying to score hit #33265 with only 32768 slots
+Trying to score hit #33266 with only 32768 slots
+Trying to score hit #33267 with only 32768 slots
+Trying to score hit #33268 with only 32768 slots
+Trying to score hit #33269 with only 32768 slots
+Trying to score hit #33270 with only 32768 slots
+Trying to score hit #33271 with only 32768 slots
+Trying to score hit #33272 with only 32768 slots
+Trying to score hit #33273 with only 32768 slots
+Trying to score hit #33274 with only 32768 slots
+Trying to score hit #33275 with only 32768 slots
+Trying to score hit #33276 with only 32768 slots
+Trying to score hit #33277 with only 32768 slots
+Trying to score hit #33278 with only 32768 slots
+Trying to score hit #33279 with only 32768 slots
+Trying to score hit #33280 with only 32768 slots
+Trying to score hit #33281 with only 32768 slots
+Trying to score hit #33282 with only 32768 slots
+Trying to score hit #33315 with only 32768 slots
+Trying to score hit #33316 with only 32768 slots
+Trying to score hit #33317 with only 32768 slots
+Trying to score hit #33318 with only 32768 slots
+Trying to score hit #33319 with only 32768 slots
+Trying to score hit #33320 with only 32768 slots
+Trying to score hit #33321 with only 32768 slots
+Trying to score hit #33322 with only 32768 slots
+Trying to score hit #33323 with only 32768 slots
+Trying to score hit #33324 with only 32768 slots
+Trying to score hit #33325 with only 32768 slots
+Trying to score hit #33326 with only 32768 slots
+Trying to score hit #33327 with only 32768 slots
+Trying to score hit #33328 with only 32768 slots
+Trying to score hit #33329 with only 32768 slots
+Trying to score hit #33330 with only 32768 slots
+Trying to score hit #33331 with only 32768 slots
+Trying to score hit #33332 with only 32768 slots
+Trying to score hit #33333 with only 32768 slots
+Trying to score hit #33334 with only 32768 slots
+Trying to score hit #33335 with only 32768 slots
+Trying to score hit #33336 with only 32768 slots
+Trying to score hit #33337 with only 32768 slots
+Trying to score hit #33338 with only 32768 slots
+Trying to score hit #33339 with only 32768 slots
+Trying to score hit #33340 with only 32768 slots
+Trying to score hit #33341 with only 32768 slots
+Trying to score hit #33342 with only 32768 slots
+Trying to score hit #33343 with only 32768 slots
+Trying to score hit #33344 with only 32768 slots
+Trying to score hit #33345 with only 32768 slots
+Trying to score hit #33346 with only 32768 slots
+Trying to score hit #33347 with only 32768 slots
+Trying to score hit #33348 with only 32768 slots
+Trying to score hit #33349 with only 32768 slots
+Trying to score hit #33350 with only 32768 slots
+Trying to score hit #33351 with only 32768 slots
+Trying to score hit #33352 with only 32768 slots
+Trying to score hit #33353 with only 32768 slots
+Trying to score hit #33354 with only 32768 slots
+Trying to score hit #33355 with only 32768 slots
+Trying to score hit #33356 with only 32768 slots
+Trying to score hit #33357 with only 32768 slots
+Trying to score hit #33358 with only 32768 slots
+Trying to score hit #33359 with only 32768 slots
+Trying to score hit #33360 with only 32768 slots
+Trying to score hit #33361 with only 32768 slots
+Trying to score hit #33362 with only 32768 slots
+Trying to score hit #33363 with only 32768 slots
+Trying to score hit #33364 with only 32768 slots
+Trying to score hit #33365 with only 32768 slots
+Trying to score hit #33366 with only 32768 slots
+Trying to score hit #33367 with only 32768 slots
+Trying to score hit #33368 with only 32768 slots
+Trying to score hit #33369 with only 32768 slots
+Trying to score hit #33370 with only 32768 slots
+Trying to score hit #33371 with only 32768 slots
+Trying to score hit #33372 with only 32768 slots
+Trying to score hit #33373 with only 32768 slots
+Trying to score hit #33374 with only 32768 slots
+Trying to score hit #33375 with only 32768 slots
+Trying to score hit #33376 with only 32768 slots
+Trying to score hit #33377 with only 32768 slots
+Trying to score hit #33378 with only 32768 slots
+Trying to score hit #33379 with only 32768 slots
+Trying to score hit #33380 with only 32768 slots
+Trying to score hit #33381 with only 32768 slots
+Trying to score hit #33382 with only 32768 slots
+Trying to score hit #33383 with only 32768 slots
+Trying to score hit #33384 with only 32768 slots
+Trying to score hit #33385 with only 32768 slots
+Trying to score hit #33386 with only 32768 slots
+Trying to score hit #33387 with only 32768 slots
+Trying to score hit #33388 with only 32768 slots
+Trying to score hit #33389 with only 32768 slots
+Trying to score hit #33390 with only 32768 slots
+Trying to score hit #33391 with only 32768 slots
+Trying to score hit #33392 with only 32768 slots
+Trying to score hit #33393 with only 32768 slots
+Trying to score hit #33394 with only 32768 slots
+Trying to score hit #33395 with only 32768 slots
+Trying to score hit #33396 with only 32768 slots
+Trying to score hit #33397 with only 32768 slots
+Trying to score hit #33398 with only 32768 slots
+Trying to score hit #33399 with only 32768 slots
+Trying to score hit #33400 with only 32768 slots
+Trying to score hit #33401 with only 32768 slots
+Trying to score hit #33402 with only 32768 slots
+Trying to score hit #33403 with only 32768 slots
+Trying to score hit #33404 with only 32768 slots
+Trying to score hit #33405 with only 32768 slots
+Trying to score hit #33406 with only 32768 slots
+Trying to score hit #33407 with only 32768 slots
+Trying to score hit #33408 with only 32768 slots
+Trying to score hit #33409 with only 32768 slots
+Trying to score hit #33410 with only 32768 slots
+Trying to score hit #33411 with only 32768 slots
+Trying to score hit #33412 with only 32768 slots
+Trying to score hit #33413 with only 32768 slots
+Trying to score hit #33414 with only 32768 slots
+Trying to score hit #33415 with only 32768 slots
+Trying to score hit #33416 with only 32768 slots
+Trying to score hit #33417 with only 32768 slots
+Trying to score hit #33418 with only 32768 slots
+Trying to score hit #33419 with only 32768 slots
+Trying to score hit #33420 with only 32768 slots
+Trying to score hit #33421 with only 32768 slots
+Trying to score hit #33422 with only 32768 slots
+Trying to score hit #33423 with only 32768 slots
+Trying to score hit #33424 with only 32768 slots
+Trying to score hit #33425 with only 32768 slots
+Trying to score hit #33426 with only 32768 slots
+Trying to score hit #33427 with only 32768 slots
+Trying to score hit #33428 with only 32768 slots
+Trying to score hit #33429 with only 32768 slots
+Trying to score hit #33430 with only 32768 slots
+Trying to score hit #33431 with only 32768 slots
+Trying to score hit #33432 with only 32768 slots
+Trying to score hit #33433 with only 32768 slots
+Trying to score hit #33434 with only 32768 slots
+Trying to score hit #33435 with only 32768 slots
+Trying to score hit #33436 with only 32768 slots
+Trying to score hit #33437 with only 32768 slots
+Trying to score hit #33438 with only 32768 slots
+Trying to score hit #33439 with only 32768 slots
+Trying to score hit #33440 with only 32768 slots
+Trying to score hit #33441 with only 32768 slots
+Trying to score hit #33442 with only 32768 slots
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+Exception: Out of slots in HitScoringBuffer::NextSlot
+CUDA ERROR at /home/jbenavid/workspace/stack/AdePT/include/AdePT/core/PerEventScoringImpl.cuh[480] : unspecified launch failure
+# Command: stack/Gaussino/run env PARTICLES_PER_EVENT=1000 PARTICLE_TYPE=electron NUMBER_OF_THREADS=32 gaudirun.py B4LayeredCalorimeter/configs/options.py B4LayeredCalorimeter/configs/adept_simulation.py
+# Timestamp: 2025-05-05T18:12:07.394543
+
+
+# Execution time: 7.21 seconds
