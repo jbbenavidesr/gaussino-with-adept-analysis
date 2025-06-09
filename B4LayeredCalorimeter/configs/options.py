@@ -4,6 +4,7 @@ import os
 
 from GaudiKernel import SystemOfUnits as units
 from Configurables import (
+    ApplicationMgr,
     Gaussino,
     GaussinoGeneration,
     GaussinoGeometry,
@@ -12,6 +13,7 @@ from Configurables import (
     FlatSmearVertex,
     FlatNParticles,
     ExternalDetectorEmbedder,
+    CalorimeterMonitoring,
 )
 from ExternalDetector.Materials import OUTER_SPACE
 
@@ -26,6 +28,7 @@ particle_types = {
 particles_per_event = int(os.environ.get("PARTICLES_PER_EVENT", 100))
 nthreads = int(os.environ.get("NUMBER_OF_THREADS", 1))
 particle_type = particle_types.get(os.environ.get("PARTICLE_TYPE", "electron"), 11)
+number_of_events = int(os.environ.get("NUMBER_OF_EVENTS", 100))
 
 ## constants
 n_layers = 8
@@ -40,7 +43,7 @@ world_length = 1.2 * calor_thickness
 
 
 # General Gaussino configs
-Gaussino().EvtMax = 10
+Gaussino().EvtMax = number_of_events
 Gaussino().Phases = ["Generator", "Simulation"]
 Gaussino().EnableHive = True
 Gaussino().ThreadPoolSize = nthreads
@@ -217,6 +220,15 @@ def setup_geometry(
             "Type": "MaterialFromNIST",
         },
     }
+
+    # Set Monitoring
+    moni = CalorimeterMonitoring(
+        "CalorimeterMonitoring",
+        AbsorberCollectionName=f"{absorber_name}SDet/Hits",
+        GapCollectionName=f"{gap_name}SDet/Hits",
+    )
+
+    ApplicationMgr().TopAlg.append(moni)
 
 
 setup_geometry(

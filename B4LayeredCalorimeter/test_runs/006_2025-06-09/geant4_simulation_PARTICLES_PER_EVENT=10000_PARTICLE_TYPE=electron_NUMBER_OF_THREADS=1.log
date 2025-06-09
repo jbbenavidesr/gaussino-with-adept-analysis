@@ -1,0 +1,1717 @@
+# setting LC_ALL to "C"
+# --> Including file '/home/jbenavid/workspace/B4LayeredCalorimeter/configs/options.py'
+# <-- End of file '/home/jbenavid/workspace/B4LayeredCalorimeter/configs/options.py'
+# --> Including file '/home/jbenavid/workspace/B4LayeredCalorimeter/configs/geant4_simulation.py'
+# <-- End of file '/home/jbenavid/workspace/B4LayeredCalorimeter/configs/geant4_simulation.py'
+# applying configuration of Gaussino
+# /***** User Gaussino/Gaussino **********************************************************************
+# |-EvtMax            = 100  (default: -1)
+# |-Phases            = ['Generator', 'Simulation']  (default: ['Generator', 'Simulation'])
+# |-FirstEventNumber  = 1
+# |-RunNumber         = 1
+# |-Histograms        = 'DEFAULT'
+# |-DatasetName       = 'Gaussino'
+# |-DatasetNameForced = False
+# |-OutputType        = 'SIM'
+# |-EnableHive        = True  (default: True)
+# |-ThreadPoolSize    = 1  (default: 1)
+# |-EventSlots        = 1  (default: 1)
+# |-FirstTimingEvent  = 1
+# |-Debug             = False
+# |-ReDecay           = False
+# |-ConvertEDM        = False
+# |-ParticleTable     = '$GAUSSINOROOT/data/ParticleTable.txt'
+# |-MLOptions         = {}  (default: {})
+# \----- (End of User Gaussino/Gaussino) -------------------------------------------------------------
+# applying configuration of B4Calorimeter
+# /***** User ExternalDetectorEmbedder/B4Calorimeter *************************************************
+# |-Shapes        = {'B4Calorimeter_Calorimeter': {'Type': 'Cuboid', 'LogicalVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 120.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 0.0}, 'B4Calorimeter_Layer_0': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -52.5, 'pCopyNo': 0}, 'B4Calorimeter_Layer_1': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -37.5, 'pCopyNo': 1}, 'B4Calorimeter_Layer_2': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -22.5, 'pCopyNo': 2}, 'B4Calorimeter_Layer_3': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -7.5, 'pCopyNo': 3}, 'B4Calorimeter_Layer_4': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 7.5, 'pCopyNo': 4}, 'B4Calorimeter_Layer_5': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 22.5, 'pCopyNo': 5}, 'B4Calorimeter_Layer_6': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 37.5, 'pCopyNo': 6}, 'B4Calorimeter_Layer_7': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 52.5, 'pCopyNo': 7}, 'B4Calorimeter_Layer_Absorber': {'Type': 'Cuboid', 'MotherVolumeName': 'Layer_lVol', 'MaterialName': 'G4_Pb', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 10.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -2.5}, 'B4Calorimeter_Layer_Gap': {'Type': 'Cuboid', 'MotherVolumeName': 'Layer_lVol', 'MaterialName': 'G4_Ar', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 5.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 5.0}}
+# |               (default: {})
+# |-Sensitive     = {'B4Calorimeter_Layer_Absorber': {'Type': 'CalorimeterCollectorSensDet', 'NofLayers': 8}, 'B4Calorimeter_Layer_Gap': {'Type': 'CalorimeterCollectorSensDet', 'NofLayers': 8}}
+# |               (default: {})
+# |-Hit           = {}  (default: {})
+# |-Moni          = {}  (default: {})
+# |-Materials     = {'OUTER_SPACE': {'AtomicNumber': 1.0, 'MassNumber': 6.303924743591621e+21, 'Density': 6.241509647120416e-07, 'Pressure': 1.872452894136125e-14, 'Temperature': 2.73}, 'G4_Pb': {'Type': 'MaterialFromNIST'}, 'G4_Ar': {'Type': 'MaterialFromNIST'}}
+# |               (default: {})
+# |-World         = {'WorldMaterial': 'OUTER_SPACE', 'Type': 'ExternalWorldCreator', 'WorldSizeX': 60.0, 'WorldSizeY': 60.0, 'WorldSizeZ': 72.0}
+# |               (default: {})
+# |-MagneticField = {}  (default: {})
+# \----- (End of User ExternalDetectorEmbedder/B4Calorimeter) ----------------------------------------
+# applying configuration of GaussinoGeneration
+# /***** User GaussinoGeneration/GaussinoGeneration **************************************************
+# |-WriteHepMC               = False
+# |-SampleGenerationTool     = 'SignalPlain'
+# |-SampleGenerationToolOpts = {}  (default: {})
+# |-PileUpTool               = 'FixedLuminosityWithSvc'
+# |-VertexSmearingTool       = 'BeamSpotSmearVertexWithSvc'
+# |-ProductionTool           = 'Pythia8ProductionMT'
+# |-ProductionToolOpts       = {}  (default: {})
+# |-DecayTool                = ''
+# |-CutTool                  = ''
+# |-CutToolOpts              = {}  (default: {})
+# |-FullGenEventCutTool      = ''
+# |-FullGenEventCutToolOpts  = {}  (default: {})
+# |-GenMonitor               = False
+# |-ParticleGun              = True  (default: False)
+# |-BeamMomentum             = 3500000.0
+# |-BeamHCrossingAngle       = 0.0
+# |-BeamVCrossingAngle       = 0.0
+# |-BeamEmittance            = 0.0037
+# |-BeamBetaStar             = 3100.0
+# |-BeamBetaStarX            = -1000.0
+# |-BeamBetaStarY            = -1000.0
+# |-BeamLineAngles           = [0.0, 0.0]  (default: [0.0, 0.0])
+# |-InteractionPosition      = [0.0, 0.0, 0.0]  (default: [0.0, 0.0, 0.0])
+# |-BunchRMS                 = 82.03
+# |-Luminosity               = 2.47e+18
+# |-TotalCrossSection        = 9.109999999999999e-24
+# |-RevolutionFrequency      = 1.1245000000000002e-05
+# \----- (End of User GaussinoGeneration/GaussinoGeneration) -----------------------------------------
+# applying configuration of GaussinoSimulation
+# /***** User GaussinoSimulation/GaussinoSimulation **************************************************
+# |-TrackTruth          = True
+# |-PhysicsConstructors = ['GiGaMT_G4EmStandardPhysics', 'GiGaMT_G4EmExtraPhysics', 'GiGaMT_G4DecayPhysics', 'GiGaMT_G4HadronElasticPhysics', 'GiGaMT_G4HadronPhysicsFTFP_BERT', 'GiGaMT_G4StoppingPhysics', 'GiGaMT_G4IonPhysics', 'GiGaMT_G4NeutronTrackingCut']
+# |                     (default: [])
+# |-G4BeginRunCommand   = ['/tracking/verbose 0', '/process/eLoss/verbose 0']
+# |                     (default: ['/tracking/verbose 0', '/process/eLoss/verbose 0'])
+# |-G4EndRunCommand     = []  (default: [])
+# |-G4BeginEventCommand = []  (default: [])
+# |-G4EndEventCommand   = []  (default: [])
+# |-CutForElectron      = -1000000.0
+# |-CutForPositron      = -1000000.0
+# |-CutForGamma         = -1000000.0
+# |-DumpCutsTable       = False
+# |-CustomSimulation    = ''
+# \----- (End of User GaussinoSimulation/GaussinoSimulation) -----------------------------------------
+# applying configuration of GaussinoGeometry
+# Registered external material tool OUTER_SPACE of type MaterialFromChemicalProperties.
+# Registered external material tool G4_Pb of type MaterialFromNIST.
+# Registered external material tool G4_Ar of type MaterialFromNIST.
+# Registering external B4Calorimeter_Calorimeter as CuboidEmbedder
+# Registered external detector B4Calorimeter_Calorimeter of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_0 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_0 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_1 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_1 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_2 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_2 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_3 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_3 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_4 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_4 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_5 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_5 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_6 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_6 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_7 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_7 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_Absorber as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_Absorber of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_Gap as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_Gap of type CuboidEmbedder.
+# Registered external world service of type ExternalWorldCreator.
+# /***** User GaussinoGeometry/GaussinoGeometry ******************************************************
+# |-GeometryService          = ''
+# |-SensDetMap               = {}  (default: {})
+# |-ExtraGeoTools            = []  (default: [])
+# |-ExportGDML               = {}  (default: {})
+# |-ImportGDML               = []  (default: [])
+# |-ExternalDetectorEmbedder = 'B4Calorimeter'  (default: '')
+# \----- (End of User GaussinoGeometry/GaussinoGeometry) ---------------------------------------------
+# applying configuration of GaussinoVisualization
+# /***** User GaussinoVisualization/GaussinoVisualization ********************************************
+# |-Framework              = []  (default: [])
+# |-Driver                 = 'ASCIITree'
+# |-DrawGeometry           = False
+# |-TrackingVerbosity      = 0
+# |-EventVerbosity         = 0
+# |-RunVerbosity           = 0
+# |-GeometryStyle          = 'wireframe'
+# |-Volumes                = []  (default: [])
+# |-VolumesCopyNumber      = {}  (default: {})
+# |-VolumesDepthOfDescent  = {}  (default: {})
+# |-DrawTrajectories       = False
+# |-TrajectoryType         = ''
+# |-TrajectoryModel        = ''
+# |-TrajectoryModelOptions = {}  (default: {})
+# |-TrajectoryFilters      = []  (default: [])
+# |-StoreTrajectories      = 'Marked'
+# |-DrawG4Hits             = False
+# |-CameraPhi              = 0
+# |-CameraTheta            = 0
+# |-Zoom                   = 1
+# |-OGLExportFileName      = ''
+# |-PhoenixOutputFile      = 'gaussino_phoenix.json'
+# |-CombineEvents          = True
+# |-Debug                  = False
+# |-ElectricField          = {}  (default: {})
+# |-MagneticField          = {}  (default: {})
+# \----- (End of User GaussinoVisualization/GaussinoVisualization) -----------------------------------
+ApplicationMgr    SUCCESS 
+====================================================================================================================================
+                                                   Welcome to Gaussino version 1.0
+                                          running on joulertx on Mon Jun  9 16:16:24 2025
+====================================================================================================================================
+ApplicationMgr       INFO Application Manager Configured successfully
+RndmGenSvc.Engine    INFO Generator engine type:CLHEP::RanluxEngine
+RndmGenSvc.Engine    INFO Current Seed:1234567 Luxury:3
+RndmGenSvc           INFO Using Random engine:HepRndm::Engine<CLHEP::RanluxEngine>
+TimingAuditor.T...   INFO This machine has a speed about   5.00 times the speed of a 2.8 GHz Xeon.
+
+**************************************************************
+ Geant4 version Name: geant4-10-07-patch-03 [MT]   (19-November-2021)
+  << in Multi-threaded mode >> 
+                       Copyright : Geant4 Collaboration
+                      References : NIM A 506 (2003), 250-303
+                                 : IEEE-TNS 53 (2006), 270-278
+                                 : NIM A 835 (2016), 186-225
+                             WWW : http://geant4.org/
+**************************************************************
+
+GiGaMT.DetConst...WARNING Unrecognized state for the external material: OUTER_SPACE. Leaving Undefined
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomMgt1001
+      issued by : G4LogicalVolumeStore::GetVolume()
+Volume NOT found in store !
+        Volume B4Calorimeter_Calorimeter_lVol NOT found in store !
+        Returning NULL pointer.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomMgt1001
+      issued by : G4LogicalVolumeStore::GetVolume()
+Volume NOT found in store !
+        Volume Layer_lVol NOT found in store !
+        Returning NULL pointer.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomMgt1001
+      issued by : G4LogicalVolumeStore::GetVolume()
+Volume NOT found in store !
+        Volume B4Calorimeter_Layer_AbsorberLVol NOT found in store !
+        Returning NULL pointer.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomMgt1001
+      issued by : G4LogicalVolumeStore::GetVolume()
+Volume NOT found in store !
+        Volume B4Calorimeter_Layer_GapLVol NOT found in store !
+        Returning NULL pointer.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+
+ GiGaMT.ModularPL.GiGaMT_G4HadronPhysicsFTFP_BERT : threshold between BERT and FTFP is over the interval 
+ for pions :   3 to 6 GeV
+ for kaons :   3 to 6 GeV
+ for proton :  3 to 6 GeV
+ for neutron : 3 to 6 GeV
+
+GiGaMT.ModularPL     INFO [ Master ] The production cut for gamma is set to    	-1e+06 mm 
+GiGaMT.ModularPL     INFO [ Master ] The production cut for electron is set to 	-1e+06 mm 
+GiGaMT.ModularPL     INFO [ Master ] The production cut for positron is set to 	-1e+06 mm 
+
+phot:  for gamma SubType=12 BuildTable=0
+      LambdaPrime table from 200 keV to 100 TeV in 61 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+ LivermorePhElectric : Emin=    0 eV  Emax=  100 TeV  SauterGavrila Fluo
+
+compt:  for gamma SubType=13 BuildTable=1
+      Lambda table from 100 eV  to 1 MeV, 7 bins/decade, spline: 1
+      LambdaPrime table from 1 MeV to 100 TeV in 56 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+       Klein-Nishina : Emin=    0 eV  Emax=  100 TeV
+
+conv:  for gamma SubType=14 BuildTable=1
+      Lambda table from 1.022 MeV to 100 TeV, 18 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+     BetheHeitlerLPM : Emin=    0 eV  Emax=  100 TeV  ModifiedTsai
+
+Rayl:  for gamma SubType=11 BuildTable=1
+      Lambda table from 100 eV  to 100 keV, 7 bins/decade, spline: 0
+      LambdaPrime table from 100 keV to 100 TeV in 63 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+   LivermoreRayleigh : Emin=    0 eV  Emax=  100 TeV  CullenGenerator
+
+msc:  for e-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 MeV Nbins=42 100 eV  - 100 MeV
+              StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llimit=1
+        WentzelVIUni : Emin=  100 MeV Emax=  100 TeV Nbins=42 100 MeV - 100 TeV
+              StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llimit=1
+
+eIoni:  for e-  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha : Emin=    0 eV  Emax=  100 TeV
+
+eBrem:  for e-  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      LPM flag: 1 for E > 1 GeV,  VertexHighEnergyTh(GeV)= 100000
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+             eBremSB : Emin=    0 eV  Emax=    1 GeV  ModifiedTsai
+            eBremLPM : Emin=    1 GeV Emax=  100 TeV  ModifiedTsai
+
+CoulombScat:  for e-, integral:1  SubType=1 BuildTable=1
+      Lambda table from 100 MeV to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=  100 MeV Emax=  100 TeV
+
+msc:  for e+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 MeV Nbins=42 100 eV  - 100 MeV
+              StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llimit=1
+        WentzelVIUni : Emin=  100 MeV Emax=  100 TeV Nbins=42 100 MeV - 100 TeV
+              StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llimit=1
+
+eIoni:  for e+  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha : Emin=    0 eV  Emax=  100 TeV
+
+eBrem:  for e+  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      LPM flag: 1 for E > 1 GeV,  VertexHighEnergyTh(GeV)= 100000
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+             eBremSB : Emin=    0 eV  Emax=    1 GeV  ModifiedTsai
+            eBremLPM : Emin=    1 GeV Emax=  100 TeV  ModifiedTsai
+
+annihil:  for e+, integral:1  SubType=5 BuildTable=0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            eplus2gg : Emin=    0 eV  Emax=  100 TeV
+
+CoulombScat:  for e+, integral:1  SubType=1 BuildTable=1
+      Lambda table from 100 MeV to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=  100 MeV Emax=  100 TeV
+
+msc:  for proton  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for proton  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+hBrems:  for proton  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for proton  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 17x1001; from 7.50618 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for proton, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for GenericIon  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+ionIoni:  for GenericIon  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.02
+      Stopping Power data for 17 ion/material pairs
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            BraggIon : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+msc:  for alpha  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+ionIoni:  for alpha  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.02
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            BraggIon : Emin=    0 eV  Emax=7.9452 MeV
+          BetheBloch : Emin=7.9452 MeV Emax=  100 TeV
+
+msc:  for anti_proton  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for anti_proton  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+hBrems:  for anti_proton  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for anti_proton  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 17x1001; from 7.50618 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for anti_proton, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for kaon+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for kaon+  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=1.05231 MeV
+          BetheBloch : Emin=1.05231 MeV Emax=  100 TeV
+
+hBrems:  for kaon+  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for kaon+  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 18x1001; from 3.94942 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for kaon+, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for kaon-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for kaon-  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=1.05231 MeV
+          BetheBloch : Emin=1.05231 MeV Emax=  100 TeV
+
+hBrems:  for kaon-  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for kaon-  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 18x1001; from 3.94942 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for kaon-, integral:1  SubType=1 BuildTable=1
+      Used Lambda table of kaon+
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for mu+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+muIoni:  for mu+  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=  200 keV
+          BetheBloch : Emin=  200 keV Emax=    1 GeV
+        MuBetheBloch : Emin=    1 GeV Emax=  100 TeV
+
+muBrems:  for mu+  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+muPairProd:  for mu+  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 21x1001; from 1 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for mu+, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for mu-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+muIoni:  for mu-  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=  200 keV
+          BetheBloch : Emin=  200 keV Emax=    1 GeV
+        MuBetheBloch : Emin=    1 GeV Emax=  100 TeV
+
+muBrems:  for mu-  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+muPairProd:  for mu-  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 21x1001; from 1 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for mu-, integral:1  SubType=1 BuildTable=1
+      Used Lambda table of mu+
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for pi+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for pi+  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=297.505 keV
+          BetheBloch : Emin=297.505 keV Emax=  100 TeV
+
+hBrems:  for pi+  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for pi+  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 20x1001; from 1.11656 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for pi+, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for pi-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for pi-  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=297.505 keV
+          BetheBloch : Emin=297.505 keV Emax=  100 TeV
+
+hBrems:  for pi-  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for pi-  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 20x1001; from 1.11656 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for pi-, integral:1  SubType=1 BuildTable=1
+      Used Lambda table of pi+
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+====================================================================
+                  HADRONIC PROCESSES SUMMARY (verbose level 1)
+
+---------------------------------------------------
+                           Hadronic Processes for neutron
+
+  Process: hadElastic
+        Model:             hElasticCHIPS: 0 eV  ---> 100 TeV
+     Cr_sctns:        G4NeutronElasticXS: 0 eV  ---> 100 TeV
+
+  Process: neutronInelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:      G4NeutronInelasticXS: 0 eV  ---> 100 TeV
+
+  Process: nCapture
+        Model:               nRadCapture: 0 eV  ---> 100 TeV
+     Cr_sctns:        G4NeutronCaptureXS: 0 eV  ---> 100 TeV
+
+  Process: nKiller
+
+---------------------------------------------------
+                           Hadronic Processes for B-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: B-Inelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for D-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: D-Inelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for GenericIon
+
+  Process: ionInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+---------------------------------------------------
+                           Hadronic Processes for He3
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+  Process: He3Inelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+---------------------------------------------------
+                           Hadronic Processes for alpha
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+  Process: alphaInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+---------------------------------------------------
+                           Hadronic Processes for anti_He3
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: anti_He3Inelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_alpha
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: anti_alphaInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_deuteron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: anti_deuteronInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_lambda
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: anti_lambdaInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_neutron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100.1 MeV
+        Model:              AntiAElastic: 100 MeV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: anti_neutronInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_proton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100.1 MeV
+        Model:              AntiAElastic: 100 MeV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: anti_protonInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_triton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: anti_tritonInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for deuteron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+  Process: dInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+---------------------------------------------------
+                           Hadronic Processes for e+
+
+  Process: electronNuclear
+        Model:   G4ElectroVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:          ElectroNuclearXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for e-
+
+  Process: electronNuclear
+        Model:   G4ElectroVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:          ElectroNuclearXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for gamma
+
+  Process: photonNuclear
+        Model:               GammaNPreco: 0 eV  ---> 200 MeV
+        Model:            BertiniCascade: 199 MeV ---> 6 GeV
+        Model:           TheoFSGenerator: 3 GeV ---> 100 TeV
+     Cr_sctns:            PhotoNuclearXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for kaon+
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: kaon+Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for kaon-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: kaon-Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: hBertiniCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for lambda
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: lambdaInelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for mu+
+
+  Process: muonNuclear
+        Model:      G4MuonVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:     KokoulinMuonNuclearXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for mu-
+
+  Process: muonNuclear
+        Model:      G4MuonVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:     KokoulinMuonNuclearXS: 0 eV  ---> 100 TeV
+
+  Process: muMinusCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for pi+
+
+  Process: hadElastic
+        Model:           hElasticGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+  Process: pi+Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for pi-
+
+  Process: hadElastic
+        Model:           hElasticGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+  Process: pi-Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+  Process: hBertiniCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for proton
+
+  Process: hadElastic
+        Model:             hElasticCHIPS: 0 eV  ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+  Process: protonInelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for sigma-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: sigma-Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: hBertiniCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for triton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+  Process: tInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+================================================================
+=======================================================================
+======       Pre-compound/De-excitation Physics Parameters     ========
+=======================================================================
+Type of pre-compound inverse x-section              3
+Pre-compound model active                           1
+Pre-compound excitation low energy (MeV)            0.1
+Pre-compound excitation high energy (MeV)           30
+Type of de-excitation inverse x-section             3
+Type of de-excitation factory                       Evaporation+GEM
+Number of de-excitation channels                    68
+Min excitation energy (keV)                         0.01
+Min energy per nucleon for multifragmentation (MeV) 2e+05
+Limit excitation energy for Fermi BreakUp (MeV)     20
+Level density (1/MeV)                               0.075
+Use simple level density model                      1
+Use discrete excitation energy of the residual      0
+Time limit for long lived isomeres (ns)             1
+Isomer production flag                              1
+Internal e- conversion flag                         1
+Store e- internal conversion data                   0
+Electron internal conversion ID                     2
+Correlated gamma emission flag                      0
+Max 2J for sampling of angular correlations         10
+=======================================================================
+GiGaMT.GiGaActi...   INFO [ Master ] BeginOfRunAction(): execute '/tracking/verbose 0'
+GiGaMT.GiGaActi...   INFO [ Master ] BeginOfRunAction(): execute '/process/eLoss/verbose 0'
+GiGaMT.GiGaActi...  ERROR [ Master ] Illegal application state.
+ThreadPoolSvc        INFO no thread init tools attached
+AvalancheSchedu...   INFO Activating scheduler in a separate thread
+AlgResourcePool      INFO TopAlg list empty. Recovering the one of Application Manager
+RootHistSvc          INFO Writing ROOT histograms to: Gaussino-100ev-20250609-histos.root
+HistogramPersis...   INFO Added successfully Conversion service RootHistSvc
+TH1::TH1          WARNING nbins is <=0 - set to nbins = 1
+GenRndInit           INFO Setting timing barrier at  'FirstTimingEvent':1
+ParticleGun.Fla...   INFO Number of particles per event chosen randomly between 10000 and 10000
+ParticleGun.Fix...   INFO Particle type chosen randomly from : e-
+ParticleGun.Fix...   INFO Momentum: (0 GeV, 0 GeV, 0.05 GeV)
+ParticleGun       SUCCESS ==================================================================
+ParticleGun       SUCCESS Requested to generate EventType  'EventType':50000000
+ParticleGun       SUCCESS ==================================================================
+AvalancheSchedu...   INFO Found 4 algorithms
+AvalancheSchedu...   INFO Data Dependencies for Algorithms:
+  CalorimeterMonitoring
+    o INPUT  '/Event/Sim/G4Events'
+  GenRndInit
+    o OUTPUT '/Event/DAQ/ODIN'
+    o OUTPUT '/Event/Gen/BeamParameters'
+    o OUTPUT '/Event/Gen/HeaderPreGen'
+    o OUTPUT '/Event/SeedsInternalUsage'
+  ParticleGun
+    o INPUT  '/Event/Gen/HeaderPreGen'
+    o INPUT  '/Event/SeedsInternalUsage'
+    o OUTPUT '/Event/Gen/Collisions'
+    o OUTPUT '/Event/Gen/Header'
+    o OUTPUT '/Event/Gen/HepMCEvents'
+  GiGaAlg
+    o INPUT  '/Event/Gen/HepMCEvents'
+    o INPUT  '/Event/SeedsInternalUsage'
+    o OUTPUT '/Event/MC/Truths'
+    o OUTPUT '/Event/Sim/G4Events'
+PrecedenceSvc        INFO Assembling CF and DF task precedence rules
+PrecedenceSvc        INFO PrecedenceSvc initialized successfully
+AvalancheSchedu...   INFO Concurrency level information:
+AvalancheSchedu...   INFO  o Number of events in flight: 1
+AvalancheSchedu...   INFO  o TBB thread pool size:  'ThreadPoolSize':1
+AvalancheSchedu...   INFO  o Fiber thread pool size:  'NumOffloadThreads':2
+AvalancheSchedu...   INFO Task scheduling settings:
+AvalancheSchedu...   INFO  o Avalanche generation mode: disabled
+AvalancheSchedu...   INFO  o Preemptive scheduling of CPU-blocking tasks: disabled
+AvalancheSchedu...   INFO  o Scheduling of condition tasks: disabled
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT               INFO Initialized all G4 worker threads
+GiGaMT               INFO   AlgTool: GiGaMT.GiGaMTRunManagerFAC
+GiGaMT               INFO   AlgTool: GiGaMT.ModularPL
+GiGaMT               INFO   AlgTool: GiGaMT.GiGaWorkerPilotFAC
+GiGaMT               INFO   AlgTool: GiGaMT.DetConst
+GiGaMT               INFO   AlgTool: GiGaMT.GiGaActionInitializer
+GiGaMT               INFO   AlgTool: GiGaMT.HepMC3ToMCTruthConverter
+HiveSlimEventLo...WARNING Unable to locate service "EventSelector" 
+HiveSlimEventLo...WARNING No events will be processed from external input.
+HiveSlimEventLo...   INFO Found 0 events in black list
+ApplicationMgr       INFO Application Manager Initialized successfully
+ApplicationMgr       INFO Application Manager Started successfully
+HiveSlimEventLo...   INFO Starting loop on events
+GenRndInit           INFO Started loop timing!
+GenRndInit           INFO Evt 1,  Run 1,  Nr. in job = 1
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 221.187 MeV track length: 14.9992 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 474.839 MeV track length:  32.843 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.21023 GeV track length: 80.4642 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.19403 GeV track length: 3.41179 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 242.788 GeV track length: 200.069 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 104.566 GeV track length:  82.264 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 53.3196 GeV track length: 41.2611 m   layer number:       6 eventID:       0
+G4WT0 > Edep:  28.984 GeV track length: 22.3912 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 436.758 GeV track length:  350.68 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 7.57241 keV track length: 3.92303 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 45.5056 keV track length: 18.5947 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 150.779 keV track length: 40.1355 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.06271 MeV track length: 8.54597 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 19.0243 MeV track length: 69.3761 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 8.01114 MeV track length: 27.5245 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.59114 MeV track length: 14.9648 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 640.704 keV track length: 2.91898 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 35.5338 MeV track length: 123.957 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 2,  Run 1,  Nr. in job = 2
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 182.536 MeV track length: 12.6148 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 421.581 MeV track length: 28.1853 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.31299 GeV track length: 87.9984 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.11151 GeV track length: 3.37275 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 244.917 GeV track length: 201.788 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 105.207 GeV track length: 82.6001 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 50.9723 GeV track length: 39.2929 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 29.3474 GeV track length: 22.6543 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 437.472 GeV track length: 350.996 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 6.87594 keV track length: 2.54014 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 109.094 keV track length: 28.1287 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 260.612 keV track length: 88.2853 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.39472 MeV track length:    8.27 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 20.7278 MeV track length:  71.454 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 8.39834 MeV track length: 26.6533 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 3.81533 MeV track length: 13.6815 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 792.518 keV track length: 3.39282 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 37.5053 MeV track length: 124.641 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 3,  Run 1,  Nr. in job = 3
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 188.301 MeV track length: 12.9882 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 513.592 MeV track length: 34.8539 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.25527 GeV track length: 84.8352 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 4.85769 GeV track length: 3.14882 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 243.375 GeV track length: 200.525 m   layer number:       4 eventID:       0
+G4WT0 > Edep:  104.78 GeV track length: 82.2911 m   layer number:       5 eventID:       0
+G4WT0 > Edep:  52.807 GeV track length: 40.8859 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.3185 GeV track length: 21.8538 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 436.096 GeV track length: 350.032 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 12.8134 keV track length: 5.14624 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 103.164 keV track length: 22.2747 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 243.407 keV track length: 82.8026 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 2.99219 MeV track length: 7.51876 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 19.0392 MeV track length: 68.7994 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.60965 MeV track length: 25.8598 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.12713 MeV track length: 14.4198 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 683.035 keV track length: 3.09559 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 34.8106 MeV track length: 120.796 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 4,  Run 1,  Nr. in job = 4
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 200.823 MeV track length: 14.3477 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 437.661 MeV track length: 30.2781 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.26275 GeV track length: 84.2806 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.00373 GeV track length:  3.2762 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 243.263 GeV track length: 200.409 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 105.425 GeV track length: 82.8383 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.6919 GeV track length: 40.7765 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.1766 GeV track length: 21.7267 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 436.462 GeV track length: 350.316 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 5.24536 keV track length:  2.3041 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 44.1602 keV track length: 21.2439 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 316.464 keV track length:  71.566 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.73216 MeV track length: 9.70776 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 19.7773 MeV track length: 68.3119 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.07342 MeV track length: 25.4482 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.04442 MeV track length: 13.4694 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 595.672 keV track length: 2.48463 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 35.5889 MeV track length: 120.373 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 5,  Run 1,  Nr. in job = 5
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 169.742 MeV track length: 11.7886 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 432.051 MeV track length: 28.9938 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.20652 GeV track length: 79.9159 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.22227 GeV track length: 3.44421 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 243.489 GeV track length: 200.617 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 105.439 GeV track length: 82.9629 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.6236 GeV track length: 40.6497 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.5791 GeV track length: 22.0396 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 437.161 GeV track length:  350.92 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep:  11.273 keV track length: 7.21482 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 76.9535 keV track length: 29.8444 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 129.795 keV track length: 59.4703 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.65806 MeV track length: 9.08355 m   layer number:       3 eventID:       0
+G4WT0 > Edep:   21.03 MeV track length:  74.869 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 8.16816 MeV track length: 26.3849 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.42398 MeV track length:  14.674 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 542.056 keV track length: 2.47742 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 38.0403 MeV track length: 128.454 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 6,  Run 1,  Nr. in job = 6
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep:  193.23 MeV track length: 13.4356 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 508.197 MeV track length: 35.0165 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.21384 GeV track length: 80.8784 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.34981 GeV track length: 3.52912 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 244.297 GeV track length: 201.368 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 104.518 GeV track length: 82.2497 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 53.2274 GeV track length: 41.2303 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.4524 GeV track length: 21.8779 m   layer number:       7 eventID:       0
+G4WT0 > Edep:  437.76 GeV track length: 351.548 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep:  41.251 keV track length: 17.5184 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 111.775 keV track length:  15.305 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 298.028 keV track length: 86.2601 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.48892 MeV track length: 8.45504 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 19.4388 MeV track length:  68.805 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.42365 MeV track length: 25.7449 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 5.18154 MeV track length: 16.1045 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 747.727 keV track length: 3.18773 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 36.7316 MeV track length: 123.488 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 7,  Run 1,  Nr. in job = 7
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 166.417 MeV track length: 11.4991 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 488.782 MeV track length: 33.3498 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.25354 GeV track length: 83.9617 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.03464 GeV track length: 3.29662 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 241.975 GeV track length: 199.257 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 104.839 GeV track length: 82.4851 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.8898 GeV track length: 40.9006 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 29.2063 GeV track length: 22.5411 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 435.853 GeV track length: 349.768 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 26.1816 keV track length: 13.2417 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 37.5092 keV track length: 12.2545 cm  layer number:       1 eventID:       0
+G4WT0 > Edep:  278.58 keV track length: 63.6999 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.05873 MeV track length: 8.14225 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 19.6387 MeV track length: 69.8011 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.79265 MeV track length: 26.3662 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.17768 MeV track length:  14.523 m   layer number:       6 eventID:       0
+G4WT0 > Edep:  707.84 keV track length: 3.22221 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 35.7178 MeV track length: 122.947 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 8,  Run 1,  Nr. in job = 8
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 145.324 MeV track length: 9.64601 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 483.215 MeV track length: 32.9266 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.22861 GeV track length: 81.5071 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.16437 GeV track length: 3.39809 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 243.693 GeV track length: 200.772 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 104.292 GeV track length: 81.9677 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 53.0344 GeV track length: 40.9706 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.7014 GeV track length: 22.2069 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 436.742 GeV track length: 350.556 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 5.56573 keV track length:  1.1372 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 58.3598 keV track length: 28.1451 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 304.211 keV track length: 96.4589 cm  layer number:       2 eventID:       0
+G4WT0 > Edep:  3.0497 MeV track length: 7.70716 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 19.3924 MeV track length: 68.3441 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 8.02921 MeV track length: 28.1395 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.51849 MeV track length: 15.0075 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 816.014 keV track length: 3.17713 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 36.1739 MeV track length: 123.633 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 9,  Run 1,  Nr. in job = 9
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 214.145 MeV track length: 14.9455 cm  layer number:       0 eventID:       0
+G4WT0 > Edep:  449.37 MeV track length: 30.1908 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.26701 GeV track length: 84.2109 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.05044 GeV track length: 3.30337 m   layer number:       3 eventID:       0
+G4WT0 > Edep:  243.85 GeV track length: 200.721 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 105.029 GeV track length: 82.5765 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.9506 GeV track length: 40.9629 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.0509 GeV track length: 21.6164 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 436.862 GeV track length: 350.473 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 5.43532 keV track length: 1.85177 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 68.7986 keV track length: 22.3348 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 212.468 keV track length: 69.0149 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.44846 MeV track length: 8.36059 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 20.3292 MeV track length: 71.3633 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.51402 MeV track length: 25.9528 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 3.55139 MeV track length: 13.3211 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 735.055 keV track length: 3.29813 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 35.8648 MeV track length: 123.228 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 10,  Run 1,  Nr. in job = 10
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 187.061 MeV track length: 12.5714 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 486.325 MeV track length: 33.8509 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.23596 GeV track length: 83.0297 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 4.96186 GeV track length: 3.26232 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 243.038 GeV track length: 200.241 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 104.972 GeV track length: 82.6232 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 51.8872 GeV track length: 40.0966 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.8438 GeV track length:  22.247 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 435.613 GeV track length: 349.765 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep:  15.315 keV track length: 5.36162 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 56.6595 keV track length: 21.7276 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 180.339 keV track length: 58.1332 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.55601 MeV track length: 7.57232 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 19.7008 MeV track length: 69.6935 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 8.03513 MeV track length: 27.7463 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.45017 MeV track length: 15.2863 m   layer number:       6 eventID:       0
+G4WT0 > Edep:  619.45 keV track length: 2.87748 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 36.6138 MeV track length: 124.028 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 11,  Run 1,  Nr. in job = 11
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 213.164 MeV track length:  14.714 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 483.216 MeV track length: 33.4034 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.27804 GeV track length: 85.0519 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 4.90338 GeV track length: 3.20934 m   layer number:       3 eventID:       0
+G4WT0 > Edep:  244.54 GeV track length: 201.502 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 103.871 GeV track length: 81.5205 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.3352 GeV track length: 40.3674 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.9741 GeV track length: 22.4115 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 436.599 GeV track length: 350.343 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 1.19446 keV track length: 1.92218 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 91.0951 keV track length: 26.0573 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 428.043 keV track length: 1.14079 m   layer number:       2 eventID:       0
+G4WT0 > Edep:  3.3067 MeV track length: 8.25697 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 19.1613 MeV track length: 68.7797 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.48586 MeV track length: 25.5945 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.08782 MeV track length: 13.8752 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 752.599 keV track length: 3.29558 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 35.3146 MeV track length: 121.223 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 12,  Run 1,  Nr. in job = 12
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 192.837 MeV track length: 13.2521 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 473.171 MeV track length: 32.3445 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.22652 GeV track length: 82.0993 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.17608 GeV track length: 3.41523 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 243.949 GeV track length: 200.949 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 103.976 GeV track length: 81.7564 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.3061 GeV track length: 40.4132 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.9206 GeV track length:  22.337 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 436.221 GeV track length: 350.147 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 27.7958 keV track length: 13.3326 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 47.5067 keV track length: 12.4262 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 100.824 keV track length: 40.6288 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 2.98696 MeV track length: 7.08403 m   layer number:       3 eventID:       0
+G4WT0 > Edep:  20.979 MeV track length:  70.677 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.22334 MeV track length: 25.5398 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.20611 MeV track length:  14.142 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 805.077 keV track length: 3.19763 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 36.3766 MeV track length: 121.304 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 13,  Run 1,  Nr. in job = 13
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 176.135 MeV track length:  12.242 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 439.593 MeV track length: 30.1964 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.23619 GeV track length: 83.2827 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.04446 GeV track length: 3.29785 m   layer number:       3 eventID:       0
+G4WT0 > Edep:  244.46 GeV track length: 201.317 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 104.457 GeV track length: 82.0716 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 51.9622 GeV track length: 40.1356 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.6547 GeV track length:  22.113 m   layer number:       7 eventID:       0
+G4WT0 > Edep:  436.43 GeV track length: 350.192 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 49.3034 keV track length: 9.73851 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 12.7258 keV track length: 3.98071 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 245.759 keV track length: 57.5083 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.15843 MeV track length: 7.84682 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 18.9023 MeV track length: 69.6964 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 6.97659 MeV track length: 24.4312 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.57712 MeV track length: 14.9904 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 624.708 keV track length: 3.18564 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 34.5469 MeV track length: 120.863 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 14,  Run 1,  Nr. in job = 14
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 171.507 MeV track length: 11.6066 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 486.054 MeV track length:  32.877 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.36211 GeV track length: 92.5081 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.06082 GeV track length: 3.33069 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 242.683 GeV track length: 199.897 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 104.834 GeV track length: 82.5355 m   layer number:       5 eventID:       0
+G4WT0 > Edep:  52.262 GeV track length: 40.3757 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.9077 GeV track length: 22.2982 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 435.766 GeV track length: 349.807 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 3.84686 keV track length: 8.03051 mm  layer number:       0 eventID:       0
+G4WT0 > Edep: 20.4769 keV track length: 13.0333 cm  layer number:       1 eventID:       0
+G4WT0 > Edep:  200.13 keV track length:  56.918 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.55385 MeV track length: 8.49164 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 20.0267 MeV track length: 71.0944 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 8.15654 MeV track length: 27.5519 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.41991 MeV track length:  15.308 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 639.374 keV track length:  2.9606 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 37.0209 MeV track length: 126.114 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 15,  Run 1,  Nr. in job = 15
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 215.223 MeV track length: 14.8343 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 452.823 MeV track length: 30.7243 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.26774 GeV track length: 84.6723 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.15856 GeV track length: 3.37853 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 243.869 GeV track length: 201.037 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 104.061 GeV track length: 81.7659 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.4807 GeV track length: 40.6074 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 29.0529 GeV track length: 22.4658 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 436.559 GeV track length: 350.557 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 9.08468 keV track length: 7.03852 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 46.2152 keV track length: 25.1935 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 416.264 keV track length:  90.001 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 2.80156 MeV track length: 7.68829 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 19.7961 MeV track length: 69.4743 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.87413 MeV track length: 27.6422 m   layer number:       5 eventID:       0
+G4WT0 > Edep:  4.3633 MeV track length:  14.787 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 655.424 keV track length:  2.9115 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 35.9621 MeV track length: 123.726 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 16,  Run 1,  Nr. in job = 16
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 169.443 MeV track length: 11.3388 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 461.129 MeV track length: 31.0436 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.28786 GeV track length: 86.3226 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.05943 GeV track length:  3.3141 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 244.218 GeV track length: 201.222 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 104.729 GeV track length: 82.3093 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 51.4917 GeV track length: 39.8168 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 29.1267 GeV track length: 22.5402 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 436.543 GeV track length:  350.49 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 15.6239 keV track length: 6.22791 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 105.134 keV track length: 42.3845 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 275.319 keV track length:  87.603 cm  layer number:       2 eventID:       0
+G4WT0 > Edep:  3.5542 MeV track length: 9.57576 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 18.8215 MeV track length: 69.5865 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 6.80322 MeV track length: 23.8309 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.43649 MeV track length: 15.0995 m   layer number:       6 eventID:       0
+G4WT0 > Edep:  572.76 keV track length: 2.99278 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 34.5843 MeV track length: 122.448 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 17,  Run 1,  Nr. in job = 17
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 190.189 MeV track length: 12.9596 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 445.639 MeV track length: 30.0301 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.24126 GeV track length: 81.8953 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.11065 GeV track length: 3.32934 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 243.206 GeV track length: 200.347 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 106.359 GeV track length: 83.6914 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 51.6959 GeV track length: 39.9673 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 29.1598 GeV track length: 22.5681 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 437.409 GeV track length: 351.152 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 4.67903 keV track length: 2.70075 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 25.5932 keV track length: 9.48129 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 371.671 keV track length: 84.4495 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.69432 MeV track length: 8.48336 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 20.8055 MeV track length: 71.9659 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.76139 MeV track length: 26.9748 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 3.94967 MeV track length: 13.7334 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 563.044 keV track length: 2.53402 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 37.1759 MeV track length: 124.658 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 18,  Run 1,  Nr. in job = 18
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 168.371 MeV track length: 11.6863 cm  layer number:       0 eventID:       0
+G4WT0 > Edep:  431.19 MeV track length: 29.2886 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.34348 GeV track length: 90.2837 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.01505 GeV track length: 3.28055 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 242.651 GeV track length: 199.918 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 104.286 GeV track length: 81.9784 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.5499 GeV track length: 40.5592 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.6278 GeV track length: 22.0829 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 435.073 GeV track length: 349.132 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 6.40737 keV track length: 5.97691 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 109.934 keV track length: 28.1586 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 281.615 keV track length: 58.8182 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.09572 MeV track length: 7.90131 m   layer number:       3 eventID:       0
+G4WT0 > Edep:   19.85 MeV track length: 69.9143 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.11958 MeV track length: 26.4987 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.32377 MeV track length: 14.6096 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 712.937 keV track length: 3.29108 m   layer number:       7 eventID:       0
+G4WT0 > Edep:    35.5 MeV track length: 123.144 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 19,  Run 1,  Nr. in job = 19
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 213.715 MeV track length: 14.9264 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 448.807 MeV track length: 30.7627 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.29738 GeV track length: 86.9002 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 4.93204 GeV track length:  3.2003 m   layer number:       3 eventID:       0
+G4WT0 > Edep:  243.06 GeV track length: 200.154 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 104.882 GeV track length: 82.4461 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.6094 GeV track length:  40.698 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.9559 GeV track length: 22.3213 m   layer number:       7 eventID:       0
+G4WT0 > Edep:   436.4 GeV track length: 350.145 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 29.8836 keV track length: 7.03809 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 61.2146 keV track length: 32.5132 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 312.992 keV track length: 87.6713 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.59844 MeV track length: 7.94217 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 18.9661 MeV track length: 68.8646 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 8.56803 MeV track length: 29.2583 m   layer number:       5 eventID:       0
+G4WT0 > Edep:  4.5751 MeV track length:  15.568 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 795.015 keV track length:  3.2615 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 36.9067 MeV track length: 126.167 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 20,  Run 1,  Nr. in job = 20
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 180.381 MeV track length: 12.4042 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 450.513 MeV track length: 30.1141 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.20491 GeV track length: 79.5099 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.07113 GeV track length: 3.32256 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 243.292 GeV track length: 200.445 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 103.804 GeV track length: 81.6252 m   layer number:       5 eventID:       0
+G4WT0 > Edep:  52.749 GeV track length: 40.8578 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 29.0631 GeV track length: 22.4635 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 435.815 GeV track length: 349.935 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 23.7689 keV track length: 9.27836 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 36.7053 keV track length: 17.6623 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 205.951 keV track length: 47.1386 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.44996 MeV track length: 8.34669 m   layer number:       3 eventID:       0
+G4WT0 > Edep:  19.686 MeV track length:  69.338 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.79793 MeV track length: 25.7206 m   layer number:       5 eventID:       0
+G4WT0 > Edep:  4.2512 MeV track length: 14.4381 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 647.362 keV track length: 3.15062 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 36.0989 MeV track length: 121.735 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 21,  Run 1,  Nr. in job = 21
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 193.024 MeV track length: 13.4843 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 463.521 MeV track length: 31.6927 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.25828 GeV track length: 84.4117 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.07703 GeV track length: 3.34357 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 244.204 GeV track length: 201.191 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 104.892 GeV track length: 82.3764 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.6241 GeV track length:   40.73 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.6305 GeV track length: 22.1223 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 437.342 GeV track length:  351.06 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 5.18554 keV track length: 1.72742 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 116.177 keV track length: 31.7326 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 309.682 keV track length: 81.3281 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.12628 MeV track length: 7.58635 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 19.1373 MeV track length:   68.81 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.52366 MeV track length: 25.7917 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.31399 MeV track length: 14.5826 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 721.527 keV track length: 2.96702 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 35.2538 MeV track length: 120.886 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 22,  Run 1,  Nr. in job = 22
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 254.098 MeV track length: 18.3867 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 464.363 MeV track length: 31.5563 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.28195 GeV track length:  86.905 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.04713 GeV track length: 3.28966 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 244.636 GeV track length: 201.572 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 104.696 GeV track length: 82.2044 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.0261 GeV track length: 40.2139 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.4059 GeV track length: 21.8617 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 436.812 GeV track length: 350.511 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 31.4636 keV track length: 9.29974 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 33.8344 keV track length: 13.8274 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 216.703 keV track length:  60.003 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.13664 MeV track length: 8.48775 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 19.9299 MeV track length: 72.2348 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.47778 MeV track length: 25.6579 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.05655 MeV track length: 13.6811 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 633.007 keV track length: 2.98531 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 35.5159 MeV track length: 123.878 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 23,  Run 1,  Nr. in job = 23
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 182.989 MeV track length: 12.7407 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 457.829 MeV track length: 31.7201 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.24504 GeV track length:  82.046 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.18982 GeV track length: 3.42645 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 244.092 GeV track length: 201.124 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 105.376 GeV track length: 82.8734 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 51.7222 GeV track length: 39.9436 m   layer number:       6 eventID:       0
+G4WT0 > Edep:  28.869 GeV track length: 22.2988 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 437.135 GeV track length: 350.932 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 59.3932 keV track length: 14.7603 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 73.0662 keV track length:  21.581 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 189.384 keV track length: 48.2247 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.52281 MeV track length: 8.87292 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 19.8352 MeV track length: 69.4026 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.48394 MeV track length: 26.3116 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.15273 MeV track length: 14.5728 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 761.645 keV track length: 3.29103 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 36.0782 MeV track length: 123.297 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 24,  Run 1,  Nr. in job = 24
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 180.078 MeV track length:  12.368 cm  layer number:       0 eventID:       0
+G4WT0 > Edep:  437.97 MeV track length: 29.8344 cm  layer number:       1 eventID:       0
+G4WT0 > Edep:   1.237 GeV track length: 82.0592 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.08082 GeV track length: 3.34187 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 243.189 GeV track length: 200.376 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 106.277 GeV track length: 83.5547 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.4884 GeV track length: 40.5704 m   layer number:       6 eventID:       0
+G4WT0 > Edep:   28.92 GeV track length: 22.3183 m   layer number:       7 eventID:       0
+G4WT0 > Edep:  437.81 GeV track length: 351.404 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 9.00184 keV track length:  6.0654 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 140.014 keV track length: 31.2516 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 349.057 keV track length: 94.4493 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.18424 MeV track length: 8.15994 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 18.9142 MeV track length: 69.0668 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.40693 MeV track length: 25.9732 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.40546 MeV track length: 15.0229 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 522.597 keV track length: 2.75817 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 34.9315 MeV track length: 122.299 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 25,  Run 1,  Nr. in job = 25
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 149.486 MeV track length: 10.0166 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 454.744 MeV track length: 30.5206 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.31943 GeV track length: 88.9152 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.10348 GeV track length: 3.33749 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 243.016 GeV track length: 200.332 m   layer number:       4 eventID:       0
+G4WT0 > Edep:  106.42 GeV track length:  83.712 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.8872 GeV track length: 40.8962 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.0364 GeV track length: 21.5801 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 437.387 GeV track length: 351.153 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 17.8013 keV track length: 4.40274 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 83.9941 keV track length: 30.3744 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 189.469 keV track length: 67.9225 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.40356 MeV track length: 8.48089 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 20.7709 MeV track length: 73.6779 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 8.02088 MeV track length: 27.9252 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 3.97311 MeV track length: 14.5502 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 676.523 keV track length: 2.63586 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 37.1363 MeV track length: 128.297 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 26,  Run 1,  Nr. in job = 26
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 185.146 MeV track length: 12.9924 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 421.668 MeV track length: 28.6172 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.17744 GeV track length: 77.8357 cm  layer number:       2 eventID:       0
+G4WT0 > Edep:  4.9841 GeV track length: 3.27402 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 243.578 GeV track length: 200.737 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 105.682 GeV track length: 83.0875 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.2691 GeV track length: 40.3972 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 29.0284 GeV track length: 22.4456 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 437.326 GeV track length: 351.136 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 52.8055 keV track length: 14.7081 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 199.021 keV track length: 41.1894 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 258.114 keV track length:  67.967 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.51942 MeV track length: 9.12037 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 20.6346 MeV track length: 72.4758 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.71938 MeV track length: 27.9931 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.50184 MeV track length: 15.1409 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 632.435 keV track length: 2.79656 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 37.5176 MeV track length: 128.765 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 27,  Run 1,  Nr. in job = 27
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep:  195.57 MeV track length: 13.6338 cm  layer number:       0 eventID:       0
+G4WT0 > Edep:  460.47 MeV track length:  31.926 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.19694 GeV track length: 79.7543 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 4.85466 GeV track length:  3.1522 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 242.766 GeV track length: 200.036 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 105.051 GeV track length: 82.5174 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.3242 GeV track length: 40.4155 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.9628 GeV track length:  22.383 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 435.812 GeV track length: 349.757 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep:  44.967 keV track length: 6.41407 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 92.3519 keV track length:  38.933 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 196.822 keV track length: 41.1583 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.01511 MeV track length: 7.73991 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 20.0694 MeV track length: 69.6629 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 6.69577 MeV track length:  23.713 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.45782 MeV track length: 14.6549 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 684.193 keV track length: 3.09231 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 35.2565 MeV track length: 119.728 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 28,  Run 1,  Nr. in job = 28
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 172.463 MeV track length: 11.7825 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 473.748 MeV track length: 32.6548 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.23807 GeV track length: 82.0159 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.01873 GeV track length: 3.26773 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 244.028 GeV track length: 200.995 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 105.019 GeV track length: 82.5471 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.2094 GeV track length:  40.352 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.5975 GeV track length: 22.0754 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 436.757 GeV track length: 350.502 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 37.9114 keV track length: 15.1265 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 117.277 keV track length: 24.2512 cm  layer number:       1 eventID:       0
+G4WT0 > Edep:  195.93 keV track length:  49.432 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 2.92941 MeV track length: 7.18339 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 18.5975 MeV track length: 68.7096 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.75706 MeV track length: 26.5028 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 3.62848 MeV track length: 12.9496 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 661.496 keV track length:  3.2213 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 33.9251 MeV track length: 119.455 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 29,  Run 1,  Nr. in job = 29
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 230.871 MeV track length: 16.0047 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 504.116 MeV track length: 34.1574 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.23283 GeV track length: 82.3163 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.18965 GeV track length: 3.40302 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 245.907 GeV track length: 202.501 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 103.835 GeV track length: 81.5168 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 51.7002 GeV track length: 39.9399 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.6066 GeV track length: 22.1038 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 437.206 GeV track length:  350.79 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep:  16.629 keV track length: 5.06483 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 4.77865 keV track length: 1.85021 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 222.596 keV track length: 62.5733 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.11849 MeV track length: 7.70903 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 18.9002 MeV track length: 68.0279 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.89695 MeV track length: 27.6744 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.27252 MeV track length: 14.9279 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 504.089 keV track length:  2.5851 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 34.9363 MeV track length: 121.619 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 30,  Run 1,  Nr. in job = 30
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 168.928 MeV track length: 11.6695 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 510.934 MeV track length: 35.4431 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.28264 GeV track length: 86.3593 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.03336 GeV track length: 3.28638 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 244.937 GeV track length: 201.822 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 102.626 GeV track length:  80.675 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 52.8264 GeV track length: 40.9112 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 29.2941 GeV track length: 22.6555 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 436.679 GeV track length: 350.685 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 44.3073 keV track length: 6.37485 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 100.762 keV track length: 20.8755 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 240.728 keV track length:  74.276 cm  layer number:       2 eventID:       0
+G4WT0 > Edep:  3.2655 MeV track length: 8.33379 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 20.0624 MeV track length: 69.8309 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.87216 MeV track length:  25.892 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 3.81197 MeV track length: 14.0619 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 628.133 keV track length: 2.87123 m   layer number:       7 eventID:       0
+G4WT0 > Edep:  36.026 MeV track length: 122.005 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 31,  Run 1,  Nr. in job = 31
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep: 187.257 MeV track length: 12.6442 cm  layer number:       0 eventID:       0
+G4WT0 > Edep: 488.044 MeV track length: 33.3418 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 1.29769 GeV track length: 87.5057 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 5.05275 GeV track length: 3.31652 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 243.894 GeV track length: 200.899 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 104.435 GeV track length: 82.0353 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 51.3635 GeV track length: 39.7646 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 28.9138 GeV track length:  22.321 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 435.632 GeV track length: 349.671 m   layer number:      -1 eventID:       0
+G4WT0 > 
+G4WT0 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT0 > Edep:       0 eV  track length:       0 fm  layer number:       0 eventID:       0
+G4WT0 > Edep: 64.8444 keV track length: 17.3031 cm  layer number:       1 eventID:       0
+G4WT0 > Edep: 140.136 keV track length: 49.6727 cm  layer number:       2 eventID:       0
+G4WT0 > Edep: 3.18806 MeV track length: 8.43176 m   layer number:       3 eventID:       0
+G4WT0 > Edep: 18.9316 MeV track length: 68.9869 m   layer number:       4 eventID:       0
+G4WT0 > Edep: 7.87223 MeV track length: 25.9499 m   layer number:       5 eventID:       0
+G4WT0 > Edep: 4.25774 MeV track length: 14.3396 m   layer number:       6 eventID:       0
+G4WT0 > Edep: 701.952 keV track length: 3.02316 m   layer number:       7 eventID:       0
+G4WT0 > Edep: 35.1565 MeV track length: 121.401 m   layer number:      -1 eventID:       0
+GenRndInit           INFO Evt 32,  Run 1,  Nr. in job = 32
+# Command: stack/Gaussino/run env PARTICLES_PER_EVENT=10000 PARTICLE_TYPE=electron NUMBER_OF_THREADS=1 gaudirun.py B4LayeredCalorimeter/configs/options.py B4LayeredCalorimeter/configs/geant4_simulation.py
+# Timestamp: 2025-06-09T16:16:24.070979
+
