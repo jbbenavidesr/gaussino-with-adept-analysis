@@ -167,8 +167,8 @@ def create_run_directory(output_dir: Path) -> Path:
 
     try:
         previous_run = max(
-        int(dir.name.split("_")[0]) for dir in output_dir.iterdir() if dir.is_dir()
-    )
+            int(dir.name.split("_")[0]) for dir in output_dir.iterdir() if dir.is_dir()
+        )
     except ValueError:
         logger.info("First test for this benchmark")
         previous_run = 0
@@ -201,7 +201,9 @@ def run_simulation(
 
     # Create a descriptive filename based on parameters and simulation type
     param_str = "_".join([f"{k}={v}" for k, v in param_dict.items()])
-    output_filename = f"{simulation_file.stem}_{param_str}.log"
+    output_base = f"{simulation_file.stem}_{param_str}"
+    output_filename = f"{output_base}.log"
+    output_root_filename = f"{output_base}.root"
     output_path = output_dir / output_filename
 
     # Build command
@@ -235,13 +237,30 @@ def run_simulation(
         with open(output_path, "a") as f:
             f.write(f"\n# Execution time: {execution_time:.2f} seconds\n")
 
-        # Return success status, output path, and execution time
-        return process.returncode == 0, output_path, execution_time
     except Exception as e:
         end_time = time.time()
         execution_time = end_time - start_time
         logger.error(f"Error running simulation: {e}")
         return False, None, execution_time
+
+    # Move output files to output_dir
+    current_dir = Path.cwd()
+    root_files = list(current_dir.glob("*.root"))
+
+    if not root_files:
+        logger.warn(f"No `.root` file found in {current_dir}")
+    elif len(root_files) > 1:
+        logger.warn(
+            f"Multiple `.root` files found in {current_dir}: {[str(f) for f in root_files]}"
+        )
+    else:
+        original_file = root_files[0]
+        destination_file = output_dir / output_root_filename
+
+        original_file.rename(destination_file)
+
+    # Return success status, output path, and execution time
+    return process.returncode == 0, output_path, execution_time
 
 
 if __name__ == "__main__":
