@@ -1,175 +1,237 @@
+"""Result extraction for Gaussino simulation test runs"""
+
 from __future__ import annotations
 
-import logging
-import re
-import csv
-from dataclasses import dataclass
-from typing import Generic, TypeVar, Iterable, Any
-from pathlib import Path
 import argparse
-import sys
+import json
+import csv
+import logging
+from pathlib import Path
+import re
 
-
-SimulationData = TypeVar("SimulationData")
-
-
-def setup_logging():
-    """Configure logging for the script."""
-    logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s - %(levelname)s - %(message)s",
-        datefmt="%Y-%m-%d %H:%M:%S",
-    )
-    return logging.getLogger(__name__)
-
-class BaseSimulationLogParser(Generic[SimulationData]):
-    """Base class that has the main logic for specific simulation parsers"""
-
-    EVENT_PATTERN: str
-    RESULT_LINE_PATTERN: str
-    CSV_HEADERS: list[str]
-
-    def __init__(self, input_file: Path, output_file: Path):
-        self.input_file = input_file
-        self.output_file = output_file
-        self.current_event: str | None = None
-
-    def parse_event_line(self, line: str) -> str | None:
-        """Extract event ID from event line if present."""
-        event_match = re.search(self.EVENT_PATTERN, line)
-        return event_match.group(1) if event_match else None
-
-    def parse_result_line(self, line: str) -> SimulationData | None:
-        """Extract necessary data from a line of results"""
-        raise NotImplementedError
-
-    def write_result_line(self, line: SimulationData) -> Iterable[Any]:
-        """Convert a data line into an iterable that can be turned into a csv"""
-        raise NotImplementedError
-
-    def write_to_csv(self, data_list: list[SimulationData]):
-        """Write parsed data to CSV file."""
-        with open(self.output_file, "w", newline="") as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow(self.CSV_HEADERS)
-
-            for data_line in data_list:
-                writer.writerow(self.write_result_line(data_line))
-
-    def parse(self):
-        """Main parsing method to process the log file."""
-        data_list = []
-
-        with open(self.input_file, "r") as f:
-            for line in f:
-                # Check for event line
-                event_id = self.parse_event_line(line)
-                if event_id:
-                    self.current_event = event_id
-                    continue
-
-                # Check for result data line
-                result_data = self.parse_result_line(line)
-                if result_data:
-                    data_list.append(result_data)
-
-        self.write_to_csv(data_list)
-
-
-@dataclass
-class ChamberData:
-    event_id: str
-    chamber_id: str
-    hits: int
-    energy: float
-    particles: int
-
-
-class GaussinoB2aSimulationLogParser(BaseSimulationLogParser[ChamberData]):
-    # Class constants for regex patterns
-    EVENT_PATTERN = r"GenRndInit.*Evt\s+(\d+)"
-    RESULT_LINE_PATTERN = (
-        r"GiGaMT.*SUCCESS.*"
-        r"#Hits=\s*(\d+)\s+"
-        r"Energy=\s*([0-9.e+-]+)\[GeV\]\s+"
-        r"#Particles=\s*(\d+)\s+"
-        r"in\s+(ExternalDetectorEmbedder_Chamber_\d+SDet)"
-    )
-
-    CSV_HEADERS = ["Event ID", "Chamber ID", "# Hits", "Energy [GeV]", "# Particles"]
-
-    def parse_result_line(self, line: str) -> ChamberData | None:
-        """Extract chamber data from chamber line if present."""
-        if not self.current_event:
-            return None
-
-        chamber_match = re.search(self.RESULT_LINE_PATTERN, line)
-        if not chamber_match:
-            return None
-
-        return ChamberData(
-            event_id=self.current_event,
-            chamber_id=chamber_match.group(4),
-            hits=chamber_match.group(1),
-            energy=chamber_match.group(2),
-            particles=chamber_match.group(3),
-        )
-
-    def write_result_line(self, line: ChamberData) -> list[Any]:
-        return [
-            line.event_id,
-            line.chamber_id,
-            line.hits,
-            line.energy,
-            line.particles,
-        ]
-
-
-def get_result_parser(
-    simulation_name: str, input_file: Path, output_file: Path
-) -> BaseSimulationLogParser:
-    parsers = {
-        "gaussinoB2a": GaussinoB2aSimulationLogParser,
-    }
-
-    try:
-        return parsers[simulation_name](input_file, output_file)
-    except KeyError as e:
-        raise ValueError(
-            f"Simulation with name {simulation_name} has no parser defined"
-        ) from e
-
-
-def parse_arguments() -> argparse.Namespace:
-    """Parse command line arguments."""
-    parser = argparse.ArgumentParser(
-        description="Parse simulation log file and extract chamber data to CSV."
-    )
-    parser.add_argument(
-        "-i", "--input", type=Path, required=True, help="Path to the input log file"
-    )
-    parser.add_argument(
-        "-o", "--output", type=Path, required=True, help="Path for the output CSV file"
-    )
-    parser.add_argument(
-        "-s", "--simulation", type=str, required=True, help="Name of the simulation."
-    )
-    return parser.parse_args()
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+logger = logging.getLogger(__name__)
 
 
 def main():
+    args = parse_args()
+
+    logger.info(args)
+
     try:
-        args = parse_arguments()
-        parser = get_result_parser(args.simulation, args.input, args.output)
-        parser.parse()
-        logger.info(f"Successfully parsed {args.input} and saved results to {args.output}")
-    except Exception:
-        logger.exception("There was an error processing the results.")
-        sys.exit(1)
+        extract_results(args.benchmark, args.iteration, args.extract)
+    except Exception as e:
+        logger.exception(f"There was an error in the extraction: {e}")
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Extract results from Gaussino simulation test runs."
+    )
+    parser.add_argument(
+        "--benchmark",
+        type=str,
+        required=True,
+        help="Benchmark name (e.g. B4LayeredCalorimeter)",
+    )
+    parser.add_argument(
+        "--iteration",
+        type=str,
+        required=True,
+        help="ID number of the iteration within a benchmark to be extracted",
+    )
+    parser.add_argument(
+        "--extract",
+        type=str,
+        required=False,
+        choices=["performance", "physics"],
+        default="performance",
+        help="Type of extraction",
+    )
+
+    return parser.parse_args()
+
+
+def extract_results(
+    benchmark_name: str,
+    iteration_id: str,
+    extract_type: str,
+):
+    # Step 1: Load run_config.json
+    config = load_run_config(benchmark_name)
+    output_dir = Path(benchmark_name) / config["output_dir"]
+
+    # Step 2: Find the iteration folder
+    iteration_folder = find_iteration_folder(output_dir, iteration_id)
+
+    # Step 3: Load simulation_metadata.json
+    metadata = load_simulation_metadata(iteration_folder)
+
+    # Step 4: Get extractor
+    extractor = get_extractor(extract_type)
+
+    # Step 5: Process logs
+    results = process_logs(iteration_folder, metadata, extractor)
+
+    # Step 6: Export results to CSV
+    export_to_csv(results, iteration_folder)
+
+
+def load_run_config(benchmark_name: str) -> dict:
+    """
+    Load the run_config.json file for the given benchmark.
+    """
+    config_path = Path(benchmark_name) / "run_config.json"
+    if not config_path.exists():
+        logger.debug(f"Config searched in path: {config_path}")
+        raise FileNotFoundError(
+            f"run_config.json not found for benchmark: {benchmark_name}"
+        )
+    with config_path.open() as f:
+        return json.load(f)
+
+
+def find_iteration_folder(output_dir: Path, iteration_id: str):
+    """
+    Find the iteration folder matching the given iteration_id in the output directory.
+    """
+    output_path = Path(output_dir)
+    if not output_path.exists():
+        raise FileNotFoundError(f"Output directory not found: {output_dir}")
+
+    # Match folders like {id}_{date}
+    iteration_folders = list(output_path.glob(f"{iteration_id}_*"))
+    if not iteration_folders:
+        raise FileNotFoundError(f"No iteration folder found for ID: {iteration_id}")
+    if len(iteration_folders) > 1:
+        raise ValueError(f"Multiple iteration folders found for ID: {iteration_id}")
+
+    return iteration_folders[0]
+
+
+def load_simulation_metadata(iteration_folder):
+    """
+    Load the simulation_metadata.json file from the iteration folder.
+    """
+    metadata_path = iteration_folder / "simulation_metadata.json"
+    if not metadata_path.exists():
+        raise FileNotFoundError(
+            f"simulation_metadata.json not found in: {iteration_folder}"
+        )
+
+    with metadata_path.open() as f:
+        return json.load(f)
+
+
+def performance_extractor(log_data):
+    """
+    Extract performance metrics from log data.
+
+    Args:
+        log_data (str): The content of the log file as a string.
+
+    Returns:
+        dict: A dictionary containing the extracted performance metrics.
+    """
+    # Define regex patterns for each metric
+    patterns = {
+        "event_loop_time": r"Measured event loop time \[ns\]: ([\d.e+-]+)",
+        "time_per_event": r"Time per event \[s\]: ([\d.e+-]+)",
+        "throughput": r"Throughput \[1/s\]: ([\d.e+-]+)",
+    }
+
+    # Initialize a dictionary to hold the results
+    results = {}
+
+    # Search for each pattern in the log data
+    for key, pattern in patterns.items():
+        match = re.search(pattern, log_data)
+        if match:
+            results[key] = float(
+                match.group(1)
+            )  # Convert to float for numerical values
+
+    return results
+
+
+EXTRACTORS = {
+    "performance": performance_extractor,
+}
+
+
+def get_extractor(extractor_type: int):
+    return EXTRACTORS.get(extractor_type, None)
+
+
+def process_logs(iteration_folder, metadata, extractor):
+    """
+    Process log files based on the metadata and extract relevant data.
+    """
+    results = []
+
+    for run in metadata["runs"]:
+        log_path = Path(run["output_path"])
+        if not log_path.exists():
+            logger.warn(f"Warning: Log file not found: {log_path}")
+            continue
+
+        with log_path.open() as f:
+            log_data = f.read()
+
+        results.append(
+            {
+                "log_file": run["output_path"],
+                "parameters": run["parameters"],
+                "execution_time": run["execution_time"],
+                "results": extractor(log_data),
+            }
+        )
+
+    return results
+
+
+def export_to_csv(results, output_path):
+    """
+    Export the processed results to a CSV file without using Pandas.
+    Dynamically creates columns for parameters, execution time, and extracted fields.
+    """
+    # Dynamically determine the column names
+    if not results:
+        raise ValueError("No results to write to CSV.")
+
+    # Extract all parameter keys and result keys dynamically
+    parameter_keys = set()
+    result_keys = set()
+    for result in results:
+        parameter_keys.update(result["parameters"].keys())
+        result_keys.update(result["results"].keys())
+
+    # Define the CSV header
+    header = ["log_file", "execution_time"] + list(parameter_keys) + list(result_keys)
+
+    # Write the CSV file
+    csv_path = output_path / "results.csv"
+    with csv_path.open("w", newline="") as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=header)
+        writer.writeheader()
+
+        for result in results:
+            # Flatten the parameters and results into a single row
+            row = {
+                "log_file": result["log_file"],
+                "execution_time": result["execution_time"],
+                **result["parameters"],  # Add parameter columns
+                **result["results"],  # Add extracted result columns
+            }
+            writer.writerow(row)
+
+    logger.info(f"Results exported to: {csv_path}")
 
 
 if __name__ == "__main__":
-    # Set up logging
-    logger = setup_logging()
-
     main()
+
