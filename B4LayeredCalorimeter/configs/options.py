@@ -28,7 +28,7 @@ particle_types = {
 particles_per_event = int(os.environ.get("PARTICLES_PER_EVENT", 100))
 nthreads = int(os.environ.get("NUMBER_OF_THREADS", 1))
 particle_type = particle_types.get(os.environ.get("PARTICLE_TYPE", "electron"), 11)
-number_of_events = int(os.environ.get("NUMBER_OF_EVENTS", 100))
+number_of_events = int(os.environ.get("NUMBER_OF_EVENTS", 10))
 
 ## constants
 n_layers = 8
