@@ -187,6 +187,7 @@ def process_logs(iteration_folder, metadata, extractor):
                 "log_file": run["output_path"],
                 "parameters": run["parameters"],
                 "execution_time": run["execution_time"],
+                "with_adept": run["with_adept"],
                 "results": extractor(log_data),
             }
         )
@@ -211,7 +212,11 @@ def export_to_csv(results, output_path):
         result_keys.update(result["results"].keys())
 
     # Define the CSV header
-    header = ["log_file", "execution_time"] + list(parameter_keys) + list(result_keys)
+    header = (
+        ["log_file", "execution_time", "with_adept"]
+        + list(parameter_keys)
+        + list(result_keys)
+    )
 
     # Write the CSV file
     csv_path = output_path / "results.csv"
@@ -224,6 +229,7 @@ def export_to_csv(results, output_path):
             row = {
                 "log_file": result["log_file"],
                 "execution_time": result["execution_time"],
+                "with_adept": result["with_adept"],
                 **result["parameters"],  # Add parameter columns
                 **result["results"],  # Add extracted result columns
             }
@@ -234,4 +240,3 @@ def export_to_csv(results, output_path):
 
 if __name__ == "__main__":
     main()
-
