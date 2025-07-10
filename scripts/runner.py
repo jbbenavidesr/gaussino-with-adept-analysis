@@ -146,6 +146,7 @@ def run_all_simulations(config: RunnerConfig):
                     "output_path": str(output_path) if output_path else None,
                     "execution_time": execution_time,
                     "success": success,
+                    "with_adept": "adept_simulation" == sim_file.stem,
                 }
             )
 
