@@ -1,0 +1,1313 @@
+WARNING  No valid ticket found. Please get a new one with
+WARNING  
+WARNING      kinit -r 7d <username>@CERN.CH
+WARNING  
+# setting LC_ALL to "C"
+# --> Including file '/home/jbenavid/workspace/B4LayeredCalorimeter/configs/options.py'
+# <-- End of file '/home/jbenavid/workspace/B4LayeredCalorimeter/configs/options.py'
+# --> Including file '/home/jbenavid/workspace/B4LayeredCalorimeter/configs/geant4_simulation.py'
+# <-- End of file '/home/jbenavid/workspace/B4LayeredCalorimeter/configs/geant4_simulation.py'
+# applying configuration of Gaussino
+# /***** User Gaussino/Gaussino **********************************************************************
+# |-EvtMax            = 10  (default: -1)
+# |-Phases            = ['Generator', 'Simulation']  (default: ['Generator', 'Simulation'])
+# |-FirstEventNumber  = 1
+# |-RunNumber         = 1
+# |-Histograms        = 'DEFAULT'
+# |-DatasetName       = 'Gaussino'
+# |-DatasetNameForced = False
+# |-OutputType        = 'SIM'
+# |-EnableHive        = True  (default: True)
+# |-ThreadPoolSize    = 32  (default: 1)
+# |-EventSlots        = 32  (default: 1)
+# |-FirstTimingEvent  = 1
+# |-Debug             = False
+# |-ReDecay           = False
+# |-ConvertEDM        = False
+# |-ParticleTable     = '$GAUSSINOROOT/data/ParticleTable.txt'
+# |-MLOptions         = {}  (default: {})
+# \----- (End of User Gaussino/Gaussino) -------------------------------------------------------------
+# applying configuration of B4Calorimeter
+# /***** User ExternalDetectorEmbedder/B4Calorimeter *************************************************
+# |-Shapes        = {'B4Calorimeter_Calorimeter': {'Type': 'Cuboid', 'LogicalVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 120.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 0.0}, 'B4Calorimeter_Layer_0': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -52.5, 'pCopyNo': 0}, 'B4Calorimeter_Layer_1': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -37.5, 'pCopyNo': 1}, 'B4Calorimeter_Layer_2': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -22.5, 'pCopyNo': 2}, 'B4Calorimeter_Layer_3': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -7.5, 'pCopyNo': 3}, 'B4Calorimeter_Layer_4': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 7.5, 'pCopyNo': 4}, 'B4Calorimeter_Layer_5': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 22.5, 'pCopyNo': 5}, 'B4Calorimeter_Layer_6': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 37.5, 'pCopyNo': 6}, 'B4Calorimeter_Layer_7': {'Type': 'Cuboid', 'MotherVolumeName': 'B4Calorimeter_Calorimeter_lVol', 'LogicalVolumeName': 'Layer_lVol', 'MaterialName': 'OUTER_SPACE', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 15.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 52.5, 'pCopyNo': 7}, 'B4Calorimeter_Layer_Absorber': {'Type': 'Cuboid', 'MotherVolumeName': 'Layer_lVol', 'MaterialName': 'G4_Pb', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 10.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': -2.5}, 'B4Calorimeter_Layer_Gap': {'Type': 'Cuboid', 'MotherVolumeName': 'Layer_lVol', 'MaterialName': 'G4_Ar', 'xSize': 100.0, 'ySize': 100.0, 'zSize': 5.0, 'xPos': 0.0, 'yPos': 0.0, 'zPos': 5.0}}
+# |               (default: {})
+# |-Sensitive     = {'B4Calorimeter_Layer_Absorber': {'Type': 'CalorimeterCollectorSensDet', 'NofLayers': 8}, 'B4Calorimeter_Layer_Gap': {'Type': 'CalorimeterCollectorSensDet', 'NofLayers': 8}}
+# |               (default: {})
+# |-Hit           = {}  (default: {})
+# |-Moni          = {}  (default: {})
+# |-Materials     = {'OUTER_SPACE': {'AtomicNumber': 1.0, 'MassNumber': 6.303924743591621e+21, 'Density': 6.241509647120416e-07, 'Pressure': 1.872452894136125e-14, 'Temperature': 2.73}, 'G4_Pb': {'Type': 'MaterialFromNIST'}, 'G4_Ar': {'Type': 'MaterialFromNIST'}}
+# |               (default: {})
+# |-World         = {'WorldMaterial': 'OUTER_SPACE', 'Type': 'ExternalWorldCreator', 'WorldSizeX': 60.0, 'WorldSizeY': 60.0, 'WorldSizeZ': 72.0}
+# |               (default: {})
+# |-MagneticField = {}  (default: {})
+# \----- (End of User ExternalDetectorEmbedder/B4Calorimeter) ----------------------------------------
+# applying configuration of GaussinoGeneration
+# /***** User GaussinoGeneration/GaussinoGeneration **************************************************
+# |-WriteHepMC               = False
+# |-SampleGenerationTool     = 'SignalPlain'
+# |-SampleGenerationToolOpts = {}  (default: {})
+# |-PileUpTool               = 'FixedLuminosityWithSvc'
+# |-VertexSmearingTool       = 'BeamSpotSmearVertexWithSvc'
+# |-ProductionTool           = 'Pythia8ProductionMT'
+# |-ProductionToolOpts       = {}  (default: {})
+# |-DecayTool                = ''
+# |-CutTool                  = ''
+# |-CutToolOpts              = {}  (default: {})
+# |-FullGenEventCutTool      = ''
+# |-FullGenEventCutToolOpts  = {}  (default: {})
+# |-GenMonitor               = False
+# |-ParticleGun              = True  (default: False)
+# |-BeamMomentum             = 3500000.0
+# |-BeamHCrossingAngle       = 0.0
+# |-BeamVCrossingAngle       = 0.0
+# |-BeamEmittance            = 0.0037
+# |-BeamBetaStar             = 3100.0
+# |-BeamBetaStarX            = -1000.0
+# |-BeamBetaStarY            = -1000.0
+# |-BeamLineAngles           = [0.0, 0.0]  (default: [0.0, 0.0])
+# |-InteractionPosition      = [0.0, 0.0, 0.0]  (default: [0.0, 0.0, 0.0])
+# |-BunchRMS                 = 82.03
+# |-Luminosity               = 2.47e+18
+# |-TotalCrossSection        = 9.109999999999999e-24
+# |-RevolutionFrequency      = 1.1245000000000002e-05
+# \----- (End of User GaussinoGeneration/GaussinoGeneration) -----------------------------------------
+# applying configuration of GaussinoSimulation
+# /***** User GaussinoSimulation/GaussinoSimulation **************************************************
+# |-TrackTruth          = True
+# |-PhysicsConstructors = ['GiGaMT_G4EmStandardPhysics', 'GiGaMT_G4EmExtraPhysics', 'GiGaMT_G4DecayPhysics', 'GiGaMT_G4HadronElasticPhysics', 'GiGaMT_G4HadronPhysicsFTFP_BERT', 'GiGaMT_G4StoppingPhysics', 'GiGaMT_G4IonPhysics', 'GiGaMT_G4NeutronTrackingCut']
+# |                     (default: [])
+# |-G4BeginRunCommand   = ['/tracking/verbose 0', '/process/eLoss/verbose 0']
+# |                     (default: ['/tracking/verbose 0', '/process/eLoss/verbose 0'])
+# |-G4EndRunCommand     = []  (default: [])
+# |-G4BeginEventCommand = []  (default: [])
+# |-G4EndEventCommand   = []  (default: [])
+# |-CutForElectron      = -1000000.0
+# |-CutForPositron      = -1000000.0
+# |-CutForGamma         = -1000000.0
+# |-DumpCutsTable       = False
+# |-CustomSimulation    = ''
+# \----- (End of User GaussinoSimulation/GaussinoSimulation) -----------------------------------------
+# applying configuration of GaussinoGeometry
+# Registered external material tool OUTER_SPACE of type MaterialFromChemicalProperties.
+# Registered external material tool G4_Pb of type MaterialFromNIST.
+# Registered external material tool G4_Ar of type MaterialFromNIST.
+# Registering external B4Calorimeter_Calorimeter as CuboidEmbedder
+# Registered external detector B4Calorimeter_Calorimeter of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_0 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_0 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_1 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_1 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_2 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_2 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_3 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_3 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_4 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_4 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_5 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_5 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_6 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_6 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_7 as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_7 of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_Absorber as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_Absorber of type CuboidEmbedder.
+# Registering external B4Calorimeter_Layer_Gap as CuboidEmbedder
+# Registered external detector B4Calorimeter_Layer_Gap of type CuboidEmbedder.
+# Registered external world service of type ExternalWorldCreator.
+# /***** User GaussinoGeometry/GaussinoGeometry ******************************************************
+# |-GeometryService          = ''
+# |-SensDetMap               = {}  (default: {})
+# |-ExtraGeoTools            = []  (default: [])
+# |-DetailedTimingOpts       = {}  (default: {})
+# |-ExportGDML               = {}  (default: {})
+# |-ImportGDML               = []  (default: [])
+# |-ExternalDetectorEmbedder = 'B4Calorimeter'  (default: '')
+# \----- (End of User GaussinoGeometry/GaussinoGeometry) ---------------------------------------------
+# applying configuration of GaussinoVisualization
+# /***** User GaussinoVisualization/GaussinoVisualization ********************************************
+# |-Framework              = []  (default: [])
+# |-Driver                 = 'ASCIITree'
+# |-DrawGeometry           = False
+# |-TrackingVerbosity      = 0
+# |-EventVerbosity         = 0
+# |-RunVerbosity           = 0
+# |-GeometryStyle          = 'wireframe'
+# |-Volumes                = []  (default: [])
+# |-VolumesCopyNumber      = {}  (default: {})
+# |-VolumesDepthOfDescent  = {}  (default: {})
+# |-DrawTrajectories       = False
+# |-TrajectoryType         = ''
+# |-TrajectoryModel        = ''
+# |-TrajectoryModelOptions = {}  (default: {})
+# |-TrajectoryFilters      = []  (default: [])
+# |-StoreTrajectories      = 'Marked'
+# |-DrawG4Hits             = False
+# |-CameraPhi              = 0
+# |-CameraTheta            = 0
+# |-Zoom                   = 1
+# |-OGLExportFileName      = ''
+# |-PhoenixOutputFile      = 'gaussino_phoenix.json'
+# |-CombineEvents          = True
+# |-Debug                  = False
+# |-ElectricField          = {}  (default: {})
+# |-MagneticField          = {}  (default: {})
+# \----- (End of User GaussinoVisualization/GaussinoVisualization) -----------------------------------
+ApplicationMgr    SUCCESS 
+====================================================================================================================================
+                                                   Welcome to Gaussino version 1.0
+                                          running on joulertx on Thu Jul 10 03:06:25 2025
+====================================================================================================================================
+ApplicationMgr       INFO Application Manager Configured successfully
+RndmGenSvc.Engine    INFO Generator engine type:CLHEP::RanluxEngine
+RndmGenSvc.Engine    INFO Current Seed:1234567 Luxury:3
+RndmGenSvc           INFO Using Random engine:HepRndm::Engine<CLHEP::RanluxEngine>
+TimingAuditor.T...   INFO This machine has a speed about   5.26 times the speed of a 2.8 GHz Xeon.
+
+**************************************************************
+ Geant4 version Name: geant4-10-07-patch-03 [MT]   (19-November-2021)
+  << in Multi-threaded mode >> 
+                       Copyright : Geant4 Collaboration
+                      References : NIM A 506 (2003), 250-303
+                                 : IEEE-TNS 53 (2006), 270-278
+                                 : NIM A 835 (2016), 186-225
+                             WWW : http://geant4.org/
+**************************************************************
+
+GiGaMT.DetConst...WARNING Unrecognized state for the external material: OUTER_SPACE. Leaving Undefined
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomMgt1001
+      issued by : G4LogicalVolumeStore::GetVolume()
+Volume NOT found in store !
+        Volume B4Calorimeter_Calorimeter_lVol NOT found in store !
+        Returning NULL pointer.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomMgt1001
+      issued by : G4LogicalVolumeStore::GetVolume()
+Volume NOT found in store !
+        Volume Layer_lVol NOT found in store !
+        Returning NULL pointer.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomMgt1001
+      issued by : G4LogicalVolumeStore::GetVolume()
+Volume NOT found in store !
+        Volume B4Calorimeter_Layer_AbsorberLVol NOT found in store !
+        Returning NULL pointer.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+
+-------- WWWW ------- G4Exception-START -------- WWWW -------
+*** G4Exception : GeomMgt1001
+      issued by : G4LogicalVolumeStore::GetVolume()
+Volume NOT found in store !
+        Volume B4Calorimeter_Layer_GapLVol NOT found in store !
+        Returning NULL pointer.
+*** This is just a warning message. ***
+-------- WWWW -------- G4Exception-END --------- WWWW -------
+
+
+ GiGaMT.ModularPL.GiGaMT_G4HadronPhysicsFTFP_BERT : threshold between BERT and FTFP is over the interval 
+ for pions :   3 to 6 GeV
+ for kaons :   3 to 6 GeV
+ for proton :  3 to 6 GeV
+ for neutron : 3 to 6 GeV
+
+GiGaMT.ModularPL     INFO [ Master ] The production cut for gamma is set to    	-1e+06 mm 
+GiGaMT.ModularPL     INFO [ Master ] The production cut for electron is set to 	-1e+06 mm 
+GiGaMT.ModularPL     INFO [ Master ] The production cut for positron is set to 	-1e+06 mm 
+
+phot:  for gamma SubType=12 BuildTable=0
+      LambdaPrime table from 200 keV to 100 TeV in 61 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+ LivermorePhElectric : Emin=    0 eV  Emax=  100 TeV  SauterGavrila Fluo
+
+compt:  for gamma SubType=13 BuildTable=1
+      Lambda table from 100 eV  to 1 MeV, 7 bins/decade, spline: 1
+      LambdaPrime table from 1 MeV to 100 TeV in 56 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+       Klein-Nishina : Emin=    0 eV  Emax=  100 TeV
+
+conv:  for gamma SubType=14 BuildTable=1
+      Lambda table from 1.022 MeV to 100 TeV, 18 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+     BetheHeitlerLPM : Emin=    0 eV  Emax=  100 TeV  ModifiedTsai
+
+Rayl:  for gamma SubType=11 BuildTable=1
+      Lambda table from 100 eV  to 100 keV, 7 bins/decade, spline: 0
+      LambdaPrime table from 100 keV to 100 TeV in 63 bins 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+   LivermoreRayleigh : Emin=    0 eV  Emax=  100 TeV  CullenGenerator
+
+msc:  for e-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 MeV Nbins=42 100 eV  - 100 MeV
+              StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llimit=1
+        WentzelVIUni : Emin=  100 MeV Emax=  100 TeV Nbins=42 100 MeV - 100 TeV
+              StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llimit=1
+
+eIoni:  for e-  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha : Emin=    0 eV  Emax=  100 TeV
+
+eBrem:  for e-  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      LPM flag: 1 for E > 1 GeV,  VertexHighEnergyTh(GeV)= 100000
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+             eBremSB : Emin=    0 eV  Emax=    1 GeV  ModifiedTsai
+            eBremLPM : Emin=    1 GeV Emax=  100 TeV  ModifiedTsai
+
+CoulombScat:  for e-, integral:1  SubType=1 BuildTable=1
+      Lambda table from 100 MeV to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=  100 MeV Emax=  100 TeV
+
+msc:  for e+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 MeV Nbins=42 100 eV  - 100 MeV
+              StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llimit=1
+        WentzelVIUni : Emin=  100 MeV Emax=  100 TeV Nbins=42 100 MeV - 100 TeV
+              StepLim=UseSafety Rfact=0.04 Gfact=2.5 Sfact=0.6 DispFlag:1 Skin=1 Llimit=1
+
+eIoni:  for e+  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        MollerBhabha : Emin=    0 eV  Emax=  100 TeV
+
+eBrem:  for e+  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      LPM flag: 1 for E > 1 GeV,  VertexHighEnergyTh(GeV)= 100000
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+             eBremSB : Emin=    0 eV  Emax=    1 GeV  ModifiedTsai
+            eBremLPM : Emin=    1 GeV Emax=  100 TeV  ModifiedTsai
+
+annihil:  for e+, integral:1  SubType=5 BuildTable=0
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            eplus2gg : Emin=    0 eV  Emax=  100 TeV
+
+CoulombScat:  for e+, integral:1  SubType=1 BuildTable=1
+      Lambda table from 100 MeV to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=  100 MeV Emax=  100 TeV
+
+msc:  for proton  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for proton  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+hBrems:  for proton  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for proton  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 17x1001; from 7.50618 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for proton, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for GenericIon  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+ionIoni:  for GenericIon  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.02
+      Stopping Power data for 17 ion/material pairs
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            BraggIon : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+msc:  for alpha  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            UrbanMsc : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+ionIoni:  for alpha  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.02
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            BraggIon : Emin=    0 eV  Emax=7.9452 MeV
+          BetheBloch : Emin=7.9452 MeV Emax=  100 TeV
+
+msc:  for anti_proton  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for anti_proton  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=    2 MeV
+          BetheBloch : Emin=    2 MeV Emax=  100 TeV
+
+hBrems:  for anti_proton  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for anti_proton  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 17x1001; from 7.50618 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for anti_proton, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for kaon+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for kaon+  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=1.05231 MeV
+          BetheBloch : Emin=1.05231 MeV Emax=  100 TeV
+
+hBrems:  for kaon+  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for kaon+  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 18x1001; from 3.94942 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for kaon+, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for kaon-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for kaon-  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=1.05231 MeV
+          BetheBloch : Emin=1.05231 MeV Emax=  100 TeV
+
+hBrems:  for kaon-  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for kaon-  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 18x1001; from 3.94942 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for kaon-, integral:1  SubType=1 BuildTable=1
+      Used Lambda table of kaon+
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for mu+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+muIoni:  for mu+  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=  200 keV
+          BetheBloch : Emin=  200 keV Emax=    1 GeV
+        MuBetheBloch : Emin=    1 GeV Emax=  100 TeV
+
+muBrems:  for mu+  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+muPairProd:  for mu+  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 21x1001; from 1 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for mu+, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for mu-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+muIoni:  for mu-  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=  200 keV
+          BetheBloch : Emin=  200 keV Emax=    1 GeV
+        MuBetheBloch : Emin=    1 GeV Emax=  100 TeV
+
+muBrems:  for mu-  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+              MuBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+muPairProd:  for mu-  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 21x1001; from 1 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+          muPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for mu-, integral:1  SubType=1 BuildTable=1
+      Used Lambda table of mu+
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for pi+  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for pi+  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               Bragg : Emin=    0 eV  Emax=297.505 keV
+          BetheBloch : Emin=297.505 keV Emax=  100 TeV
+
+hBrems:  for pi+  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for pi+  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 20x1001; from 1.11656 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for pi+, integral:1  SubType=1 BuildTable=1
+      Lambda table from threshold  to 100 TeV, 7 bins/decade, spline: 1
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+msc:  for pi-  SubType= 10
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+        WentzelVIUni : Emin=    0 eV  Emax=  100 TeV Nbins=84 100 eV  - 100 TeV
+              StepLim=Minimal Rfact=0.2 Gfact=2.5 Sfact=0.6 DispFlag:0 Skin=1 Llimit=1
+
+hIoni:  for pi-  SubType=2
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      StepFunction=(0.2, 0.1 mm), integ: 1, fluct: 1, linLossLim= 0.01
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+            ICRU73QO : Emin=    0 eV  Emax=297.505 keV
+          BetheBloch : Emin=297.505 keV Emax=  100 TeV
+
+hBrems:  for pi-  SubType=3
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+               hBrem : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+hPairProd:  for pi-  SubType=4
+      dE/dx and range tables from 100 eV  to 100 TeV in 84 bins
+      Lambda tables from threshold to 100 TeV, 7 bins/decade, spline: 1
+      Sampling table 20x1001; from 1.11656 GeV to 100 TeV 
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+           hPairProd : Emin=    0 eV  Emax=  100 TeV  ModifiedMephi
+
+CoulombScat:  for pi-, integral:1  SubType=1 BuildTable=1
+      Used Lambda table of pi+
+      ThetaMin(p) < Theta(degree) < 180; pLimit(GeV^1)= 0.139531
+      ===== EM models for the G4Region  DefaultRegionForTheWorld ======
+  eCoulombScattering : Emin=    0 eV  Emax=  100 TeV
+
+====================================================================
+                  HADRONIC PROCESSES SUMMARY (verbose level 1)
+
+---------------------------------------------------
+                           Hadronic Processes for neutron
+
+  Process: hadElastic
+        Model:             hElasticCHIPS: 0 eV  ---> 100 TeV
+     Cr_sctns:        G4NeutronElasticXS: 0 eV  ---> 100 TeV
+
+  Process: neutronInelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:      G4NeutronInelasticXS: 0 eV  ---> 100 TeV
+
+  Process: nCapture
+        Model:               nRadCapture: 0 eV  ---> 100 TeV
+     Cr_sctns:        G4NeutronCaptureXS: 0 eV  ---> 100 TeV
+
+  Process: nKiller
+
+---------------------------------------------------
+                           Hadronic Processes for B-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: B-Inelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for D-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: D-Inelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for GenericIon
+
+  Process: ionInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+---------------------------------------------------
+                           Hadronic Processes for He3
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+  Process: He3Inelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+---------------------------------------------------
+                           Hadronic Processes for alpha
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+  Process: alphaInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+---------------------------------------------------
+                           Hadronic Processes for anti_He3
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: anti_He3Inelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_alpha
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: anti_alphaInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_deuteron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: anti_deuteronInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_lambda
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: anti_lambdaInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_neutron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100.1 MeV
+        Model:              AntiAElastic: 100 MeV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: anti_neutronInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_proton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100.1 MeV
+        Model:              AntiAElastic: 100 MeV ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: anti_protonInelastic
+        Model:                      FTFP: 0 eV  ---> 100 TeV
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for anti_triton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100.1 MeV/n
+        Model:              AntiAElastic: 100 MeV/n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: anti_tritonInelastic
+        Model:                      FTFP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:              AntiAGlauber: 0 eV  ---> 25.6 PeV
+
+  Process: hFritiofCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for deuteron
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+  Process: dInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+---------------------------------------------------
+                           Hadronic Processes for e+
+
+  Process: electronNuclear
+        Model:   G4ElectroVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:          ElectroNuclearXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for e-
+
+  Process: electronNuclear
+        Model:   G4ElectroVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:          ElectroNuclearXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for gamma
+
+  Process: photonNuclear
+        Model:               GammaNPreco: 0 eV  ---> 200 MeV
+        Model:            BertiniCascade: 199 MeV ---> 6 GeV
+        Model:           TheoFSGenerator: 3 GeV ---> 100 TeV
+     Cr_sctns:            PhotoNuclearXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for kaon+
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: kaon+Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for kaon-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: kaon-Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: hBertiniCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for lambda
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: lambdaInelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for mu+
+
+  Process: muonNuclear
+        Model:      G4MuonVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:     KokoulinMuonNuclearXS: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for mu-
+
+  Process: muonNuclear
+        Model:      G4MuonVDNuclearModel: 0 eV  ---> 1 PeV
+     Cr_sctns:     KokoulinMuonNuclearXS: 0 eV  ---> 100 TeV
+
+  Process: muMinusCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for pi+
+
+  Process: hadElastic
+        Model:           hElasticGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+  Process: pi+Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for pi-
+
+  Process: hadElastic
+        Model:           hElasticGlauber: 0 eV  ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+  Process: pi-Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+  Process: hBertiniCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for proton
+
+  Process: hadElastic
+        Model:             hElasticCHIPS: 0 eV  ---> 100 TeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+  Process: protonInelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:  BarashenkovGlauberGribov: 0 eV  ---> 100 TeV
+
+---------------------------------------------------
+                           Hadronic Processes for sigma-
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV  ---> 100 TeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: sigma-Inelastic
+        Model:                      FTFP: 3 GeV ---> 100 TeV
+        Model:            BertiniCascade: 0 eV  ---> 6 GeV
+     Cr_sctns:            Glauber-Gribov: 0 eV  ---> 100 TeV
+
+  Process: hBertiniCaptureAtRest
+
+---------------------------------------------------
+                           Hadronic Processes for triton
+
+  Process: hadElastic
+        Model:              hElasticLHEP: 0 eV /n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+  Process: tInelastic
+        Model:  Binary Light Ion Cascade: 0 eV /n ---> 6 GeV/n
+        Model:                      FTFP: 3 GeV/n ---> 100 TeV/n
+     Cr_sctns:  Glauber-Gribov Nucl-nucl: 0 eV  ---> 25.6 PeV
+
+================================================================
+=======================================================================
+======       Pre-compound/De-excitation Physics Parameters     ========
+=======================================================================
+Type of pre-compound inverse x-section              3
+Pre-compound model active                           1
+Pre-compound excitation low energy (MeV)            0.1
+Pre-compound excitation high energy (MeV)           30
+Type of de-excitation inverse x-section             3
+Type of de-excitation factory                       Evaporation+GEM
+Number of de-excitation channels                    68
+Min excitation energy (keV)                         0.01
+Min energy per nucleon for multifragmentation (MeV) 2e+05
+Limit excitation energy for Fermi BreakUp (MeV)     20
+Level density (1/MeV)                               0.075
+Use simple level density model                      1
+Use discrete excitation energy of the residual      0
+Time limit for long lived isomeres (ns)             1
+Isomer production flag                              1
+Internal e- conversion flag                         1
+Store e- internal conversion data                   0
+Electron internal conversion ID                     2
+Correlated gamma emission flag                      0
+Max 2J for sampling of angular correlations         10
+=======================================================================
+GiGaMT.GiGaActi...   INFO [ Master ] BeginOfRunAction(): execute '/tracking/verbose 0'
+GiGaMT.GiGaActi...   INFO [ Master ] BeginOfRunAction(): execute '/process/eLoss/verbose 0'
+GiGaMT.GiGaActi...  ERROR [ Master ] Illegal application state.
+ThreadPoolSvc        INFO no thread init tools attached
+AvalancheSchedu...   INFO Activating scheduler in a separate thread
+AlgResourcePool      INFO TopAlg list empty. Recovering the one of Application Manager
+GenRndInit           INFO Setting timing barrier at  'FirstTimingEvent':1
+ParticleGun.Fla...   INFO Number of particles per event chosen randomly between 10 and 10
+ParticleGun.Fix...   INFO Particle type chosen randomly from : e-
+ParticleGun.Fix...   INFO Momentum: (0 GeV, 0 GeV, 0.05 GeV)
+ParticleGun       SUCCESS ==================================================================
+ParticleGun       SUCCESS Requested to generate EventType  'EventType':50000000
+ParticleGun       SUCCESS ==================================================================
+AvalancheSchedu...   INFO Found 4 algorithms
+AvalancheSchedu...   INFO Data Dependencies for Algorithms:
+  CalorimeterMonitoring
+    o INPUT  '/Event/Sim/G4Events'
+  GenRndInit
+    o OUTPUT '/Event/DAQ/ODIN'
+    o OUTPUT '/Event/Gen/BeamParameters'
+    o OUTPUT '/Event/Gen/HeaderPreGen'
+    o OUTPUT '/Event/SeedsInternalUsage'
+    o OUTPUT '/Event/Sim/Header'
+  ParticleGun
+    o INPUT  '/Event/Gen/HeaderPreGen'
+    o INPUT  '/Event/SeedsInternalUsage'
+    o OUTPUT '/Event/Gen/Collisions'
+    o OUTPUT '/Event/Gen/Header'
+    o OUTPUT '/Event/Gen/HepMCEvents'
+  GiGaAlg
+    o INPUT  '/Event/Gen/HepMCEvents'
+    o INPUT  '/Event/SeedsInternalUsage'
+    o INPUT  '/Event/Sim/Header'
+    o OUTPUT '/Event/MC/Truths'
+    o OUTPUT '/Event/Sim/G4Events'
+PrecedenceSvc        INFO Assembling CF and DF task precedence rules
+PrecedenceSvc        INFO PrecedenceSvc initialized successfully
+AvalancheSchedu...   INFO Concurrency level information:
+AvalancheSchedu...   INFO  o Number of events in flight: 32
+AvalancheSchedu...   INFO  o TBB thread pool size:  'ThreadPoolSize':32
+AvalancheSchedu...   INFO  o Fiber thread pool size:  'NumOffloadThreads':2
+AvalancheSchedu...   INFO Task scheduling settings:
+AvalancheSchedu...   INFO  o Avalanche generation mode: disabled
+AvalancheSchedu...   INFO  o Preemptive scheduling of CPU-blocking tasks: disabled
+AvalancheSchedu...   INFO  o Scheduling of condition tasks: disabled
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT.GiGaActi...WARNING StoreUpToZmax activated, but used with the default ZmaxForStoring = 10 km
+GiGaMT               INFO Initialized all G4 worker threads
+GiGaMT               INFO   AlgTool: GiGaMT.GiGaMTRunManagerFAC
+GiGaMT               INFO   AlgTool: GiGaMT.ModularPL
+GiGaMT               INFO   AlgTool: GiGaMT.GiGaWorkerPilotFAC
+GiGaMT               INFO   AlgTool: GiGaMT.DetConst
+GiGaMT               INFO   AlgTool: GiGaMT.GiGaActionInitializer
+GiGaMT               INFO   AlgTool: GiGaMT.HepMC3ToMCTruthConverter
+HiveSlimEventLo...WARNING Unable to locate service "EventSelector" 
+HiveSlimEventLo...WARNING No events will be processed from external input.
+RootHistSvc          INFO Writing ROOT histograms to: Gaussino-10ev-20250710-histos.root
+HistogramPersis...   INFO Added successfully Conversion service RootHistSvc
+HiveSlimEventLo...   INFO Found 0 events in black list
+ApplicationMgr       INFO Application Manager Initialized successfully
+ApplicationMgr       INFO Application Manager Started successfully
+HiveSlimEventLo...   INFO Starting loop on events
+GenRndInit           INFO Started loop timing!
+GenRndInit           INFO Evt 1,  Run 1,  Nr. in job = 1
+G4WT19 > 
+G4WT19 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT19 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       0 eventID:       1
+G4WT19 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       1 eventID:       1
+G4WT19 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       2 eventID:       1
+G4WT19 > Edep:  1.8995 MeV track length: 1.13776 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       3 eventID:       1
+G4WT19 > Edep: 237.591 MeV track length: 19.5921 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       4 eventID:       1
+G4WT19 > Edep: 111.909 MeV track length: 8.81934 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       5 eventID:       1
+G4WT19 > Edep: 28.0707 MeV track length: 2.12221 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       6 eventID:       1
+G4WT19 > Edep: 37.4887 MeV track length: 2.72222 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       7 eventID:       1
+G4WT19 > Edep: 416.959 MeV track length: 33.3696 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:      -1 eventID:       1
+G4WT19 > 
+G4WT19 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT19 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       0 eventID:       1
+G4WT19 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       1 eventID:       1
+G4WT19 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       2 eventID:       1
+G4WT19 > Edep: 765.437 eV  track length: 5.10778 mm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       3 eventID:       1
+G4WT19 > Edep:  8.6575 keV track length: 3.39504 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       4 eventID:       1
+G4WT19 > Edep: 8.70597 keV track length: 5.45746 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       5 eventID:       1
+G4WT19 > Edep:  553.67 eV  track length: 7.67779 mm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       6 eventID:       1
+G4WT19 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       7 eventID:       1
+G4WT19 > Edep: 18.6826 keV track length: 10.1311 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:      -1 eventID:       1
+GenRndInit           INFO Evt 2,  Run 1,  Nr. in job = 2
+GenRndInit           INFO Evt 3,  Run 1,  Nr. in job = 3
+GenRndInit           INFO Evt 4,  Run 1,  Nr. in job = 4
+GenRndInit           INFO Evt 5,  Run 1,  Nr. in job = 5
+GenRndInit           INFO Evt 8,  Run 1,  Nr. in job = 8
+GenRndInit           INFO Evt 6,  Run 1,  Nr. in job = 6
+GenRndInit           INFO Evt 7,  Run 1,  Nr. in job = 7
+GenRndInit           INFO Evt 10,  Run 1,  Nr. in job = 10
+GenRndInit           INFO Evt 9,  Run 1,  Nr. in job = 9
+G4WT31 > 
+G4WT31 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT31 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       0 eventID:       8
+G4WT31 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       1 eventID:       8
+G4WT31 > Edep: 1.71598 MeV track length: 1.31376 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       2 eventID:       8
+G4WT31 > Edep: 1.87859 MeV track length: 1.57859 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       3 eventID:       8
+G4WT31 > Edep:  257.91 MeV track length: 21.1039 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       4 eventID:       8
+G4WT31 > Edep: 54.0614 MeV track length: 3.89828 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       5 eventID:       8
+G4WT31 > Edep: 43.9755 MeV track length: 3.48367 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       6 eventID:       8
+G4WT31 > Edep: 35.8873 MeV track length:  2.8235 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       7 eventID:       8
+G4WT31 > Edep: 395.429 MeV track length: 31.5986 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:      -1 eventID:       8
+G4WT31 > 
+G4WT31 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT31 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       0 eventID:       8
+G4WT31 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       1 eventID:       8
+G4WT31 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       2 eventID:       8
+G4WT31 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       3 eventID:       8
+G4WT31 > Edep: 1.31497 keV track length: 9.47642 mm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       4 eventID:       8
+G4WT31 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       5 eventID:       8
+G4WT31 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       6 eventID:       8
+G4WT31 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       7 eventID:       8
+G4WT31 > Edep: 1.31497 keV track length: 9.47642 mm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:      -1 eventID:       8
+G4WT30 > 
+G4WT30 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT30 > Edep: 1.15942 MeV track length:  839.45 um  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       0 eventID:       3
+G4WT30 > Edep: 1.87105 MeV track length: 1.12908 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       1 eventID:       3
+G4WT30 > Edep: 574.914 keV track length: 259.948 um  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       2 eventID:       3
+G4WT30 > Edep:  7.9905 MeV track length: 5.67332 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       3 eventID:       3
+G4WT30 > Edep: 232.607 MeV track length: 19.2945 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       4 eventID:       3
+G4WT30 > Edep:  93.597 MeV track length: 7.30785 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       5 eventID:       3
+G4WT30 > Edep: 57.2485 MeV track length: 4.55337 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       6 eventID:       3
+G4WT30 > Edep: 21.2631 MeV track length: 1.66701 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       7 eventID:       3
+G4WT30 > Edep: 416.312 MeV track length: 33.6129 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:      -1 eventID:       3
+G4WT30 > 
+G4WT30 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT30 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       0 eventID:       3
+G4WT30 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       1 eventID:       3
+G4WT30 > Edep: 826.806 eV  track length: 5.48649 mm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       2 eventID:       3
+G4WT30 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       3 eventID:       3
+G4WT30 > Edep:  3.2334 keV track length: 2.31971 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       4 eventID:       3
+G4WT30 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       5 eventID:       3
+G4WT30 > Edep: 10.6121 keV track length: 2.73438 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       6 eventID:       3
+G4WT30 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       7 eventID:       3
+G4WT30 > Edep: 14.6723 keV track length: 5.60274 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:      -1 eventID:       3
+G4WT28 > 
+G4WT28 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT28 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       0 eventID:       9
+G4WT28 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       1 eventID:       9
+G4WT28 > Edep: 1.00783 MeV track length:  449.09 um  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       2 eventID:       9
+G4WT28 > Edep: 4.19905 MeV track length: 2.63223 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       3 eventID:       9
+G4WT28 > Edep: 231.878 MeV track length: 18.9131 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       4 eventID:       9
+G4WT28 > Edep: 161.857 MeV track length: 13.3036 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       5 eventID:       9
+G4WT28 > Edep: 13.9666 MeV track length: 8.93541 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       6 eventID:       9
+G4WT28 > Edep: 14.6199 MeV track length: 1.10546 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       7 eventID:       9
+G4WT28 > Edep: 427.528 MeV track length: 34.5239 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:      -1 eventID:       9
+G4WT28 > 
+G4WT28 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT28 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       0 eventID:       9
+G4WT28 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       1 eventID:       9
+G4WT28 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       2 eventID:       9
+G4WT28 > Edep: 16.2622 keV track length: 3.72143 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       3 eventID:       9
+G4WT28 > Edep: 3.15789 keV track length: 2.58592 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       4 eventID:       9
+G4WT28 > Edep: 1.84762 keV track length: 7.99522 mm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       5 eventID:       9
+G4WT28 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       6 eventID:       9
+G4WT28 > Edep: 414.393 eV  track length: 1.01761 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       7 eventID:       9
+G4WT28 > Edep: 21.6821 keV track length: 8.12447 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:      -1 eventID:       9
+G4WT24 > 
+G4WT24 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT24 > Edep: 1.93111 MeV track length: 1.32113 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       0 eventID:       4
+G4WT24 > Edep: 455.903 keV track length: 146.942 um  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       1 eventID:       4
+G4WT24 > Edep: 4.66069 MeV track length: 3.54451 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       2 eventID:       4
+G4WT24 > Edep: 2.34066 MeV track length: 1.13653 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       3 eventID:       4
+G4WT24 > Edep: 238.677 MeV track length: 19.7015 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       4 eventID:       4
+G4WT24 > Edep:  109.44 MeV track length: 8.72261 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       5 eventID:       4
+G4WT24 > Edep: 55.8284 MeV track length: 4.08404 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       6 eventID:       4
+G4WT24 > Edep: 15.5444 MeV track length:  1.1995 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       7 eventID:       4
+G4WT24 > Edep: 428.878 MeV track length: 34.3226 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:      -1 eventID:       4
+G4WT24 > 
+G4WT24 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT24 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       0 eventID:       4
+G4WT24 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       1 eventID:       4
+G4WT24 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       2 eventID:       4
+G4WT24 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       3 eventID:       4
+G4WT24 > Edep: 3.77527 keV track length:  1.8943 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       4 eventID:       4
+G4WT24 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       5 eventID:       4
+G4WT24 > Edep: 1.84235 keV track length:  2.0646 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       6 eventID:       4
+G4WT24 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       7 eventID:       4
+G4WT24 > Edep: 5.61762 keV track length:  3.9589 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:      -1 eventID:       4
+G4WT22 > 
+G4WT22 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT22 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       0 eventID:      10
+G4WT22 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       1 eventID:      10
+G4WT22 > Edep: 2.15757 MeV track length: 1.34445 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       2 eventID:      10
+G4WT22 > Edep:  4.3639 MeV track length: 2.66859 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       3 eventID:      10
+G4WT22 > Edep: 274.524 MeV track length: 22.9645 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       4 eventID:      10
+G4WT22 > Edep: 52.6785 MeV track length: 3.91023 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       5 eventID:      10
+G4WT22 > Edep: 42.9263 MeV track length:  3.4962 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       6 eventID:      10
+G4WT22 > Edep: 50.8692 MeV track length:  4.2308 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       7 eventID:      10
+G4WT22 > Edep: 427.519 MeV track length: 35.0031 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:      -1 eventID:      10
+G4WT22 > 
+G4WT22 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT22 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       0 eventID:      10
+G4WT22 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       1 eventID:      10
+G4WT22 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       2 eventID:      10
+G4WT22 > Edep: 477.527 eV  track length: 5.63988 mm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       3 eventID:      10
+G4WT22 > Edep: 802.825 eV  track length: 5.35576 mm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       4 eventID:      10
+G4WT22 > Edep: 4.55756 keV track length: 2.08074 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       5 eventID:      10
+G4WT22 > Edep: 298.985 eV  track length: 5.07782 mm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       6 eventID:      10
+G4WT22 > Edep: 11.0477 keV track length: 9.06084 mm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       7 eventID:      10
+G4WT22 > Edep: 17.1846 keV track length: 4.59417 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:      -1 eventID:      10
+G4WT13 > 
+G4WT13 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT13 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       0 eventID:       7
+G4WT13 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       1 eventID:       7
+G4WT13 > Edep: 769.229 keV track length: 535.029 um  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       2 eventID:       7
+G4WT13 > Edep:   5.669 MeV track length: 2.93805 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       3 eventID:       7
+G4WT13 > Edep: 250.212 MeV track length: 20.6255 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       4 eventID:       7
+G4WT13 > Edep: 137.972 MeV track length:  10.896 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       5 eventID:       7
+G4WT13 > Edep: 48.2433 MeV track length: 3.63242 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       6 eventID:       7
+G4WT13 > Edep: 24.1223 MeV track length: 1.73975 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       7 eventID:       7
+G4WT13 > Edep: 466.989 MeV track length:  37.241 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:      -1 eventID:       7
+G4WT13 > 
+G4WT13 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT13 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       0 eventID:       7
+G4WT13 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       1 eventID:       7
+G4WT13 > Edep: 4.48599 keV track length: 1.63201 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       2 eventID:       7
+G4WT13 > Edep: 44.8683 keV track length: 7.01854 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       3 eventID:       7
+G4WT13 > Edep: 5.19517 keV track length: 3.87782 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       4 eventID:       7
+G4WT13 > Edep: 5.70862 keV track length: 2.87766 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       5 eventID:       7
+G4WT13 > Edep: 5.83157 keV track length: 3.47368 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       6 eventID:       7
+G4WT13 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       7 eventID:       7
+G4WT13 > Edep: 66.0896 keV track length: 18.8797 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:      -1 eventID:       7
+G4WT2 > 
+G4WT2 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT2 > Edep:  1.1212 MeV track length: 834.621 um  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       0 eventID:       6
+G4WT2 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       1 eventID:       6
+G4WT2 > Edep: 703.103 keV track length: 448.131 um  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       2 eventID:       6
+G4WT2 > Edep:  10.893 MeV track length: 8.38291 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       3 eventID:       6
+G4WT2 > Edep: 211.487 MeV track length: 16.8755 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       4 eventID:       6
+G4WT2 > Edep: 113.434 MeV track length: 9.09934 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       5 eventID:       6
+G4WT2 > Edep: 65.9819 MeV track length:  4.9676 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       6 eventID:       6
+G4WT2 > Edep: 41.2068 MeV track length:  3.3235 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       7 eventID:       6
+G4WT2 > Edep: 444.827 MeV track length: 35.2325 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:      -1 eventID:       6
+G4WT2 > 
+G4WT2 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT2 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       0 eventID:       6
+G4WT2 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       1 eventID:       6
+G4WT2 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       2 eventID:       6
+G4WT2 > Edep: 1.66861 keV track length: 3.47525 mm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       3 eventID:       6
+G4WT2 > Edep: 62.1639 keV track length: 12.9756 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       4 eventID:       6
+G4WT2 > Edep:  306.35 eV  track length:    6.94 mm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       5 eventID:       6
+G4WT2 > Edep:  20.323 keV track length: 7.32068 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       6 eventID:       6
+G4WT2 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       7 eventID:       6
+G4WT2 > Edep: 84.4619 keV track length: 21.3378 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:      -1 eventID:       6
+G4WT4 > 
+G4WT4 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT4 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       0 eventID:       2
+G4WT4 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       1 eventID:       2
+G4WT4 > Edep: 3.53923 MeV track length: 2.72858 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       2 eventID:       2
+G4WT4 > Edep: 1.51544 MeV track length: 875.345 um  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       3 eventID:       2
+G4WT4 > Edep: 225.857 MeV track length: 18.7364 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       4 eventID:       2
+G4WT4 > Edep:  145.56 MeV track length: 11.4727 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       5 eventID:       2
+G4WT4 > Edep: 54.9874 MeV track length: 4.32011 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       6 eventID:       2
+G4WT4 > Edep: 19.2399 MeV track length: 1.44697 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       7 eventID:       2
+G4WT4 > Edep: 450.699 MeV track length: 36.3366 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:      -1 eventID:       2
+G4WT4 > 
+G4WT4 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT4 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       0 eventID:       2
+G4WT4 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       1 eventID:       2
+G4WT4 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       2 eventID:       2
+G4WT4 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       3 eventID:       2
+G4WT4 > Edep: 4.24219 keV track length: 4.07635 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       4 eventID:       2
+G4WT4 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       5 eventID:       2
+G4WT4 > Edep: 289.164 eV  track length: 5.88505 mm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       6 eventID:       2
+G4WT4 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       7 eventID:       2
+G4WT4 > Edep: 4.53136 keV track length: 4.66486 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:      -1 eventID:       2
+G4WT29 > 
+G4WT29 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT29 > Edep: 5.92232 MeV track length: 4.69728 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       0 eventID:       5
+G4WT29 > Edep: 429.319 keV track length: 148.514 um  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       1 eventID:       5
+G4WT29 > Edep:  887.79 keV track length: 618.172 um  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       2 eventID:       5
+G4WT29 > Edep: 2.78996 MeV track length: 1.41828 mm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       3 eventID:       5
+G4WT29 > Edep: 282.708 MeV track length: 23.3934 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       4 eventID:       5
+G4WT29 > Edep: 56.4219 MeV track length: 4.14097 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       5 eventID:       5
+G4WT29 > Edep: 63.9258 MeV track length: 5.03487 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       6 eventID:       5
+G4WT29 > Edep: 39.7165 MeV track length: 3.14276 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:       7 eventID:       5
+G4WT29 > Edep: 452.802 MeV track length: 36.4002 cm  sensitive detector: B4Calorimeter_Layer_AbsorberSDet layer number:      -1 eventID:       5
+G4WT29 > 
+G4WT29 > -------->Hits Collection: in this event they are 9 hits in the tracker chambers: 
+G4WT29 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       0 eventID:       5
+G4WT29 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       1 eventID:       5
+G4WT29 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       2 eventID:       5
+G4WT29 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       3 eventID:       5
+G4WT29 > Edep:       0 eV  track length:       0 fm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       4 eventID:       5
+G4WT29 > Edep: 6.46625 keV track length: 2.20926 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       5 eventID:       5
+G4WT29 > Edep: 15.2963 keV track length: 4.93177 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       6 eventID:       5
+G4WT29 > Edep: 1.23519 keV track length: 1.16084 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:       7 eventID:       5
+G4WT29 > Edep: 22.9977 keV track length: 8.30187 cm  sensitive detector: B4Calorimeter_Layer_GapSDet layer number:      -1 eventID:       5
+HiveSlimEventLo...   INFO ---> Loop Finished (skipping 1st evt) -  WSS 640.07 total time 87211487
+HiveSlimEventLo...   INFO 0 events were SKIPed
+CalorimeterMoni...   INFO Booked 4 Histogram(s) : 1D=4 2D=0 3D=0 1DProf=0 2DProf=0 3DProf=0
+CalorimeterMoni...   INFO 1D histograms in directory "CalorimeterMonitoring" : 4
+ | ID                                            | Title                                         |      #     |     Mean   |    RMS     |  Skewness  |  Kurtosis  |
+ | 1                                             | "Energy Distribution in the Gaps"             |         10 |        500 | 0.0000     |          0 |          0 |
+ | 2                                             | "Total Track Length in the Gaps"              |         10 |         90 | 66.332     |     1.3979 |    0.61157 |
+ | 3                                             | "Energy Distribution in Absorbers"            |         10 |        500 | 0.0000     |          0 |          0 |
+ | 4                                             | "Total Track Length in Absorbers"             |         10 |        350 | 0.0000     |          0 |          0 |
+GenRndInit           INFO Number of counters : 1
+ |    Counter                                      |     #     |    sum     | mean/eff^* | rms/err^*  |     min     |     max     |
+ | "Total Memory [MB]"                             |        10 |   49991.62 |     4999.2 |     303.44 |      4106.5 |      5127.5 |
+ApplicationMgr       INFO Application Manager Stopped successfully
+GenRndInit           INFO 10 events processed
+GenRndInit           INFO 32 Gaudi threads were used
+GenRndInit           INFO Measured event loop time [ns]: 1.710e+08
+GenRndInit           INFO Time per event [s]: 1.710e-02
+GenRndInit           INFO Throughput [1/s]: 5.849e+01
+ParticleGun          INFO **************************************************
+ParticleGun          INFO ***********   Generation counters   **************
+Number of generated events : 10
+Number of generated particles : 100
+Number of accepted events : 0
+Number of particles in accepted events : 0
+
+HiveSlimEventLo...   INFO Histograms converted successfully according to request.
+AvalancheSchedu...   INFO Joining Scheduler thread
+ToolSvc              INFO Removing all tools created by ToolSvc
+TimingAuditor.T...   INFO --------------------------------------------------------------------------------------------------
+TimingAuditor.T...   INFO This machine has a speed about   5.26 times the speed of a 2.8 GHz Xeon.
+TimingAuditor.T...   INFO Algorithm          (millisec) |    <user> |   <clock> |      min       max    sigma | entries | total (s) |
+TimingAuditor.T...   INFO --------------------------------------------------------------------------------------------------
+TimingAuditor.T...   INFO EVENT LOOP                    |  2506.363 | 1752109678592.000 | 1752109547520.000 1752109547520.0 1294981.38 |      11 | 19273207808.000 |
+TimingAuditor.T...   INFO  CalorimeterMonitoring        |     0.000 |     0.010 |    0.005       0.0     0.01 |      10 |     0.000 |
+TimingAuditor.T...   INFO  GenRndInit                   |     0.000 |     0.217 |    0.017       1.6     0.50 |      10 |     0.002 |
+TimingAuditor.T...   INFO  ParticleGun                  |     4.000 |     0.092 |    0.001       0.4     0.11 |      10 |     0.001 |
+TimingAuditor.T...   INFO  GiGaAlg                      |   605.000 |    76.245 |   68.352      86.5     5.12 |      10 |     0.762 |
+TimingAuditor.T...   INFO --------------------------------------------------------------------------------------------------
+GiGaMT            SUCCESS Finalized all G4 worker threads
+ApplicationMgr       INFO Application Manager Finalized successfully
+ApplicationMgr       INFO Application Manager Terminated successfully
+# Command: stack/Gaussino/run env PARTICLES_PER_EVENT=10 PARTICLE_TYPE=electron NUMBER_OF_THREADS=32 gaudirun.py B4LayeredCalorimeter/configs/options.py B4LayeredCalorimeter/configs/geant4_simulation.py
+# Timestamp: 2025-07-10T03:06:24.604471
+
+
+# Execution time: 4.88 seconds

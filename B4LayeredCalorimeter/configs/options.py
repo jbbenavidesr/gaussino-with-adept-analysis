@@ -40,6 +40,7 @@ calor_size_xy = 10 * units.cm
 calor_thickness = n_layers * (absorber_thickness + gap_thickness)
 
 world_length = 1.2 * calor_thickness
+particle_energy = 50.0 * units.MeV
 
 
 # General Gaussino configs
@@ -82,7 +83,7 @@ def setup_particle_gun(
 # 22: Gamma
 setup_particle_gun(
     number_of_particles=particles_per_event,
-    particle_energy=50.0 * units.MeV,
+    particle_energy=particle_energy,
     particle_type=particle_type,
     gun_position=-0.5 * world_length,
 )
@@ -226,6 +227,10 @@ def setup_geometry(
         "CalorimeterMonitoring",
         AbsorberCollectionName=f"{absorber_name}SDet/Hits",
         GapCollectionName=f"{gap_name}SDet/Hits",
+        MaxGapEnergy=particle_energy * particles_per_event,
+        MaxGapLength=calor_thickness,
+        MaxAbsorberEnergy=particle_energy * particles_per_event,
+        MaxAbsorberLength=calor_thickness,
     )
 
     ApplicationMgr().TopAlg.append(moni)
