@@ -21,5 +21,5 @@ GiGaMTRunManagerFAC("GiGaMT.GiGaMTRunManagerFAC").InitCommands = [
     "/adept/setTrackInAllRegions true",
     "/adept/setCUDAStackLimit 4096",
     "/adept/setMillionsOfTrackSlots 15",
-    "/adept/setMillionsOfHitSlots 10",
+    "/adept/setMillionsOfHitSlots 12",
 ]
