@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Mapping, Sequence
 import json
 import csv
 import logging
@@ -72,13 +73,13 @@ def extract_results(
     metadata = load_simulation_metadata(iteration_folder)
 
     # Step 4: Get extractor
-    extractor = get_extractor(extract_type)
+    extractor = get_extractor(benchmark_name, extract_type)
 
     # Step 5: Process logs
     results = process_logs(iteration_folder, metadata, extractor)
 
     # Step 6: Export results to CSV
-    export_to_csv(results, iteration_folder)
+    export_to_csv(results, iteration_folder, extract_type)
 
 
 def load_run_config(benchmark_name: str) -> dict:
@@ -158,13 +159,46 @@ def performance_extractor(log_data):
     return results
 
 
+def b4layeredcalorimeter_physics_extractor(log_data):
+    """
+    Extract physics results from B4LayeredCalorimeter log data.
+    Returns a list of dicts, one per hit line.
+    """
+    import re
+
+    # Regex to match the relevant lines
+    pattern = re.compile(
+        r"Edep:\s*([\d.eE+-]+)\s*([a-zA-Z]+)\s*track length:\s*([\d.eE+-]+)\s*([a-zA-Z]+)\s+"
+        r"sensitive detector:\s*(B4Calorimeter_Layer_AbsorberSDet|B4Calorimeter_Layer_GapSDet)\s+"
+        r"layer number:\s*(-?\d+)\s*eventID:\s*(\d+)"
+    )
+
+    results = []
+    for line in log_data.splitlines():
+        m = pattern.search(line)
+        if m:
+            results.append(
+                {
+                    "edep_value": float(m.group(1)),
+                    "edep_unit": m.group(2),
+                    "track_length_value": float(m.group(3)),
+                    "track_length_unit": m.group(4),
+                    "detector": m.group(5),
+                    "layer_number": int(m.group(6)),
+                    "event_id": int(m.group(7)),
+                }
+            )
+    return results
+
+
 EXTRACTORS = {
-    "performance": performance_extractor,
+    ("B4LayeredCalorimeter", "performance"): performance_extractor,
+    ("B4LayeredCalorimeter", "physics"): b4layeredcalorimeter_physics_extractor,
 }
 
 
-def get_extractor(extractor_type: int):
-    return EXTRACTORS.get(extractor_type, None)
+def get_extractor(benchmark: str, extractor_type: str):
+    return EXTRACTORS.get((benchmark, extractor_type), None)
 
 
 def process_logs(iteration_folder, metadata, extractor):
@@ -195,7 +229,7 @@ def process_logs(iteration_folder, metadata, extractor):
     return results
 
 
-def export_to_csv(results, output_path):
+def export_to_csv(results, output_path, extract_type):
     """
     Export the processed results to a CSV file without using Pandas.
     Dynamically creates columns for parameters, execution time, and extracted fields.
@@ -209,7 +243,14 @@ def export_to_csv(results, output_path):
     result_keys = set()
     for result in results:
         parameter_keys.update(result["parameters"].keys())
-        result_keys.update(result["results"].keys())
+
+        if isinstance(result["results"], Mapping):
+            result_keys.update(result["results"].keys())
+        elif isinstance(result["results"], Sequence):
+            for line in result["results"]:
+                result_keys.update(line.keys())
+        else:
+            raise ValueError("Results are not a dict or list of dicts.")
 
     # Define the CSV header
     header = (
@@ -219,21 +260,32 @@ def export_to_csv(results, output_path):
     )
 
     # Write the CSV file
-    csv_path = output_path / "results.csv"
+    csv_path = output_path / f"{extract_type}-results.csv"
     with csv_path.open("w", newline="") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=header)
         writer.writeheader()
 
         for result in results:
             # Flatten the parameters and results into a single row
-            row = {
-                "log_file": result["log_file"],
-                "execution_time": result["execution_time"],
-                "with_adept": result["with_adept"],
-                **result["parameters"],  # Add parameter columns
-                **result["results"],  # Add extracted result columns
-            }
-            writer.writerow(row)
+            if isinstance(result["results"], Mapping):
+                row = {
+                    "log_file": result["log_file"],
+                    "execution_time": result["execution_time"],
+                    "with_adept": result["with_adept"],
+                    **result["parameters"],  # Add parameter columns
+                    **result["results"],  # Add extracted result columns
+                }
+                writer.writerow(row)
+            elif isinstance(result["results"], Sequence):
+                for line in result["results"]:
+                    row = {
+                        "log_file": result["log_file"],
+                        "execution_time": result["execution_time"],
+                        "with_adept": result["with_adept"],
+                        **result["parameters"],  # Add parameter columns
+                        **line,  # Add extracted result columns
+                    }
+                    writer.writerow(row)
 
     logger.info(f"Results exported to: {csv_path}")
 
