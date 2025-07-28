@@ -1,4 +1,5 @@
 """Simple example of a simulation with Gaussino"""
+
 import os
 
 from GaudiKernel import SystemOfUnits as units
@@ -14,9 +15,17 @@ from Configurables import (
     ExternalDetectorEmbedder,
 )
 
+particle_types = {
+    "proton": 2212,
+    "electron": 11,
+    "gamma": 22,
+}
+
 # Parameters
 particles_per_event = int(os.environ.get("PARTICLES_PER_EVENT", 100))
 nthreads = int(os.environ.get("NUMBER_OF_THREADS", 1))
+particle_type = particle_types.get(os.environ.get("PARTICLE_TYPE", "electron"), 11)
+number_of_events = int(os.environ.get("NUMBER_OF_EVENTS", 10))
 
 ## constants
 n_chambers = 5
@@ -32,7 +41,7 @@ world_length = 1.2 * (2 * target_length + tracker_length)
 
 
 # General Gaussino configs
-Gaussino().EvtMax = 10
+Gaussino().EvtMax = number_of_events
 Gaussino().Phases = ["Generator", "Simulation"]
 Gaussino().EnableHive = True
 Gaussino().ThreadPoolSize = nthreads
@@ -72,7 +81,7 @@ def setup_particle_gun(
 setup_particle_gun(
     number_of_particles=particles_per_event,
     particle_energy=3.0 * units.GeV,
-    particle_type=11,
+    particle_type=particle_type,
     gun_position=-0.5 * world_length,
 )
 
@@ -99,7 +108,6 @@ def setup_geometry(
     chamber_spacing=None,
     chamber_width=None,
 ):
-
     GaussinoGeometry().ExternalDetectorEmbedder = emb_name
     external = ExternalDetectorEmbedder(emb_name)
 
