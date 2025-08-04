@@ -191,9 +191,40 @@ def b4layeredcalorimeter_physics_extractor(log_data):
     return results
 
 
+def b2chambertracker_physics_extractor(log_data):
+    """
+    Extract physics results from B2ChamberTracker log data.
+    Returns a list of dicts, one per chamber per event.
+    """
+    import re
+
+    pattern = re.compile(
+        r"SUCCESS\s*\[\s*Worker\s*#(\d+)\s*\]\s*#Hits=\s*(\d+)\s*Energy=\s*([\d.eE+-]+)\[(\w+)\]\s*#Particles=\s*(\d+)\s*in\s*(ExternalDetectorEmbedder_Chamber_\d+SDet)\s*for\s*event\s*with\s*id:\s*(\d+)"
+    )
+
+    results = []
+    for line in log_data.splitlines():
+        m = pattern.search(line)
+        if m:
+            results.append(
+                {
+                    "worker_id": int(m.group(1)),
+                    "number_of_hits": int(m.group(2)),
+                    "energy_value": float(m.group(3)),
+                    "energy_unit": m.group(4),
+                    "number_of_particles": int(m.group(5)),
+                    "detector": m.group(6),
+                    "event_id": int(m.group(7)),
+                }
+            )
+    return results
+
+
 EXTRACTORS = {
     ("B4LayeredCalorimeter", "performance"): performance_extractor,
     ("B4LayeredCalorimeter", "physics"): b4layeredcalorimeter_physics_extractor,
+    ("B2ChamberTracker", "performance"): performance_extractor,
+    ("B2ChamberTracker", "physics"): b2chambertracker_physics_extractor,
 }
 
 
