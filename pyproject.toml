@@ -1,0 +1,14 @@
+[project]
+name = "gaussino-with-adept-analysis"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "ipykernel>=6.29.5",
+    "marimo>=0.14.16",
+    "matplotlib>=3.10.3",
+    "pandas>=2.3.0",
+    "scipy>=1.16.1",
+    "seaborn>=0.13.2",
+]
