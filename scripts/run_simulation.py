@@ -23,6 +23,18 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+@dataclasses.dataclass(frozen=True)
+class RunnerConfig:
+    """Configurations for running simulations of a specific benchmark"""
+
+    simulation_name: str
+    executable: Path
+    options_files: list[Path]
+    simulation_files: list[Path]
+    output_dir: Path
+    parameters: dict[str, list]
+
+
 def main() -> None:
     # Parse arguments and load configuration
     args = parse_args()
@@ -73,18 +85,6 @@ def load_config(args):
     )
 
     return config
-
-
-@dataclasses.dataclass(frozen=True)
-class RunnerConfig:
-    """Configurations for running simulations of a specific benchmark"""
-
-    simulation_name: str
-    executable: Path
-    options_files: list[Path]
-    simulation_files: list[Path]
-    output_dir: Path
-    parameters: dict[str, list]
 
 
 def run_all_simulations(config: RunnerConfig):
