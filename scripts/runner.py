@@ -64,7 +64,7 @@ def load_config(args):
     config = RunnerConfig(
         simulation_name=simulation_config["benchmark"],
         executable=args.executable or os.environ.get("GAUSSINO_EXECUTABLE"),
-        options_file=base_path / simulation_config["options_file"],
+        options_files=[base_path / file for file in simulation_config["options_files"]],
         simulation_files=[
             base_path / file for file in simulation_config["simulation_files"]
         ],
@@ -81,7 +81,7 @@ class RunnerConfig:
 
     simulation_name: str
     executable: Path
-    options_file: Path
+    options_files: list[Path]
     simulation_files: list[Path]
     output_dir: Path
     parameters: dict[str, list]
@@ -133,7 +133,7 @@ def run_all_simulations(config: RunnerConfig):
             success, output_path, execution_time = run_simulation(
                 config.executable,
                 param_dict,
-                config.options_file,
+                config.options_files,
                 sim_file,
                 simulation_output,
             )
@@ -180,7 +180,7 @@ def create_run_directory(output_dir: Path) -> Path:
 
 
 def run_simulation(
-    executable, param_dict, options_file, simulation_file, output_dir
+    executable, param_dict, options_files, simulation_file, output_dir
 ) -> tuple[bool, Path, float]:
     """
     Run a single simulation with the specified parameters and measure execution time.
@@ -188,7 +188,7 @@ def run_simulation(
     Args:
         executable (str): Path to the Gaussino executable
         param_dict (dict): Dictionary of environment parameters to set
-        options_file (str): Path to the base options file
+        options_files (list[str]): Paths to the base options files
         simulation_file (str): Path to the specific simulation configuration
         output_dir (Path): Directory to store the output log
 
@@ -211,7 +211,9 @@ def run_simulation(
     cmd = (
         [str(executable), "env"]
         + [f"{k}={v}" for k, v in param_dict.items()]
-        + ["gaudirun.py", str(options_file), str(simulation_file)]
+        + ["gaudirun.py"]
+        + [str(options_file) for options_file in options_files]
+        + [str(simulation_file)]
     )
 
     logger.info(f"Running: {' '.join(cmd)}")
