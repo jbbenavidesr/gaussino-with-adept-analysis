@@ -101,7 +101,10 @@ def get_extractor(benchmark: str, extractor_type: str) -> Extractor:
         extractor_type: The type of data to extract ('performance' or 'physics').
 
     Returns:
-        The corresponding extractor function, or None if not found.
+        The corresponding extractor function.
+
+    Raises:
+        ValueError if the corresponding extractor is not found
     """
     try:
         return EXTRACTORS[(benchmark, extractor_type)]
