@@ -1,42 +1,37 @@
 # units.py
 
-from decimal import Decimal, getcontext
-from typing import Dict, Tuple, Final
+from typing import Final
 
-# Set a high precision for Decimal calculations
-# This is a global setting for the current thread/process
-getcontext().prec = 50
-
-# Private constant for metric prefixes. Using Decimal for precision.
-_METRIC_PREFIXES: Final[Dict[str, Decimal]] = {
-    "Y": Decimal("1e24"),  # yotta
-    "Z": Decimal("1e21"),  # zetta
-    "E": Decimal("1e18"),  # exa
-    "P": Decimal("1e15"),  # peta
-    "T": Decimal("1e12"),  # tera
-    "G": Decimal("1e9"),  # giga
-    "M": Decimal("1e6"),  # mega
-    "k": Decimal("1e3"),  # kilo
-    "h": Decimal("1e2"),  # hecto
-    "da": Decimal("1e1"),  # deca
-    "": Decimal("1"),  # no prefix
-    "d": Decimal("1e-1"),  # deci
-    "c": Decimal("1e-2"),  # centi
-    "m": Decimal("1e-3"),  # milli
-    "u": Decimal("1e-6"),  # micro (alternative to µ)
-    "µ": Decimal("1e-6"),  # micro
-    "n": Decimal("1e-9"),  # nano
-    "p": Decimal("1e-12"),  # pico
-    "f": Decimal("1e-15"),  # femto
-    "a": Decimal("1e-18"),  # atto
-    "z": Decimal("1e-21"),  # zepto
-    "y": Decimal("1e-24"),  # yocto
+# Private constant for metric prefixes. Using Final makes it clear this should not be changed.
+_METRIC_PREFIXES: Final[dict[str, float]] = {
+    "Y": 1e24,  # yotta
+    "Z": 1e21,  # zetta
+    "E": 1e18,  # exa
+    "P": 1e15,  # peta
+    "T": 1e12,  # tera
+    "G": 1e9,  # giga
+    "M": 1e6,  # mega
+    "k": 1e3,  # kilo
+    "h": 1e2,  # hecto
+    "da": 1e1,  # deca
+    "": 1,  # no prefix
+    "d": 1e-1,  # deci
+    "c": 1e-2,  # centi
+    "m": 1e-3,  # milli
+    "u": 1e-6,  # micro (alternative to µ)
+    "µ": 1e-6,  # micro
+    "n": 1e-9,  # nano
+    "p": 1e-12,  # pico
+    "f": 1e-15,  # femto
+    "a": 1e-18,  # atto
+    "z": 1e-21,  # zepto
+    "y": 1e-24,  # yocto
 }
 
 
-def _get_prefix_factor(prefix: str) -> Decimal:
+def _get_prefix_factor(prefix: str) -> float:
     """
-    Returns the scale factor for a given metric prefix as a Decimal.
+    Returns the scale factor for a given metric prefix.
     Raises ValueError if the prefix is not known.
     """
     try:
@@ -45,9 +40,15 @@ def _get_prefix_factor(prefix: str) -> Decimal:
         raise ValueError(f"Unknown metric prefix: '{prefix}'")
 
 
-def parse_unit(unit_str: str) -> Tuple[str, str]:
+def parse_unit(unit_str: str) -> tuple[str, str]:
     """
     Parses a unit string to separate its prefix and base unit.
+
+    Args:
+        unit_str: The unit string (e.g., "kg", "cm").
+
+    Returns:
+        A tuple containing the prefix and the base unit.
     """
     if len(unit_str) > 2 and unit_str[:2] in _METRIC_PREFIXES:
         return unit_str[:2], unit_str[2:]
@@ -57,20 +58,27 @@ def parse_unit(unit_str: str) -> Tuple[str, str]:
     return "", unit_str
 
 
-def convert_unit(
-    value: Decimal, current_unit: str, target_unit: str, base: str
-) -> Decimal:
+def convert_unit(value: float, current_unit: str, target_unit: str, base: str) -> float:
     """
     Convert a value from one unit to another within the same metric system.
 
     Args:
-        value: The numerical value to convert, as a Decimal.
+        value: The numerical value to convert.
         current_unit: The unit of the current value (e.g., "kg", "cm").
         target_unit: The unit to convert the value to (e.g., "mg", "m").
         base: The base unit of the system (e.g., "g" for grams, "m" for meters).
 
     Returns:
-        The converted numerical value as a Decimal.
+        The converted numerical value.
+
+    Raises:
+        ValueError: If an unknown prefix is used or the base units do not match.
+
+    Examples:
+        >>> convert_unit(1, 'kg', 'mg', base='g')
+        1000000.0
+        >>> convert_unit(500, 'cm', 'm', base='m')
+        5.0
     """
     current_prefix, current_base = parse_unit(current_unit)
     target_prefix, target_base = parse_unit(target_unit)
@@ -87,17 +95,17 @@ def convert_unit(
 
 
 # Additional entry point for convenience
-def convert_to_base_unit(value: Decimal, unit: str) -> Decimal:
+def convert_to_base_unit(value: float, unit: str) -> float:
     """
     Converts a value from a given unit to its base unit.
     """
-    prefix, _ = parse_unit(unit)
+    prefix, base = parse_unit(unit)
     factor = _get_prefix_factor(prefix)
     return value * factor
 
 
 # Another entry point
-def convert_from_base_unit(value: Decimal, target_unit: str) -> Decimal:
+def convert_from_base_unit(value: float, target_unit: str) -> float:
     """
     Converts a value from a base unit to a target unit.
     """

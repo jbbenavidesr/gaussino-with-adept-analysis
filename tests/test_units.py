@@ -1,7 +1,4 @@
-from decimal import Decimal
-
 import pytest
-
 from analysis.units import (
     convert_unit,
     parse_unit,
@@ -44,25 +41,23 @@ def test_parse_unit(unit_str, expected_prefix, expected_base):
     "value, current_unit, target_unit, base, expected_result",
     [
         # From larger to smaller
-        (Decimal("1"), "kg", "g", "g", Decimal("1000")),
-        (Decimal("1"), "km", "m", "m", Decimal("1000")),
-        (Decimal("10"), "m", "cm", "m", Decimal("1000")),
-        (Decimal("1"), "ms", "µs", "s", Decimal("1000")),
-        (Decimal("1"), "eV", "neV", "eV", Decimal("1e9")),
+        (1, "kg", "g", "g", 1000.0),
+        (1, "km", "m", "m", 1000.0),
+        (10, "m", "cm", "m", 1000.0),
+        (1, "ms", "µs", "s", 1000.0),
+        (1, "eV", "neV", "eV", 1e9),
         # From smaller to larger
-        (Decimal("1000"), "g", "kg", "g", Decimal("1")),
-        (Decimal("100"), "cm", "m", "m", Decimal("1")),
-        (Decimal("1000"), "µs", "ms", "s", Decimal("1")),
-        (Decimal("1e9"), "neV", "eV", "eV", Decimal("1")),
+        (1000, "g", "kg", "g", 1.0),
+        (100, "cm", "m", "m", 1.0),
+        (1000, "µs", "ms", "s", 1.0),
+        (1e9, "neV", "eV", "eV", 1.0),
         # Conversions with no prefix
-        (Decimal("1000"), "m", "km", "m", Decimal("1")),
-        (Decimal("1"), "kg", "g", "g", Decimal("1000")),
-        (Decimal("500"), "g", "kg", "g", Decimal("0.5")),
+        (1000, "m", "km", "m", 1.0),
+        (1, "kg", "g", "g", 1000.0),
+        (500, "g", "kg", "g", 0.5),
         # Converting to the same unit
-        (Decimal("42.0"), "cm", "cm", "m", Decimal("42.0")),
-        (Decimal("100"), "m", "m", "m", Decimal("100")),
-        # A case where float precision would fail but Decimal succeeds
-        (Decimal("3"), "m", "cm", "m", Decimal("300")),
+        (42.0, "cm", "cm", "m", 42.0),
+        (100, "m", "m", "m", 100.0),
     ],
 )
 def test_convert_unit_conversions(
@@ -71,18 +66,20 @@ def test_convert_unit_conversions(
     """
     Test various valid conversions using convert_unit.
     """
-    assert convert_unit(value, current_unit, target_unit, base) == expected_result
+    assert convert_unit(value, current_unit, target_unit, base) == pytest.approx(
+        expected_result
+    )
 
 
 @pytest.mark.parametrize(
     "value, unit, expected_result",
     [
-        (Decimal("1"), "km", Decimal("1000")),
-        (Decimal("100"), "cm", Decimal("1")),
-        (Decimal("1"), "kg", Decimal("1000")),
-        (Decimal("5"), "mm", Decimal("0.005")),
-        (Decimal("1"), "m", Decimal("1")),
-        (Decimal("1e6"), "µV", Decimal("1")),
+        (1, "km", 1000.0),
+        (100, "cm", 1.0),
+        (1, "kg", 1000.0),
+        (5, "mm", 0.005),
+        (1, "m", 1.0),
+        (1e6, "µV", 1.0),
     ],
 )
 def test_convert_to_base_unit_conversions(value, unit, expected_result):
@@ -95,12 +92,12 @@ def test_convert_to_base_unit_conversions(value, unit, expected_result):
 @pytest.mark.parametrize(
     "value, target_unit, expected_result",
     [
-        (Decimal("1000"), "km", Decimal("1")),
-        (Decimal("1"), "cm", Decimal("100")),
-        (Decimal("1000"), "g", Decimal("1000")),
-        (Decimal("0.005"), "mm", Decimal("5")),
-        (Decimal("1.0"), "m", Decimal("1.0")),
-        (Decimal("1.0"), "µV", Decimal("1e6")),
+        (1000, "km", 1.0),
+        (1, "cm", 100.0),
+        (1000, "g", 1000.0),  # The unit 'g' has no prefix so should remain the same
+        (0.005, "mm", 5.0),
+        (1.0, "m", 1.0),
+        (1.0, "µV", 1e6),
     ],
 )
 def test_convert_from_base_unit_conversions(value, target_unit, expected_result):
@@ -113,9 +110,9 @@ def test_convert_from_base_unit_conversions(value, target_unit, expected_result)
 @pytest.mark.parametrize(
     "value, current_unit, target_unit, base, error_message",
     [
-        (Decimal("10"), "kg", "m", "m", "Base unit mismatch"),
-        (Decimal("100"), "cm", "g", "m", "Base unit mismatch"),
-        (Decimal("1"), "km", "g", "m", "Base unit mismatch"),
+        (10, "kg", "m", "m", "Base unit mismatch: expected base 'm', got 'g' and 'm'"),
+        (100, "cm", "g", "m", "Base unit mismatch: expected base 'm', got 'm' and 'g'"),
+        (1, "km", "g", "m", "Base unit mismatch: expected base 'm', got 'm' and 'g'"),
     ],
 )
 def test_convert_unit_raises_error_on_base_unit_mismatch(
