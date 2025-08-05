@@ -1,0 +1,197 @@
+{
+  "timestamp": "2025-07-29T23:11:55.514054",
+  "runs": [
+    {
+      "simulation_file": "CaloChallenge/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/adept_simulation_PARTICLES_PER_EVENT=1_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 48.055274963378906,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "CaloChallenge/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/geant4_simulation_PARTICLES_PER_EVENT=1_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.303835868835449,
+      "success": false,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "CaloChallenge/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/adept_simulation_PARTICLES_PER_EVENT=1_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 8.013413906097412,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "CaloChallenge/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/geant4_simulation_PARTICLES_PER_EVENT=1_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.336838722229004,
+      "success": false,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "CaloChallenge/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/adept_simulation_PARTICLES_PER_EVENT=10_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 306.2808184623718,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "CaloChallenge/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/geant4_simulation_PARTICLES_PER_EVENT=10_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.535259485244751,
+      "success": false,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "CaloChallenge/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/adept_simulation_PARTICLES_PER_EVENT=10_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 11.844290256500244,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "CaloChallenge/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/geant4_simulation_PARTICLES_PER_EVENT=10_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.495917320251465,
+      "success": false,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "CaloChallenge/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/adept_simulation_PARTICLES_PER_EVENT=100_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 11.81492829322815,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "CaloChallenge/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/geant4_simulation_PARTICLES_PER_EVENT=100_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.677862882614136,
+      "success": false,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "CaloChallenge/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/adept_simulation_PARTICLES_PER_EVENT=100_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 11.888500213623047,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "CaloChallenge/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/geant4_simulation_PARTICLES_PER_EVENT=100_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.681053638458252,
+      "success": false,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "CaloChallenge/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/adept_simulation_PARTICLES_PER_EVENT=1000_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 11.952179193496704,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "CaloChallenge/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/geant4_simulation_PARTICLES_PER_EVENT=1000_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 6.300661325454712,
+      "success": false,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "CaloChallenge/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/adept_simulation_PARTICLES_PER_EVENT=1000_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 11.796568393707275,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "CaloChallenge/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "CaloChallenge/test_runs/004_2025-07-29/geant4_simulation_PARTICLES_PER_EVENT=1000_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 6.100609302520752,
+      "success": false,
+      "with_adept": false
+    }
+  ]
+}

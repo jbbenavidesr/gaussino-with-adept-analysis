@@ -1,0 +1,11 @@
+{
+    "benchmark": "CaloChallenge",
+    "options_files": ["configs/generation.py", "configs/geometry.py", "configs/monitoring.py"],
+    "simulation_files": ["configs/adept_simulation.py", "configs/geant4_simulation.py"],
+    "output_dir": "test_runs",
+    "parameters": {
+        "PARTICLES_PER_EVENT": [1, 10, 100, 1000],
+	"NUMBER_OF_THREADS": [1, 32],
+	"NUMBER_OF_EVENTS": [1000]
+    }
+}

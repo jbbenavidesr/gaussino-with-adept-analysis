@@ -1,0 +1,4 @@
+from CaloChallenge.cc_monitoring import set_monitoring
+from CaloChallenge.cc_geometry import planar_detector_SiW_options
+
+set_monitoring(planar_detector_SiW_options, training_data=False)
