@@ -1,3 +1,26 @@
 stack*/
 *.gdml
-.vscode
+
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+.idea/
+.vscode/
+
+# Marimo
+__marimo__/
+.marimo-cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data & Results (optional, but recommended for large data)
+# If your results are large, don't track them with Git.
+# results/
+# data/
+
+# OS-specific
+.DS_Store
+Thumbs.db
