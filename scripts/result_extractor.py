@@ -8,7 +8,9 @@ import json
 import csv
 import logging
 from pathlib import Path
-import re
+
+from analysis.extractors import get_extractor
+
 
 logging.basicConfig(
     level=logging.INFO,
@@ -126,110 +128,6 @@ def load_simulation_metadata(iteration_folder):
 
     with metadata_path.open() as f:
         return json.load(f)
-
-
-def performance_extractor(log_data):
-    """
-    Extract performance metrics from log data.
-
-    Args:
-        log_data (str): The content of the log file as a string.
-
-    Returns:
-        dict: A dictionary containing the extracted performance metrics.
-    """
-    # Define regex patterns for each metric
-    patterns = {
-        "event_loop_time": r"Measured event loop time \[ns\]: ([\d.e+-]+)",
-        "time_per_event": r"Time per event \[s\]: ([\d.e+-]+)",
-        "throughput": r"Throughput \[1/s\]: ([\d.e+-]+)",
-    }
-
-    # Initialize a dictionary to hold the results
-    results = {}
-
-    # Search for each pattern in the log data
-    for key, pattern in patterns.items():
-        match = re.search(pattern, log_data)
-        if match:
-            results[key] = float(
-                match.group(1)
-            )  # Convert to float for numerical values
-
-    return results
-
-
-def b4layeredcalorimeter_physics_extractor(log_data):
-    """
-    Extract physics results from B4LayeredCalorimeter log data.
-    Returns a list of dicts, one per hit line.
-    """
-    import re
-
-    # Regex to match the relevant lines
-    pattern = re.compile(
-        r"Edep:\s*([\d.eE+-]+)\s*([a-zA-Z]+)\s*track length:\s*([\d.eE+-]+)\s*([a-zA-Z]+)\s+"
-        r"sensitive detector:\s*(B4Calorimeter_Layer_AbsorberSDet|B4Calorimeter_Layer_GapSDet)\s+"
-        r"layer number:\s*(-?\d+)\s*eventID:\s*(\d+)"
-    )
-
-    results = []
-    for line in log_data.splitlines():
-        m = pattern.search(line)
-        if m:
-            results.append(
-                {
-                    "edep_value": float(m.group(1)),
-                    "edep_unit": m.group(2),
-                    "track_length_value": float(m.group(3)),
-                    "track_length_unit": m.group(4),
-                    "detector": m.group(5),
-                    "layer_number": int(m.group(6)),
-                    "event_id": int(m.group(7)),
-                }
-            )
-    return results
-
-
-def b2chambertracker_physics_extractor(log_data):
-    """
-    Extract physics results from B2ChamberTracker log data.
-    Returns a list of dicts, one per chamber per event.
-    """
-    import re
-
-    pattern = re.compile(
-        r"SUCCESS\s*\[\s*Worker\s*#(\d+)\s*\]\s*#Hits=\s*(\d+)\s*Energy=\s*([\d.eE+-]+)\[(\w+)\]\s*#Particles=\s*(\d+)\s*in\s*(ExternalDetectorEmbedder_Chamber_\d+SDet)\s*for\s*event\s*with\s*id:\s*(\d+)"
-    )
-
-    results = []
-    for line in log_data.splitlines():
-        m = pattern.search(line)
-        if m:
-            results.append(
-                {
-                    "worker_id": int(m.group(1)),
-                    "number_of_hits": int(m.group(2)),
-                    "energy_value": float(m.group(3)),
-                    "energy_unit": m.group(4),
-                    "number_of_particles": int(m.group(5)),
-                    "detector": m.group(6),
-                    "event_id": int(m.group(7)),
-                }
-            )
-    return results
-
-
-EXTRACTORS = {
-    ("B4LayeredCalorimeter", "performance"): performance_extractor,
-    ("B4LayeredCalorimeter", "physics"): b4layeredcalorimeter_physics_extractor,
-    ("B2ChamberTracker", "performance"): performance_extractor,
-    ("B2ChamberTracker", "physics"): b2chambertracker_physics_extractor,
-}
-
-
-def get_extractor(benchmark: str, extractor_type: str):
-    return EXTRACTORS.get((benchmark, extractor_type), None)
 
 
 def process_logs(iteration_folder, metadata, extractor):
