@@ -97,7 +97,7 @@ cd AdePT
 cmake -S. -B $build_dir -DCMAKE_INSTALL_PREFIX="$adept_install" \
     -DCMAKE_PREFIX_PATH="$veccore_install;$vecgeom_install;$g4hepem_install;$geant4_install" \
     -DCMAKE_CUDA_ARCHITECTURES=$cuda_architecture \
-    -DWITH_FLUCT=OFF \
+    -DWITH_FLUCT=ON \
     -DBUILD_TESTING=OFF \
     -DASYNC_MODE=ON \
     -DCMAKE_BUILD_TYPE=Release
