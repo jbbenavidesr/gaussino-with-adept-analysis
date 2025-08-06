@@ -26,8 +26,8 @@ def _():
     import numpy as np
     import matplotlib.pyplot as plt
     from scipy.optimize import curve_fit
-    from scipy.stats import norm
-    return Optional, Path, curve_fit, dataclass, norm, np, pd, plt
+    from scipy.stats import norm, ks_2samp
+    return Optional, Path, curve_fit, dataclass, ks_2samp, norm, np, pd, plt
 
 
 @app.cell
@@ -517,6 +517,30 @@ def _(fit_gaussian, np, pd, split_data):
     return PlotData, get_histogram_and_fit_data, get_longitudinal_profiles
 
 
+@app.cell
+def _(ks_2samp, np):
+    def get_ks_statistic(
+        adept_values: np.ndarray, geant4_values: np.ndarray
+    ) -> tuple[float, float]:
+        """
+        Performs the two-sample Kolmogorov-Smirnov test on two sets of data.
+    
+        Args:
+            adept_values: An array of numerical values from the Adept simulation.
+            geant4_values: An array of numerical values from the Geant4 simulation.
+        
+        Returns:
+            A tuple containing the D-statistic and the p-value.
+        """
+        if adept_values.size == 0 or geant4_values.size == 0:
+            return np.nan, np.nan
+    
+        ks_result = ks_2samp(adept_values, geant4_values)
+        return ks_result.statistic, ks_result.pvalue
+
+    return (get_ks_statistic,)
+
+
 @app.cell(hide_code=True)
 def _(Optional, PlotData, pd, plt):
     def plot_histogram_with_fits(
@@ -525,11 +549,11 @@ def _(Optional, PlotData, pd, plt):
     ) -> plt.Axes:
         """
         Plots the histograms and their Gaussian fits.
-    
+
         Args:
             plot_data: The dictionary returned by `get_histogram_and_fit_data`.
             ax: An optional Matplotlib Axes object to plot on. If None, a new figure is created.
-        
+
         Returns:
             The Matplotlib Axes object with the plot.
         """
@@ -539,7 +563,7 @@ def _(Optional, PlotData, pd, plt):
         adept_data = plot_data["adept"]
         geant4_data = plot_data["geant4"]
         variable = plot_data["variable"]
-    
+
         # Plot histograms
         ax.hist(
             plot_data["values_adept"], bins=adept_data.bins, histtype="step", color="blue", label="AdePT"
@@ -563,7 +587,7 @@ def _(Optional, PlotData, pd, plt):
             linestyle="--",
             label=rf"Geant4 fit ($\mu={geant4_data.mu:.3g} \pm {geant4_data.mu_err:.3g}$, $\sigma={geant4_data.std:.3g} \pm {geant4_data.std_err:.3g}$)",
         )
-    
+
         ax.set_xlabel(variable)
         ax.set_ylabel("Frequency")
         ax.legend()
@@ -577,21 +601,21 @@ def _(Optional, PlotData, pd, plt):
     ) -> plt.Axes:
         """
         Plots a longitudinal energy deposition profile for Adept and Geant4.
-    
+
         Args:
             profiles: The dictionary returned by `get_longitudinal_profiles`.
             ax: An optional Matplotlib Axes object to plot on.
             profile_type: 'absorber' or 'gap' to select which profile to plot.
-        
+
         Returns:
             The Matplotlib Axes object with the plot.
         """
         if ax is None:
             _, ax = plt.subplots(figsize=(10, 6))
-    
+
         adept_profile = profiles[f"{profile_type}_adept"]
         geant4_profile = profiles[f"{profile_type}_geant4"]
-    
+
         ax.plot(
             adept_profile.index,
             adept_profile.values,
@@ -607,7 +631,7 @@ def _(Optional, PlotData, pd, plt):
             linestyle="--",
             marker="x",
         )
-    
+
         ax.set_xlabel("Layer Number (Depth)")
         ax.set_ylabel("Mean Energy Deposition per Event (MeV)")
         ax.legend()
@@ -666,6 +690,26 @@ def _(
     plt.tight_layout()
     plt.show()
 
+    return (histogram_data,)
+
+
+@app.cell
+def _(get_ks_statistic, histogram_data):
+    # Calculate the Kolmogorov-Smirnov statistic
+    ks_statistic, ks_pvalue = get_ks_statistic(histogram_data["values_adept"], histogram_data["values_geant4"])
+
+    # Print the K-S results for statistical comparison
+    print(
+        f"Kolmogorov-Smirnov Test Results for {histogram_data['variable']}:"
+    )
+    print(f"  D-statistic: {ks_statistic:.4f}")
+    print(f"  p-value: {ks_pvalue:.4e}")
+
+    # Interpret the p-value
+    if ks_pvalue < 0.05:
+        print("  Conclusion: The two distributions are statistically different.")
+    else:
+        print("  Conclusion: There is no significant evidence that the distributions are different.")
     return
 
 

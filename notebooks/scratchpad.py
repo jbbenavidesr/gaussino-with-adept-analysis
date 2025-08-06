@@ -32,8 +32,8 @@ def _():
     import numpy as np
     import matplotlib.pyplot as plt
     from scipy.optimize import curve_fit
-    from scipy.stats import norm
-    return Optional, Path, curve_fit, dataclass, norm, np, pd, plt
+    from scipy.stats import norm, ks_2samp
+    return Optional, Path, curve_fit, dataclass, ks_2samp, norm, np, pd, plt
 
 
 @app.cell
@@ -460,6 +460,30 @@ def _(Optional, curve_fit, dataclass, norm, np, pd, plt, split_data):
 
 
 @app.cell
+def _(ks_2samp, np):
+    def get_ks_statistic(
+        adept_values: np.ndarray, geant4_values: np.ndarray
+    ) -> tuple[float, float]:
+        """
+        Performs the two-sample Kolmogorov-Smirnov test on two sets of data.
+    
+        Args:
+            adept_values: An array of numerical values from the Adept simulation.
+            geant4_values: An array of numerical values from the Geant4 simulation.
+        
+        Returns:
+            A tuple containing the D-statistic and the p-value.
+        """
+        if adept_values.size == 0 or geant4_values.size == 0:
+            return np.nan, np.nan
+    
+        ks_result = ks_2samp(adept_values, geant4_values)
+        return ks_result.statistic, ks_result.pvalue
+
+    return (get_ks_statistic,)
+
+
+@app.cell
 def _(mo, physics_df):
     phys_variable_dropdown = mo.ui.dropdown(
         options=["number_of_hits", "number_of_particles", "energy_value", ],
@@ -521,6 +545,7 @@ def _(
     _fig, ax = plt.subplots(figsize=(10, 6))
     plot_histogram_with_fits(histogram_data, ax=ax)
 
+
     # Add custom title and labels
     ax.set_title(
         f"{phys_variable_dropdown.value} Distribution in {phys_detector_dropdown.value}, ({phys_particles_per_event_dropdown.value} particles/event)"
@@ -528,6 +553,26 @@ def _(
 
     plt.tight_layout()
     plt.show()
+    return (histogram_data,)
+
+
+@app.cell
+def _(get_ks_statistic, histogram_data):
+    # Calculate the Kolmogorov-Smirnov statistic
+    ks_statistic, ks_pvalue = get_ks_statistic(histogram_data["values_adept"], histogram_data["values_geant4"])
+
+    # Print the K-S results for statistical comparison
+    print(
+        f"Kolmogorov-Smirnov Test Results for {histogram_data['variable']}:"
+    )
+    print(f"  D-statistic: {ks_statistic:.4f}")
+    print(f"  p-value: {ks_pvalue:.4e}")
+
+    # Interpret the p-value
+    if ks_pvalue < 0.05:
+        print("  Conclusion: The two distributions are statistically different.")
+    else:
+        print("  Conclusion: There is no significant evidence that the distributions are different.")
     return
 
 
