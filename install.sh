@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -e
+
 # Script for installing complete stack and all projects necessary to run
 # Gaussino with AdePT.
 
@@ -48,7 +50,7 @@ if [ ! -d VecGeom ]; then
 fi
 
 cd VecGeom
-git checkout v2.0.0-rc.3
+git checkout v2.0.0-rc.6
 cmake -S. -B $build_dir -DCMAKE_INSTALL_PREFIX="$vecgeom_install" \
     -DCMAKE_PREFIX_PATH="$veccore_install" \
     -DVECGEOM_ENABLE_CUDA=ON \
@@ -62,7 +64,7 @@ cd ..
 
 # 2.3. Install Geant4
 geant4_install="$root/stack/Geant4/$install_dir"
-make Geant4 BUILDFLAGS="-j6"
+make Geant4 BUILDFLAGS="-j$num_threads"
 
 # 2.4. Install G4HepEm
 g4hepem_install="$root/stack/G4HepEm/$install_dir"
@@ -72,7 +74,7 @@ if [ ! -d G4HepEm ]; then
 fi
 
 cd G4HepEm
-git checkout 20250220
+git checkout 20250610
 
 ## G4HepEm expects Geant4 v11 to be installed, but LHCb currently uses v10.7. However,
 ## there is a patch that implements the tracking interface for Geant4 v10.7 so we can
@@ -86,7 +88,24 @@ cmake -S. -B $build_dir -DCMAKE_INSTALL_PREFIX="$g4hepem_install" \
 cmake --build $build_dir --target install -- -j$num_threads
 cd ..
 
-# 2.5. Install AdePT
+# 2.5 Install HepMC3
+hepmc3_install="$root/stack/HepMC3/$install_dir"
+
+if [ ! -d HepMC3 ]; then
+	git clone https://gitlab.cern.ch/hepmc/HepMC3 HepMC3
+fi
+
+cd HepMC3
+git checkout 3.3.1
+
+cmake -S. -B $build_dir \
+  -DCMAKE_INSTALL_PREFIX="$hepmc3_install" \
+  -DHEPMC3_ENABLE_ROOTIO=OFF \
+  -DHEPMC3_ENABLE_PYTHON=OFF
+cmake --build $build_dir --target install -- -j$num_threads
+cd ..
+
+# 2.6. Install AdePT
 adept_install="$root/stack/AdePT/$install_dir"
 
 if [ ! -d AdePT ]; then
@@ -95,7 +114,7 @@ fi
 
 cd AdePT
 cmake -S. -B $build_dir -DCMAKE_INSTALL_PREFIX="$adept_install" \
-    -DCMAKE_PREFIX_PATH="$veccore_install;$vecgeom_install;$g4hepem_install;$geant4_install" \
+    -DCMAKE_PREFIX_PATH="$veccore_install;$vecgeom_install;$g4hepem_install;$geant4_install;$hepmc3_install" \
     -DCMAKE_CUDA_ARCHITECTURES=$cuda_architecture \
     -DWITH_FLUCT=ON \
     -DBUILD_TESTING=OFF \
