@@ -19,7 +19,7 @@ def _():
 @app.cell
 def _():
     from pathlib import Path
-    from typing import Optional
+    from typing import Optional, Callable
     from dataclasses import dataclass
 
     import pandas as pd
@@ -27,13 +27,24 @@ def _():
     import matplotlib.pyplot as plt
     from scipy.optimize import curve_fit
     from scipy.stats import norm, ks_2samp
-    return Optional, Path, curve_fit, dataclass, ks_2samp, norm, np, pd, plt
+    return (
+        Callable,
+        Optional,
+        Path,
+        curve_fit,
+        dataclass,
+        ks_2samp,
+        norm,
+        np,
+        pd,
+        plt,
+    )
 
 
 @app.cell
 def _(Path):
     # Load your results file
-    base_path = Path("B4LayeredCalorimeter/test_runs/011_2025-07-14")
+    base_path = Path("B4LayeredCalorimeter/test_runs/013_2025-08-07/")
     return (base_path,)
 
 
@@ -412,7 +423,7 @@ def _(curve_fit, dataclass, norm, np):
 
 
 @app.cell(hide_code=True)
-def _(fit_gaussian, np, pd, split_data):
+def _(Callable, fit_gaussian, np, pd, split_data):
     PlotData = dict
 
 
@@ -477,6 +488,7 @@ def _(fit_gaussian, np, pd, split_data):
         data: pd.DataFrame,
         particles_per_event: int,
         edep_variable: str = "edep_MeV",
+        grouping_function: Callable = np.mean
     ) -> dict[str, pd.Series]:
         """
         Computes mean energy deposition profiles per layer for different detectors and Adept/Geant4.
@@ -507,12 +519,12 @@ def _(fit_gaussian, np, pd, split_data):
         return {
             "absorber_adept": absorber_adept.groupby("layer_number")[
                 edep_variable
-            ].mean(),
+            ].apply(grouping_function),
             "absorber_geant4": absorber_geant4.groupby("layer_number")[
                 edep_variable
-            ].mean(),
-            "gap_adept": gap_adept.groupby("layer_number")[edep_variable].mean(),
-            "gap_geant4": gap_geant4.groupby("layer_number")[edep_variable].mean(),
+            ].apply(grouping_function),
+            "gap_adept": gap_adept.groupby("layer_number")[edep_variable].apply(grouping_function),
+            "gap_geant4": gap_geant4.groupby("layer_number")[edep_variable].apply(grouping_function),
         }
     return PlotData, get_histogram_and_fit_data, get_longitudinal_profiles
 
@@ -524,17 +536,17 @@ def _(ks_2samp, np):
     ) -> tuple[float, float]:
         """
         Performs the two-sample Kolmogorov-Smirnov test on two sets of data.
-    
+
         Args:
             adept_values: An array of numerical values from the Adept simulation.
             geant4_values: An array of numerical values from the Geant4 simulation.
-        
+
         Returns:
             A tuple containing the D-statistic and the p-value.
         """
         if adept_values.size == 0 or geant4_values.size == 0:
             return np.nan, np.nan
-    
+
         ks_result = ks_2samp(adept_values, geant4_values)
         return ks_result.statistic, ks_result.pvalue
 
@@ -716,13 +728,14 @@ def _(get_ks_statistic, histogram_data):
 @app.cell
 def _(
     get_longitudinal_profiles,
+    np,
     phys_particles_per_event_dropdown,
     physics_df,
     plot_longitudinal_profile,
     plt,
 ):
     # 1. Get all profiles for both detectors and both simulators
-    profiles = get_longitudinal_profiles(physics_df, particles_per_event=phys_particles_per_event_dropdown.value)
+    profiles = get_longitudinal_profiles(physics_df, particles_per_event=phys_particles_per_event_dropdown.value, grouping_function=np.mean)
 
     # --- Example 3: Multiple plots in one figure ---
     # Create a figure with two subplots side-by-side

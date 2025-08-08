@@ -14,9 +14,9 @@ def _():
 def _(mo):
     mo.md(
         r"""
-    # Scratchpad
+    # B2 Benchmark
 
-    A notebook for exploration and disordered thinking
+    A target and a tracking chamber for following particles after collision.
     """
     )
     return
@@ -39,7 +39,7 @@ def _():
 @app.cell
 def _(Path):
     # Load your results file
-    base_path = Path("B2ChamberTracker/test_runs/006_2025-08-06/")
+    base_path = Path("B2ChamberTracker/test_runs/007_2025-08-08/")
     return (base_path,)
 
 
@@ -284,7 +284,7 @@ def _(base_path, pd):
     physics_path = base_path / "physics-results.csv"
 
     physics_df = pd.read_csv(physics_path)
-    physics_df.head()
+    physics_df.info()
     return (physics_df,)
 
 
@@ -456,7 +456,7 @@ def _(Optional, curve_fit, dataclass, norm, np, pd, plt, split_data):
         ax.grid(True)
         return ax
 
-    return get_histogram_and_fit_data, plot_histogram_with_fits
+    return fit_gaussian, get_histogram_and_fit_data, plot_histogram_with_fits
 
 
 @app.cell
@@ -466,17 +466,17 @@ def _(ks_2samp, np):
     ) -> tuple[float, float]:
         """
         Performs the two-sample Kolmogorov-Smirnov test on two sets of data.
-    
+
         Args:
             adept_values: An array of numerical values from the Adept simulation.
             geant4_values: An array of numerical values from the Geant4 simulation.
-        
+
         Returns:
             A tuple containing the D-statistic and the p-value.
         """
         if adept_values.size == 0 or geant4_values.size == 0:
             return np.nan, np.nan
-    
+
         ks_result = ks_2samp(adept_values, geant4_values)
         return ks_result.statistic, ks_result.pvalue
 
@@ -573,6 +573,63 @@ def _(get_ks_statistic, histogram_data):
         print("  Conclusion: The two distributions are statistically different.")
     else:
         print("  Conclusion: There is no significant evidence that the distributions are different.")
+    return
+
+
+@app.cell
+def _(
+    fit_gaussian,
+    np,
+    phys_particles_per_event_dropdown,
+    phys_variable_dropdown,
+    physics_df,
+    plot_histogram_with_fits,
+    plt,
+    split_data,
+):
+    _data = physics_df[physics_df["PARTICLES_PER_EVENT"] == phys_particles_per_event_dropdown.value]
+    _var = phys_variable_dropdown.value
+    _bins = "auto"
+
+    _data = _data.groupby(['event_id', 'with_adept']).agg({
+        'number_of_particles': 'sum',
+        'number_of_hits': 'sum',
+        'energy_value': 'sum'
+    }).reset_index()
+
+    _adept, _no_adept = split_data(_data)
+
+    _adept_values = _adept[_var].values
+    _geant4_values = _no_adept[_var].values
+
+    # Determine bins from combined data to ensure alignment
+    if isinstance(_bins, (int, str)):
+        _combined_bins = np.histogram_bin_edges(
+            np.concatenate([_adept_values, _geant4_values]), bins=_bins
+        )
+    else:
+        _combined_bins = _bins
+
+    _adept_fit_data = fit_gaussian(_adept_values, _combined_bins)
+    _geant4_fit_data = fit_gaussian(_geant4_values, _combined_bins)
+
+    _values =  {
+            "adept": _adept_fit_data,
+            "geant4": _geant4_fit_data,
+            "variable": _var,
+            "values_adept": _adept_values,
+            "values_geant4": _geant4_values,
+        }
+    _fig, _ax = plt.subplots(figsize=(10, 6))
+    plot_histogram_with_fits(_values, ax=_ax)
+
+    _ax.set_title(
+        f"{phys_variable_dropdown.value} Total Distribution, ({phys_particles_per_event_dropdown.value} particles/event)"
+    )
+
+    plt.tight_layout()
+    plt.show()
+
     return
 
 
