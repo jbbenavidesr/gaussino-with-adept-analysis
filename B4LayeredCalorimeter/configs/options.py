@@ -29,9 +29,10 @@ particles_per_event = int(os.environ.get("PARTICLES_PER_EVENT", 100))
 nthreads = int(os.environ.get("NUMBER_OF_THREADS", 1))
 particle_type = particle_types.get(os.environ.get("PARTICLE_TYPE", "electron"), 11)
 number_of_events = int(os.environ.get("NUMBER_OF_EVENTS", 10))
+particle_energy = float(os.environ.get("PARTICLE_ENERGY_MEV", 10.0)) * units.MeV
 
 ## constants
-n_layers = 8
+n_layers = 10
 absorber_thickness = 10 * units.mm
 gap_thickness = 5 * units.mm
 
@@ -40,8 +41,6 @@ calor_size_xy = 10 * units.cm
 calor_thickness = n_layers * (absorber_thickness + gap_thickness)
 
 world_length = 1.2 * calor_thickness
-particle_energy = 50.0 * units.MeV
-
 
 # General Gaussino configs
 Gaussino().EvtMax = number_of_events
@@ -228,9 +227,9 @@ def setup_geometry(
         AbsorberCollectionName=f"{absorber_name}SDet/Hits",
         GapCollectionName=f"{gap_name}SDet/Hits",
         MaxGapEnergy=particle_energy * particles_per_event,
-        MaxGapLength=calor_thickness,
+        MaxGapLength=calor_thickness * particles_per_event,
         MaxAbsorberEnergy=particle_energy * particles_per_event,
-        MaxAbsorberLength=calor_thickness,
+        MaxAbsorberLength=calor_thickness * particles_per_event,
     )
 
     ApplicationMgr().TopAlg.append(moni)
