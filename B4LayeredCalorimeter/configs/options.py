@@ -226,10 +226,10 @@ def setup_geometry(
         "CalorimeterMonitoring",
         AbsorberCollectionName=f"{absorber_name}SDet/Hits",
         GapCollectionName=f"{gap_name}SDet/Hits",
-        MaxGapEnergy=particle_energy * particles_per_event,
-        MaxGapLength=calor_thickness * particles_per_event,
-        MaxAbsorberEnergy=particle_energy * particles_per_event,
-        MaxAbsorberLength=calor_thickness * particles_per_event,
+        MaxGapEnergy=particle_energy * particles_per_event / units.GeV,
+        MaxGapLength=calor_thickness * particles_per_event / units.m,
+        MaxAbsorberEnergy=particle_energy * particles_per_event / units.GeV,
+        MaxAbsorberLength=calor_thickness * particles_per_event / units.m,
     )
 
     ApplicationMgr().TopAlg.append(moni)

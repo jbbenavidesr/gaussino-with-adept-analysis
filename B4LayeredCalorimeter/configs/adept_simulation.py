@@ -20,6 +20,6 @@ GaussinoSimulation(
 GiGaMTRunManagerFAC("GiGaMT.GiGaMTRunManagerFAC").InitCommands = [
     "/adept/setTrackInAllRegions true",
     "/adept/setCUDAStackLimit 4096",
-    "/adept/setMillionsOfTrackSlots 15",
-    "/adept/setMillionsOfHitSlots 12",
+    "/adept/setMillionsOfTrackSlots 12",
+    "/adept/setMillionsOfHitSlots 16",
 ]
