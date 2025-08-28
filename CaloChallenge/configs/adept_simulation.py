@@ -12,6 +12,7 @@ from CaloChallenge.cc_geometry import planar_detector_SiW_options
 number_of_events = int(os.environ.get("NUMBER_OF_EVENTS", 10))
 
 Gaussino().EvtMax = number_of_events
+Gaussino().ConvertEDM = False
 
 GaussinoSimulation(
     PhysicsConstructors=[
@@ -25,6 +26,7 @@ GaussinoSimulation(
         "GiGaMT_G4IonPhysics",
         "GiGaMT_G4NeutronTrackingCut",
     ],
+    TrackTruth=False,
     CutForElectron=700 * units.micrometer,
     CutForPositron=700 * units.micrometer,
     CutForGamma=700 * units.micrometer,
@@ -33,7 +35,8 @@ GaussinoSimulation(
 
 GiGaMTRunManagerFAC("GiGaMT.GiGaMTRunManagerFAC").InitCommands = [
     "/adept/setCUDAStackLimit 4096",
-    "/adept/addGPURegion CaloRegion",  # "/adept/setTrackInAllRegions true"
+    # "/adept/addGPURegion CaloRegion",
+    "/adept/setTrackInAllRegions true",
     "/adept/setMillionsOfTrackSlots 15",
     "/adept/setMillionsOfHitSlots 12",
 ]

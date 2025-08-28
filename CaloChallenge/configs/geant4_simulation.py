@@ -8,6 +8,7 @@ from CaloChallenge.cc_geometry import planar_detector_SiW_options
 set_full_simulation(planar_detector_SiW_options, "planar")
 
 
-particles_per_event = int(os.environ.get("PARTICLES_PER_EVENT", 100))
+number_of_events = int(os.environ.get("NUMBER_OF_EVENTS", 10))
 
-Gaussino().EvtMax = 10
+Gaussino().EvtMax = number_of_events
+Gaussino().ConvertEDM = True
