@@ -34,10 +34,10 @@ veccore_install="$root/stack/VecCore/$install_dir"
 
 if [ ! -d VecCore ]; then
 	git clone https://github.com/root-project/veccore.git VecCore
+	git checkout v0.8.2
 fi
 
 cd VecCore
-git checkout v0.8.2
 cmake -S. -B $build_dir -DCMAKE_INSTALL_PREFIX="$veccore_install"
 cmake --build $build_dir --target install
 cd ..
@@ -47,10 +47,10 @@ vecgeom_install="$root/stack/VecGeom/$install_dir"
 
 if [ ! -d VecGeom ]; then
 	git clone ssh://git@gitlab.cern.ch:7999/VecGeom/VecGeom.git
+	git checkout v2.0.0-rc.6
 fi
 
 cd VecGeom
-git checkout v2.0.0-rc.6
 cmake -S. -B $build_dir -DCMAKE_INSTALL_PREFIX="$vecgeom_install" \
     -DCMAKE_PREFIX_PATH="$veccore_install" \
     -DVECGEOM_ENABLE_CUDA=ON \
@@ -71,16 +71,15 @@ g4hepem_install="$root/stack/G4HepEm/$install_dir"
 
 if [ ! -d G4HepEm ]; then
 	git clone https://github.com/mnovak42/g4hepem.git G4HepEm
+	git checkout 20250610
+
+	## G4HepEm expects Geant4 v11 to be installed, but LHCb currently uses v10.7. However,
+	## there is a patch that implements the tracking interface for Geant4 v10.7 so we can
+	## use it.
+	sed -i 's/11.0/10.7/g' ./G4HepEm/G4HepEm/CMakeLists.txt
 fi
 
 cd G4HepEm
-git checkout 20250610
-
-## G4HepEm expects Geant4 v11 to be installed, but LHCb currently uses v10.7. However,
-## there is a patch that implements the tracking interface for Geant4 v10.7 so we can
-## use it.
-sed -i 's/11.0/10.7/g' ./G4HepEm/G4HepEm/CMakeLists.txt
-
 cmake -S. -B $build_dir -DCMAKE_INSTALL_PREFIX="$g4hepem_install" \
     -DCMAKE_PREFIX_PATH="$geant4_install" \
     -DG4HepEm_CUDA_BUILD=ON \
@@ -93,10 +92,10 @@ hepmc3_install="$root/stack/HepMC3/$install_dir"
 
 if [ ! -d HepMC3 ]; then
 	git clone https://gitlab.cern.ch/hepmc/HepMC3 HepMC3
+	git checkout 3.3.1
 fi
 
 cd HepMC3
-git checkout 3.3.1
 
 cmake -S. -B $build_dir \
   -DCMAKE_INSTALL_PREFIX="$hepmc3_install" \
@@ -132,5 +131,5 @@ if [ ! -d Gaussino ]; then
 	git checkout jbenavid-adept-integration
 	cd ..
 fi
-python utils/config.py -- cmakeFlags.Gaussino "-DWITH_ADEPT=ON -DAdePT_DIR=$adept_install/lib64/cmake/AdePT -DG4VG_DIR=$adept_install/lib64/cmake/G4VG"
+python utils/config.py -- cmakeFlags.Gaussino "-DUSE_ADEPT=ON -DAdePT_DIR=$adept_install/lib64/cmake/AdePT -DG4VG_DIR=$adept_install/lib64/cmake/G4VG"
 make Gaussino BUILDFLAGS="-j$num_threads"
