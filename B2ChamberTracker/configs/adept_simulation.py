@@ -5,8 +5,7 @@ from Configurables import (
 
 GaussinoSimulation(
     PhysicsConstructors=[
-        "GiGaMT_AdePTPhysics",
-        "GiGaMT_G4EmStandardPhysics",
+        "GiGaMT_G4EmStandardPhysics_option2_AdePT",
         "GiGaMT_G4EmExtraPhysics",
         "GiGaMT_G4DecayPhysics",
         "GiGaMT_G4HadronElasticPhysics",
@@ -18,8 +17,9 @@ GaussinoSimulation(
 )
 
 GiGaMTRunManagerFAC("GiGaMT.GiGaMTRunManagerFAC").InitCommands = [
+    "/adept/setCUDAStackLimit 8192",
+    "/adept/CallUserTrackingAction true",
     "/adept/setTrackInAllRegions true",
-    "/adept/setCUDAStackLimit 4096",
-    "/adept/setMillionsOfTrackSlots 15",
-    "/adept/setMillionsOfHitSlots 12",
+    "/adept/setMillionsOfTrackSlots 14",
+    "/adept/setMillionsOfHitSlots 24",
 ]
