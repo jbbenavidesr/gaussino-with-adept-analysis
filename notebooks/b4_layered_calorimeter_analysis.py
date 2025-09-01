@@ -352,7 +352,7 @@ def _(mo):
         options=[1, 10, 100, 1000], value=100, label="Particulas por evento: "
     )
 
-    layer_options = {str(i): i for i in range(7)}
+    layer_options = {str(i): i for i in range(10)}
     layer_options["Total"] = -1
 
     phys_layer_dropdown = mo.ui.dropdown(
