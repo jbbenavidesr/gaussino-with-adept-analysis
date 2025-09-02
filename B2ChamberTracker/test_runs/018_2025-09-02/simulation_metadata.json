@@ -1,0 +1,293 @@
+{
+  "timestamp": "2025-09-02T23:14:37.845080",
+  "runs": [
+    {
+      "simulation_file": "B2ChamberTracker/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/adept_simulation_PARTICLES_PER_EVENT=1_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 3.8582255840301514,
+      "success": true,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/geant4_simulation_PARTICLES_PER_EVENT=1_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 3.73776912689209,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "NUMBER_OF_THREADS": 16,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/adept_simulation_PARTICLES_PER_EVENT=1_NUMBER_OF_THREADS=16_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 3.941210985183716,
+      "success": true,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "NUMBER_OF_THREADS": 16,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/geant4_simulation_PARTICLES_PER_EVENT=1_NUMBER_OF_THREADS=16_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.0270655155181885,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/adept_simulation_PARTICLES_PER_EVENT=1_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.361788988113403,
+      "success": true,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/geant4_simulation_PARTICLES_PER_EVENT=1_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.384789228439331,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/adept_simulation_PARTICLES_PER_EVENT=10_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 3.9103963375091553,
+      "success": true,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/geant4_simulation_PARTICLES_PER_EVENT=10_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.3609538078308105,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "NUMBER_OF_THREADS": 16,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/adept_simulation_PARTICLES_PER_EVENT=10_NUMBER_OF_THREADS=16_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 3.9405312538146973,
+      "success": true,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "NUMBER_OF_THREADS": 16,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/geant4_simulation_PARTICLES_PER_EVENT=10_NUMBER_OF_THREADS=16_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 3.9789602756500244,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/adept_simulation_PARTICLES_PER_EVENT=10_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.396195411682129,
+      "success": true,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/geant4_simulation_PARTICLES_PER_EVENT=10_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.4397687911987305,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/adept_simulation_PARTICLES_PER_EVENT=100_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.821202039718628,
+      "success": true,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/geant4_simulation_PARTICLES_PER_EVENT=100_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 10.006542205810547,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "NUMBER_OF_THREADS": 16,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/adept_simulation_PARTICLES_PER_EVENT=100_NUMBER_OF_THREADS=16_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.3470375537872314,
+      "success": true,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "NUMBER_OF_THREADS": 16,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/geant4_simulation_PARTICLES_PER_EVENT=100_NUMBER_OF_THREADS=16_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.447946071624756,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/adept_simulation_PARTICLES_PER_EVENT=100_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.591480493545532,
+      "success": true,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/geant4_simulation_PARTICLES_PER_EVENT=100_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.83524489402771,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/adept_simulation_PARTICLES_PER_EVENT=1000_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 14.644150257110596,
+      "success": true,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "NUMBER_OF_THREADS": 1,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/geant4_simulation_PARTICLES_PER_EVENT=1000_NUMBER_OF_THREADS=1_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 68.03193664550781,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "NUMBER_OF_THREADS": 16,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/adept_simulation_PARTICLES_PER_EVENT=1000_NUMBER_OF_THREADS=16_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 5.740751504898071,
+      "success": true,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "NUMBER_OF_THREADS": 16,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/geant4_simulation_PARTICLES_PER_EVENT=1000_NUMBER_OF_THREADS=16_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 9.234672546386719,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/adept_simulation_PARTICLES_PER_EVENT=1000_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 6.0203940868377686,
+      "success": true,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B2ChamberTracker/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "NUMBER_OF_THREADS": 32,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B2ChamberTracker/test_runs/018_2025-09-02/geant4_simulation_PARTICLES_PER_EVENT=1000_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 8.63683295249939,
+      "success": true,
+      "with_adept": false
+    }
+  ]
+}
