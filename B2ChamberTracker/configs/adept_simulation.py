@@ -5,7 +5,7 @@ from Configurables import (
 
 GaussinoSimulation(
     PhysicsConstructors=[
-        "GiGaMT_G4EmStandardPhysics_option2_AdePT",
+        "GiGaMT_G4EmStandardPhysics_option2_HepEm",
         "GiGaMT_G4EmExtraPhysics",
         "GiGaMT_G4DecayPhysics",
         "GiGaMT_G4HadronElasticPhysics",
