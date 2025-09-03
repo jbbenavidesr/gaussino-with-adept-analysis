@@ -89,6 +89,7 @@ EXTRACTORS: Final[dict[tuple[str, str], Extractor]] = {
     ("B4LayeredCalorimeter", "physics"): b4layeredcalorimeter_physics_extractor,
     ("B2ChamberTracker", "performance"): performance_extractor,
     ("B2ChamberTracker", "physics"): b2chambertracker_physics_extractor,
+    ("CaloChallenge", "performance"): performance_extractor,
 }
 
 
