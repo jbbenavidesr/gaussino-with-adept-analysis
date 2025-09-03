@@ -1,0 +1,341 @@
+{
+  "timestamp": "2025-09-03T06:35:06.294626",
+  "runs": [
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 1,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/adept_simulation_PARTICLES_PER_EVENT=1_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=1_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 59.678645610809326,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 1,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/geant4_simulation_PARTICLES_PER_EVENT=1_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=1_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 8.98594069480896,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 16,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/adept_simulation_PARTICLES_PER_EVENT=1_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=16_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 13.82311487197876,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 16,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/geant4_simulation_PARTICLES_PER_EVENT=1_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=16_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4.727480888366699,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 32,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/adept_simulation_PARTICLES_PER_EVENT=1_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=32_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 13.256117105484009,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 32,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/geant4_simulation_PARTICLES_PER_EVENT=1_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=32_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 5.230272054672241,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 1,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/adept_simulation_PARTICLES_PER_EVENT=10_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=1_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 32.28585505485535,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 1,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/geant4_simulation_PARTICLES_PER_EVENT=10_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=1_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 54.07088613510132,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 16,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/adept_simulation_PARTICLES_PER_EVENT=10_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=16_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 13.56929636001587,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 16,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/geant4_simulation_PARTICLES_PER_EVENT=10_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=16_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 7.77374792098999,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 32,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/adept_simulation_PARTICLES_PER_EVENT=10_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=32_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 14.836211204528809,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 10,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 32,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/geant4_simulation_PARTICLES_PER_EVENT=10_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=32_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 7.650371313095093,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 1,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/adept_simulation_PARTICLES_PER_EVENT=100_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=1_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 42.39799118041992,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 1,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/geant4_simulation_PARTICLES_PER_EVENT=100_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=1_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 468.46920442581177,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 16,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/adept_simulation_PARTICLES_PER_EVENT=100_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=16_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 14.675138711929321,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 16,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/geant4_simulation_PARTICLES_PER_EVENT=100_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=16_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 38.09591007232666,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 32,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/adept_simulation_PARTICLES_PER_EVENT=100_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=32_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 13.647062301635742,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 100,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 32,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/geant4_simulation_PARTICLES_PER_EVENT=100_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=32_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 35.152360677719116,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 1,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/adept_simulation_PARTICLES_PER_EVENT=1000_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=1_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 117.36450338363647,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 1,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/geant4_simulation_PARTICLES_PER_EVENT=1000_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=1_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 4618.959724903107,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 16,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/adept_simulation_PARTICLES_PER_EVENT=1000_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=16_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 54.60878324508667,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 16,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/geant4_simulation_PARTICLES_PER_EVENT=1000_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=16_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 338.5021560192108,
+      "success": true,
+      "with_adept": false
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 32,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/adept_simulation_PARTICLES_PER_EVENT=1000_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=32_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 20.776490211486816,
+      "success": false,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "B4LayeredCalorimeter/configs/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1000,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 32,
+        "PARTICLE_ENERGY_MEV": 100,
+        "NUMBER_OF_EVENTS": 1000
+      },
+      "output_path": "B4LayeredCalorimeter/test_runs/025_2025-09-03/geant4_simulation_PARTICLES_PER_EVENT=1000_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=32_PARTICLE_ENERGY_MEV=100_NUMBER_OF_EVENTS=1000.log",
+      "execution_time": 306.4945738315582,
+      "success": true,
+      "with_adept": false
+    }
+  ]
+}
