@@ -4,10 +4,10 @@
     "simulation_files": ["configs/adept_simulation.py", "configs/geant4_simulation.py"],
     "output_dir": "test_runs",
     "parameters": {
-        "PARTICLES_PER_EVENT": [ 1000 ],
+        "PARTICLES_PER_EVENT": [ 1, 10, 100, 1000 ],
         "PARTICLE_TYPE": ["electron"],
         "NUMBER_OF_THREADS": [1, 16, 32],
 	"PARTICLE_ENERGY_MEV": [100],
-	"NUMBER_OF_EVENTS": [50000]
+	"NUMBER_OF_EVENTS": [5000]
     }
 }
