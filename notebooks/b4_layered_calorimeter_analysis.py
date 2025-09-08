@@ -29,6 +29,7 @@ def _(mo):
 @app.cell
 def _():
     import marimo as mo
+
     return (mo,)
 
 
@@ -43,6 +44,7 @@ def _():
     import matplotlib.pyplot as plt
     from scipy.optimize import curve_fit
     from scipy.stats import norm, ks_2samp
+
     return (
         Callable,
         Optional,
@@ -60,7 +62,7 @@ def _():
 @app.cell
 def _(Path):
     # Load your results file
-    base_path = Path("B4LayeredCalorimeter/test_runs/015_2025-08-11/")
+    base_path = Path("B4LayeredCalorimeter/test_runs/029_2025-09-06/")
     return (base_path,)
 
 
@@ -143,13 +145,16 @@ def _(pd):
         )
 
         return merged
+
     return get_performance_data, get_performance_ratio_data, split_data
 
 
 @app.cell
 def _(Optional, pd, plt, split_data):
     def plot_performance_by_particle_num(
-        df: pd.DataFrame, variable: str = "time_per_event", ax: Optional[plt.Axes] = None
+        df: pd.DataFrame,
+        variable: str = "time_per_event",
+        ax: Optional[plt.Axes] = None,
     ) -> plt.Axes:
         """
         Plots performance data for simulations with and without adept.
@@ -189,7 +194,9 @@ def _(Optional, pd, plt, split_data):
         return ax
 
     def plot_performance_ratios(
-        df: pd.DataFrame, variable: str = "time_per_event", ax: Optional[plt.Axes] = None
+        df: pd.DataFrame,
+        variable: str = "time_per_event",
+        ax: Optional[plt.Axes] = None,
     ) -> plt.Axes:
         """
         Plots the performance ratio (speedup).
@@ -219,6 +226,7 @@ def _(Optional, pd, plt, split_data):
         ax.legend()
 
         return ax
+
     return plot_performance_by_particle_num, plot_performance_ratios
 
 
@@ -263,7 +271,7 @@ def _(
     ratio_df = get_performance_ratio_data(df, _number_of_threads, variable=_variable)
 
     # --- Create the plot with two subplots ---
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6)) # 1 row, 2 columns
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 6))  # 1 row, 2 columns
 
     # --- Call the plotting functions, passing the respective axes ---
     plot_performance_by_particle_num(performance_df, variable=_variable, ax=ax1)
@@ -272,7 +280,7 @@ def _(
     # --- Customize the plots (titles, labels, etc.) ---
     fig.suptitle(
         f"Performance Comparison and Speedup (Threads: {_number_of_threads})",
-        fontsize=16
+        fontsize=16,
     )
 
     # Customize the first subplot (comparison)
@@ -286,10 +294,10 @@ def _(
     ax2.set_title("Performance Speedup Ratio")
 
     # Add a horizontal line at y=1 on the ratio plot for reference
-    ax2.axhline(y=1, color='red', linestyle='--', linewidth=1, label='Break-even')
+    ax2.axhline(y=1, color="red", linestyle="--", linewidth=1, label="Break-even")
 
     # --- 7. Final layout adjustments and show the plot ---
-    plt.tight_layout(rect=[0, 0, 1, 0.96]) # rect leaves space for suptitle
+    plt.tight_layout(rect=[0, 0, 1, 0.96])  # rect leaves space for suptitle
     plt.show()
     return
 
@@ -326,9 +334,7 @@ def _(physics_df):
     from analysis.units import convert_unit
 
     physics_df["edep_MeV"] = physics_df.apply(
-        lambda row: convert_unit(
-            row["edep_value"], row["edep_unit"], "MeV", base="eV"
-        ),
+        lambda row: convert_unit(row["edep_value"], row["edep_unit"], "MeV", base="eV"),
         axis=1,
     )
     physics_df["track_length_m"] = physics_df.apply(
@@ -387,7 +393,6 @@ def _(curve_fit, dataclass, norm, np):
         std: float
         std_err: float
 
-
     def fit_gaussian(values: np.ndarray, bins: np.ndarray) -> FitData:
         """
         Computes a histogram and fits it to a Gaussian distribution.
@@ -435,13 +440,13 @@ def _(curve_fit, dataclass, norm, np):
                 std=np.nan,
                 std_err=np.nan,
             )
+
     return (fit_gaussian,)
 
 
 @app.cell(hide_code=True)
 def _(Callable, fit_gaussian, np, pd, split_data):
     PlotData = dict
-
 
     def get_histogram_and_fit_data(
         data: pd.DataFrame,
@@ -499,12 +504,11 @@ def _(Callable, fit_gaussian, np, pd, split_data):
             "values_geant4": geant4_values,
         }
 
-
     def get_longitudinal_profiles(
         data: pd.DataFrame,
         particles_per_event: int,
         edep_variable: str = "edep_MeV",
-        grouping_function: Callable = np.mean
+        grouping_function: Callable = np.mean,
     ) -> dict[str, pd.Series]:
         """
         Computes mean energy deposition profiles per layer for different detectors and Adept/Geant4.
@@ -539,9 +543,14 @@ def _(Callable, fit_gaussian, np, pd, split_data):
             "absorber_geant4": absorber_geant4.groupby("layer_number")[
                 edep_variable
             ].apply(grouping_function),
-            "gap_adept": gap_adept.groupby("layer_number")[edep_variable].apply(grouping_function),
-            "gap_geant4": gap_geant4.groupby("layer_number")[edep_variable].apply(grouping_function),
+            "gap_adept": gap_adept.groupby("layer_number")[edep_variable].apply(
+                grouping_function
+            ),
+            "gap_geant4": gap_geant4.groupby("layer_number")[edep_variable].apply(
+                grouping_function
+            ),
         }
+
     return PlotData, get_histogram_and_fit_data, get_longitudinal_profiles
 
 
@@ -572,8 +581,7 @@ def _(ks_2samp, np):
 @app.cell(hide_code=True)
 def _(Optional, PlotData, pd, plt):
     def plot_histogram_with_fits(
-        plot_data: PlotData,
-        ax: Optional[plt.Axes] = None
+        plot_data: PlotData, ax: Optional[plt.Axes] = None
     ) -> plt.Axes:
         """
         Plots the histograms and their Gaussian fits.
@@ -594,10 +602,18 @@ def _(Optional, PlotData, pd, plt):
 
         # Plot histograms
         ax.hist(
-            plot_data["values_adept"], bins=adept_data.bins, histtype="step", color="blue", label="AdePT"
+            plot_data["values_adept"],
+            bins=adept_data.bins,
+            histtype="step",
+            color="blue",
+            label="HepEm",
         )
         ax.hist(
-            plot_data["values_geant4"], bins=geant4_data.bins, histtype="step", color="orange", label="Geant4"
+            plot_data["values_geant4"],
+            bins=geant4_data.bins,
+            histtype="step",
+            color="orange",
+            label="Geant4",
         )
 
         # Plot fits
@@ -606,7 +622,7 @@ def _(Optional, PlotData, pd, plt):
             adept_data.fit_curve,
             color="blue",
             linestyle="--",
-            label=rf"AdePT fit ($\mu={adept_data.mu:.3g} \pm {adept_data.mu_err:.3g}$, $\sigma={adept_data.std:.3g} \pm {adept_data.std_err:.3g}$)",
+            label=rf"HepEm fit ($\mu={adept_data.mu:.3g} \pm {adept_data.mu_err:.3g}$, $\sigma={adept_data.std:.3g} \pm {adept_data.std_err:.3g}$)",
         )
         ax.plot(
             (geant4_data.bins[:-1] + geant4_data.bins[1:]) / 2,
@@ -625,7 +641,7 @@ def _(Optional, PlotData, pd, plt):
     def plot_longitudinal_profile(
         profiles: dict[str, pd.Series],
         ax: Optional[plt.Axes] = None,
-        profile_type: str = "absorber"
+        profile_type: str = "absorber",
     ) -> plt.Axes:
         """
         Plots a longitudinal energy deposition profile for Adept and Geant4.
@@ -647,7 +663,7 @@ def _(Optional, PlotData, pd, plt):
         ax.plot(
             adept_profile.index,
             adept_profile.values,
-            label=f"{profile_type.capitalize()} (AdePT)",
+            label=f"{profile_type.capitalize()} (HepEm)",
             color="blue",
             marker="o",
         )
@@ -665,6 +681,7 @@ def _(Optional, PlotData, pd, plt):
         ax.legend()
         ax.grid(True)
         return ax
+
     return plot_histogram_with_fits, plot_longitudinal_profile
 
 
@@ -704,6 +721,7 @@ def _(
         particles_per_event=phys_particles_per_event_dropdown.value,
         layer_number=phys_layer_dropdown.value,
         detector=phys_detector_dropdown.value,
+        bins="auto",
     )
 
     # 2. Plot the data and customize the figure
@@ -724,12 +742,12 @@ def _(
 @app.cell
 def _(get_ks_statistic, histogram_data):
     # Calculate the Kolmogorov-Smirnov statistic
-    ks_statistic, ks_pvalue = get_ks_statistic(histogram_data["values_adept"], histogram_data["values_geant4"])
+    ks_statistic, ks_pvalue = get_ks_statistic(
+        histogram_data["values_adept"], histogram_data["values_geant4"]
+    )
 
     # Print the K-S results for statistical comparison
-    print(
-        f"Kolmogorov-Smirnov Test Results for {histogram_data['variable']}:"
-    )
+    print(f"Kolmogorov-Smirnov Test Results for {histogram_data['variable']}:")
     print(f"  D-statistic: {ks_statistic:.4f}")
     print(f"  p-value: {ks_pvalue:.4e}")
 
@@ -737,7 +755,9 @@ def _(get_ks_statistic, histogram_data):
     if ks_pvalue < 0.05:
         print("  Conclusion: The two distributions are statistically different.")
     else:
-        print("  Conclusion: There is no significant evidence that the distributions are different.")
+        print(
+            "  Conclusion: There is no significant evidence that the distributions are different."
+        )
     return
 
 
@@ -751,7 +771,11 @@ def _(
     plt,
 ):
     # 1. Get all profiles for both detectors and both simulators
-    profiles = get_longitudinal_profiles(physics_df, particles_per_event=phys_particles_per_event_dropdown.value, grouping_function=np.mean)
+    profiles = get_longitudinal_profiles(
+        physics_df,
+        particles_per_event=phys_particles_per_event_dropdown.value,
+        grouping_function=np.mean,
+    )
 
     # --- Example 3: Multiple plots in one figure ---
     # Create a figure with two subplots side-by-side
@@ -767,7 +791,7 @@ def _(
 
     _fig.suptitle(
         f"Longitudinal Energy Deposition Profiles ({phys_particles_per_event_dropdown.value} particles/event)",
-        fontsize=16
+        fontsize=16,
     )
     plt.tight_layout(rect=[0, 0, 1, 0.96])
     plt.show()

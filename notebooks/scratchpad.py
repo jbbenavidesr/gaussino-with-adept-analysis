@@ -33,13 +33,39 @@ def _():
     import matplotlib.pyplot as plt
     from scipy.optimize import curve_fit
     from scipy.stats import norm, ks_2samp
-    return Optional, Path, curve_fit, dataclass, ks_2samp, norm, np, pd, plt
+    return Optional, Path, pd, plt
 
 
 @app.cell
-def _(Path):
+def _(mo):
+    benchmarks = ["B2ChamberTracker", "B4LayeredCalorimeter", "CaloChallenge"]
+    benchmark_dropdown = mo.ui.dropdown(options = benchmarks, value="B2ChamberTracker", label="Benchmark: ")
+
+    return (benchmark_dropdown,)
+
+
+@app.cell
+def _(Path, benchmark_dropdown, mo):
+    benchmark_run_base = Path(benchmark_dropdown.value) / "test_runs"
+
+    iteration_files = [iteration_folder.name for iteration_folder in sorted(benchmark_run_base.iterdir())]
+
+    iteration_dropdown = mo.ui.dropdown(options=iteration_files, label="Iteration ID: ")
+    return benchmark_run_base, iteration_dropdown
+
+
+@app.cell
+def _(benchmark_dropdown, iteration_dropdown, mo):
+    mo.vstack([benchmark_dropdown, iteration_dropdown])
+    return
+
+
+@app.cell
+def _(benchmark_run_base, iteration_dropdown):
     # Load your results file
-    base_path = Path("B2ChamberTracker/test_runs/006_2025-08-06/")
+    base_path = benchmark_run_base / iteration_dropdown.value
+
+    base_path
     return (base_path,)
 
 
@@ -258,6 +284,7 @@ def _(
     ax1.set_xlabel("Number of Particles")
     ax1.set_ylabel(f"{_variable}")
     ax1.set_title("Performance with vs. without Adept")
+    ax1.set_yscale("log")
 
     # Customize the second subplot (ratios)
     ax2.set_xlabel("Number of Particles")
@@ -270,309 +297,12 @@ def _(
     # --- 7. Final layout adjustments and show the plot ---
     plt.tight_layout(rect=[0, 0, 1, 0.96]) # rect leaves space for suptitle
     plt.show()
-    return
+    return (ratio_df,)
 
 
 @app.cell
-def _(mo):
-    mo.md(r"""## Physics""")
-    return
-
-
-@app.cell
-def _(base_path, pd):
-    physics_path = base_path / "physics-results.csv"
-
-    physics_df = pd.read_csv(physics_path)
-    physics_df.head()
-    return (physics_df,)
-
-
-@app.cell
-def _(Optional, curve_fit, dataclass, norm, np, pd, plt, split_data):
-    PlotData = dict
-
-    @dataclass
-    class FitData:
-        hist: np.array
-        bins: np.array
-        fit_curve: np.array
-        mu: float
-        mu_err: float
-        std: float
-        std_err: float
-
-
-    def fit_gaussian(values: np.ndarray, bins: np.ndarray) -> FitData:
-        """
-        Computes a histogram and fits it to a Gaussian distribution.
-
-        Args:
-            values: The array of data points to be binned and fitted.
-            bins: The histogram bin edges.
-
-        Returns:
-            A dictionary containing the histogram data and fit parameters with errors.
-        """
-        hist, _ = np.histogram(values, bins=bins)
-        bin_centers = (bins[:-1] + bins[1:]) / 2
-
-        # Gaussian function to fit
-        def gaussian(x, amp, mu, sigma):
-            return amp * np.exp(-0.5 * ((x - mu) / sigma) ** 2)
-
-        # Initial guesses
-        initial_mu, initial_std = norm.fit(values)
-        initial_amplitude = len(values) * np.diff(bins)[0]
-        p0 = [initial_amplitude, initial_mu, initial_std]
-
-        try:
-            popt, pcov = curve_fit(gaussian, bin_centers, hist, p0=p0)
-            perr = np.sqrt(np.diag(pcov))
-            fit_curve = gaussian(bin_centers, *popt)
-            return FitData(
-                hist=hist,
-                bins=bins,
-                fit_curve=fit_curve,
-                mu=popt[1],
-                mu_err=perr[1],
-                std=popt[2],
-                std_err=perr[2],
-            )
-        except RuntimeError as e:
-            print(f"Error fitting data: {e}")
-            return FitData(
-                hist=hist,
-                bins=bins,
-                fit_curve=np.zeros_like(bin_centers),
-                mu=np.nan,
-                mu_err=np.nan,
-                std=np.nan,
-                std_err=np.nan,
-            )
-
-    def get_histogram_and_fit_data(
-        data: pd.DataFrame,
-        variable: str,
-        particles_per_event: int,
-        detector: str,
-        bins: int | str | list[float] = "auto",
-    ) -> PlotData:
-        """
-        Filters data, computes histograms, and fits them to Gaussians for Adept and Geant4.
-
-        Args:
-            data: The full DataFrame.
-            variable: The variable to analyze (e.g., 'edep_MeV').
-            particles_per_event: The number of particles per event to filter by.
-            layer_number: The layer number to filter by.
-            detector: The detector name to filter by.
-            bins: Number of bins for the histogram (e.g., 'auto', 50, or an array of bin edges).
-
-        Returns:
-            A dictionary containing all histogram and fit data for plotting.
-        """
-        filtered = data[
-            (data["PARTICLES_PER_EVENT"] == particles_per_event)
-            & (data["detector"] == detector)
-        ]
-        adept_df, geant4_df = split_data(filtered)
-
-        if adept_df.empty or geant4_df.empty:
-            raise ValueError(
-                "One of the datasets (Adept or Geant4) is empty after filtering."
-            )
-
-        adept_values = adept_df[variable].values
-        geant4_values = geant4_df[variable].values
-
-        # Determine bins from combined data to ensure alignment
-        if isinstance(bins, (int, str)):
-            combined_bins = np.histogram_bin_edges(
-                np.concatenate([adept_values, geant4_values]), bins=bins
-            )
-        else:
-            combined_bins = bins
-
-        adept_fit_data = fit_gaussian(adept_values, combined_bins)
-        geant4_fit_data = fit_gaussian(geant4_values, combined_bins)
-
-        return {
-            "adept": adept_fit_data,
-            "geant4": geant4_fit_data,
-            "variable": variable,
-            "values_adept": adept_values,
-            "values_geant4": geant4_values,
-        }
-
-    def plot_histogram_with_fits(
-        plot_data: PlotData,
-        ax: Optional[plt.Axes] = None
-    ) -> plt.Axes:
-        """
-        Plots the histograms and their Gaussian fits.
-
-        Args:
-            plot_data: The dictionary returned by `get_histogram_and_fit_data`.
-            ax: An optional Matplotlib Axes object to plot on. If None, a new figure is created.
-
-        Returns:
-            The Matplotlib Axes object with the plot.
-        """
-        if ax is None:
-            _, ax = plt.subplots(figsize=(10, 6))
-
-        adept_data = plot_data["adept"]
-        geant4_data = plot_data["geant4"]
-        variable = plot_data["variable"]
-
-        # Plot histograms
-        ax.hist(
-            plot_data["values_adept"], bins=adept_data.bins, histtype="step", color="blue", label="AdePT"
-        )
-        ax.hist(
-            plot_data["values_geant4"], bins=geant4_data.bins, histtype="step", color="orange", label="Geant4"
-        )
-
-        # Plot fits
-        ax.plot(
-            (adept_data.bins[:-1] + adept_data.bins[1:]) / 2,
-            adept_data.fit_curve,
-            color="blue",
-            linestyle="--",
-            label=rf"AdePT fit ($\mu={adept_data.mu:.3g} \pm {adept_data.mu_err:.3g}$, $\sigma={adept_data.std:.3g} \pm {adept_data.std_err:.3g}$)",
-        )
-        ax.plot(
-            (geant4_data.bins[:-1] + geant4_data.bins[1:]) / 2,
-            geant4_data.fit_curve,
-            color="orange",
-            linestyle="--",
-            label=rf"Geant4 fit ($\mu={geant4_data.mu:.3g} \pm {geant4_data.mu_err:.3g}$, $\sigma={geant4_data.std:.3g} \pm {geant4_data.std_err:.3g}$)",
-        )
-
-        ax.set_xlabel(variable)
-        ax.set_ylabel("Frequency")
-        ax.legend()
-        ax.grid(True)
-        return ax
-
-    return get_histogram_and_fit_data, plot_histogram_with_fits
-
-
-@app.cell
-def _(ks_2samp, np):
-    def get_ks_statistic(
-        adept_values: np.ndarray, geant4_values: np.ndarray
-    ) -> tuple[float, float]:
-        """
-        Performs the two-sample Kolmogorov-Smirnov test on two sets of data.
-    
-        Args:
-            adept_values: An array of numerical values from the Adept simulation.
-            geant4_values: An array of numerical values from the Geant4 simulation.
-        
-        Returns:
-            A tuple containing the D-statistic and the p-value.
-        """
-        if adept_values.size == 0 or geant4_values.size == 0:
-            return np.nan, np.nan
-    
-        ks_result = ks_2samp(adept_values, geant4_values)
-        return ks_result.statistic, ks_result.pvalue
-
-    return (get_ks_statistic,)
-
-
-@app.cell
-def _(mo, physics_df):
-    phys_variable_dropdown = mo.ui.dropdown(
-        options=["number_of_hits", "number_of_particles", "energy_value", ],
-        value="energy_value",
-        label="Variable a medir: ",
-    )
-
-    phys_particles_per_event_dropdown = mo.ui.dropdown(
-        options=[1, 10, 100, 1000, 10000], value=1000, label="Particulas por evento: "
-    )
-
-    phys_detector_dropdown = mo.ui.dropdown.from_series(
-        series=physics_df["detector"],
-        value="ExternalDetectorEmbedder_Chamber_4SDet",
-        label="Detector: ",
-    )
-    return (
-        phys_detector_dropdown,
-        phys_particles_per_event_dropdown,
-        phys_variable_dropdown,
-    )
-
-
-@app.cell
-def _(
-    mo,
-    phys_detector_dropdown,
-    phys_particles_per_event_dropdown,
-    phys_variable_dropdown,
-):
-    mo.vstack(
-        [
-            phys_particles_per_event_dropdown,
-            phys_variable_dropdown,
-            phys_detector_dropdown,
-        ]
-    )
-    return
-
-
-@app.cell
-def _(
-    get_histogram_and_fit_data,
-    phys_detector_dropdown,
-    phys_particles_per_event_dropdown,
-    phys_variable_dropdown,
-    physics_df,
-    plot_histogram_with_fits,
-    plt,
-):
-    histogram_data = get_histogram_and_fit_data(
-        physics_df,
-        variable=phys_variable_dropdown.value,
-        particles_per_event=phys_particles_per_event_dropdown.value,
-        detector=phys_detector_dropdown.value,
-    )
-
-    # 2. Plot the data and customize the figure
-    _fig, ax = plt.subplots(figsize=(10, 6))
-    plot_histogram_with_fits(histogram_data, ax=ax)
-
-
-    # Add custom title and labels
-    ax.set_title(
-        f"{phys_variable_dropdown.value} Distribution in {phys_detector_dropdown.value}, ({phys_particles_per_event_dropdown.value} particles/event)"
-    )
-
-    plt.tight_layout()
-    plt.show()
-    return (histogram_data,)
-
-
-@app.cell
-def _(get_ks_statistic, histogram_data):
-    # Calculate the Kolmogorov-Smirnov statistic
-    ks_statistic, ks_pvalue = get_ks_statistic(histogram_data["values_adept"], histogram_data["values_geant4"])
-
-    # Print the K-S results for statistical comparison
-    print(
-        f"Kolmogorov-Smirnov Test Results for {histogram_data['variable']}:"
-    )
-    print(f"  D-statistic: {ks_statistic:.4f}")
-    print(f"  p-value: {ks_pvalue:.4e}")
-
-    # Interpret the p-value
-    if ks_pvalue < 0.05:
-        print("  Conclusion: The two distributions are statistically different.")
-    else:
-        print("  Conclusion: There is no significant evidence that the distributions are different.")
+def _(ratio_df):
+    ratio_df[ratio_df["PARTICLES_PER_EVENT"] == 1000]
     return
 
 
