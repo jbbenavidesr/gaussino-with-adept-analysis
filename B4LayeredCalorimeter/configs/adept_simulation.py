@@ -3,9 +3,12 @@ from Configurables import (
     GiGaMTRunManagerFAC,
 )
 
+from GaudiKernel import SystemOfUnits as units
+
 GaussinoSimulation(
     PhysicsConstructors=[
-        "GiGaMT_G4EmStandardPhysics_option2_HepEm",
+        "GiGaMT_G4EmStandardPhysics_option2_AdePT",
+        # "GiGaMT_G4EmStandardPhysics_option2_HepEm",
         "GiGaMT_G4EmExtraPhysics",
         "GiGaMT_G4DecayPhysics",
         "GiGaMT_G4HadronElasticPhysics",
@@ -14,6 +17,10 @@ GaussinoSimulation(
         "GiGaMT_G4IonPhysics",
         "GiGaMT_G4NeutronTrackingCut",
     ],
+    CutForElectron=700 * units.micrometer,
+    CutForPositron=700 * units.micrometer,
+    CutForGamma=700 * units.micrometer,
+    DumpCutsTable=True,
 )
 
 GiGaMTRunManagerFAC("GiGaMT.GiGaMTRunManagerFAC").InitCommands = [
