@@ -1,9 +1,13 @@
+import os
+
 from Configurables import (
     GaussinoSimulation,
     GiGaMTRunManagerFAC,
 )
 
 from GaudiKernel import SystemOfUnits as units
+
+adept_verbosity = int(os.getenv("ADEPT_VERBOSITY", 0))
 
 GaussinoSimulation(
     PhysicsConstructors=[
@@ -24,11 +28,11 @@ GaussinoSimulation(
 )
 
 GiGaMTRunManagerFAC("GiGaMT.GiGaMTRunManagerFAC").InitCommands = [
-    # "/adept/setVerbosity 4",
+    f"/adept/setVerbosity {adept_verbosity}",
     "/adept/setCUDAStackLimit 8192",
     # "/adept/CallUserTrackingAction true",
     # "/adept/CallUserSteppingAction true",
     "/adept/setTrackInAllRegions true",
-    "/adept/setMillionsOfTrackSlots 14",
+    "/adept/setMillionsOfTrackSlots 24",
     "/adept/setMillionsOfHitSlots 24",
 ]
