@@ -250,7 +250,7 @@ def _(Optional, pd, plt, split_data):
 
 @app.cell(hide_code=True)
 def _(df, mo):
-    threads_dropdown = mo.ui.dropdown.from_series(df["NUMBER_OF_THREADS"], value=1)
+    threads_dropdown = mo.ui.dropdown.from_series(df["NUMBER_OF_THREADS"])
     variable_dropdown = mo.ui.dropdown(
         options=[
             "time_per_event",
