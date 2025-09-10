@@ -219,7 +219,7 @@ def _(Optional, pd, plt, split_data):
 
 @app.cell(hide_code=True)
 def _(df, mo):
-    threads_dropdown = mo.ui.dropdown.from_series(df["NUMBER_OF_THREADS"], value=1)
+    threads_dropdown = mo.ui.dropdown.from_series(df["NUMBER_OF_THREADS"])
     variable_dropdown = mo.ui.dropdown(
         options=[
             "time_per_event",
@@ -531,7 +531,6 @@ def _(mo, physics_df):
     )
     phys_threads_dropdown = mo.ui.dropdown.from_series(
         series=physics_df["NUMBER_OF_THREADS"],
-        value=1,
         label="Threads: "
     )
     return (
@@ -629,7 +628,7 @@ def _(
 ):
     _data = physics_df[physics_df["PARTICLES_PER_EVENT"] == phys_particles_per_event_dropdown.value]
     _var = phys_variable_dropdown.value
-    _bins = 100
+    _bins = "auto"
 
     _data = _data.groupby(['event_id', 'with_adept']).agg({
         'number_of_particles': 'sum',
