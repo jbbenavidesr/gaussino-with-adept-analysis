@@ -6,8 +6,8 @@
     "parameters": {
         "PARTICLES_PER_EVENT": [ 1, 10, 100, 1000 ],
         "PARTICLE_TYPE": ["electron"],
-        "NUMBER_OF_THREADS": [1, 16, 32],
-	"PARTICLE_ENERGY_MEV": [100],
+        "NUMBER_OF_THREADS": [16],
+	"PARTICLE_ENERGY_MEV": [10000],
 	"NUMBER_OF_EVENTS": [5000]
     }
 }
