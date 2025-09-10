@@ -26,6 +26,7 @@ particles_per_event = int(os.environ.get("PARTICLES_PER_EVENT", 100))
 nthreads = int(os.environ.get("NUMBER_OF_THREADS", 1))
 particle_type = particle_types.get(os.environ.get("PARTICLE_TYPE", "electron"), 11)
 number_of_events = int(os.environ.get("NUMBER_OF_EVENTS", 10))
+particle_energy = float(os.environ.get("PARTICLE_ENERGY_MEV", 10.0)) * units.MeV
 
 ## constants
 n_chambers = 5
@@ -80,7 +81,7 @@ def setup_particle_gun(
 # 22: Gamma
 setup_particle_gun(
     number_of_particles=particles_per_event,
-    particle_energy=3.0 * units.GeV,
+    particle_energy=particle_energy,
     particle_type=particle_type,
     gun_position=-0.5 * world_length,
 )
