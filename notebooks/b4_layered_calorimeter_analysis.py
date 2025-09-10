@@ -60,9 +60,27 @@ def _():
 
 
 @app.cell
-def _(Path):
+def _(Path, mo):
     # Load your results file
-    base_path = Path("B4LayeredCalorimeter/test_runs/029_2025-09-06/")
+
+    benchmark_run_base = Path("B4LayeredCalorimeter/test_runs/")
+
+    iteration_files = [iteration_folder.name for iteration_folder in sorted(benchmark_run_base.iterdir())]
+
+    iteration_dropdown = mo.ui.dropdown(options=iteration_files, label="Iteration ID: ")
+    return benchmark_run_base, iteration_dropdown
+
+
+@app.cell
+def _(iteration_dropdown):
+    iteration_dropdown
+    return
+
+
+@app.cell
+def _(benchmark_run_base, iteration_dropdown):
+
+    base_path = benchmark_run_base / iteration_dropdown.value
     return (base_path,)
 
 
@@ -283,14 +301,18 @@ def _(
         fontsize=16,
     )
 
+    _variable_name = _variable.replace("_", " ").title()
+
     # Customize the first subplot (comparison)
     ax1.set_xlabel("Number of Particles")
-    ax1.set_ylabel(f"{_variable}")
+    ax1.set_ylabel(f"{_variable_name}")
     ax1.set_title("Performance with vs. without Adept")
+    ax1.set_yscale("log")
+
 
     # Customize the second subplot (ratios)
     ax2.set_xlabel("Number of Particles")
-    ax2.set_ylabel(f"{_variable} Speedup (Without / With Adept)")
+    ax2.set_ylabel(f"{_variable_name} Speedup (Without / With Adept)")
     ax2.set_title("Performance Speedup Ratio")
 
     # Add a horizontal line at y=1 on the ratio plot for reference
@@ -299,6 +321,13 @@ def _(
     # --- 7. Final layout adjustments and show the plot ---
     plt.tight_layout(rect=[0, 0, 1, 0.96])  # rect leaves space for suptitle
     plt.show()
+    return (ratio_df,)
+
+
+@app.cell
+def _(ratio_df, variable_dropdown):
+    _variable = variable_dropdown.value
+    ratio_df[ratio_df["PARTICLES_PER_EVENT"] == 1000][[f"{_variable}_with_adept", f"{_variable}_without_adept", f"{_variable}_ratio"]]
     return
 
 
@@ -551,7 +580,7 @@ def _(Callable, fit_gaussian, np, pd, split_data):
             ),
         }
 
-    return PlotData, get_histogram_and_fit_data, get_longitudinal_profiles
+    return PlotData, get_longitudinal_profiles
 
 
 @app.cell
@@ -606,7 +635,7 @@ def _(Optional, PlotData, pd, plt):
             bins=adept_data.bins,
             histtype="step",
             color="blue",
-            label="HepEm",
+            label="AdePT",
         )
         ax.hist(
             plot_data["values_geant4"],
@@ -622,14 +651,14 @@ def _(Optional, PlotData, pd, plt):
             adept_data.fit_curve,
             color="blue",
             linestyle="--",
-            label=rf"HepEm fit ($\mu={adept_data.mu:.3g} \pm {adept_data.mu_err:.3g}$, $\sigma={adept_data.std:.3g} \pm {adept_data.std_err:.3g}$)",
+            label=rf"AdePT fit ($\mu={adept_data.mu:.3g} \pm {adept_data.mu_err:.3g}$, $\sigma={adept_data.std:.3g} \pm {adept_data.std_err:.3g}$)",
         )
         ax.plot(
             (geant4_data.bins[:-1] + geant4_data.bins[1:]) / 2,
             geant4_data.fit_curve,
             color="orange",
             linestyle="--",
-            label=rf"Geant4 fit ($\mu={geant4_data.mu:.3g} \pm {geant4_data.mu_err:.3g}$, $\sigma={geant4_data.std:.3g} \pm {geant4_data.std_err:.3g}$)",
+            label=rf"Geant4 fit ($\mu={geant4_data.mu:.5g} \pm {geant4_data.mu_err:.3g}$, $\sigma={geant4_data.std:.3g} \pm {geant4_data.std_err:.3g}$)",
         )
 
         ax.set_xlabel(variable)
@@ -682,7 +711,7 @@ def _(Optional, PlotData, pd, plt):
         ax.grid(True)
         return ax
 
-    return plot_histogram_with_fits, plot_longitudinal_profile
+    return (plot_longitudinal_profile,)
 
 
 @app.cell
@@ -704,39 +733,42 @@ def _(
     return
 
 
-@app.cell
-def _(
-    get_histogram_and_fit_data,
-    phys_detector_dropdown,
-    phys_layer_dropdown,
-    phys_particles_per_event_dropdown,
-    phys_variable_dropdown,
-    physics_df,
-    plot_histogram_with_fits,
-    plt,
-):
+app._unparsable_cell(
+    r"""
     histogram_data = get_histogram_and_fit_data(
         physics_df,
         variable=phys_variable_dropdown.value,
         particles_per_event=phys_particles_per_event_dropdown.value,
         layer_number=phys_layer_dropdown.value,
         detector=phys_detector_dropdown.value,
-        bins="auto",
+        bins=\"auto\",
     )
 
     # 2. Plot the data and customize the figure
     _fig, ax = plt.subplots(figsize=(10, 6))
     plot_histogram_with_fits(histogram_data, ax=ax)
 
+    as
+
+    _var_name = {
+        \"edep_MeV\": \"Energy Deposition\"
+    }
+
+    _detector_name = {
+        \"B4Calorimeter_Layer_AbsorberSDet\": \"Absorber\"
+    }
+
     # Add custom title and labels
     ax.set_title(
-        f"{phys_variable_dropdown.value} Distribution in {phys_detector_dropdown.value}, Layer {phys_layer_dropdown.selected_key} ({phys_particles_per_event_dropdown.value} particles/event)"
+        f\"Total Energy Deposition Distribution in the Absorbers ({phys_particles_per_event_dropdown.value} particles/event)\"
     )
 
     plt.tight_layout()
     plt.show()
 
-    return (histogram_data,)
+    """,
+    name="_"
+)
 
 
 @app.cell

@@ -37,9 +37,25 @@ def _():
 
 
 @app.cell
-def _(Path):
+def _(Path, mo):
+    benchmark_run_base = Path("B2ChamberTracker/test_runs/")
+
+    iteration_files = [iteration_folder.name for iteration_folder in sorted(benchmark_run_base.iterdir())]
+
+    iteration_dropdown = mo.ui.dropdown(options=iteration_files, label="Iteration ID: ")
+    return benchmark_run_base, iteration_dropdown
+
+
+@app.cell
+def _(iteration_dropdown):
+    iteration_dropdown
+    return
+
+
+@app.cell
+def _(benchmark_run_base, iteration_dropdown):
     # Load your results file
-    base_path = Path("B2ChamberTracker/test_runs/007_2025-08-08/")
+    base_path = benchmark_run_base / iteration_dropdown.value
     return (base_path,)
 
 
@@ -270,6 +286,13 @@ def _(
     # --- 7. Final layout adjustments and show the plot ---
     plt.tight_layout(rect=[0, 0, 1, 0.96]) # rect leaves space for suptitle
     plt.show()
+    return (ratio_df,)
+
+
+@app.cell
+def _(ratio_df, variable_dropdown):
+    _variable = variable_dropdown.value
+    ratio_df[ratio_df["PARTICLES_PER_EVENT"] == 1000][[f"{_variable}_with_adept", f"{_variable}_without_adept", f"{_variable}_ratio"]]
     return
 
 
@@ -356,6 +379,8 @@ def _(Optional, curve_fit, dataclass, norm, np, pd, plt, split_data):
         variable: str,
         particles_per_event: int,
         detector: str,
+        *,
+        threads: int | None = None,
         bins: int | str | list[float] = "auto",
     ) -> PlotData:
         """
@@ -376,6 +401,10 @@ def _(Optional, curve_fit, dataclass, norm, np, pd, plt, split_data):
             (data["PARTICLES_PER_EVENT"] == particles_per_event)
             & (data["detector"] == detector)
         ]
+
+        if threads:
+            filtered = filtered[filtered["NUMBER_OF_THREADS"] == threads]
+    
         adept_df, geant4_df = split_data(filtered)
 
         if adept_df.empty or geant4_df.empty:
@@ -500,9 +529,15 @@ def _(mo, physics_df):
         value="ExternalDetectorEmbedder_Chamber_4SDet",
         label="Detector: ",
     )
+    phys_threads_dropdown = mo.ui.dropdown.from_series(
+        series=physics_df["NUMBER_OF_THREADS"],
+        value=1,
+        label="Threads: "
+    )
     return (
         phys_detector_dropdown,
         phys_particles_per_event_dropdown,
+        phys_threads_dropdown,
         phys_variable_dropdown,
     )
 
@@ -512,6 +547,7 @@ def _(
     mo,
     phys_detector_dropdown,
     phys_particles_per_event_dropdown,
+    phys_threads_dropdown,
     phys_variable_dropdown,
 ):
     mo.vstack(
@@ -519,6 +555,7 @@ def _(
             phys_particles_per_event_dropdown,
             phys_variable_dropdown,
             phys_detector_dropdown,
+            phys_threads_dropdown,
         ]
     )
     return
@@ -529,6 +566,7 @@ def _(
     get_histogram_and_fit_data,
     phys_detector_dropdown,
     phys_particles_per_event_dropdown,
+    phys_threads_dropdown,
     phys_variable_dropdown,
     physics_df,
     plot_histogram_with_fits,
@@ -539,6 +577,8 @@ def _(
         variable=phys_variable_dropdown.value,
         particles_per_event=phys_particles_per_event_dropdown.value,
         detector=phys_detector_dropdown.value,
+        threads=phys_threads_dropdown.value,
+        bins="auto",
     )
 
     # 2. Plot the data and customize the figure
@@ -589,7 +629,7 @@ def _(
 ):
     _data = physics_df[physics_df["PARTICLES_PER_EVENT"] == phys_particles_per_event_dropdown.value]
     _var = phys_variable_dropdown.value
-    _bins = "auto"
+    _bins = 100
 
     _data = _data.groupby(['event_id', 'with_adept']).agg({
         'number_of_particles': 'sum',
