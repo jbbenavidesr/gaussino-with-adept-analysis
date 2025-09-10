@@ -33,10 +33,10 @@ GaussinoSimulation(
 )
 
 GiGaMTRunManagerFAC("GiGaMT.GiGaMTRunManagerFAC").InitCommands = [
-    "/adept/verbose 4",
+    "/adept/setVerbosity 4",
     "/adept/setCUDAStackLimit 8192",
-    "/adept/CallUserTrackingAction true",
-    "/adept/CallUserSteppingAction true",
+    # "/adept/CallUserTrackingAction true",
+    # "/adept/CallUserSteppingAction true",
     # "/adept/addGPURegion CaloRegion",
     "/adept/setTrackInAllRegions true",
     "/adept/setMillionsOfTrackSlots 7",
