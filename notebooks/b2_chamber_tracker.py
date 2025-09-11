@@ -274,6 +274,7 @@ def _(
     ax1.set_xlabel("Number of Particles")
     ax1.set_ylabel(f"{_variable}")
     ax1.set_title("Performance with vs. without Adept")
+    ax1.set_yscale("log")
 
     # Customize the second subplot (ratios)
     ax2.set_xlabel("Number of Particles")
@@ -521,7 +522,7 @@ def _(mo, physics_df):
     )
 
     phys_particles_per_event_dropdown = mo.ui.dropdown(
-        options=[1, 10, 100, 1000, 10000], value=1000, label="Particulas por evento: "
+        options=[1, 10, 100, 1000 ], value=1000, label="Particulas por evento: "
     )
 
     phys_detector_dropdown = mo.ui.dropdown.from_series(

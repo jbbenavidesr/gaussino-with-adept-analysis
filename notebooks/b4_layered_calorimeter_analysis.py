@@ -297,23 +297,23 @@ def _(
 
     # --- Customize the plots (titles, labels, etc.) ---
     fig.suptitle(
-        f"Performance Comparison and Speedup (Threads: {_number_of_threads})",
+        f"Performance Comparison and Speed-up Factor for B4 (Threads: {_number_of_threads})",
         fontsize=16,
     )
 
     _variable_name = _variable.replace("_", " ").title()
 
     # Customize the first subplot (comparison)
-    ax1.set_xlabel("Number of Particles")
-    ax1.set_ylabel(f"{_variable_name}")
+    ax1.set_xlabel("Number of Particles (log)")
+    ax1.set_ylabel(f"{_variable_name} (log)")
     ax1.set_title("Performance with vs. without Adept")
     ax1.set_yscale("log")
 
 
     # Customize the second subplot (ratios)
     ax2.set_xlabel("Number of Particles")
-    ax2.set_ylabel(f"{_variable_name} Speedup (Without / With Adept)")
-    ax2.set_title("Performance Speedup Ratio")
+    ax2.set_ylabel(f"{_variable_name} Speed-up (Without / With Adept)")
+    ax2.set_title("Performance Speed-up Factor")
 
     # Add a horizontal line at y=1 on the ratio plot for reference
     ax2.axhline(y=1, color="red", linestyle="--", linewidth=1, label="Break-even")
@@ -580,7 +580,7 @@ def _(Callable, fit_gaussian, np, pd, split_data):
             ),
         }
 
-    return PlotData, get_longitudinal_profiles
+    return PlotData, get_histogram_and_fit_data, get_longitudinal_profiles
 
 
 @app.cell
@@ -651,14 +651,14 @@ def _(Optional, PlotData, pd, plt):
             adept_data.fit_curve,
             color="blue",
             linestyle="--",
-            label=rf"AdePT fit ($\mu={adept_data.mu:.3g} \pm {adept_data.mu_err:.3g}$, $\sigma={adept_data.std:.3g} \pm {adept_data.std_err:.3g}$)",
+            label=rf"AdePT fit ($\mu={adept_data.mu:.3} \pm {adept_data.mu_err:.2}$, $\sigma={adept_data.std:.3} \pm {adept_data.std_err:.2}$)",
         )
         ax.plot(
             (geant4_data.bins[:-1] + geant4_data.bins[1:]) / 2,
             geant4_data.fit_curve,
             color="orange",
             linestyle="--",
-            label=rf"Geant4 fit ($\mu={geant4_data.mu:.5g} \pm {geant4_data.mu_err:.3g}$, $\sigma={geant4_data.std:.3g} \pm {geant4_data.std_err:.3g}$)",
+            label=rf"Geant4 fit ($\mu={geant4_data.mu:.3} \pm {geant4_data.mu_err:.2}$, $\sigma={geant4_data.std:.3} \pm {geant4_data.std_err:.2}$)",
         )
 
         ax.set_xlabel(variable)
@@ -711,7 +711,7 @@ def _(Optional, PlotData, pd, plt):
         ax.grid(True)
         return ax
 
-    return (plot_longitudinal_profile,)
+    return plot_histogram_with_fits, plot_longitudinal_profile
 
 
 @app.cell
@@ -733,42 +733,48 @@ def _(
     return
 
 
-app._unparsable_cell(
-    r"""
+@app.cell
+def _(
+    get_histogram_and_fit_data,
+    phys_detector_dropdown,
+    phys_layer_dropdown,
+    phys_particles_per_event_dropdown,
+    phys_variable_dropdown,
+    physics_df,
+    plot_histogram_with_fits,
+    plt,
+):
     histogram_data = get_histogram_and_fit_data(
         physics_df,
         variable=phys_variable_dropdown.value,
         particles_per_event=phys_particles_per_event_dropdown.value,
         layer_number=phys_layer_dropdown.value,
         detector=phys_detector_dropdown.value,
-        bins=\"auto\",
+        bins="auto",
     )
 
     # 2. Plot the data and customize the figure
     _fig, ax = plt.subplots(figsize=(10, 6))
     plot_histogram_with_fits(histogram_data, ax=ax)
 
-    as
 
     _var_name = {
-        \"edep_MeV\": \"Energy Deposition\"
+        "edep_MeV": "Energy Deposition"
     }
 
     _detector_name = {
-        \"B4Calorimeter_Layer_AbsorberSDet\": \"Absorber\"
+        "B4Calorimeter_Layer_AbsorberSDet": "Absorber"
     }
 
     # Add custom title and labels
     ax.set_title(
-        f\"Total Energy Deposition Distribution in the Absorbers ({phys_particles_per_event_dropdown.value} particles/event)\"
+        f"Total Energy Deposition Distribution in the Absorbers ({phys_particles_per_event_dropdown.value} particles/event)"
     )
 
-    plt.tight_layout()
+    # plt.tight_layout()
     plt.show()
 
-    """,
-    name="_"
-)
+    return (histogram_data,)
 
 
 @app.cell

@@ -30,16 +30,18 @@ def _():
 
     import pandas as pd
     import numpy as np
+    import ROOT
     import matplotlib.pyplot as plt
     from scipy.optimize import curve_fit
     from scipy.stats import norm, ks_2samp
-    return Optional, Path, pd, plt
+
+    return Optional, Path, ROOT, np, pd, plt
 
 
 @app.cell
 def _(mo):
     benchmarks = ["B2ChamberTracker", "B4LayeredCalorimeter", "CaloChallenge"]
-    benchmark_dropdown = mo.ui.dropdown(options = benchmarks, value="B2ChamberTracker", label="Benchmark: ")
+    benchmark_dropdown = mo.ui.dropdown(options = benchmarks, value="CaloChallenge", label="Benchmark: ")
 
     return (benchmark_dropdown,)
 
@@ -229,7 +231,7 @@ def _(Optional, pd, plt, split_data):
 
 @app.cell(hide_code=True)
 def _(df, mo):
-    threads_dropdown = mo.ui.dropdown.from_series(df["NUMBER_OF_THREADS"], value=1)
+    threads_dropdown = mo.ui.dropdown.from_series(df["NUMBER_OF_THREADS"])
     variable_dropdown = mo.ui.dropdown(
         options=[
             "time_per_event",
@@ -301,8 +303,115 @@ def _(
 
 
 @app.cell
-def _(ratio_df):
-    ratio_df[ratio_df["PARTICLES_PER_EVENT"] == 1000]
+def _(ratio_df, variable_dropdown):
+    _variable = variable_dropdown.value
+    ratio_df[ratio_df["PARTICLES_PER_EVENT"] == 1000][[f"{_variable}_with_adept", f"{_variable}_without_adept", f"{_variable}_ratio"]]
+    return
+
+
+@app.cell
+def _(mo):
+    hist_name_dropdown = mo.ui.dropdown(
+        options=[
+            "cellEnergy",
+            "energyDeposited",
+            "energyParticle",
+            "energyRatio",
+            "hitType",
+            "longFirstMoment",
+            "longProfile",
+            "longSecondMoment",
+            "numHits",
+            "phiProfile",
+            "transFirstMoment",
+            "transProfile",
+            "transSecondMoment",
+        ],
+        value="phiProfile",
+        label="histogram: ",
+    )
+    return (hist_name_dropdown,)
+
+
+@app.cell
+def _(hist_name_dropdown):
+    hist_name_dropdown
+    return
+
+
+@app.cell(hide_code=True)
+def _(ROOT, base_path, hist_name_dropdown, np, plt):
+
+    # --- User Inputs ---
+    file_adept =  base_path / "adept_simulation_PARTICLES_PER_EVENT=1000_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=5000.root"  # Replace with your AdePT ROOT file
+    file_g4    = base_path / "geant4_simulation_PARTICLES_PER_EVENT=1000_PARTICLE_TYPE=electron_NUMBER_OF_THREADS=32_NUMBER_OF_EVENTS=5000.root"      # Replace with your G4 ROOT file
+    hist_name  = f"CaloChallengeMonitoring/{hist_name_dropdown.value}"        # Replace with the histogram name
+
+    # --- Open ROOT files ---
+    f_adept = ROOT.TFile.Open(str(file_adept))
+    f_g4    = ROOT.TFile.Open(str(file_g4))
+
+    # --- Retrieve histograms ---
+    h_adept = f_adept.Get(hist_name)
+    h_g4    = f_g4.Get(hist_name)
+
+    if not h_adept or not h_g4:
+        raise RuntimeError("Histogram not found in one or both files!")
+
+    # --- Extract bin data ---
+    def extract_hist_data(h):
+        nbins = h.GetNbinsX()
+        centers = np.array([h.GetBinCenter(i) for i in range(1, nbins+1)])
+        counts  = np.array([h.GetBinContent(i) for i in range(1, nbins+1)])
+        errors  = np.array([h.GetBinError(i)   for i in range(1, nbins+1)])
+        return centers, counts, errors
+
+    centers, counts_adept, errors_adept = extract_hist_data(h_adept)
+    _,      counts_g4,    errors_g4    = extract_hist_data(h_g4)
+
+    # --- Plotting ---
+    # _fig, (ax_main, ax_ratio) = plt.subplots(2, 1, figsize=(10, 8),
+    #                                         gridspec_kw={'height_ratios': [3, 1]},
+    #                                         constrained_layout=True)
+
+    _fig, ax_main = plt.subplots(figsize=(10, 8))
+
+    # Main panel: overlayed histograms with error bars
+    ax_main.errorbar(centers, counts_adept, yerr=errors_adept, fmt='o', label='AdePT', alpha=0.8)
+    ax_main.errorbar(centers, counts_g4,    yerr=errors_g4,    fmt='s', label='G4',    alpha=0.8)
+    ax_main.set_ylabel('Entries')
+    ax_main.set_title('AdePT vs G4 Physics Histogram Comparison')
+    ax_main.legend()
+    ax_main.grid(True, alpha=0.3)
+
+    # Ratio panel: AdePT / G4 with error propagation
+    counts_adept = counts_adept.astype(float)
+    counts_g4    = counts_g4.astype(float)
+    errors_adept = errors_adept.astype(float)
+    errors_g4    = errors_g4.astype(float)
+
+    # ratio = np.divide(counts_adept, counts_g4, out=np.zeros_like(counts_adept), where=counts_g4!=0)
+    # ratio_err = np.zeros_like(ratio)
+    # mask = counts_g4 > 0
+    # ratio_err[mask] = np.sqrt(
+    #     (errors_adept[mask] / counts_g4[mask])**2 +
+    #     (counts_adept[mask] * errors_g4[mask] / counts_g4[mask]**2)**2
+    # )
+
+    # ax_ratio.errorbar(centers, ratio, yerr=ratio_err, fmt='ko-', markersize=3, alpha=0.8)
+    # ax_ratio.axhline(1, color='red', linestyle='--', alpha=0.7, label='Unity')
+    # ax_ratio.set_xlabel('Variable')
+    # ax_ratio.set_ylabel('AdePT / G4')
+    # ax_ratio.grid(True, alpha=0.3)
+    # ax_ratio.legend()
+
+    # plt.savefig("adept_vs_g4_comparison.png", dpi=300, bbox_inches='tight')
+    plt.show()
+
+    # --- Clean up ---
+    f_adept.Close()
+    f_g4.Close()
+
     return
 
 
