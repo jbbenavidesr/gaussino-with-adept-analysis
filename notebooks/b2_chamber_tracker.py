@@ -266,7 +266,7 @@ def _(
 
     # --- Customize the plots (titles, labels, etc.) ---
     fig.suptitle(
-        f"Performance Comparison and Speedup (Threads: {_number_of_threads})",
+        f"Performance Comparison and Speed-up Factor for B2 (Threads: {_number_of_threads})",
         fontsize=16
     )
 
@@ -310,6 +310,12 @@ def _(base_path, pd):
     physics_df = pd.read_csv(physics_path)
     physics_df.info()
     return (physics_df,)
+
+
+@app.cell
+def _(physics_df):
+    physics_df.head()
+    return
 
 
 @app.cell
@@ -405,7 +411,7 @@ def _(Optional, curve_fit, dataclass, norm, np, pd, plt, split_data):
 
         if threads:
             filtered = filtered[filtered["NUMBER_OF_THREADS"] == threads]
-    
+
         adept_df, geant4_df = split_data(filtered)
 
         if adept_df.empty or geant4_df.empty:
@@ -470,14 +476,14 @@ def _(Optional, curve_fit, dataclass, norm, np, pd, plt, split_data):
             adept_data.fit_curve,
             color="blue",
             linestyle="--",
-            label=rf"AdePT fit ($\mu={adept_data.mu:.3g} \pm {adept_data.mu_err:.3g}$, $\sigma={adept_data.std:.3g} \pm {adept_data.std_err:.3g}$)",
+            # label=rf"AdePT fit ($\mu={adept_data.mu:.2f} \pm {adept_data.mu_err:.2f}$, $\sigma={adept_data.std:.2f} \pm {adept_data.std_err:.2f}$)",
         )
         ax.plot(
             (geant4_data.bins[:-1] + geant4_data.bins[1:]) / 2,
             geant4_data.fit_curve,
             color="orange",
             linestyle="--",
-            label=rf"Geant4 fit ($\mu={geant4_data.mu:.3g} \pm {geant4_data.mu_err:.3g}$, $\sigma={geant4_data.std:.3g} \pm {geant4_data.std_err:.3g}$)",
+            # label=rf"Geant4 fit ($\mu={geant4_data.mu:.3e} \pm {geant4_data.mu_err:.3e}$, $\sigma={geant4_data.std:.3e} \pm {geant4_data.std_err:.3e}$)",
         )
 
         ax.set_xlabel(variable)
@@ -561,7 +567,7 @@ def _(
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     get_histogram_and_fit_data,
     phys_detector_dropdown,
@@ -591,9 +597,26 @@ def _(
         f"{phys_variable_dropdown.value} Distribution in {phys_detector_dropdown.value}, ({phys_particles_per_event_dropdown.value} particles/event)"
     )
 
-    plt.tight_layout()
+    # plt.tight_layout()
     plt.show()
     return (histogram_data,)
+
+
+@app.cell
+def _(histogram_data, np):
+    def percentage_diff(a, b):
+        return abs((a - b) / np.average([a, b]))
+
+    adept_mean = histogram_data["adept"].mu
+    g4_mean = histogram_data["geant4"].mu
+    mean_diff = adept_mean - g4_mean
+    diff_percent = percentage_diff(adept_mean, g4_mean)
+
+    print(f"Adept Mean: {adept_mean:.5g}")
+    print(f"Geant4 Mean: {g4_mean:.5g}")
+    print(f"Diff: {mean_diff:.3g}")
+    print(f"Percent diff: {diff_percent:.3%}")
+    return (percentage_diff,)
 
 
 @app.cell
@@ -616,10 +639,11 @@ def _(get_ks_statistic, histogram_data):
     return
 
 
-@app.cell
+@app.cell(hide_code=True)
 def _(
     fit_gaussian,
     np,
+    percentage_diff,
     phys_particles_per_event_dropdown,
     phys_variable_dropdown,
     physics_df,
@@ -664,11 +688,40 @@ def _(
     plot_histogram_with_fits(_values, ax=_ax)
 
     _ax.set_title(
-        f"{phys_variable_dropdown.value} Total Distribution, ({phys_particles_per_event_dropdown.value} particles/event)"
+        f"Total Number of Particles in the Tracker, ({phys_particles_per_event_dropdown.value} particles/event)"
     )
+
+    _ax.set_xlabel("Number of Particles")
 
     plt.tight_layout()
     plt.show()
+
+    # Mean
+    _adept_mean = _adept_fit_data.mu
+    _g4_mean = _geant4_fit_data.mu
+    _mean_diff = _adept_mean - _g4_mean
+    _percentage_diff = percentage_diff(_adept_mean, _g4_mean)
+    _relative_diff =  (_adept_mean - _g4_mean) / _g4_mean
+
+    print(f"Adept Mean: {_adept_mean:.5g}")
+    print(f"Geant4 Mean: {_g4_mean:.5g}")
+    print(f"Diff: {_mean_diff:.3g}")
+    print(f"Percent diff: {_percentage_diff:.3%}")
+    print(f"Relative Diff: {_relative_diff:.5g}")
+
+    # Width
+
+    _adept_width = _adept_fit_data.std
+    _g4_width = _geant4_fit_data.std
+    _mean_diff = _adept_width - _g4_width
+    _percentage_diff = percentage_diff(_adept_width, _g4_width)
+    _relative_diff = (_adept_width - _g4_width) / _g4_width
+
+    print(f"Adept Width: {_adept_width:.5g}")
+    print(f"Geant4 Width: {_g4_width:.5g}")
+    print(f"Diff: {_mean_diff:.3g}")
+    print(f"Percent diff: {_percentage_diff:.3%}")
+    print(f"Relative Diff: {_relative_diff:.5g}")
 
     return
 

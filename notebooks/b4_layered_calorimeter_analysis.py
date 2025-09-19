@@ -635,7 +635,7 @@ def _(Optional, PlotData, pd, plt):
             bins=adept_data.bins,
             histtype="step",
             color="blue",
-            label="AdePT",
+            label="HepEM",
         )
         ax.hist(
             plot_data["values_geant4"],
@@ -651,7 +651,7 @@ def _(Optional, PlotData, pd, plt):
             adept_data.fit_curve,
             color="blue",
             linestyle="--",
-            label=rf"AdePT fit ($\mu={adept_data.mu:.3} \pm {adept_data.mu_err:.2}$, $\sigma={adept_data.std:.3} \pm {adept_data.std_err:.2}$)",
+            label=rf"HepEM fit ($\mu={adept_data.mu:.3} \pm {adept_data.mu_err:.2}$, $\sigma={adept_data.std:.3} \pm {adept_data.std_err:.2}$)",
         )
         ax.plot(
             (geant4_data.bins[:-1] + geant4_data.bins[1:]) / 2,
@@ -692,7 +692,7 @@ def _(Optional, PlotData, pd, plt):
         ax.plot(
             adept_profile.index,
             adept_profile.values,
-            label=f"{profile_type.capitalize()} (HepEm)",
+            label=f"{profile_type.capitalize()} (AdePT)",
             color="blue",
             marker="o",
         )
@@ -750,7 +750,7 @@ def _(
         particles_per_event=phys_particles_per_event_dropdown.value,
         layer_number=phys_layer_dropdown.value,
         detector=phys_detector_dropdown.value,
-        bins="auto",
+        bins=64,
     )
 
     # 2. Plot the data and customize the figure
@@ -763,18 +763,52 @@ def _(
     }
 
     _detector_name = {
-        "B4Calorimeter_Layer_AbsorberSDet": "Absorber"
+        "B4Calorimeter_Layer_AbsorberSDet": "Absorber",
+        "B4Calorimeter_Layer_GapSDet": "Gap",
     }
 
     # Add custom title and labels
     ax.set_title(
-        f"Total Energy Deposition Distribution in the Absorbers ({phys_particles_per_event_dropdown.value} particles/event)"
+        f"Total Track Length in the {_detector_name[phys_detector_dropdown.value]}s ({phys_particles_per_event_dropdown.value} particles/event)"
     )
 
-    # plt.tight_layout()
+    ax.set_xlabel("Track Length (m)")
+    ax.ticklabel_format(style='sci',scilimits=(-3,5),axis='both')
+
+    ax.set_ylim(top=350)
+
+    plt.tight_layout()
     plt.show()
 
     return (histogram_data,)
+
+
+@app.cell
+def _(histogram_data, np):
+    def percentage_diff(a, b):
+        return abs((a - b) / np.average([a, b]))
+
+    adept_mean = histogram_data["adept"].mu
+    g4_mean = histogram_data["geant4"].mu
+    mean_diff = adept_mean - g4_mean
+    _percentage_diff = percentage_diff(adept_mean, g4_mean)
+
+    print(f"Adept Mean: {adept_mean:.5g}")
+    print(f"Geant4 Mean: {g4_mean:.5g}")
+    print(f"Diff: {mean_diff:.3g}")
+    print(f"Percent diff: {_percentage_diff:.3%}")
+
+    # Width
+    _adept_width = histogram_data["adept"].std
+    _g4_width = histogram_data["geant4"].std
+    _mean_diff = _adept_width - _g4_width
+    _percentage_diff = percentage_diff(_adept_width, _g4_width)
+
+    print(f"Adept Width: {_adept_width:.5g}")
+    print(f"Geant4 Width: {_g4_width:.5g}")
+    print(f"Diff: {_mean_diff:.3g}")
+    print(f"Percent diff: {_percentage_diff:.3%}")
+    return
 
 
 @app.cell
@@ -787,7 +821,7 @@ def _(get_ks_statistic, histogram_data):
     # Print the K-S results for statistical comparison
     print(f"Kolmogorov-Smirnov Test Results for {histogram_data['variable']}:")
     print(f"  D-statistic: {ks_statistic:.4f}")
-    print(f"  p-value: {ks_pvalue:.4e}")
+    print(f"  p-value: {ks_pvalue:.3}")
 
     # Interpret the p-value
     if ks_pvalue < 0.05:
@@ -804,6 +838,7 @@ def _(
     get_longitudinal_profiles,
     np,
     phys_particles_per_event_dropdown,
+    phys_variable_dropdown,
     physics_df,
     plot_longitudinal_profile,
     plt,
@@ -812,6 +847,7 @@ def _(
     profiles = get_longitudinal_profiles(
         physics_df,
         particles_per_event=phys_particles_per_event_dropdown.value,
+        edep_variable= phys_variable_dropdown.value,
         grouping_function=np.mean,
     )
 

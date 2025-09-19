@@ -35,7 +35,7 @@ def _():
     from scipy.optimize import curve_fit
     from scipy.stats import norm, ks_2samp
 
-    return Optional, Path, ROOT, np, pd, plt
+    return Optional, Path, ROOT, ks_2samp, np, pd, plt
 
 
 @app.cell
@@ -278,7 +278,7 @@ def _(
 
     # --- Customize the plots (titles, labels, etc.) ---
     fig.suptitle(
-        f"Performance Comparison and Speedup (Threads: {_number_of_threads})",
+        f"Performance Comparison and Speed-up Factor for CaloChallenge (Threads: {_number_of_threads})",
         fontsize=16
     )
 
@@ -364,23 +364,32 @@ def _(ROOT, base_path, hist_name_dropdown, np, plt):
         centers = np.array([h.GetBinCenter(i) for i in range(1, nbins+1)])
         counts  = np.array([h.GetBinContent(i) for i in range(1, nbins+1)])
         errors  = np.array([h.GetBinError(i)   for i in range(1, nbins+1)])
-        return centers, counts, errors
+        x_title = h.GetXaxis().GetTitle()
+        y_title = h.GetYaxis().GetTitle()
+        title = h.GetTitle()
+        return centers, counts, errors, x_title, y_title, title
 
-    centers, counts_adept, errors_adept = extract_hist_data(h_adept)
-    _,      counts_g4,    errors_g4    = extract_hist_data(h_g4)
+    centers, counts_adept, errors_adept, x_title, y_title, title = extract_hist_data(h_adept)
+    _,      counts_g4,    errors_g4, *_    = extract_hist_data(h_g4)
 
     # --- Plotting ---
     # _fig, (ax_main, ax_ratio) = plt.subplots(2, 1, figsize=(10, 8),
     #                                         gridspec_kw={'height_ratios': [3, 1]},
     #                                         constrained_layout=True)
 
-    _fig, ax_main = plt.subplots(figsize=(10, 8))
+    _fig, ax_main = plt.subplots(figsize=(10, 6))
 
     # Main panel: overlayed histograms with error bars
     ax_main.errorbar(centers, counts_adept, yerr=errors_adept, fmt='o', label='AdePT', alpha=0.8)
     ax_main.errorbar(centers, counts_g4,    yerr=errors_g4,    fmt='s', label='G4',    alpha=0.8)
-    ax_main.set_ylabel('Entries')
-    ax_main.set_title('AdePT vs G4 Physics Histogram Comparison')
+    ax_main.set_xlabel(x_title)
+    ax_main.set_ylabel(y_title)
+    ax_main.set_title(title)
+
+    ax_main.set_xlabel(r"$<\lambda^2> (mm^2) $")
+
+
+
     ax_main.legend()
     ax_main.grid(True, alpha=0.3)
 
@@ -409,9 +418,133 @@ def _(ROOT, base_path, hist_name_dropdown, np, plt):
     plt.show()
 
     # --- Clean up ---
+    # f_adept.Close()
+    # f_g4.Close()
+
+    return (
+        centers,
+        counts_adept,
+        counts_g4,
+        errors_adept,
+        errors_g4,
+        f_adept,
+        f_g4,
+        h_adept,
+        h_g4,
+    )
+
+
+@app.cell
+def _(
+    counts_adept,
+    counts_g4,
+    errors_adept,
+    errors_g4,
+    f_adept,
+    f_g4,
+    h_adept,
+    h_g4,
+    np,
+):
+
+    # 1. Diferencia de medias y desviaciones estándar
+    mean_adept = h_adept.GetMean()
+    mean_g4 = h_g4.GetMean()
+    std_adept = h_adept.GetStdDev()
+    std_g4 = h_g4.GetStdDev()
+    print(f"AdePT mean: {mean_adept:.3f}, std: {std_adept:.3f}")
+    print(f"G4 mean: {mean_g4:.3f}, std: {std_g4:.3f}")
+
+    # 2. Chi-cuadrado y p-valor
+    chi2 = h_adept.Chi2Test(h_g4, "UU CHI2/NDF")
+    pval = h_adept.Chi2Test(h_g4, "UU P")
+    print(f"Chi2/NDF: {chi2:.2f}, p-value: {pval:.4f}")
+
+    # 3. Test de Kolmogorov-Smirnov
+    ks_pval = h_adept.KolmogorovTest(h_g4)
+    print(f"KS p-value: {ks_pval:.4f}")
+
+    # 4. RMSE (Root Mean Square Error)
+    rmse = np.sqrt(np.mean((counts_adept - counts_g4)**2))
+    print(f"RMSE: {rmse:.4f}")
+
+    # 5. Diferencia y ratio bin a bin
+    diff = counts_adept - counts_g4
+    avg_values = (counts_adept + counts_g4) / 2
+    ratio = np.divide(counts_adept, counts_g4, out=np.zeros_like(counts_adept), where=counts_g4!=0)
+    percent_diff = np.abs(np.divide(diff, avg_values, out=np.zeros_like(diff), where=avg_values!=0))
+    print(f"Mean diff: {np.mean(diff):.3f}, Mean Ratio: {np.mean(ratio):.3f}, Mean error: {np.mean(percent_diff)}")
+
+    # 6. Significancia bin a bin
+    significance = np.zeros_like(diff)
+    mask = (errors_adept**2 + errors_g4**2) > 0
+    significance[mask] = diff[mask] / np.sqrt(errors_adept[mask]**2 + errors_g4[mask]**2)
+
+    # --- Clean up ---
     f_adept.Close()
     f_g4.Close()
 
+    return (significance,)
+
+
+@app.cell
+def _(counts_adept, counts_g4, ks_2samp, np):
+    def get_ks_statistic(
+        adept_values: np.ndarray, geant4_values: np.ndarray
+    ) -> tuple[float, float]:
+        """
+        Performs the two-sample Kolmogorov-Smirnov test on two sets of data.
+
+        Args:
+            adept_values: An array of numerical values from the Adept simulation.
+            geant4_values: An array of numerical values from the Geant4 simulation.
+
+        Returns:
+            A tuple containing the D-statistic and the p-value.
+        """
+        if adept_values.size == 0 or geant4_values.size == 0:
+            return np.nan, np.nan
+
+        ks_result = ks_2samp(adept_values, geant4_values)
+        return ks_result.statistic, ks_result.pvalue
+
+    _ks_statistic, _ks_pvalue = get_ks_statistic(counts_adept, counts_g4)
+
+    print(f"K-S test:\n\tD: {_ks_statistic:.3g}\n\tP: {_ks_pvalue:.3g}")
+    return
+
+
+@app.cell
+def _(
+    centers,
+    counts_adept,
+    counts_g4,
+    diffcod,
+    errors_adept,
+    errors_g4,
+    plt,
+    significance,
+):
+    # --- Visualización ---
+    _fig, _axs = plt.subplots(3, 1, figsize=(10, 12), sharex=True)
+    _axs[0].errorbar(centers, counts_adept, yerr=errors_adept, fmt='o', label='AdePT')
+    _axs[0].errorbar(centers, counts_g4, yerr=errors_g4, fmt='s', label='G4')
+    _axs[0].set_ylabel("Entries")
+    _axs[0].legend()
+    _axs[0].set_title("Overlay")
+
+    _axs[1].plot(centers, diffcod, label="AdePT - G4")
+    _axs[1].set_ylabel("Difference")
+    _axs[1].legend()
+
+    _axs[2].plot(centers, significance, label="Significance (bin-by-bin)")
+    _axs[2].axhline(0, color='gray', linestyle='--')
+    _axs[2].set_ylabel("Significance")
+    _axs[2].set_xlabel("Variable")
+    _axs[2].legend()
+
+    plt.tight_layout()
+    plt.show()
     return
 
 
