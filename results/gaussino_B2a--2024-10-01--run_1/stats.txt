@@ -1,6 +1,0 @@
-simulation: gaussino_B2a
-status: failed
-workspace_commit: cf3060189205ed222b4410fb21528047fbcd3b7a
-gaussino_commit: 1c82d4394408c82e2c1587a58318d0477cc73bf9
-geant4_commit: 084e5ab51d6eddc32746f29fbbf9983291aa29a5
-adept_commit: 7a806360828bd29fbbd21341dd2e9d74b3225171
