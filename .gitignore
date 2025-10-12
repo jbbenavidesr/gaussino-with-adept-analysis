@@ -26,3 +26,5 @@ __marimo__/
 Thumbs.db
 
 *.csv
+
+dvc-storage/
