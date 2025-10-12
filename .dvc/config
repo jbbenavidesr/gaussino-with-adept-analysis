@@ -1,2 +1,4 @@
 ['remote "local"']
     url = /home/jbenavid/workspace/dvc-storage
+['remote "joulertx"']
+    url = ssh://joulertx:/home/jbenavid/workspace/dvc-storage
