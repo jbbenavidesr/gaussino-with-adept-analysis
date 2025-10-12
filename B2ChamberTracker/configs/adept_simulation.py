@@ -7,8 +7,8 @@ from GaudiKernel import SystemOfUnits as units
 
 GaussinoSimulation(
     PhysicsConstructors=[
-        "GiGaMT_G4EmStandardPhysics_option2_AdePT",
-        # "GiGaMT_G4EmStandardPhysics_option2_HepEm",
+        # "GiGaMT_G4EmStandardPhysics_option2_AdePT",
+        "GiGaMT_G4EmStandardPhysics_option2_HepEm",
         "GiGaMT_G4EmExtraPhysics",
         "GiGaMT_G4DecayPhysics",
         "GiGaMT_G4HadronElasticPhysics",
@@ -26,9 +26,9 @@ GaussinoSimulation(
 GiGaMTRunManagerFAC("GiGaMT.GiGaMTRunManagerFAC").InitCommands = [
     # "/adept/setVerbosity 4",
     "/adept/setCUDAStackLimit 8192",
-    # "/adept/CallUserTrackingAction true",
+    "/adept/CallUserTrackingAction true",
     # "/adept/CallUserSteppingAction true",
     "/adept/setTrackInAllRegions true",
-    "/adept/setMillionsOfTrackSlots 14",
+    "/adept/setMillionsOfTrackSlots 24",
     "/adept/setMillionsOfHitSlots 24",
 ]

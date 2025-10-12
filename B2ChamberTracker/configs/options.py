@@ -218,7 +218,7 @@ setup_geometry(
     tracker_material="G4_AIR",
     tracker_length=tracker_length,
     n_chambers=n_chambers,
-    chamber_material="G4_Xe",
+    chamber_material="G4_Pb",
     chamber_spacing=chamber_spacing,
     chamber_width=chamber_width,
 )

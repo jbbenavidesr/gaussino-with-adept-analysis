@@ -11,8 +11,8 @@ adept_verbosity = int(os.getenv("ADEPT_VERBOSITY", 0))
 
 GaussinoSimulation(
     PhysicsConstructors=[
-        "GiGaMT_G4EmStandardPhysics_option2_AdePT",
-        # "GiGaMT_G4EmStandardPhysics_option2_HepEm",
+        # "GiGaMT_G4EmStandardPhysics_option2_AdePT",
+        "GiGaMT_G4EmStandardPhysics_option2_HepEm",
         "GiGaMT_G4EmExtraPhysics",
         "GiGaMT_G4DecayPhysics",
         "GiGaMT_G4HadronElasticPhysics",
@@ -30,9 +30,10 @@ GaussinoSimulation(
 GiGaMTRunManagerFAC("GiGaMT.GiGaMTRunManagerFAC").InitCommands = [
     f"/adept/setVerbosity {adept_verbosity}",
     "/adept/setCUDAStackLimit 8192",
-    # "/adept/CallUserTrackingAction true",
+    # "/adept/callusertrackingaction true",
     # "/adept/CallUserSteppingAction true",
     "/adept/setTrackInAllRegions true",
-    "/adept/setMillionsOfTrackSlots 24",
-    "/adept/setMillionsOfHitSlots 24",
+    "/adept/setMillionsOfTrackSlots 14",
+    "/adept/setMillionsOfHitSlots 40",
+    # "/adept/setTransportBufferThreshold 10",
 ]

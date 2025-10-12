@@ -1,5 +1,4 @@
 import os
-
 from Configurables import GaussinoSimulation, GiGaMTRunManagerFAC
 from Configurables import Gaussino
 
@@ -10,9 +9,13 @@ from CaloChallenge.cc_geometry import planar_detector_SiW_options
 
 
 number_of_events = int(os.environ.get("NUMBER_OF_EVENTS", 10))
+nthreads = int(os.environ.get("NUMBER_OF_THREADS", 1))
 
 Gaussino().EvtMax = number_of_events
 Gaussino().ConvertEDM = True
+Gaussino().EnableHive = True
+Gaussino().ThreadPoolSize = nthreads
+Gaussino().EventSlots = nthreads
 
 GaussinoSimulation(
     PhysicsConstructors=[
@@ -35,12 +38,12 @@ GaussinoSimulation(
 GiGaMTRunManagerFAC("GiGaMT.GiGaMTRunManagerFAC").InitCommands = [
     # "/adept/setVerbosity 4",
     "/adept/setCUDAStackLimit 8192",
-    # "/adept/CallUserTrackingAction true",
-    # "/adept/CallUserSteppingAction true",
+    "/adept/CallUserTrackingAction true",
+    "/adept/CallUserSteppingAction true",
     # "/adept/addGPURegion CaloRegion",
     "/adept/setTrackInAllRegions true",
     "/adept/setMillionsOfTrackSlots 7",
-    "/adept/setMillionsOfHitSlots 24",
+    "/adept/setMillionsOfHitSlots 32",
 ]
 
 

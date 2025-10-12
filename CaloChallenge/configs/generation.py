@@ -31,8 +31,8 @@ set_particle_gun_momentum_range(
     min_particles_no=particles_per_event,
     max_particles_no=particles_per_event,
     pdg_codes=[particle_type],
-    min_momentum=1.0 * units.GeV,
-    max_momentum=1.0 * units.GeV,
+    min_momentum=1000 * units.MeV,
+    max_momentum=1000 * units.MeV,
     theta_min=0,
     theta_max=constants.pi,
 )
