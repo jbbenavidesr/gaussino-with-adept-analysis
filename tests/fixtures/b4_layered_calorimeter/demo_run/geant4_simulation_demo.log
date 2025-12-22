@@ -1,0 +1,4 @@
+# Minimal log for performance extraction
+Measured event loop time [ns]: 2000000000
+Time per event [s]: 0.02
+Throughput [1/s]: 50

@@ -1,3 +1,0 @@
-from CaloChallenge.geometry import set_planar_calo, planar_detector_SiW_options
-
-set_planar_calo(planar_detector_SiW_options)

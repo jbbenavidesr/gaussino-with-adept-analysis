@@ -1,6 +1,0 @@
-outs:
-- md5: 80105be73a46511f267634dd8be2bdc6.dir
-  size: 6049797267
-  nfiles: 1068
-  hash: md5
-  path: test_runs

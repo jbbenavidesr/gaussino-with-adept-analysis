@@ -85,11 +85,11 @@ def b2chambertracker_physics_extractor(log_data: str) -> list[dict]:
 Extractor = Callable[[str], list[dict] | dict]
 
 EXTRACTORS: Final[dict[tuple[str, str], Extractor]] = {
-    ("B4LayeredCalorimeter", "performance"): performance_extractor,
-    ("B4LayeredCalorimeter", "physics"): b4layeredcalorimeter_physics_extractor,
-    ("B2ChamberTracker", "performance"): performance_extractor,
-    ("B2ChamberTracker", "physics"): b2chambertracker_physics_extractor,
-    ("CaloChallenge", "performance"): performance_extractor,
+    ("b4_layered_calorimeter", "performance"): performance_extractor,
+    ("b4_layered_calorimeter", "physics"): b4layeredcalorimeter_physics_extractor,
+    ("b2_chamber_tracker", "performance"): performance_extractor,
+    ("b2_chamber_tracker", "physics"): b2chambertracker_physics_extractor,
+    ("calo_challenge", "performance"): performance_extractor,
 }
 
 
@@ -98,7 +98,7 @@ def get_extractor(benchmark: str, extractor_type: str) -> Extractor:
     Retrieves the correct extractor function from the registry.
 
     Args:
-        benchmark: The name of the benchmark (e.g., 'B4LayeredCalorimeter').
+        benchmark: The benchmark id (e.g., 'b4_layered_calorimeter').
         extractor_type: The type of data to extract ('performance' or 'physics').
 
     Returns:

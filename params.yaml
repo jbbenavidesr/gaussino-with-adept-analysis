@@ -1,0 +1,57 @@
+# Which benchmarks to run in the pipeline.
+# You can run a subset by editing this list or via: dvc exp run --set-param benchmarks_selected='["b4_layered_calorimeter"]'
+benchmarks_selected:
+  - b4_layered_calorimeter
+
+# Gaussino executable path.
+# - Can be absolute, or relative to the repo root.
+# - The pipeline will fail if this is missing or does not exist.
+gaussino_executable: stack/Gaussino/run
+
+# Optional user-facing label (not used in the run_id hash by default)
+label: ""
+
+benchmarks:
+  b2_chamber_tracker:
+    options_files:
+      - benchmarks/b2_chamber_tracker/options.py
+    simulation_files:
+      - benchmarks/b2_chamber_tracker/adept_simulation.py
+      - benchmarks/b2_chamber_tracker/geant4_simulation.py
+    parameters:
+      PARTICLES_PER_EVENT: [1, 10, 100, 1000]
+      NUMBER_OF_THREADS: [32]
+      PARTICLE_ENERGY_MEV: [1000]
+      NUMBER_OF_EVENTS: [5000]
+
+  b4_layered_calorimeter:
+    options_files:
+      - benchmarks/b4_layered_calorimeter/options.py
+    simulation_files:
+      - benchmarks/b4_layered_calorimeter/adept_simulation.py
+      - benchmarks/b4_layered_calorimeter/geant4_simulation.py
+    parameters:
+      PARTICLES_PER_EVENT: [1, 10, 100, 1000]
+      PARTICLE_TYPE: [electron]
+      NUMBER_OF_THREADS: [32]
+      PARTICLE_ENERGY_MEV: [1000]
+      NUMBER_OF_EVENTS: [5000]
+
+  calo_challenge:
+    options_files:
+      - benchmarks/calo_challenge/generation.py
+      - benchmarks/calo_challenge/geometry.py
+      - benchmarks/calo_challenge/monitoring.py
+    simulation_files:
+      - benchmarks/calo_challenge/adept_simulation.py
+      - benchmarks/calo_challenge/geant4_simulation.py
+    parameters:
+      PARTICLES_PER_EVENT: [1, 10, 100, 1000]
+      PARTICLE_TYPE: [electron]
+      NUMBER_OF_THREADS: [32]
+      NUMBER_OF_EVENTS: [5000]
+
+    report:
+      # Start with all histograms; the reporter can later support allow/deny lists.
+      root_hist_prefixes:
+        - CaloChallengeMonitoring/

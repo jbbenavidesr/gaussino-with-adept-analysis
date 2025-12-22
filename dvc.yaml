@@ -1,0 +1,51 @@
+stages:
+  manifest:
+    cmd: uv run python -m analysis -v manifest --out-root manifests
+    deps:
+      - params.yaml
+      - src/analysis/cli.py
+      - src/analysis/params.py
+      - src/analysis/run_id.py
+      - src/analysis/git_tools.py
+      - src/analysis/manifest.py
+    outs:
+      - manifests:
+          persist: true
+
+  simulate:
+    cmd: uv run python -m analysis -v simulate
+    deps:
+      - params.yaml
+      - benchmarks
+      - manifests
+      - src/analysis/cli.py
+      - src/analysis/params.py
+      - src/analysis/run_id.py
+      - src/analysis/simulate.py
+    outs:
+      - runs:
+          persist: true
+
+  extract:
+    cmd: uv run python -m analysis -v extract
+    deps:
+      - params.yaml
+      - runs
+      - src/analysis/cli.py
+      - src/analysis/run_id.py
+      - src/analysis/extract.py
+      - src/analysis/extractors.py
+    outs:
+      - derived:
+          persist: true
+
+  report:
+    cmd: uv run python -m analysis -v report
+    deps:
+      - params.yaml
+      - derived
+      - src/analysis/cli.py
+      - src/analysis/report.py
+    outs:
+      - reports:
+          persist: true

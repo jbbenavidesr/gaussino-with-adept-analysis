@@ -1,0 +1,34 @@
+{
+  "timestamp": "2025-12-20T00:00:00Z",
+  "benchmark": "b4_layered_calorimeter",
+  "runs": [
+    {
+      "simulation_file": "benchmarks/b4_layered_calorimeter/adept_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 32,
+        "PARTICLE_ENERGY_MEV": 1000,
+        "NUMBER_OF_EVENTS": 5000
+      },
+      "output_path": "adept_simulation_demo.log",
+      "execution_time": 1.0,
+      "success": true,
+      "with_adept": true
+    },
+    {
+      "simulation_file": "benchmarks/b4_layered_calorimeter/geant4_simulation.py",
+      "parameters": {
+        "PARTICLES_PER_EVENT": 1,
+        "PARTICLE_TYPE": "electron",
+        "NUMBER_OF_THREADS": 32,
+        "PARTICLE_ENERGY_MEV": 1000,
+        "NUMBER_OF_EVENTS": 5000
+      },
+      "output_path": "geant4_simulation_demo.log",
+      "execution_time": 1.0,
+      "success": true,
+      "with_adept": false
+    }
+  ]
+}

@@ -1,3 +1,12 @@
 # Add patterns of files dvc should ignore, which could improve
 # the performance. Learn more at
 # https://dvc.org/doc/user-guide/dvcignore
+
+# Never attempt to track the software stack / build trees via DVC.
+stack/
+stack*/
+
+# Local python environments
+.venv/
+venv/
+__pycache__/

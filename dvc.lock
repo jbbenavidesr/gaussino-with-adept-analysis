@@ -1,0 +1,95 @@
+schema: '2.0'
+stages:
+  manifest:
+    cmd: uv run python -m analysis -v manifest --out-root manifests
+    deps:
+    - path: params.yaml
+      hash: md5
+      md5: 5b7df5b133db3bf263fff7dc968336de
+      size: 1755
+    - path: src/analysis/cli.py
+      hash: md5
+      md5: d4e292da719c8dca00cfdb997be25038
+      size: 8466
+    - path: src/analysis/git_tools.py
+      hash: md5
+      md5: bafbf6d7d1726fa7fcc6301cdd281ff9
+      size: 1677
+    - path: src/analysis/manifest.py
+      hash: md5
+      md5: 31cd056b115b7f2282addc466d50666e
+      size: 2805
+    - path: src/analysis/params.py
+      hash: md5
+      md5: 57da5208f1665ee62598157786982b13
+      size: 1649
+    - path: src/analysis/run_id.py
+      hash: md5
+      md5: f48053dfb947981616a1f250ec6ce7ad
+      size: 1292
+    outs:
+    - path: manifests
+      hash: md5
+      md5: f6b524dbb93243bdb00cb43211fea229.dir
+      size: 5885
+      nfiles: 2
+  extract:
+    cmd: uv run python -m analysis -v extract
+    deps:
+    - path: params.yaml
+      hash: md5
+      md5: 5b7df5b133db3bf263fff7dc968336de
+      size: 1755
+    - path: runs
+      hash: md5
+      md5: 27815da03bd29e9de60bfaab6a111ca9.dir
+      size: 1937
+      nfiles: 4
+    - path: src/analysis/cli.py
+      hash: md5
+      md5: d4e292da719c8dca00cfdb997be25038
+      size: 8466
+    - path: src/analysis/extract.py
+      hash: md5
+      md5: a4db5e16301c2e6c3c32c6759388ade1
+      size: 4504
+    - path: src/analysis/extractors.py
+      hash: md5
+      md5: bf22a841a8b552efba5f96844708931d
+      size: 3936
+    - path: src/analysis/run_id.py
+      hash: md5
+      md5: f48053dfb947981616a1f250ec6ce7ad
+      size: 1292
+    outs:
+    - path: derived
+      hash: md5
+      md5: 072187a359c28b766c0b94f5933eeec1.dir
+      size: 725
+      nfiles: 2
+  report:
+    cmd: uv run python -m analysis -v report
+    deps:
+    - path: derived
+      hash: md5
+      md5: 072187a359c28b766c0b94f5933eeec1.dir
+      size: 725
+      nfiles: 2
+    - path: params.yaml
+      hash: md5
+      md5: 5b7df5b133db3bf263fff7dc968336de
+      size: 1755
+    - path: src/analysis/cli.py
+      hash: md5
+      md5: d4e292da719c8dca00cfdb997be25038
+      size: 8466
+    - path: src/analysis/report.py
+      hash: md5
+      md5: 3e376ce659f0639fdc60ddaff28a7fe1
+      size: 2902
+    outs:
+    - path: reports
+      hash: md5
+      md5: e10e525c008316021d2a1f4f75859374.dir
+      size: 132746
+      nfiles: 5

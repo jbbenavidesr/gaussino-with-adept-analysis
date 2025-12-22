@@ -1,6 +1,13 @@
 stack*/
 *.gdml
 
+# Canonical experiment artifacts (tracked via DVC, not git)
+manifests/
+runs/
+derived/
+reports/
+legacy/
+
 # Python
 __pycache__/
 *.pyc
@@ -16,15 +23,14 @@ __marimo__/
 # Jupyter
 .ipynb_checkpoints/
 
-# Data & Results (optional, but recommended for large data)
-# If your results are large, don't track them with Git.
-# results/
-# data/
-
 # OS-specific
 .DS_Store
 Thumbs.db
 
+# Derived artifacts are usually tracked via DVC, not git
 *.csv
 
 dvc-storage/
+/manifests
+/derived
+/reports
