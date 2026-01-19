@@ -5,9 +5,9 @@ set -e
 # Gaussino with AdePT.
 
 root="$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)"
-lcg_version="LCG_105c"
+lcg_version="LCG_106c"
 lcg_platform="x86_64-el9-gcc13-opt"
-binary_tag="x86_64_v3-el9-gcc13+cuda12_4-opt+g"
+binary_tag="x86_64_v3-el9-gcc13-opt+g"
 build_dir="build.$binary_tag"
 install_dir="InstallArea/$binary_tag"
 cuda_architecture=89
@@ -19,7 +19,7 @@ source /cvmfs/sft.cern.ch/lcg/views/setupViews.sh $lcg_version $lcg_platform
 
 # 1. Organize stack folder with lb-stack-setup
 if [ ! -d stack ]; then
-	curl https://gitlab.cern.ch/rmatev/lb-stack-setup/raw/master/setup.py | python3 - stack
+    curl -sSL https://gitlab.cern.ch/lhcb-core/dev-tools/lb-stack-setup/raw/master/setup.py | python3 - stack
 fi
 
 cd stack
@@ -33,8 +33,8 @@ python utils/config.py dataPackages '["DBASE/AppConfig","DBASE/PRConfig","PARAM/
 veccore_install="$root/stack/VecCore/$install_dir"
 
 if [ ! -d VecCore ]; then
-	git clone https://github.com/root-project/veccore.git VecCore
-	git checkout v0.8.2
+    git clone https://github.com/root-project/veccore.git VecCore
+    git checkout v0.8.2
 fi
 
 cd VecCore
@@ -46,8 +46,8 @@ cd ..
 vecgeom_install="$root/stack/VecGeom/$install_dir"
 
 if [ ! -d VecGeom ]; then
-	git clone ssh://git@gitlab.cern.ch:7999/VecGeom/VecGeom.git
-	git checkout v2.0.0-rc.6
+    git clone ssh://git@gitlab.cern.ch:7999/VecGeom/VecGeom.git
+    git checkout v2.0.0
 fi
 
 cd VecGeom
@@ -70,54 +70,50 @@ make Geant4 BUILDFLAGS="-j$num_threads"
 g4hepem_install="$root/stack/G4HepEm/$install_dir"
 
 if [ ! -d G4HepEm ]; then
-	git clone https://github.com/mnovak42/g4hepem.git G4HepEm
-	git checkout 20250610
-
-	## G4HepEm expects Geant4 v11 to be installed, but LHCb currently uses v10.7. However,
-	## there is a patch that implements the tracking interface for Geant4 v10.7 so we can
-	## use it.
-	sed -i 's/11.0/10.7/g' ./G4HepEm/G4HepEm/CMakeLists.txt
+    git clone https://github.com/mnovak42/g4hepem.git G4HepEm
+    git checkout 20251114
 fi
 
 cd G4HepEm
 cmake -S. -B $build_dir -DCMAKE_INSTALL_PREFIX="$g4hepem_install" \
     -DCMAKE_PREFIX_PATH="$geant4_install" \
+    -DCMAKE_CXX_COMPILER=g++ \
     -DG4HepEm_CUDA_BUILD=ON \
     -DG4HepEm_EARLY_TRACKING_EXIT=ON
 cmake --build $build_dir --target install -- -j$num_threads
 cd ..
-
-# 2.5 Install HepMC3
-hepmc3_install="$root/stack/HepMC3/$install_dir"
-
-if [ ! -d HepMC3 ]; then
-	git clone https://gitlab.cern.ch/hepmc/HepMC3 HepMC3
-	git checkout 3.3.1
-fi
-
-cd HepMC3
-
-cmake -S. -B $build_dir \
-  -DCMAKE_INSTALL_PREFIX="$hepmc3_install" \
-  -DHEPMC3_ENABLE_ROOTIO=OFF \
-  -DHEPMC3_ENABLE_PYTHON=OFF
-cmake --build $build_dir --target install -- -j$num_threads
-cd ..
+#
+# # 2.5 Install HepMC3
+# hepmc3_install="$root/stack/HepMC3/$install_dir"
+#
+# if [ ! -d HepMC3 ]; then
+# 	git clone https://gitlab.cern.ch/hepmc/HepMC3 HepMC3
+# 	git checkout 3.3.1
+# fi
+#
+# cd HepMC3
+#
+# cmake -S. -B $build_dir \
+#   -DCMAKE_INSTALL_PREFIX="$hepmc3_install" \
+#   -DHEPMC3_ENABLE_ROOTIO=OFF \
+#   -DHEPMC3_ENABLE_PYTHON=OFF
+# cmake --build $build_dir --target install -- -j$num_threads
+# cd ..
 
 # 2.6. Install AdePT
 adept_install="$root/stack/AdePT/$install_dir"
 
 if [ ! -d AdePT ]; then
-	git clone https://github.com/apt-sim/AdePT.git
+    git clone https://github.com/apt-sim/AdePT.git
 fi
 
 cd AdePT
 cmake -S. -B $build_dir -DCMAKE_INSTALL_PREFIX="$adept_install" \
-    -DCMAKE_PREFIX_PATH="$veccore_install;$vecgeom_install;$g4hepem_install;$geant4_install;$hepmc3_install" \
+    -DCMAKE_PREFIX_PATH="$veccore_install;$vecgeom_install;$g4hepem_install;$geant4_install" \
     -DCMAKE_CUDA_ARCHITECTURES=$cuda_architecture \
     -DWITH_FLUCT=ON \
     -DBUILD_TESTING=OFF \
-    -DASYNC_MODE=ON \
+    -DADEPT_ASYNC_MODE=ON \
     -DCMAKE_BUILD_TYPE=Release
 cmake --build $build_dir --target install -- -j$num_threads
 cd ..
@@ -126,10 +122,10 @@ cd ..
 gaussino_install="$root/stack/Gaussino/$install_dir"
 
 if [ ! -d Gaussino ]; then
-	make Gaussino/checkout
-	cd Gaussino
-	git checkout jbenavid-adept-integration
-	cd ..
+    make Gaussino/checkout
+    cd Gaussino
+    git checkout witekp_adept_physics
+    cd ..
 fi
-python utils/config.py -- cmakeFlags.Gaussino "-DUSE_ADEPT=ON -DAdePT_DIR=$adept_install/lib64/cmake/AdePT -DG4VG_DIR=$adept_install/lib64/cmake/G4VG"
+python utils/config.py -- cmakeFlags.Gaussino "-DUSE_ADEPT=ON -DCUSTOMSIM=ON -DAdePT_DIR=$adept_install/lib64/cmake/AdePT -DG4VG_DIR=$adept_install/lib64/cmake/G4VG"
 make Gaussino BUILDFLAGS="-j$num_threads"
