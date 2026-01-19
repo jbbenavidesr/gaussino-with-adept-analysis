@@ -5,8 +5,8 @@ stages:
     deps:
     - path: params.yaml
       hash: md5
-      md5: 15b8ae439935398ed85aa16f1f4afe44
-      size: 1940
+      md5: 470bec284190eefbfbe6f1a186e78c63
+      size: 1989
     - path: src/analysis/cli.py
       hash: md5
       md5: 07bee7ca0a67d1c48e83c2db27f20bd6
@@ -30,9 +30,9 @@ stages:
     outs:
     - path: manifests
       hash: md5
-      md5: 754367c4ec389af618f40f38b92168f7.dir
-      size: 5361
-      nfiles: 1
+      md5: 83de7d911d138f18cf15564489d17327.dir
+      size: 28379
+      nfiles: 3
   extract:
     cmd: uv run python -m analysis -v extract
     deps:
@@ -98,18 +98,18 @@ stages:
     deps:
     - path: benchmarks
       hash: md5
-      md5: 82d27180b95cac9cc5f7853a4d6e2915.dir
-      size: 22500
+      md5: 9fe807fba301e45cb181a6d144f58111.dir
+      size: 16566
       nfiles: 14
     - path: manifests
       hash: md5
-      md5: 754367c4ec389af618f40f38b92168f7.dir
-      size: 5361
-      nfiles: 1
+      md5: 83de7d911d138f18cf15564489d17327.dir
+      size: 28379
+      nfiles: 3
     - path: params.yaml
       hash: md5
-      md5: 15b8ae439935398ed85aa16f1f4afe44
-      size: 1940
+      md5: 470bec284190eefbfbe6f1a186e78c63
+      size: 1989
     - path: src/analysis/cli.py
       hash: md5
       md5: 07bee7ca0a67d1c48e83c2db27f20bd6
@@ -129,6 +129,6 @@ stages:
     outs:
     - path: runs
       hash: md5
-      md5: a0124f05a811968f0f70b4c4895398a3.dir
-      size: 18188
-      nfiles: 9
+      md5: 88f11e37b097e34fbd2ec95d97aa10a8.dir
+      size: 16525585
+      nfiles: 22

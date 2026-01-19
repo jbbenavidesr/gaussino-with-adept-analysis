@@ -1,7 +1,7 @@
 # Which benchmarks to run in the pipeline.
 # You can run a subset by editing this list or via: dvc exp run --set-param benchmarks_selected='["b4_layered_calorimeter"]'
 benchmarks_selected:
-  - b4_layered_calorimeter
+  - b2_chamber_tracker
 
 # Gaussino executable path.
 # - Can be absolute, or relative to the repo root.
@@ -14,7 +14,8 @@ label: ""
 benchmarks:
   b2_chamber_tracker:
     options_files:
-      - benchmarks/b2_chamber_tracker/options.py
+      - benchmarks/b2_chamber_tracker/generation.py
+      - benchmarks/b2_chamber_tracker/geometry.py
     simulation_files:
       - benchmarks/b2_chamber_tracker/adept_simulation.py
       - benchmarks/b2_chamber_tracker/geant4_simulation.py
