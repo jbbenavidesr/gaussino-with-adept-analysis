@@ -1,0 +1,3 @@
+from TargetTracker.tracker_geometry import set_target_tracker, tracker_default_options
+
+set_target_tracker(tracker_default_options)
